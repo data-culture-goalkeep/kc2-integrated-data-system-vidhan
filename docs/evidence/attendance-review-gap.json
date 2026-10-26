@@ -1,0 +1,123 @@
+{
+  "scope": "Only previously uncovered attendance identity columns; string equality candidates, not approved person links",
+  "baseline_rows_compared": 1792,
+  "additional_rows_compared": 350,
+  "supplement": [
+    {
+      "source": "S07",
+      "sheet": "T04",
+      "source_label": "TRAINEE NAME",
+      "rows": 30,
+      "unique_match_to_master_rows": 19,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 10
+    },
+    {
+      "source": "S07",
+      "sheet": "T05",
+      "source_label": "TRAINEE NAME",
+      "rows": 30,
+      "unique_match_to_master_rows": 20,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 9
+    },
+    {
+      "source": "S07",
+      "sheet": "T06",
+      "source_label": "TRAINEE NAME",
+      "rows": 30,
+      "unique_match_to_master_rows": 20,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 9
+    },
+    {
+      "source": "S07",
+      "sheet": "T07",
+      "source_label": "TRAINEE NAME",
+      "rows": 29,
+      "unique_match_to_master_rows": 19,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 9
+    },
+    {
+      "source": "S07",
+      "sheet": "T08",
+      "source_label": "TRAINEE NAME",
+      "rows": 29,
+      "unique_match_to_master_rows": 19,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 9
+    },
+    {
+      "source": "S07",
+      "sheet": "T09",
+      "source_label": "TRAINEE NAME",
+      "rows": 29,
+      "unique_match_to_master_rows": 19,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 9
+    },
+    {
+      "source": "S07",
+      "sheet": "T10",
+      "source_label": "TRAINEE NAME",
+      "rows": 30,
+      "unique_match_to_master_rows": 20,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 9
+    },
+    {
+      "source": "S07",
+      "sheet": "T11",
+      "source_label": "TRAINEE NAME",
+      "rows": 29,
+      "unique_match_to_master_rows": 19,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 9
+    },
+    {
+      "source": "S07",
+      "sheet": "T12",
+      "source_label": "TRAINEE NAME",
+      "rows": 29,
+      "unique_match_to_master_rows": 20,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 8
+    },
+    {
+      "source": "S07",
+      "sheet": "T13",
+      "source_label": "TRAINEE NAME",
+      "rows": 29,
+      "unique_match_to_master_rows": 19,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 9
+    },
+    {
+      "source": "S07",
+      "sheet": "T14",
+      "source_label": "TRAINEE NAME",
+      "rows": 29,
+      "unique_match_to_master_rows": 19,
+      "ambiguous_match_rows": 1,
+      "unmatched_rows": 9
+    },
+    {
+      "source": "S07",
+      "sheet": "T15",
+      "source_label": "TRAINEE NAME",
+      "rows": 27,
+      "unique_match_to_master_rows": 19,
+      "ambiguous_match_rows": 0,
+      "unmatched_rows": 8
+    }
+  ],
+  "all_daily_attendance_totals": {
+    "rows": 2142,
+    "unique_match_to_master_rows": 736,
+    "ambiguous_match_rows": 11,
+    "unmatched_rows": 1395
+  },
+  "business_qualification": "TRAINEE NAME does not by itself prove inclusion in the child-master population; analyst/NGO review required",
+  "source_checksums_unchanged": true
+}

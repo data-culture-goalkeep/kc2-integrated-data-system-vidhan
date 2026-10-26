@@ -1,5 +1,7 @@
 # Stage 1 — Entities and conceptual model
 
+Source-discovery baseline; the current draft architecture and changes are in [Stage 2 review](09-data-model-review.md) and [optimized model](11-optimized-data-model.md). The revised diagram does not imply any business-rule approval.
+
 Analyst draft for schema review. This is a conceptual proposal based on inspected sources, not an approved PostgreSQL schema. No tables, migrations or frontend exist. The latest owner request explicitly authorizes this conceptual model and diagram within Stage 1, superseding the earlier narrower discovery-only diagram deferral.
 
 ## Confirmed source structures

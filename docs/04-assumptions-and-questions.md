@@ -1,5 +1,7 @@
 # Stage 1 — Assumptions, conflicts and approval questions
 
+Stage 2 review is now authorized as draft analysis only. Decisions remain open; the current [decision register](13-data-quality-decision-register.md) includes the completed attendance-coverage addendum and permanent standards. This request does not approve SQL, migrations or frontend work.
+
 Status: discovery package prepared for analyst review. Google Drive access is working; no source restoration or manual technical work is needed. No business-rule decision below has been silently applied to source data.
 
 ## Priority decisions before schema approval

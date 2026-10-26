@@ -1,4 +1,6 @@
-# Stage 1 — Data dictionary draft
+# Source dictionary and Stage 2 target dictionary draft
+
+Source statistics below remain the frozen Stage 1 evidence. Current recommended target fields/types/nullability, keys, checks and indexes for all 17 draft tables are in [the optimized specification](11-optimized-data-model.md) and [machine-readable model](evidence/optimized-model-draft.json). No target has been implemented or approved. The [full coordinate mapping](evidence/source-target-coverage.csv) covers 5,186 positions, including 142 header/coordinate slots outside the original 5,044 statistical field profiles. The original dictionary is [archived](archive/stage1-data-dictionary.md).
 
 This dictionary records observed fields and proposed projections. It does not prescribe database types, NOT NULL constraints, enums or approved indicator definitions. Source field labels are retained; labels containing organization-specific names have been redacted. No raw beneficiary value is included.
 

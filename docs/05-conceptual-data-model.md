@@ -1,5 +1,7 @@
 # Stage 1 — Conceptual data model
 
+Historical 12-entity baseline. The current **draft** revision is [Stage 2 optimized model](11-optimized-data-model.md); approval is still required. The baseline diagram is preserved in [the archive](archive/stage1-er-diagram.md).
+
 Status: proposal for analyst approval; no physical PostgreSQL schema, SQL migration or enforced relationship exists. This document extends discovery, not Phase 2 implementation. The source structures and actual fields are documented in [entity discovery](03-entity-discovery.md), [draft dictionary](06-data-dictionary-draft.md) and [mapping requirements](source-to-target-mapping.md).
 
 ## Entities, grain and candidate keys
@@ -51,4 +53,4 @@ Every later target observation needs source file ID/alias, native sheet ID, orig
 
 Resolved child/caregiver keys would let entry workflows select existing people without depending on display names. Database-controlled categories can supply later dropdowns; normalized answers and observations can support validation and longitudinal reporting. Separate daily attendance, support participation and ADL observations preserve their different grains, preventing an incorrect combined attendance rate. Keeping source summaries separate supports reconciliation against later recalculated reports.
 
-These are architecture benefits, not authorization to build forms, an application, calculations or database objects now. See [ER diagram](07-entity-relationship-diagram.md) and approval questions Q01–Q11.
+These are architecture benefits, not authorization to build forms, an application, calculations or database objects now. See [ER diagram](archive/stage1-er-diagram.md) and approval questions Q01–Q11.

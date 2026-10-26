@@ -1,0 +1,20 @@
+{
+  "source_column_slots": 5186,
+  "profiled_source_field_instances": 5044,
+  "additional_header_or_coordinate_slots": 142,
+  "retained_field_instances": 5186,
+  "operationally_projected_field_instances": 3366,
+  "without_named_operational_projection": 1820,
+  "dispositions": {
+    "retained_reference_only": 1782,
+    "conditional_projection": 55,
+    "conditional_unpivot": 3221,
+    "conditional_pair_resolution": 2,
+    "conditional_interpretation": 88,
+    "optional_projection_deferred": 38
+  },
+  "headerless_worksheets": 8,
+  "source_worksheet_coverage": 155,
+  "unrepresented_fields": 0,
+  "warning": "Retained provenance coverage is not proof of a typed operational field or approved future workflow; archive-only fields are explicitly listed"
+}

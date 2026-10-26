@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "test_cases": 10,
+  "failures": 0,
+  "errors": 0,
+  "suites": [
+    "Source profiling synthetic end-to-end regression",
+    "Draft model/ER/provenance negative regression"
+  ],
+  "business_rules_approved": false,
+  "database_runtime_tested": false
+}
