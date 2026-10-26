@@ -12,5 +12,11 @@
     "failures": 1,
     "failed_case": "Member questionnaire item insertion was permitted"
   },
-  "source_data_in_test_fixtures": false
+  "source_data_in_test_fixtures": false,
+  "effective_default_acl_regression": {
+    "tests_run": 46,
+    "failures": 1,
+    "cause": "Narrower GRANT did not remove inherited public service_role ALL privileges",
+    "fix": "Explicit service_role REVOKE before least-privilege grants"
+  }
 }

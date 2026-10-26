@@ -5,7 +5,7 @@
   "published_ports": [],
   "remote_migrations_applied": false,
   "migration_hashes": {
-    "20261026171200_ids_schema.sql": "c797b29ee6ea1d3a018336890d54ad0d563558cc7c4a19291dd69205b893ff53",
+    "20261026171200_ids_schema.sql": "15f862280d9a90fffbf98bdf99b8be774712245a6357ba5c233052b2c3391892",
     "20261026171201_ids_security.sql": "996924ab804aac8ba7b9672c941d1b7941fc812150322d45ba9d6e1294879b5c",
     "20261026171202_ids_integrity.sql": "5581168a4c6ef61c183552a04474064e44e8bcafdee4bf8e7f1255659cf58abc"
   },
@@ -15,7 +15,7 @@
   ],
   "postgres_version": "17.11 (Debian 17.11-1.pgdg12+2)",
   "status": "passed",
-  "tests_run": 45,
+  "tests_run": 46,
   "failures": [],
   "errors": [],
   "container_removed": true

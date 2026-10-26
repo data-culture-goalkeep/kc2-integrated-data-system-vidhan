@@ -148,6 +148,11 @@ class DatabaseReviewTests(unittest.TestCase):
         self.check_sql("UPDATE public.children SET display_name='Synthetic audit'; SELECT count(*)>0 FROM gk_private.record_audit_events WHERE table_name='children' AND operation='UPDATE'",actor=1,expected='t')
 
 
+    def test_service_role_has_no_delete_or_truncate_privileges(self):
+        # Supabase public defaults initially grant ALL. A narrower GRANT alone cannot remove it.
+        result=DB.execute("SELECT bool_or(has_table_privilege('service_role',c.oid,'DELETE') OR has_table_privilege('service_role',c.oid,'TRUNCATE')) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname IN ('public','gk_private') AND c.relkind='r'")
+        self.assertEqual(result,'f')
+
     def test_service_role_cannot_truncate_evidence(self):
         self.check_sql('TRUNCATE gk_private.source_provenance', role='service_role', fail_code='42501')
 

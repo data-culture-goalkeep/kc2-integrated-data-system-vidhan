@@ -6,7 +6,7 @@ SET LOCAL statement_timeout = '60s';
 CREATE SCHEMA gk_private;
 REVOKE ALL ON SCHEMA gk_private FROM PUBLIC, anon;
 CREATE FUNCTION gk_private.nonempty_text_array(p text[]) RETURNS boolean LANGUAGE sql IMMUTABLE SET search_path = pg_catalog AS $$ SELECT COALESCE(array_ndims(p)=1 AND cardinality(p)>0 AND NOT EXISTS (SELECT 1 FROM unnest(p) AS v(value) WHERE value IS NULL OR value ~ '^[[:space:]]*$'),false); $$;
-REVOKE ALL ON FUNCTION gk_private.nonempty_text_array(text[]) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION gk_private.nonempty_text_array(text[]) FROM PUBLIC, anon, authenticated, service_role;
 GRANT EXECUTE ON FUNCTION gk_private.nonempty_text_array(text[]) TO service_role;
 CREATE TABLE "public"."reference_values" (
   "vocabulary" text NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE "public"."reference_values" (
   CONSTRAINT "ck_reference_values_5" CHECK (vocabulary = 'access_role' OR permissions = '{}'::jsonb),
   CONSTRAINT "ck_reference_values_6" CHECK (review_state <> 'accepted' OR vocabulary <> 'access_role' OR COALESCE(btrim(approval_reference),'') <> '')
 );
-REVOKE ALL ON TABLE "public"."reference_values" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "public"."reference_values" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "public"."reference_values" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "public"."children" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE "public"."children" (
   CONSTRAINT "ck_children_2" CHECK (review_state IN ('pending','accepted','needs_review')),
   CONSTRAINT "ck_children_3" CHECK ((archived_at IS NULL) = (archived_by IS NULL))
 );
-REVOKE ALL ON TABLE "public"."children" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "public"."children" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "public"."children" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."child_private_profiles" (
   "child_id" uuid NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE "gk_private"."child_private_profiles" (
   CONSTRAINT "ck_child_private_profiles_1" CHECK (review_state IN ('pending','accepted','needs_review')),
   CONSTRAINT "ck_child_private_profiles_2" CHECK ((archived_at IS NULL) = (archived_by IS NULL))
 );
-REVOKE ALL ON TABLE "gk_private"."child_private_profiles" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."child_private_profiles" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."child_private_profiles" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."caregivers" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -137,7 +137,7 @@ CREATE TABLE "gk_private"."caregivers" (
   CONSTRAINT "ck_caregivers_2" CHECK (review_state IN ('pending','accepted','needs_review')),
   CONSTRAINT "ck_caregivers_3" CHECK ((archived_at IS NULL) = (archived_by IS NULL))
 );
-REVOKE ALL ON TABLE "gk_private"."caregivers" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."caregivers" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."caregivers" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "public"."child_caregivers" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -161,7 +161,7 @@ CREATE TABLE "public"."child_caregivers" (
   CONSTRAINT "ck_child_caregivers_1" CHECK (review_state IN ('pending','accepted','needs_review')),
   CONSTRAINT "ck_child_caregivers_2" CHECK ((archived_at IS NULL) = (archived_by IS NULL))
 );
-REVOKE ALL ON TABLE "public"."child_caregivers" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "public"."child_caregivers" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "public"."child_caregivers" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "public"."program_changes" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -185,7 +185,7 @@ CREATE TABLE "public"."program_changes" (
   CONSTRAINT "ck_program_changes_2" CHECK ((archived_at IS NULL) = (archived_by IS NULL)),
   CONSTRAINT "ck_program_changes_3" CHECK (source_slot IS NULL OR source_slot > 0)
 );
-REVOKE ALL ON TABLE "public"."program_changes" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "public"."program_changes" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "public"."program_changes" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "public"."questionnaire_responses" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -212,7 +212,7 @@ CREATE TABLE "public"."questionnaire_responses" (
   CONSTRAINT "ck_questionnaire_responses_1" CHECK (review_state IN ('pending','accepted','needs_review')),
   CONSTRAINT "ck_questionnaire_responses_2" CHECK ((archived_at IS NULL) = (archived_by IS NULL))
 );
-REVOKE ALL ON TABLE "public"."questionnaire_responses" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "public"."questionnaire_responses" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "public"."questionnaire_responses" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "public"."questionnaire_items" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -242,7 +242,7 @@ CREATE TABLE "public"."questionnaire_items" (
   CONSTRAINT "ck_questionnaire_items_3" CHECK (value_kind IN ('numeric','text','recommendation')),
   CONSTRAINT "ck_questionnaire_items_4" CHECK (ordinal > 0)
 );
-REVOKE ALL ON TABLE "public"."questionnaire_items" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "public"."questionnaire_items" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "public"."questionnaire_items" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."questionnaire_answers" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -270,7 +270,7 @@ CREATE TABLE "gk_private"."questionnaire_answers" (
   CONSTRAINT "ck_questionnaire_answers_4" CHECK (num_nonnulls(numeric_value,text_value) <= 1),
   CONSTRAINT "ck_questionnaire_answers_5" CHECK ((answer_state = 'missing' AND numeric_value IS NULL AND text_value IS NULL) OR (answer_state <> 'missing' AND num_nonnulls(numeric_value,text_value) = 1))
 );
-REVOKE ALL ON TABLE "gk_private"."questionnaire_answers" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."questionnaire_answers" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."questionnaire_answers" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "public"."attendance_observations" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -298,7 +298,7 @@ CREATE TABLE "public"."attendance_observations" (
   CONSTRAINT "ck_attendance_observations_1" CHECK (review_state IN ('pending','accepted','needs_review')),
   CONSTRAINT "ck_attendance_observations_2" CHECK ((archived_at IS NULL) = (archived_by IS NULL))
 );
-REVOKE ALL ON TABLE "public"."attendance_observations" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "public"."attendance_observations" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "public"."attendance_observations" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "public"."support_observations" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -325,7 +325,7 @@ CREATE TABLE "public"."support_observations" (
   CONSTRAINT "ck_support_observations_2" CHECK ((archived_at IS NULL) = (archived_by IS NULL)),
   CONSTRAINT "ck_support_observations_3" CHECK (num_nonnulls(numeric_value,text_value) = 1)
 );
-REVOKE ALL ON TABLE "public"."support_observations" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "public"."support_observations" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "public"."support_observations" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "public"."adl_visits" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -352,7 +352,7 @@ CREATE TABLE "public"."adl_visits" (
   CONSTRAINT "ck_adl_visits_4" CHECK (visit_date IS NOT NULL OR (origin_kind = 'import' AND review_state <> 'accepted')),
   CONSTRAINT "ck_adl_visits_5" CHECK (source_slot IS NULL OR source_slot > 0)
 );
-REVOKE ALL ON TABLE "public"."adl_visits" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "public"."adl_visits" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "public"."adl_visits" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."source_artifacts" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -373,7 +373,7 @@ CREATE TABLE "gk_private"."source_artifacts" (
   CONSTRAINT "ck_source_artifacts_1" CHECK (jsonb_typeof(worksheet_manifest) = 'object'),
   CONSTRAINT "ck_source_artifacts_2" CHECK (btrim(source_namespace) <> '' AND btrim(file_code) <> '')
 );
-REVOKE ALL ON TABLE "gk_private"."source_artifacts" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."source_artifacts" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."source_artifacts" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."source_records" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -395,7 +395,7 @@ CREATE TABLE "gk_private"."source_records" (
   CONSTRAINT "ck_source_records_2" CHECK (jsonb_typeof(cell_payload) = 'object'),
   CONSTRAINT "ck_source_records_3" CHECK (btrim(native_sheet_key) <> '')
 );
-REVOKE ALL ON TABLE "gk_private"."source_records" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."source_records" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."source_records" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."source_provenance" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -429,7 +429,7 @@ CREATE TABLE "gk_private"."source_provenance" (
   CONSTRAINT "ck_source_provenance_3" CHECK (contribution_state IN ('selected','supporting','conflict_evidence')),
   CONSTRAINT "ck_source_provenance_4" CHECK (btrim(rule_reference) <> '')
 );
-REVOKE ALL ON TABLE "gk_private"."source_provenance" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."source_provenance" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."source_provenance" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."access_memberships" (
   "user_id" uuid NOT NULL,
@@ -453,7 +453,7 @@ CREATE TABLE "gk_private"."access_memberships" (
   CONSTRAINT "ck_access_memberships_2" CHECK (NOT private_write OR private_read),
   CONSTRAINT "ck_access_memberships_3" CHECK (NOT active OR COALESCE(btrim(approval_reference),'') <> '')
 );
-REVOKE ALL ON TABLE "gk_private"."access_memberships" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."access_memberships" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."access_memberships" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."identity_candidates" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -475,7 +475,7 @@ CREATE TABLE "gk_private"."identity_candidates" (
   CONSTRAINT "ck_identity_candidates_3" CHECK (resolution_status <> 'verified' OR match_method IN ('exact_identifier','verified_relationship')),
   CONSTRAINT "ck_identity_candidates_4" CHECK (jsonb_typeof(evidence) = 'object')
 );
-REVOKE ALL ON TABLE "gk_private"."identity_candidates" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."identity_candidates" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."identity_candidates" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."recovery_actions" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -506,7 +506,7 @@ CREATE TABLE "gk_private"."recovery_actions" (
   CONSTRAINT "ck_recovery_actions_2" CHECK (validation_status <> 'auto_recovered' OR (identity_verified AND authoritative_source AND meaning_equivalent AND NOT has_conflict AND donor_source_record_id IS NOT NULL AND recovered_value IS NOT NULL AND num_nonnulls(child_id,caregiver_id) = 1)),
   CONSTRAINT "ck_recovery_actions_3" CHECK (jsonb_typeof(evidence) = 'object')
 );
-REVOKE ALL ON TABLE "gk_private"."recovery_actions" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."recovery_actions" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."recovery_actions" ENABLE ROW LEVEL SECURITY;
 CREATE TABLE "gk_private"."record_audit_events" (
   "id" uuid DEFAULT gen_random_uuid() NOT NULL,
@@ -523,7 +523,7 @@ CREATE TABLE "gk_private"."record_audit_events" (
   "actor_ref" text DEFAULT ('db:' || CURRENT_USER) NOT NULL,
   CONSTRAINT "pk_record_audit_events" PRIMARY KEY ("id")
 );
-REVOKE ALL ON TABLE "gk_private"."record_audit_events" FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON TABLE "gk_private"."record_audit_events" FROM PUBLIC, anon, authenticated, service_role;
 ALTER TABLE "gk_private"."record_audit_events" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "public"."reference_values" ADD CONSTRAINT "fk_reference_values_0" FOREIGN KEY ("created_by") REFERENCES auth.users ("id") ON DELETE RESTRICT;
 ALTER TABLE "public"."reference_values" ADD CONSTRAINT "fk_reference_values_1" FOREIGN KEY ("updated_by") REFERENCES auth.users ("id") ON DELETE RESTRICT;

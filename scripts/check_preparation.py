@@ -18,7 +18,7 @@ def validate_security(sql,by):
  for t in by.values():
   name=t['name'];q=t['schema']+'.'+name
   need('ALTER TABLE "'+t['schema']+'"."'+name+'" ENABLE ROW LEVEL SECURITY;' in sql,'Missing RLS: '+name)
-  need(re.search(r'REVOKE ALL ON TABLE "'+t['schema']+r'"\."'+name+'" FROM PUBLIC, anon, authenticated;',sql) is not None,'Missing initial denial')
+  need(re.search(r'REVOKE ALL ON TABLE "'+t['schema']+r'"\."'+name+'" FROM PUBLIC, anon, authenticated, service_role;',sql) is not None,'Missing initial denial')
   if name=='access_memberships':need(not re.search(r'GRANT [^;]+ ON (?:TABLE )?gk_private.access_memberships TO authenticated',sql),'Direct membership privileges')
  need(not re.search(r'GRANT (?:ALL|TRUNCATE|DELETE) ON (?:TABLE )?[^;]+ TO service_role',sql),'Excessive backend privilege')
  need('CREATE POLICY review_audit' in sql and 'protect_record_audit_events' in sql,'Missing audit protection')

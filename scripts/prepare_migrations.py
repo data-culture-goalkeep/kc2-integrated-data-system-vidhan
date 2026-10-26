@@ -32,7 +32,7 @@ def main():
  chunks=['-- PREPARED ONLY. Do not apply without verified exact project identity and explicit migration approval.','-- Authorized pilot: kc2-integrated-data-system; Tokyo ap-northeast-1. No NGO data is seeded.','BEGIN;','SET LOCAL lock_timeout = \'5s\';','SET LOCAL statement_timeout = \'60s\';','CREATE SCHEMA gk_private;','REVOKE ALL ON SCHEMA gk_private FROM PUBLIC, anon;']
  chunks += [
   "CREATE FUNCTION gk_private.nonempty_text_array(p text[]) RETURNS boolean LANGUAGE sql IMMUTABLE SET search_path = pg_catalog AS $$ SELECT COALESCE(array_ndims(p)=1 AND cardinality(p)>0 AND NOT EXISTS (SELECT 1 FROM unnest(p) AS v(value) WHERE value IS NULL OR value ~ '^[[:space:]]*$'),false); $$;",
-  'REVOKE ALL ON FUNCTION gk_private.nonempty_text_array(text[]) FROM PUBLIC, anon, authenticated;',
+  'REVOKE ALL ON FUNCTION gk_private.nonempty_text_array(text[]) FROM PUBLIC, anon, authenticated, service_role;',
   'GRANT EXECUTE ON FUNCTION gk_private.nonempty_text_array(text[]) TO service_role;'
  ]
  for t in tables:
@@ -68,7 +68,7 @@ def main():
   if n=='identity_candidates':checks += ['num_nonnulls(child_id,caregiver_id) = 1',"match_method IN ('exact_identifier','verified_relationship','name_candidate','name_context','computed_identifier')", "resolution_status IN ('verified','candidate','rejected')", "resolution_status <> 'verified' OR match_method IN ('exact_identifier','verified_relationship')", "jsonb_typeof(evidence) = 'object'"]
   if n=='recovery_actions':checks += ['num_nonnulls(child_id,caregiver_id) <= 1',"validation_status IN ('auto_recovered','suggested','blocked_conflict','blocked_untrusted','no_recovery')", "validation_status <> 'auto_recovered' OR (identity_verified AND authoritative_source AND meaning_equivalent AND NOT has_conflict AND donor_source_record_id IS NOT NULL AND recovered_value IS NOT NULL AND num_nonnulls(child_id,caregiver_id) = 1)","jsonb_typeof(evidence) = 'object'"]
   for i,check in enumerate(checks):cols.append('CONSTRAINT '+ident(name('ck_'+n+'_'+str(i)))+' CHECK ('+check+')')
-  chunks += ['CREATE TABLE '+q(n)+' (\n  '+',\n  '.join(cols)+'\n);','REVOKE ALL ON TABLE '+q(n)+' FROM PUBLIC, anon, authenticated;','ALTER TABLE '+q(n)+' ENABLE ROW LEVEL SECURITY;']
+  chunks += ['CREATE TABLE '+q(n)+' (\n  '+',\n  '.join(cols)+'\n);','REVOKE ALL ON TABLE '+q(n)+' FROM PUBLIC, anon, authenticated, service_role;','ALTER TABLE '+q(n)+' ENABLE ROW LEVEL SECURITY;']
  # All tables exist before FK creation, including the bounded provenance targets.
  for t in tables:
   for i,fk in enumerate(t['foreign_keys']):chunks.append('ALTER TABLE '+q(t['name'])+' ADD CONSTRAINT '+ident(name('fk_'+t['name']+'_'+str(i)))+' FOREIGN KEY ('+', '.join(map(ident,fk['columns']))+') REFERENCES '+q(fk['target'])+' ('+', '.join(map(ident,fk['target_columns']))+') ON DELETE RESTRICT;')
