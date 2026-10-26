@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "scope": "Stage 1 metadata and deliverable integrity only",
+  "checks": [
+    "Original source and README hashes unchanged",
+    "Inventory recomputation matches stored evidence",
+    "All source roots scanned",
+    "Absent NGO records represented as unknown",
+    "Five required reports present",
+    "Relative report links resolve",
+    "Required feature branch active",
+    "No SQL migration directory created",
+    "Git whitespace check passed",
+    "Python scripts compile"
+  ],
+  "not_validated": [
+    "NGO record quality, identities or relationships",
+    "Sanitization of NGO data",
+    "Supabase connectivity, region, schema or migration",
+    "Remote GitHub access",
+    "Application build, lint or TypeScript checks (no application)",
+    "Google Docs or Sheets access",
+    "Project-owner acceptance"
+  ]
+}

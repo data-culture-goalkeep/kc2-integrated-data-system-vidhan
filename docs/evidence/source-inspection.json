@@ -1,0 +1,57 @@
+{
+  "inspection_version": 1,
+  "scan_roots": [
+    {
+      "root": "/workspace/attachments",
+      "status": "scanned",
+      "files": 1
+    },
+    {
+      "root": "/workspace/library-files",
+      "status": "scanned",
+      "files": 0
+    },
+    {
+      "root": "/workspace/shared",
+      "status": "scanned",
+      "files": 0
+    },
+    {
+      "root": "/workspace/scratch",
+      "status": "scanned",
+      "files": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "/workspace/attachments/2742ae7b-179a-459e-8bde-e08109359485/Pre-KC-2 Pilot _ Guidelines (1).docx",
+      "format": ".docx",
+      "bytes": 3563842,
+      "sha256": "4a1aaa74fc770a93556f901688b2c46449bd3f0f45ce0052f2b35757b33cce99",
+      "role": "guidelines",
+      "tabular_candidate": false
+    }
+  ],
+  "repository_context": {
+    "path": "README.md",
+    "bytes": 35,
+    "sha256": "44b381da77db54891b965197c761534d23b08e433586bdf152222cef7ad58330"
+  },
+  "guideline_structure": {
+    "body_paragraphs_including_table_cells": 604,
+    "tables": 2,
+    "table_rows_not_business_records": 14,
+    "embedded_images": 5,
+    "comments": 2,
+    "rendered_page_breaks": 0,
+    "explicit_page_breaks": 13,
+    "worksheet_count": 0
+  },
+  "summary": {
+    "available_input_files": 1,
+    "tabular_candidates": 0,
+    "business_record_count": null,
+    "profiling_status": "blocked_missing_ngo_data"
+  },
+  "privacy": "Metadata and structural counts only; no source values, document text, comments or credentials exported."
+}
