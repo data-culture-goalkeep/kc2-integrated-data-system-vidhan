@@ -38,6 +38,6 @@ Repository: `data-culture-goalkeep/kc2-integrated-data-system-vidhan`; branch `f
 
 Permanent standards: Google authentication and server authorization; sticky header/sidebar and collapsed icons; button-triggered Add/Record/Edit forms; supported secret management; extensive first implementation PR review; simplification and preserved raw/organized comparison; reproducible migrations, source reconciliation and automated quality checks. See AGENTS.md and docs 14.
 
-## Publication check
+## Publication milestone
 
-GitHub transport recovered through the authorized execution path. Remote main was read as `5d886cd85a1925d27149f19e5edf8c26bda80e8e`, a common ancestor of the preserved local feature history. The remote feature branch did not exist at the read check. Publication of verified work will create only the feature branch; main must remain unchanged. Draft PR creation is authorized by repository instructions and the owner request. Check the actual GitHub result before claiming publication.
+GitHub transport recovered through the authorized execution path. Remote main was verified as `5d886cd85a1925d27149f19e5edf8c26bda80e8e`, a common ancestor of the preserved feature history. Preparation commit `403477dad52c5aafc90a49432826f859dba59b5f` was pushed to the new `feature/phase1-data-backend` branch. Draft [PR #1](https://github.com/data-culture-goalkeep/kc2-integrated-data-system-vidhan/pull/1) is open, not merged. The first implementation self-review is in docs 18; independent owner/reviewer approval remains required. No database operations or frontend work occurred. This publication note is a follow-up documentation-only feature commit.
