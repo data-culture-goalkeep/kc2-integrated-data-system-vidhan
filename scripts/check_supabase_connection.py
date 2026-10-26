@@ -6,11 +6,11 @@ ROOT=Path(__file__).resolve().parents[1]
 def main():
  config=json.loads((ROOT/'config/authorized-supabase-project.json').read_text())
  token=os.environ.get('SUPABASE_ACCESS_TOKEN')
- report={'status':'blocked','expected_name':config['name'],'expected_region':config['region'],'project_verified':False,'database_read_verified':False,'migrations_applied':False}
+ report={'method':'optional CLI/API fallback','status':'blocked','expected_name':config['name'],'expected_region':config['region'],'project_verified':False,'database_read_verified':False,'migrations_applied':False}
  def save():
-  (ROOT/'docs/evidence/supabase-connectivity.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+  (ROOT/'docs/evidence/supabase-cli-connectivity.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
  if not token:
-  report['reason']='ChatGPT Supabase plugin installed/enabled, but project tools unavailable in this session; no Cloud secret binding for CLI/API fallback.';save();return 2
+  report['reason']='No secure SUPABASE_ACCESS_TOKEN binding for this optional API fallback. Connected MCP verification, if present, is preserved separately; no live API call attempted.';save();return 2
  def api(path,body=None):
   req=urllib.request.Request('https://api.supabase.com/v1/'+path,data=json.dumps(body).encode() if body else None,headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'})
   with urllib.request.urlopen(req,timeout=30) as response:return json.load(response)

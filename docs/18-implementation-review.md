@@ -1,5 +1,7 @@
 # Extensive first implementation review — preparation only
 
+Historical preparation-only self-review. The subsequent owner-authorized local runtime review and current connectivity findings are in [base PR review](19-base-pr-review-and-readiness.md). Statements below about unperformed runtime tests describe the earlier milestone.
+
 Self-review of the proposed SQL/scripts/specification, not independent approval or a live security certification. No migrations or NGO data were executed. Owner/schema approval and separately authorized runtime tests remain gates. Current verification is machine-readable in [preparation results](evidence/preparation-verification.json).
 
 | Area | Review conclusion / changes | Remaining gate |

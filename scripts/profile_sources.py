@@ -86,10 +86,10 @@ def main():
  def issue(source,sheet,code,refs,count=None):
   if refs:issues.append({'source':source,'sheet':sheet,'code':code,'count':len(refs) if count is None else count,'references':refs})
  for f in manifest:
-  alias=f['alias'];p=Path(f['original_path']);assert digest(p)==f['sha256'],'Original checksum changed'
+  alias=f['alias'];p=Path(f['original_path']);ensure_source_integrity(digest(p)==f['sha256'], 'Original checksum changed')
   with warnings.catch_warnings(record=True) as captured:
    warnings.simplefilter('always');wb=openpyxl.load_workbook(p,data_only=False);cached=openpyxl.load_workbook(p,data_only=True)
-  if alias in metadata:assert len(wb.worksheets)==len(metadata[alias]),'Export omitted a worksheet'
+  if alias in metadata:ensure_source_integrity(len(wb.worksheets)==len(metadata[alias]), 'Export omitted a worksheet')
   source={'source':alias,'sha256':f['sha256'],'bytes':p.stat().st_size,'worksheets':len(wb.worksheets),'parser_warning_count':len(captured),'rows_by_kind':{},'source_record_rows':0,'sanitized_sha256':{}}
   report['sources'].append(source)
   for idx,ws in enumerate(wb.worksheets,1):
@@ -97,9 +97,9 @@ def main():
    if (alias,idx) in OVERRIDES:hr,kind=OVERRIDES[(alias,idx)]
    gid=None
    if alias in metadata:
-    props=metadata[alias][idx-1]['properties'];assert props['index']==idx-1,'Native sheet order changed'
+    props=metadata[alias][idx-1]['properties'];ensure_source_integrity(props['index']==idx-1, 'Native sheet order changed')
     native_key=re.sub(r'[^a-z0-9]','',props['title'].casefold());export_key=re.sub(r'[^a-z0-9]','',ws.title.casefold())
-    assert props['title']==ws.title or (len(props['title'])>31 and native_key[:20]==export_key[:20]),'Unrecognized exported sheet title change'
+    ensure_source_integrity(props['title']==ws.title or (len(props['title'])>31 and native_key[:20]==export_key[:20]), 'Unrecognized exported sheet title change')
     gid=props['sheetId']
    worksheet_map[alias+'_'+sid]={'original_sheet_name':ws.title,'ordinal':idx,'header_row':hr,'google_sheet_id':gid,'native_sheet_name':props['title'] if alias in metadata else ws.title}
    # S07 uses child labels that vary; Total Days Present reliably identifies the header.
@@ -210,7 +210,7 @@ def main():
      if cells:out.write(json.dumps({'source':alias,'sheet':sid,'row':row[0].row,'cells':cells},ensure_ascii=False)+'\n')
    dest.chmod(0o600);source['sanitized_sha256'][sid]=digest(dest)
    report['sheets'].append(si);source['source_record_rows']+=len(rows);source['rows_by_kind'][kind]=source['rows_by_kind'].get(kind,0)+len(rows)
-  assert digest(p)==f['sha256'],'Original modified while profiling'
+  ensure_source_integrity(digest(p)==f['sha256'], 'Original modified while profiling')
   print(alias,'processed',len(wb.worksheets),'worksheets')
  # Compare normalized names locally; export counts only. Matching names are candidate links, never asserted person identities.
  master=collections.Counter(raw_names.get(('S03','T01'),[]));links=[]
@@ -231,5 +231,9 @@ def main():
  report['totals']['kind_record_rows']=dict(kinds)
  args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
  print(json.dumps(report['totals'],indent=2))
+
+
+def ensure_source_integrity(condition,message):
+ if not condition:raise ValueError(message)
 
 if __name__=='__main__':main()

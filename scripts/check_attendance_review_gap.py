@@ -18,18 +18,22 @@ def main():
  books={a:openpyxl.load_workbook(m[a]['original_path'],read_only=True,data_only=False) for a in {s['source'] for s in missing}}
  supplement=[]
  for s in missing:
-  assert s['fields'][0]['label']=='TRAINEE NAME','Unexpected uncovered identity heading'
+  ensure_source_integrity(s['fields'][0]['label']=='TRAINEE NAME', 'Unexpected uncovered identity heading')
   ws=books[s['source']].worksheets[int(s['sheet'][1:])-1]
   wanted=set(s['record_row_refs'])
   values={row:norm(r[0]) for row,r in enumerate(ws.iter_rows(min_col=1,max_col=1,values_only=True),1) if row in wanted}
   out={'source':s['source'],'sheet':s['sheet'],'source_label':'TRAINEE NAME','rows':s['record_rows'],'unique_match_to_master_rows':sum(names[v]==1 for v in values.values()),'ambiguous_match_rows':sum(names[v]>1 for v in values.values()),'unmatched_rows':sum(names[v]==0 for v in values.values())}
-  assert len(values)==out['rows'];supplement.append(out)
+  ensure_source_integrity(len(values)==out['rows'], 'Source integrity validation failed');supplement.append(out)
  for b in books.values():b.close()
- assert all(digest(m[a]['original_path'])==h==m[a]['sha256'] for a,h in before.items())
+ ensure_source_integrity(all(digest(m[a]['original_path'])==h==m[a]['sha256'] for a,h in before.items()), 'Source integrity validation failed')
  base=[x for x in p['name_linkage_candidates'] if next(s for s in p['sheets'] if s['source']==x['source'] and s['sheet']==x['sheet'])['kind']=='daily_attendance']
  totals={k:sum(x[k] for x in base+supplement) for k in ['rows','unique_match_to_master_rows','ambiguous_match_rows','unmatched_rows']}
  result={'scope':'Only previously uncovered attendance identity columns; string equality candidates, not approved person links','baseline_rows_compared':sum(x['rows'] for x in base),'additional_rows_compared':sum(x['rows'] for x in supplement),'supplement':supplement,'all_daily_attendance_totals':totals,'business_qualification':'TRAINEE NAME does not by itself prove inclusion in the child-master population; analyst/NGO review required','source_checksums_unchanged':True}
  (ROOT/'docs/evidence/attendance-review-gap.json').write_text(json.dumps(result,indent=2)+'\n')
  print(json.dumps({k:v for k,v in result.items() if k not in ['supplement']},indent=2))
+
+
+def ensure_source_integrity(condition,message):
+ if not condition:raise ValueError(message)
 
 if __name__=='__main__':main()

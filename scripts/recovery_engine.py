@@ -10,14 +10,15 @@ def exact_id(value):
  return value if isinstance(value,str) and value and value==value.strip() else None
 
 def verified_registry(records):
- index={};issues=[]
+ index={};issues=[];conflicted=set()
  for record in records:
   identifier=exact_id(record.get('business_id'))
   if identifier is None:issues.append({'code':'missing_or_malformed_identifier','reference':record['reference']});continue
   if identifier in index:
+   conflicted.add(identifier)
    issues.append({'code':'duplicate_authoritative_identifier','references':[index[identifier]['reference'],record['reference']]})
   else:index[identifier]=record
- return index,issues
+ return {k:v for k,v in index.items() if k not in conflicted},issues
 
 def parse_date(value,declared_format=None):
  if isinstance(value,datetime):return {'status':'valid','value':value.date().isoformat()}
@@ -71,13 +72,15 @@ def identity_candidates(observation,registry,aliases=None):
   return [{'business_id':identity,'method':'exact_identifier','status':'verified','evidence':[registry[identity]['reference']]}]
  if identity in registry:
   return [{'business_id':identity,'method':'computed_identifier','status':'candidate','evidence':[registry[identity]['reference']]}]
- label=' '.join(str(observation.get('name','')).split()).casefold();candidates={}
+ if missing(observation.get('name')):return []
+ label=' '.join(str(observation['name']).split()).casefold();candidates={}
  for key,r in registry.items():
   canonical=' '.join(str(r['fields'].get('display_name','')).split()).casefold()
   if label and label==canonical:candidates[key]=[r['reference']]
  for key,entries in (aliases or {}).items():
+  if key not in registry:continue
   for a in entries:
-   if label and label==' '.join(str(a['name']).split()).casefold():candidates.setdefault(key,[]).append(a['reference'])
+   if not missing(a.get('name')) and label==' '.join(str(a['name']).split()).casefold():candidates.setdefault(key,[]).append(a['reference'])
  out=[]
  for key,evidence in candidates.items():
   programme=observation.get('program');current=registry[key]['fields'].get('program')
@@ -92,8 +95,11 @@ def duplicate_groups(records):
 
 def reconcile(expected_references,dispositions):
  """Source-row coverage and target-observation counts are different denominators."""
- expected=set(expected_references);counts=Counter(d['source_reference'] for d in dispositions)
+ expected_list=list(expected_references);expected_counts=Counter(expected_list)
+ repeated_expected={r:n for r,n in expected_counts.items() if n>1}
+ expected=set(expected_list);counts=Counter(d['source_reference'] for d in dispositions)
  unknown=set(counts)-expected;missing_refs=expected-set(counts);duplicates={r:n for r,n in counts.items() if n>1}
  valid_status={'ready','blocked','reference_only','suggested'}
  invalid=[d['source_reference'] for d in dispositions if d['status'] not in valid_status]
- return {'ok':not(unknown or missing_refs or duplicates or invalid),'expected_rows':len(expected),'accounted_rows':len(expected&set(counts)),'missing_rows':sorted(missing_refs),'unexpected_rows':sorted(unknown),'duplicate_dispositions':duplicates,'invalid_status_rows':invalid,'proposed_observations':sum(d.get('target_observations',0) for d in dispositions)}
+ invalid_targets=[d['source_reference'] for d in dispositions if type(d.get('target_observations',0)) is not int or d.get('target_observations',0)<0]
+ return {'ok':not(unknown or missing_refs or duplicates or invalid or repeated_expected or invalid_targets),'duplicate_expected_references':repeated_expected,'invalid_target_count_rows':invalid_targets,'expected_rows':len(expected),'accounted_rows':len(expected&set(counts)),'missing_rows':sorted(missing_refs),'unexpected_rows':sorted(unknown),'duplicate_dispositions':duplicates,'invalid_status_rows':invalid,'proposed_observations':sum(d.get('target_observations',0) for d in dispositions if type(d.get('target_observations',0)) is int and d.get('target_observations',0)>=0)}

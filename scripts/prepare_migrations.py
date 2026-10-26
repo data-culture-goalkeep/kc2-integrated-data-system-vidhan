@@ -30,6 +30,11 @@ def main():
   if typ=='jsonb' and not c.endswith('_value'):return " DEFAULT '{}'::jsonb"
   return ''
  chunks=['-- PREPARED ONLY. Do not apply without verified exact project identity and explicit migration approval.','-- Authorized pilot: kc2-integrated-data-system; Tokyo ap-northeast-1. No NGO data is seeded.','BEGIN;','SET LOCAL lock_timeout = \'5s\';','SET LOCAL statement_timeout = \'60s\';','CREATE SCHEMA gk_private;','REVOKE ALL ON SCHEMA gk_private FROM PUBLIC, anon;']
+ chunks += [
+  "CREATE FUNCTION gk_private.nonempty_text_array(p text[]) RETURNS boolean LANGUAGE sql IMMUTABLE SET search_path = pg_catalog AS $$ SELECT COALESCE(array_ndims(p)=1 AND cardinality(p)>0 AND NOT EXISTS (SELECT 1 FROM unnest(p) AS v(value) WHERE value IS NULL OR value ~ '^[[:space:]]*$'),false); $$;",
+  'REVOKE ALL ON FUNCTION gk_private.nonempty_text_array(text[]) FROM PUBLIC, anon, authenticated;',
+  'GRANT EXECUTE ON FUNCTION gk_private.nonempty_text_array(text[]) TO service_role;'
+ ]
  for t in tables:
   cols=[]
   for c,f in t['fields'].items():
@@ -48,18 +53,18 @@ def main():
   if 'review_state' in t['fields']:checks.append("review_state IN ('pending','accepted','needs_review')")
   if 'archived_at' in t['fields']:checks.append('(archived_at IS NULL) = (archived_by IS NULL)')
   n=t['name']
-  if n=='reference_values':checks+= ["btrim(vocabulary) <> '' AND btrim(code) <> ''", "jsonb_typeof(permissions) = 'object'", "vocabulary = 'access_role' OR permissions = '{}'::jsonb", "review_state <> 'accepted' OR vocabulary <> 'access_role' OR approval_reference IS NOT NULL"]
-  if n=='source_artifacts':checks+=["version_sha256 ~ '^[a-f0-9]{64}$'","jsonb_typeof(worksheet_manifest) = 'object'"]
-  if n=='source_records':checks += ["source_row > 0","processing_state IN ('staged','blocked','resolved','reference_only')","jsonb_typeof(cell_payload) = 'object'"]
+  if n=='reference_values':checks+= ["btrim(vocabulary) <> '' AND btrim(code) <> ''", "jsonb_typeof(permissions) = 'object'", "vocabulary = 'access_role' OR permissions = '{}'::jsonb", "review_state <> 'accepted' OR vocabulary <> 'access_role' OR COALESCE(btrim(approval_reference),'') <> ''"]
+  if n=='source_artifacts':checks+=["version_sha256 ~ '^[a-f0-9]{64}$'","jsonb_typeof(worksheet_manifest) = 'object'","btrim(source_namespace) <> '' AND btrim(file_code) <> ''"]
+  if n=='source_records':checks += ["source_row > 0","processing_state IN ('staged','blocked','resolved','reference_only')","jsonb_typeof(cell_payload) = 'object'","btrim(native_sheet_key) <> ''"]
   if n=='source_provenance':
    singles=[g[0] for g in t['target_groups'] if len(g)==1]
-   checks += ['num_nonnulls('+','.join(singles)+") + CASE WHEN reference_vocabulary IS NOT NULL AND reference_code IS NOT NULL THEN 1 ELSE 0 END = 1",'(reference_vocabulary IS NULL) = (reference_code IS NULL)','cardinality(source_columns) > 0 AND cardinality(target_fields) > 0',"contribution_state IN ('selected','supporting','conflict_evidence')", "btrim(rule_reference) <> ''"]
+   checks += ['num_nonnulls('+','.join(singles)+") + CASE WHEN reference_vocabulary IS NOT NULL AND reference_code IS NOT NULL THEN 1 ELSE 0 END = 1",'(reference_vocabulary IS NULL) = (reference_code IS NULL)','gk_private.nonempty_text_array(source_columns) AND gk_private.nonempty_text_array(target_fields)',"contribution_state IN ('selected','supporting','conflict_evidence')", "btrim(rule_reference) <> ''"]
   if n=='questionnaire_items':checks += ["value_kind IN ('numeric','text','recommendation')",'ordinal > 0']
   if n=='questionnaire_answers':checks += ["answer_state IN ('recorded','missing','needs_review')",'num_nonnulls(numeric_value,text_value) <= 1',"(answer_state = 'missing' AND numeric_value IS NULL AND text_value IS NULL) OR (answer_state <> 'missing' AND num_nonnulls(numeric_value,text_value) = 1)"]
   if n=='support_observations':checks += ['num_nonnulls(numeric_value,text_value) = 1']
   if n=='adl_visits':checks += ["visit_flag IS TRUE", "visit_date IS NOT NULL OR (origin_kind = 'import' AND review_state <> 'accepted')"]
   if n in ['program_changes','adl_visits']:checks += ['source_slot IS NULL OR source_slot > 0']
-  if n=='access_memberships':checks += ["approved_email_domain = 'goalkeep.net'",'NOT private_write OR private_read',"NOT active OR approval_reference IS NOT NULL"]
+  if n=='access_memberships':checks += ["approved_email_domain = 'goalkeep.net'",'NOT private_write OR private_read',"NOT active OR COALESCE(btrim(approval_reference),'') <> ''"]
   if n=='identity_candidates':checks += ['num_nonnulls(child_id,caregiver_id) = 1',"match_method IN ('exact_identifier','verified_relationship','name_candidate','name_context','computed_identifier')", "resolution_status IN ('verified','candidate','rejected')", "resolution_status <> 'verified' OR match_method IN ('exact_identifier','verified_relationship')", "jsonb_typeof(evidence) = 'object'"]
   if n=='recovery_actions':checks += ['num_nonnulls(child_id,caregiver_id) <= 1',"validation_status IN ('auto_recovered','suggested','blocked_conflict','blocked_untrusted','no_recovery')", "validation_status <> 'auto_recovered' OR (identity_verified AND authoritative_source AND meaning_equivalent AND NOT has_conflict AND donor_source_record_id IS NOT NULL AND recovered_value IS NOT NULL AND num_nonnulls(child_id,caregiver_id) = 1)","jsonb_typeof(evidence) = 'object'"]
   for i,check in enumerate(checks):cols.append('CONSTRAINT '+ident(name('ck_'+n+'_'+str(i)))+' CHECK ('+check+')')

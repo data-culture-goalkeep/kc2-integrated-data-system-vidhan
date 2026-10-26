@@ -20,6 +20,7 @@ def validate_security(sql,by):
   need('ALTER TABLE "'+t['schema']+'"."'+name+'" ENABLE ROW LEVEL SECURITY;' in sql,'Missing RLS: '+name)
   need(re.search(r'REVOKE ALL ON TABLE "'+t['schema']+r'"\."'+name+'" FROM PUBLIC, anon, authenticated;',sql) is not None,'Missing initial denial')
   if name=='access_memberships':need(not re.search(r'GRANT [^;]+ ON (?:TABLE )?gk_private.access_memberships TO authenticated',sql),'Direct membership privileges')
+ need(not re.search(r'GRANT (?:ALL|TRUNCATE|DELETE) ON (?:TABLE )?[^;]+ TO service_role',sql),'Excessive backend privilege')
  need('CREATE POLICY review_audit' in sql and 'protect_record_audit_events' in sql,'Missing audit protection')
  return True
 
@@ -84,6 +85,15 @@ def main():
  for p in (ROOT/'docs').rglob('*.md'):
   for link in re.findall(r'\]\(([^)]+)\)',p.read_text()):
    if '://' not in link and not link.startswith('#'):need((p.parent/link.split('#')[0]).is_file(),'Broken documentation link')
- report={'status':'passed','scope':'Prepared model, SQL parser/static security and evidence consistency; zero SQL executed','table_count':19,'mapping_coordinates':5186,'migration_files':parsed,'nonempty_rows_retained':recovery['reconciliation']['accounted_rows'],'source_business_ids_verified':True,'mermaid':'Local supported grammar/entity/FK checks passed; official renderer not run','migrations_applied':False,'limitations':['No PostgreSQL catalog/runtime, RLS impersonation, OAuth login or migration replay tests executed','Role matrix remains draft; role definitions and memberships not seeded','Exact Supabase project reference/region/read connectivity still unverified','Scoring/category and source ambiguities are not approved by static tests']}
+ runtime_path=ROOT/'docs/evidence/postgres-runtime-review.json'
+ runtime=json.loads(runtime_path.read_text()) if runtime_path.exists() else {}
+ runtime_verified=runtime.get('status')=='passed' and runtime.get('migration_hashes')=={n:v['sha256'] for n,v in parsed.items()}
+ connection=json.loads((ROOT/'docs/evidence/supabase-connectivity.json').read_text())
+ target=json.loads((ROOT/'config/authorized-supabase-project.json').read_text())
+ remote_verified=connection.get('status')=='passed' and connection.get('reference_id')==target.get('reference_id') and target.get('verified')
+ limitations=['Live Google OAuth and the complete Supabase Auth/PostgREST stack are not tested by local contract fixtures','Role matrix remains draft; remote role definitions and memberships not activated','Scoring/category and source ambiguities are not approved by technical tests']
+ if not runtime_verified:limitations.append('Current SQL has not passed the disposable PostgreSQL suite')
+ if not remote_verified:limitations.append('Exact remote project/read connectivity unverified')
+ report={'status':'passed','scope':'Static model/SQL/evidence consistency; this checker executes no SQL. Separate local runtime and read-only remote evidence referenced.','table_count':19,'mapping_coordinates':5186,'migration_files':parsed,'nonempty_rows_retained':recovery['reconciliation']['accounted_rows'],'source_business_ids_verified':True,'mermaid':'Local supported grammar/entity/FK checks passed; official renderer not run','remote_migrations_applied':False,'local_runtime_verified_for_current_sql':runtime_verified,'remote_connection_verified':bool(remote_verified),'limitations':limitations}
  (ROOT/'docs/evidence/preparation-verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

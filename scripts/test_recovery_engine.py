@@ -27,4 +27,14 @@ class RecoveryTests(unittest.TestCase):
   self.assertFalse(reconcile(['a','b'],[{'source_reference':'a','status':'ready'},{'source_reference':'a','status':'ready'},{'source_reference':'c','status':'bad'}])['ok'])
  def test_reconciliation_retention_is_not_import(self):
   r=reconcile(['a'],[{'source_reference':'a','status':'reference_only'}]);self.assertTrue(r['ok']);self.assertEqual(r['proposed_observations'],0)
+ def test_duplicate_ids_are_excluded_from_verified_registry(self):
+  reg,issues=verified_registry([{'business_id':'001','reference':'a'},{'business_id':'001','reference':'b'}]);self.assertNotIn('001',reg);self.assertTrue(issues)
+ def test_missing_name_is_not_a_name_candidate(self):
+  self.assertEqual(identity_candidates({'name':None},{'001':{'reference':'a','fields':{'display_name':None}}}),[])
+ def test_unknown_alias_key_is_ignored(self):
+  self.assertEqual(identity_candidates({'name':'Synthetic'}, {}, {'unknown':[{'name':'Synthetic','reference':'a'}]}),[])
+ def test_duplicate_expected_references_fail_reconciliation(self):
+  self.assertFalse(reconcile(['a','a'],[{'source_reference':'a','status':'ready'}])['ok'])
+ def test_invalid_target_counts_fail_reconciliation(self):
+  for count in [-1, '2', True]:self.assertFalse(reconcile(['a'],[{'source_reference':'a','status':'ready','target_observations':count}])['ok'])
 if __name__=='__main__':unittest.main()

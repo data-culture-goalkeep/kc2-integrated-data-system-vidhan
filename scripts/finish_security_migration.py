@@ -14,7 +14,7 @@ def main():
    out += [f'GRANT SELECT ON {q} TO service_role, authenticated;', f"CREATE POLICY review_audit ON {q} FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND gk_private.has_capability('review_data'));"]
    continue
   domain='origin_kind' in t['fields'];archive='archived_at' in t['fields']
-  out += [f"CREATE TRIGGER audit_{n} BEFORE INSERT OR UPDATE ON {q} FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('{ 'domain' if domain else 'technical' }','{ 'archive' if archive else 'none' }');",f'GRANT ALL ON TABLE {q} TO service_role;']
+  out += [f"CREATE TRIGGER audit_{n} BEFORE INSERT OR UPDATE ON {q} FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('{ 'domain' if domain else 'technical' }','{ 'archive' if archive else 'none' }');",f"GRANT {'SELECT, INSERT' if n in {'source_artifacts','source_provenance','recovery_actions'} else 'SELECT, INSERT, UPDATE'} ON TABLE {q} TO service_role;"]
   if n=='access_memberships':continue # Only constrained SECURITY DEFINER membership RPCs write/read this table.
   if n=='reference_values':
    expr="gk_private.has_capability('read') AND archived_at IS NULL AND (active OR gk_private.has_capability('review_data')) AND (review_state='accepted' OR gk_private.has_capability('review_data')) AND (vocabulary <> 'access_role' OR gk_private.has_capability('manage_access'))"
@@ -23,8 +23,10 @@ def main():
    out += [f'GRANT SELECT ON {q} TO authenticated;',f"CREATE POLICY review_{n} ON {q} FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND gk_private.has_capability('review_data'));"]
    continue
   read='read_private' if n in private_only else 'read';write='write_private' if n in private_only else 'write'
+  write_guard=f"gk_private.has_capability('{write}')"
+  if n=='questionnaire_items':write_guard+=" AND gk_private.has_capability('review_data')"
   visible="(review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data'))" if domain else 'true'
   archive_visible="(archived_at IS NULL OR gk_private.has_capability('soft_delete'))" if archive else 'true'
-  out += [f'GRANT SELECT, INSERT, UPDATE ON {q} TO authenticated;',f"CREATE POLICY select_{n} ON {q} FOR SELECT TO authenticated USING (gk_private.has_capability('{read}') AND {archive_visible} AND {visible});",f"CREATE POLICY insert_{n} ON {q} FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('{write}') AND origin_kind='manual' AND archived_at IS NULL);",f"CREATE POLICY update_{n} ON {q} FOR UPDATE TO authenticated USING (gk_private.has_capability('{write}') AND {archive_visible}) WITH CHECK (gk_private.has_capability('{write}') AND {archive_visible});"]
+  out += [f'GRANT SELECT, INSERT, UPDATE ON {q} TO authenticated;',f"CREATE POLICY select_{n} ON {q} FOR SELECT TO authenticated USING (gk_private.has_capability('{read}') AND {archive_visible} AND {visible});",f"CREATE POLICY insert_{n} ON {q} FOR INSERT TO authenticated WITH CHECK ({write_guard} AND origin_kind='manual' AND archived_at IS NULL);",f"CREATE POLICY update_{n} ON {q} FOR UPDATE TO authenticated USING ({write_guard} AND {archive_visible}) WITH CHECK ({write_guard} AND {archive_visible});"]
  out += ['COMMIT;',''];p.write_text(text+'\n'.join(out));print('Prepared deny-by-default policies; no roles/users activated and no SQL executed.')
 if __name__=='__main__':main()

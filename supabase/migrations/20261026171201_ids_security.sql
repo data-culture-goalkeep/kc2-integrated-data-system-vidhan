@@ -88,8 +88,14 @@ RETURNS void LANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog AS $
 BEGIN
  IF NOT gk_private.has_capability('manage_access') THEN RAISE EXCEPTION 'Access administration not authorized'; END IF;
  IF p_user = auth.uid() THEN RAISE EXCEPTION 'Self-role or private-access escalation is forbidden'; END IF;
- IF NOT gk_private.is_goalkeep_identity(p_user) THEN RAISE EXCEPTION 'Target identity is not verified Goalkeep Workspace'; END IF;
  IF COALESCE(btrim(p_approval_reference),'') = '' THEN RAISE EXCEPTION 'Approval reference required'; END IF;
+ -- Revocation must remain possible after identity or role eligibility is lost.
+ IF p_active IS FALSE THEN
+  UPDATE gk_private.access_memberships SET active=false,private_read=false,private_write=false,
+   approval_reference=p_approval_reference WHERE user_id=p_user;
+  RETURN;
+ END IF;
+ IF NOT gk_private.is_goalkeep_identity(p_user) THEN RAISE EXCEPTION 'Target identity is not verified Goalkeep Workspace'; END IF;
  IF p_private_write AND NOT p_private_read THEN RAISE EXCEPTION 'Private write requires private read authorization'; END IF;
  IF (p_private_read OR p_private_write) AND NOT gk_private.has_capability('write_private') THEN RAISE EXCEPTION 'Private authorization exceeds administrator scope'; END IF;
  IF NOT EXISTS(SELECT 1 FROM public.reference_values WHERE vocabulary='access_role' AND code=p_role AND active AND review_state='accepted' AND approval_reference IS NOT NULL AND archived_at IS NULL) THEN RAISE EXCEPTION 'Role not approved'; END IF;
@@ -112,7 +118,7 @@ BEGIN
   NEW.created_at := OLD.created_at; NEW.created_by := OLD.created_by;
  END IF;
  NEW.updated_at := now(); NEW.updated_by := uid;
- IF auth.role() = 'authenticated' THEN
+ IF auth.jwt() ->> 'role' = 'authenticated' THEN
   IF NOT gk_private.is_goalkeep_session() THEN RAISE EXCEPTION 'Workspace session required'; END IF;
   NEW.actor_ref := 'user:' || uid::text;
   IF is_domain THEN
@@ -121,12 +127,12 @@ BEGIN
    IF ((TG_OP = 'INSERT' AND NEW.review_state <> 'pending') OR (TG_OP = 'UPDATE' AND NEW.review_state IS DISTINCT FROM OLD.review_state)) AND NOT gk_private.has_capability('review_data') THEN RAISE EXCEPTION 'Review authorization required'; END IF;
   END IF;
  ELSE
-  IF auth.role() IS DISTINCT FROM 'service_role' AND session_user NOT IN ('postgres','supabase_admin') THEN RAISE EXCEPTION 'Unidentified database actor'; END IF;
-  IF COALESCE(btrim(NEW.actor_ref),'') = '' THEN NEW.actor_ref := 'db:' || session_user; END IF;
+  IF auth.jwt() ->> 'role' IS DISTINCT FROM 'service_role' AND session_user NOT IN ('postgres','supabase_admin') THEN RAISE EXCEPTION 'Unidentified database actor'; END IF;
+  NEW.actor_ref := 'db:' || session_user || '/role:' || COALESCE(auth.jwt() ->> 'role','database_owner');
  END IF;
  IF TG_ARGV[1] = 'archive' THEN
   IF TG_OP = 'UPDATE' AND NEW.archived_at IS DISTINCT FROM OLD.archived_at THEN
-   IF auth.role()='authenticated' AND NOT gk_private.has_capability('soft_delete') THEN RAISE EXCEPTION 'Soft deletion not authorized'; END IF;
+   IF auth.jwt() ->> 'role'='authenticated' AND NOT gk_private.has_capability('soft_delete') THEN RAISE EXCEPTION 'Soft deletion not authorized'; END IF;
    IF NEW.archived_at IS NULL THEN NEW.archived_by := NULL;
    ELSE
     IF uid IS NULL THEN RAISE EXCEPTION 'Soft deletion requires an authenticated accountable user'; END IF;
@@ -142,95 +148,95 @@ $$;
 REVOKE ALL ON FUNCTION gk_private.stamp_audit() FROM PUBLIC, anon, authenticated;
 -- GENERATED TABLE POLICIES
 CREATE TRIGGER audit_reference_values BEFORE INSERT OR UPDATE ON public.reference_values FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE public.reference_values TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.reference_values TO service_role;
 GRANT SELECT ON public.reference_values TO authenticated;
 CREATE POLICY read_reference_values ON public.reference_values FOR SELECT TO authenticated USING (gk_private.has_capability('read') AND archived_at IS NULL AND (active OR gk_private.has_capability('review_data')) AND (review_state='accepted' OR gk_private.has_capability('review_data')) AND (vocabulary <> 'access_role' OR gk_private.has_capability('manage_access')));
 CREATE TRIGGER audit_children BEFORE INSERT OR UPDATE ON public.children FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE public.children TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.children TO service_role;
 GRANT SELECT, INSERT, UPDATE ON public.children TO authenticated;
 CREATE POLICY select_children ON public.children FOR SELECT TO authenticated USING (gk_private.has_capability('read') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_children ON public.children FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_children ON public.children FOR UPDATE TO authenticated USING (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_child_private_profiles BEFORE INSERT OR UPDATE ON gk_private.child_private_profiles FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE gk_private.child_private_profiles TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE gk_private.child_private_profiles TO service_role;
 GRANT SELECT, INSERT, UPDATE ON gk_private.child_private_profiles TO authenticated;
 CREATE POLICY select_child_private_profiles ON gk_private.child_private_profiles FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_child_private_profiles ON gk_private.child_private_profiles FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write_private') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_child_private_profiles ON gk_private.child_private_profiles FOR UPDATE TO authenticated USING (gk_private.has_capability('write_private') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write_private') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_caregivers BEFORE INSERT OR UPDATE ON gk_private.caregivers FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE gk_private.caregivers TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE gk_private.caregivers TO service_role;
 GRANT SELECT, INSERT, UPDATE ON gk_private.caregivers TO authenticated;
 CREATE POLICY select_caregivers ON gk_private.caregivers FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_caregivers ON gk_private.caregivers FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write_private') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_caregivers ON gk_private.caregivers FOR UPDATE TO authenticated USING (gk_private.has_capability('write_private') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write_private') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_child_caregivers BEFORE INSERT OR UPDATE ON public.child_caregivers FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE public.child_caregivers TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.child_caregivers TO service_role;
 GRANT SELECT, INSERT, UPDATE ON public.child_caregivers TO authenticated;
 CREATE POLICY select_child_caregivers ON public.child_caregivers FOR SELECT TO authenticated USING (gk_private.has_capability('read') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_child_caregivers ON public.child_caregivers FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_child_caregivers ON public.child_caregivers FOR UPDATE TO authenticated USING (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_program_changes BEFORE INSERT OR UPDATE ON public.program_changes FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE public.program_changes TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.program_changes TO service_role;
 GRANT SELECT, INSERT, UPDATE ON public.program_changes TO authenticated;
 CREATE POLICY select_program_changes ON public.program_changes FOR SELECT TO authenticated USING (gk_private.has_capability('read') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_program_changes ON public.program_changes FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_program_changes ON public.program_changes FOR UPDATE TO authenticated USING (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_questionnaire_responses BEFORE INSERT OR UPDATE ON public.questionnaire_responses FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE public.questionnaire_responses TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.questionnaire_responses TO service_role;
 GRANT SELECT, INSERT, UPDATE ON public.questionnaire_responses TO authenticated;
 CREATE POLICY select_questionnaire_responses ON public.questionnaire_responses FOR SELECT TO authenticated USING (gk_private.has_capability('read') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_questionnaire_responses ON public.questionnaire_responses FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_questionnaire_responses ON public.questionnaire_responses FOR UPDATE TO authenticated USING (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_questionnaire_items BEFORE INSERT OR UPDATE ON public.questionnaire_items FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE public.questionnaire_items TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.questionnaire_items TO service_role;
 GRANT SELECT, INSERT, UPDATE ON public.questionnaire_items TO authenticated;
 CREATE POLICY select_questionnaire_items ON public.questionnaire_items FOR SELECT TO authenticated USING (gk_private.has_capability('read') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
-CREATE POLICY insert_questionnaire_items ON public.questionnaire_items FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write') AND origin_kind='manual' AND archived_at IS NULL);
-CREATE POLICY update_questionnaire_items ON public.questionnaire_items FOR UPDATE TO authenticated USING (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
+CREATE POLICY insert_questionnaire_items ON public.questionnaire_items FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write') AND gk_private.has_capability('review_data') AND origin_kind='manual' AND archived_at IS NULL);
+CREATE POLICY update_questionnaire_items ON public.questionnaire_items FOR UPDATE TO authenticated USING (gk_private.has_capability('write') AND gk_private.has_capability('review_data') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write') AND gk_private.has_capability('review_data') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_questionnaire_answers BEFORE INSERT OR UPDATE ON gk_private.questionnaire_answers FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE gk_private.questionnaire_answers TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE gk_private.questionnaire_answers TO service_role;
 GRANT SELECT, INSERT, UPDATE ON gk_private.questionnaire_answers TO authenticated;
 CREATE POLICY select_questionnaire_answers ON gk_private.questionnaire_answers FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_questionnaire_answers ON gk_private.questionnaire_answers FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write_private') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_questionnaire_answers ON gk_private.questionnaire_answers FOR UPDATE TO authenticated USING (gk_private.has_capability('write_private') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write_private') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_attendance_observations BEFORE INSERT OR UPDATE ON public.attendance_observations FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE public.attendance_observations TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.attendance_observations TO service_role;
 GRANT SELECT, INSERT, UPDATE ON public.attendance_observations TO authenticated;
 CREATE POLICY select_attendance_observations ON public.attendance_observations FOR SELECT TO authenticated USING (gk_private.has_capability('read') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_attendance_observations ON public.attendance_observations FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_attendance_observations ON public.attendance_observations FOR UPDATE TO authenticated USING (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_support_observations BEFORE INSERT OR UPDATE ON public.support_observations FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE public.support_observations TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.support_observations TO service_role;
 GRANT SELECT, INSERT, UPDATE ON public.support_observations TO authenticated;
 CREATE POLICY select_support_observations ON public.support_observations FOR SELECT TO authenticated USING (gk_private.has_capability('read') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_support_observations ON public.support_observations FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_support_observations ON public.support_observations FOR UPDATE TO authenticated USING (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_adl_visits BEFORE INSERT OR UPDATE ON public.adl_visits FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('domain','archive');
-GRANT ALL ON TABLE public.adl_visits TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.adl_visits TO service_role;
 GRANT SELECT, INSERT, UPDATE ON public.adl_visits TO authenticated;
 CREATE POLICY select_adl_visits ON public.adl_visits FOR SELECT TO authenticated USING (gk_private.has_capability('read') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')) AND (review_state='accepted' OR created_by=auth.uid() OR gk_private.has_capability('review_data')));
 CREATE POLICY insert_adl_visits ON public.adl_visits FOR INSERT TO authenticated WITH CHECK (gk_private.has_capability('write') AND origin_kind='manual' AND archived_at IS NULL);
 CREATE POLICY update_adl_visits ON public.adl_visits FOR UPDATE TO authenticated USING (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete'))) WITH CHECK (gk_private.has_capability('write') AND (archived_at IS NULL OR gk_private.has_capability('soft_delete')));
 CREATE TRIGGER audit_source_artifacts BEFORE INSERT OR UPDATE ON gk_private.source_artifacts FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('technical','none');
-GRANT ALL ON TABLE gk_private.source_artifacts TO service_role;
+GRANT SELECT, INSERT ON TABLE gk_private.source_artifacts TO service_role;
 GRANT SELECT ON gk_private.source_artifacts TO authenticated;
 CREATE POLICY review_source_artifacts ON gk_private.source_artifacts FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND gk_private.has_capability('review_data'));
 CREATE TRIGGER audit_source_records BEFORE INSERT OR UPDATE ON gk_private.source_records FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('technical','none');
-GRANT ALL ON TABLE gk_private.source_records TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE gk_private.source_records TO service_role;
 GRANT SELECT ON gk_private.source_records TO authenticated;
 CREATE POLICY review_source_records ON gk_private.source_records FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND gk_private.has_capability('review_data'));
 CREATE TRIGGER audit_source_provenance BEFORE INSERT OR UPDATE ON gk_private.source_provenance FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('technical','none');
-GRANT ALL ON TABLE gk_private.source_provenance TO service_role;
+GRANT SELECT, INSERT ON TABLE gk_private.source_provenance TO service_role;
 GRANT SELECT ON gk_private.source_provenance TO authenticated;
 CREATE POLICY review_source_provenance ON gk_private.source_provenance FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND gk_private.has_capability('review_data'));
 CREATE TRIGGER audit_access_memberships BEFORE INSERT OR UPDATE ON gk_private.access_memberships FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('technical','archive');
-GRANT ALL ON TABLE gk_private.access_memberships TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE gk_private.access_memberships TO service_role;
 CREATE TRIGGER audit_identity_candidates BEFORE INSERT OR UPDATE ON gk_private.identity_candidates FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('technical','none');
-GRANT ALL ON TABLE gk_private.identity_candidates TO service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE gk_private.identity_candidates TO service_role;
 GRANT SELECT ON gk_private.identity_candidates TO authenticated;
 CREATE POLICY review_identity_candidates ON gk_private.identity_candidates FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND gk_private.has_capability('review_data'));
 CREATE TRIGGER audit_recovery_actions BEFORE INSERT OR UPDATE ON gk_private.recovery_actions FOR EACH ROW EXECUTE FUNCTION gk_private.stamp_audit('technical','none');
-GRANT ALL ON TABLE gk_private.recovery_actions TO service_role;
+GRANT SELECT, INSERT ON TABLE gk_private.recovery_actions TO service_role;
 GRANT SELECT ON gk_private.recovery_actions TO authenticated;
 CREATE POLICY review_recovery_actions ON gk_private.recovery_actions FOR SELECT TO authenticated USING (gk_private.has_capability('read_private') AND gk_private.has_capability('review_data'));
 GRANT SELECT ON gk_private.record_audit_events TO service_role, authenticated;

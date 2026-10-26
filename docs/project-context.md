@@ -1,6 +1,6 @@
 # KC2 Phase 1 — Current project context
 
-Updated 26 October 2026, Asia/Kolkata. Implementation prepared for review; nothing applied.
+Updated 27 October 2026, Asia/Kolkata. Implementation prepared for review; nothing applied.
 
 The owner has authorized final model recommendations, recovery/reconciliation scripts, read-only Supabase verification and timestamped SQL generation. Applying migrations, migrating NGO records, enabling broad access and frontend work remain prohibited. Earlier Stage 1/Stage 2 drafts are preserved in Git and `docs/archive/`; their unresolved identity/location statements are superseded only by the explicit decisions below.
 
@@ -26,18 +26,26 @@ Known issues remain: 610 attendance marks without recognized date headers; four 
 
 Read [final specification](15-final-data-model.md), [dictionary](06-data-dictionary-draft.md), [ER](07-entity-relationship-diagram.md), [recovery design](16-data-recovery-and-reconciliation.md), [connectivity/migrations](17-supabase-connectivity-and-migration-plan.md) and [extensive implementation review](18-implementation-review.md). The complete final mapping retains all 5,186 source-coordinate slots; raw/organized comparisons and previous models remain in docs 09–12/archive.
 
-Prepared migration files cover schema/constraints/indexes, security, and integrity/audit/lineage. No migration or source record has been executed or loaded. Google OAuth provider configuration and runtime RLS/migration tests are not performed.
+Prepared migration files cover schema/constraints/indexes, security, and integrity/audit/lineage. No remote migration or NGO source record has been executed or loaded. Local synthetic PostgreSQL migration/RLS tests now pass; live Google OAuth/provider configuration remains unverified.
 
 ## Connectivity, verification and next gate
 
-Supabase plugin installation now reports enabled/installed after owner connection, but this session exposes no callable Supabase project tools. The Cloud Environment has no Supabase secret binding. Project reference, Tokyo metadata and database read connectivity therefore remain unverified. Do not treat installation as project verification. The CLI is installed; supported secure token binding is an alternative if connector tools remain unavailable. Never ask for credentials in chat.
+Supabase connectivity is verified through the connected MCP account: exact project kc2-integrated-data-system, reference hmlbdozsqxlwzvjimjwh, Tokyo ap-northeast-1, ACTIVE_HEALTHY, PostgreSQL 17.11. Explicit read-only queries succeeded. No application/non-platform tables or migration history exist. One accessible organisation/project was returned; no alternate project was selected. The empty database security advisor returned no lints. No token, password or personal Auth records were retrieved. The secure CLI/API fallback is optional; it writes separate evidence and does not overwrite MCP verification. See docs/evidence/supabase-connectivity.json.
 
 Local preparation checks parse all SQL and PL/pgSQL, compare model/DDL/FKs/mappings/ER and inspect security invariants. Existing discovery/draft-model checks and synthetic regressions remain required. Machine-readable results are in `docs/evidence/preparation-verification.json`, `verification.json`, `model-review-verification.json` and `recovery-preparation.json`. Parser/static/synthetic success is not runtime or business-rule approval.
 
-Repository: `data-culture-goalkeep/kc2-integrated-data-system-vidhan`; branch `feature/phase1-data-backend`. Preserve feature commits, never push to main or merge automatically. Check actual remote status before claiming publication. Next: restore callable Supabase access, verify the exact project read-only, obtain explicit migration and role-activation approvals, then perform separately authorized runtime validation and application.
+Repository: `data-culture-goalkeep/kc2-integrated-data-system-vidhan`; branch `feature/phase1-data-backend`. Preserve feature commits, never push to main or merge automatically. Check actual remote status before claiming publication. Next: obtain explicit migration and role-activation approvals, then perform separately authorized remote application. Local disposable runtime testing is now authorized and completed; real OAuth/REST integration remains unverified.
 
 Permanent standards: Google authentication and server authorization; sticky header/sidebar and collapsed icons; button-triggered Add/Record/Edit forms; supported secret management; extensive first implementation PR review; simplification and preserved raw/organized comparison; reproducible migrations, source reconciliation and automated quality checks. See AGENTS.md and docs 14.
 
 ## Publication milestone
 
-GitHub transport recovered through the authorized execution path. Remote main was verified as `5d886cd85a1925d27149f19e5edf8c26bda80e8e`, a common ancestor of the preserved feature history. Preparation commit `403477dad52c5aafc90a49432826f859dba59b5f` was pushed to the new `feature/phase1-data-backend` branch. Draft [PR #1](https://github.com/data-culture-goalkeep/kc2-integrated-data-system-vidhan/pull/1) is open, not merged. The first implementation self-review is in docs 18; independent owner/reviewer approval remains required. No database operations or frontend work occurred. This publication note is a follow-up documentation-only feature commit.
+GitHub transport recovered through the authorized execution path. Remote main was verified as `5d886cd85a1925d27149f19e5edf8c26bda80e8e`, a common ancestor of the preserved feature history. Preparation commit `403477dad52c5aafc90a49432826f859dba59b5f` was pushed to the new `feature/phase1-data-backend` branch. Draft [PR #1](https://github.com/data-culture-goalkeep/kc2-integrated-data-system-vidhan/pull/1) is open, not merged. The first implementation self-review is in docs 18; independent owner/reviewer approval remains required. At that publication milestone, no database operations or frontend work had occurred. The subsequent review authorized local disposable execution only.
+
+## Base PR review milestone — local runtime verified
+
+Read [current review and readiness](19-base-pr-review-and-readiness.md). The 19-table architecture is retained. Corrected a runtime PL/pgSQL name ambiguity, Member questionnaire-definition writes, excessive service-role grants/TRUNCATE exposure, eligibility-dependent revocation, actor attribution and weak lineage arrays. Hardened duplicate/missing-name handling, independent reconciliation, XML parsing, integrity guards under Python -O and optional fallback evidence. Removed one redundant index. All source evidence remains preserved; no business rule was silently changed.
+
+37 Python tests and 45 PostgreSQL runtime tests pass. Migrations execute on a digest-pinned, network-isolated PostgreSQL 17.11 with synthetic Supabase Auth fixtures; a second fresh replay and transaction rollback tests pass. No real Google login, complete Supabase stack/PostgREST test or NGO load is claimed. Four pinned Python packages show no advisories in queried PyPI metadata. See docs/evidence/postgres-runtime-review.json and dependency-review.json.
+
+Known critical/high review defects are fixed locally. SQL is suitable for owner-reviewed application approval, with no permission to apply remotely. The draft role matrix/initial Admin/private grants and real OAuth validation remain separate activation gates. PR #1 remains draft/unmerged; review fixes stay on feature/phase1-data-backend.

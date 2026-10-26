@@ -21,6 +21,8 @@
   },
   "reconciliation": {
     "ok": true,
+    "duplicate_expected_references": {},
+    "invalid_target_count_rows": [],
     "expected_rows": 20432,
     "accounted_rows": 20432,
     "missing_rows": [],

@@ -46,6 +46,9 @@ def main():
  for t in m['tables']:
   for c in ['created_by','updated_by']:
    if c in t['fields'] and not any(f['columns']==[c] for f in t['foreign_keys']):t['foreign_keys'].append({'columns':[c],'target':'auth.users','target_columns':['id'],'on_delete':'RESTRICT','basis':'audit'})
+ for t in m['tables']:
+  keys=[t['primary_key']]+t['unique_keys']
+  t['indexes']=[i for i in t['indexes'] if not any(k[:len(i['columns'])]==i['columns'] for k in keys)]
  m.update(status='FINAL_RECOMMENDATION_PREPARED_NOT_APPLIED',previous_draft_tables=17,proposed_table_count=len(m['tables']),core_table_count=len(m['tables']),optional_tables=[],authorized_project={'name':'kc2-integrated-data-system','region':'ap-northeast-1','environment':'non-production pilot','reference_id':None,'verified':False},role_matrix={'status':'draft_not_activated','domain':'goalkeep.net','proposed_roles':['Admin','Member'],'automatic_member_provisioning':'only after explicit owner approval and active accepted role definition','admin_assignment':'explicit_only'},approval_scope='Analyst IDs/name/recovery rules approved; SQL generation only; no application or migrations',source_note='Activity source data retained in source_records; no activity table until event grain approved')
  # Preserve a reference only after actual read-only identity verification.
  config=ROOT/'config/authorized-supabase-project.json'

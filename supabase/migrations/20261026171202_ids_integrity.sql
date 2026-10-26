@@ -5,8 +5,8 @@ SET LOCAL statement_timeout = '60s';
 CREATE FUNCTION gk_private.reject_evidence_mutation()
 RETURNS trigger LANGUAGE plpgsql SET search_path = pg_catalog AS $$
 BEGIN
- IF TG_OP='DELETE' OR TG_TABLE_NAME <> 'source_records' THEN RAISE EXCEPTION 'Evidence is append-only'; END IF;
- IF NEW.artifact_id IS DISTINCT FROM OLD.artifact_id OR NEW.native_sheet_key IS DISTINCT FROM OLD.native_sheet_key
+ IF TG_OP IN ('DELETE','TRUNCATE') OR TG_TABLE_NAME <> 'source_records' THEN RAISE EXCEPTION 'Evidence is append-only'; END IF;
+ IF NEW.id IS DISTINCT FROM OLD.id OR NEW.artifact_id IS DISTINCT FROM OLD.artifact_id OR NEW.native_sheet_key IS DISTINCT FROM OLD.native_sheet_key
   OR NEW.source_row IS DISTINCT FROM OLD.source_row OR NEW.cell_payload IS DISTINCT FROM OLD.cell_payload THEN RAISE EXCEPTION 'Original source payload and coordinates are immutable'; END IF;
  RETURN NEW;
 END;
@@ -35,7 +35,7 @@ BEGIN
  FOREACH k IN ARRAY TG_ARGV LOOP keys := keys || jsonb_build_object(k,chosen -> k); END LOOP;
  IF TG_TABLE_NAME='source_records' THEN old_doc := old_doc - 'cell_payload'; new_doc := new_doc - 'cell_payload'; END IF;
  INSERT INTO gk_private.record_audit_events(schema_name,table_name,record_key,operation,before_value,after_value,created_by,updated_by,actor_ref)
- VALUES(TG_TABLE_SCHEMA,TG_TABLE_NAME,keys,TG_OP,old_doc,new_doc,auth.uid(),auth.uid(),COALESCE(chosen ->> 'actor_ref','db:'||session_user));
+ VALUES(TG_TABLE_SCHEMA,TG_TABLE_NAME,keys,TG_OP,old_doc,new_doc,auth.uid(),auth.uid(),CASE WHEN auth.uid() IS NOT NULL THEN 'user:'||auth.uid()::text ELSE 'db:'||session_user||'/role:'||COALESCE(auth.jwt()->>'role','database_owner') END);
  RETURN COALESCE(NEW,OLD);
 END;
 $$;
@@ -89,13 +89,14 @@ CREATE CONSTRAINT TRIGGER check_profile_dates AFTER INSERT OR UPDATE ON gk_priva
 -- Manual and accepted facts must reference approved active controlled values.
 CREATE FUNCTION gk_private.check_reference_state()
 RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog AS $$
-DECLARE doc jsonb := to_jsonb(NEW); col text; f text; vocab text; code text;
+DECLARE doc jsonb := to_jsonb(NEW); col text; f text; selected_vocabulary text; selected_code text;
 BEGIN
  IF doc ->> 'origin_kind' = 'import' AND doc ->> 'review_state' <> 'accepted' THEN RETURN NEW; END IF;
+ IF TG_TABLE_NAME='access_memberships' AND doc -> 'active' = 'false'::jsonb THEN RETURN NEW; END IF;
  FOREACH col IN ARRAY TG_ARGV LOOP
-  f := split_part(col,':',2); vocab := doc ->> split_part(col,':',1); code := doc ->> f;
-  IF code IS NOT NULL THEN
-   PERFORM 1 FROM public.reference_values r WHERE r.vocabulary=vocab AND r.code=code
+  f := split_part(col,':',2); selected_vocabulary := doc ->> split_part(col,':',1); selected_code := doc ->> f;
+  IF selected_code IS NOT NULL THEN
+   PERFORM 1 FROM public.reference_values r WHERE r.vocabulary=selected_vocabulary AND r.code=selected_code
     AND r.active AND r.review_state='accepted' AND r.archived_at IS NULL FOR SHARE;
    IF NOT FOUND THEN RAISE EXCEPTION 'Selected controlled value is not approved and active'; END IF;
   END IF;
@@ -151,14 +152,19 @@ CREATE TRIGGER values_adl_visits AFTER INSERT OR UPDATE ON public.adl_visits FOR
 CREATE CONSTRAINT TRIGGER lineage_adl_visits AFTER INSERT OR UPDATE ON public.adl_visits DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION gk_private.require_import_provenance('adl_id','id');
 CREATE TRIGGER identity_adl_visits BEFORE UPDATE ON public.adl_visits FOR EACH ROW EXECUTE FUNCTION gk_private.reject_identity_change('id','child_id');
 CREATE TRIGGER protect_source_artifacts BEFORE UPDATE OR DELETE ON gk_private.source_artifacts FOR EACH ROW EXECUTE FUNCTION gk_private.reject_evidence_mutation();
+CREATE TRIGGER protect_truncate_source_artifacts BEFORE TRUNCATE ON gk_private.source_artifacts FOR EACH STATEMENT EXECUTE FUNCTION gk_private.reject_evidence_mutation();
 CREATE TRIGGER protect_source_records BEFORE UPDATE OR DELETE ON gk_private.source_records FOR EACH ROW EXECUTE FUNCTION gk_private.reject_evidence_mutation();
+CREATE TRIGGER protect_truncate_source_records BEFORE TRUNCATE ON gk_private.source_records FOR EACH STATEMENT EXECUTE FUNCTION gk_private.reject_evidence_mutation();
 CREATE TRIGGER history_source_records AFTER UPDATE ON gk_private.source_records FOR EACH ROW EXECUTE FUNCTION gk_private.capture_row_change('id');
 CREATE TRIGGER protect_source_provenance BEFORE UPDATE OR DELETE ON gk_private.source_provenance FOR EACH ROW EXECUTE FUNCTION gk_private.reject_evidence_mutation();
+CREATE TRIGGER protect_truncate_source_provenance BEFORE TRUNCATE ON gk_private.source_provenance FOR EACH STATEMENT EXECUTE FUNCTION gk_private.reject_evidence_mutation();
 CREATE TRIGGER history_access_memberships AFTER INSERT OR UPDATE OR DELETE ON gk_private.access_memberships FOR EACH ROW EXECUTE FUNCTION gk_private.capture_row_change('user_id');
 CREATE TRIGGER values_access_memberships AFTER INSERT OR UPDATE ON gk_private.access_memberships FOR EACH ROW EXECUTE FUNCTION gk_private.check_reference_state('role_vocabulary:role_code');
 CREATE TRIGGER identity_access_memberships BEFORE UPDATE ON gk_private.access_memberships FOR EACH ROW EXECUTE FUNCTION gk_private.reject_identity_change('user_id');
 CREATE TRIGGER history_identity_candidates AFTER INSERT OR UPDATE OR DELETE ON gk_private.identity_candidates FOR EACH ROW EXECUTE FUNCTION gk_private.capture_row_change('id');
 CREATE TRIGGER identity_identity_candidates BEFORE UPDATE ON gk_private.identity_candidates FOR EACH ROW EXECUTE FUNCTION gk_private.reject_identity_change('id');
 CREATE TRIGGER protect_recovery_actions BEFORE UPDATE OR DELETE ON gk_private.recovery_actions FOR EACH ROW EXECUTE FUNCTION gk_private.reject_evidence_mutation();
+CREATE TRIGGER protect_truncate_recovery_actions BEFORE TRUNCATE ON gk_private.recovery_actions FOR EACH STATEMENT EXECUTE FUNCTION gk_private.reject_evidence_mutation();
 CREATE TRIGGER protect_record_audit_events BEFORE UPDATE OR DELETE ON gk_private.record_audit_events FOR EACH ROW EXECUTE FUNCTION gk_private.reject_evidence_mutation();
+CREATE TRIGGER protect_truncate_record_audit_events BEFORE TRUNCATE ON gk_private.record_audit_events FOR EACH STATEMENT EXECUTE FUNCTION gk_private.reject_evidence_mutation();
 COMMIT;

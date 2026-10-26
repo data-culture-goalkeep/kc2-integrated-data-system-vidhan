@@ -5,6 +5,9 @@ SET LOCAL lock_timeout = '5s';
 SET LOCAL statement_timeout = '60s';
 CREATE SCHEMA gk_private;
 REVOKE ALL ON SCHEMA gk_private FROM PUBLIC, anon;
+CREATE FUNCTION gk_private.nonempty_text_array(p text[]) RETURNS boolean LANGUAGE sql IMMUTABLE SET search_path = pg_catalog AS $$ SELECT COALESCE(array_ndims(p)=1 AND cardinality(p)>0 AND NOT EXISTS (SELECT 1 FROM unnest(p) AS v(value) WHERE value IS NULL OR value ~ '^[[:space:]]*$'),false); $$;
+REVOKE ALL ON FUNCTION gk_private.nonempty_text_array(text[]) FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION gk_private.nonempty_text_array(text[]) TO service_role;
 CREATE TABLE "public"."reference_values" (
   "vocabulary" text NOT NULL,
   "code" text NOT NULL,
@@ -29,7 +32,7 @@ CREATE TABLE "public"."reference_values" (
   CONSTRAINT "ck_reference_values_3" CHECK (btrim(vocabulary) <> '' AND btrim(code) <> ''),
   CONSTRAINT "ck_reference_values_4" CHECK (jsonb_typeof(permissions) = 'object'),
   CONSTRAINT "ck_reference_values_5" CHECK (vocabulary = 'access_role' OR permissions = '{}'::jsonb),
-  CONSTRAINT "ck_reference_values_6" CHECK (review_state <> 'accepted' OR vocabulary <> 'access_role' OR approval_reference IS NOT NULL)
+  CONSTRAINT "ck_reference_values_6" CHECK (review_state <> 'accepted' OR vocabulary <> 'access_role' OR COALESCE(btrim(approval_reference),'') <> '')
 );
 REVOKE ALL ON TABLE "public"."reference_values" FROM PUBLIC, anon, authenticated;
 ALTER TABLE "public"."reference_values" ENABLE ROW LEVEL SECURITY;
@@ -367,7 +370,8 @@ CREATE TABLE "gk_private"."source_artifacts" (
   CONSTRAINT "pk_source_artifacts" PRIMARY KEY ("id"),
   CONSTRAINT "uq_source_artifacts_0" UNIQUE ("source_namespace", "file_code", "version_sha256"),
   CONSTRAINT "ck_source_artifacts_0" CHECK (version_sha256 ~ '^[a-f0-9]{64}$'),
-  CONSTRAINT "ck_source_artifacts_1" CHECK (jsonb_typeof(worksheet_manifest) = 'object')
+  CONSTRAINT "ck_source_artifacts_1" CHECK (jsonb_typeof(worksheet_manifest) = 'object'),
+  CONSTRAINT "ck_source_artifacts_2" CHECK (btrim(source_namespace) <> '' AND btrim(file_code) <> '')
 );
 REVOKE ALL ON TABLE "gk_private"."source_artifacts" FROM PUBLIC, anon, authenticated;
 ALTER TABLE "gk_private"."source_artifacts" ENABLE ROW LEVEL SECURITY;
@@ -388,7 +392,8 @@ CREATE TABLE "gk_private"."source_records" (
   CONSTRAINT "uq_source_records_0" UNIQUE ("artifact_id", "native_sheet_key", "source_row"),
   CONSTRAINT "ck_source_records_0" CHECK (source_row > 0),
   CONSTRAINT "ck_source_records_1" CHECK (processing_state IN ('staged','blocked','resolved','reference_only')),
-  CONSTRAINT "ck_source_records_2" CHECK (jsonb_typeof(cell_payload) = 'object')
+  CONSTRAINT "ck_source_records_2" CHECK (jsonb_typeof(cell_payload) = 'object'),
+  CONSTRAINT "ck_source_records_3" CHECK (btrim(native_sheet_key) <> '')
 );
 REVOKE ALL ON TABLE "gk_private"."source_records" FROM PUBLIC, anon, authenticated;
 ALTER TABLE "gk_private"."source_records" ENABLE ROW LEVEL SECURITY;
@@ -420,7 +425,7 @@ CREATE TABLE "gk_private"."source_provenance" (
   CONSTRAINT "pk_source_provenance" PRIMARY KEY ("id"),
   CONSTRAINT "ck_source_provenance_0" CHECK (num_nonnulls(child_id,private_profile_child_id,caregiver_id,child_caregiver_id,program_change_id,response_id,item_id,answer_id,attendance_id,support_id,adl_id) + CASE WHEN reference_vocabulary IS NOT NULL AND reference_code IS NOT NULL THEN 1 ELSE 0 END = 1),
   CONSTRAINT "ck_source_provenance_1" CHECK ((reference_vocabulary IS NULL) = (reference_code IS NULL)),
-  CONSTRAINT "ck_source_provenance_2" CHECK (cardinality(source_columns) > 0 AND cardinality(target_fields) > 0),
+  CONSTRAINT "ck_source_provenance_2" CHECK (gk_private.nonempty_text_array(source_columns) AND gk_private.nonempty_text_array(target_fields)),
   CONSTRAINT "ck_source_provenance_3" CHECK (contribution_state IN ('selected','supporting','conflict_evidence')),
   CONSTRAINT "ck_source_provenance_4" CHECK (btrim(rule_reference) <> '')
 );
@@ -446,7 +451,7 @@ CREATE TABLE "gk_private"."access_memberships" (
   CONSTRAINT "ck_access_memberships_0" CHECK ((archived_at IS NULL) = (archived_by IS NULL)),
   CONSTRAINT "ck_access_memberships_1" CHECK (approved_email_domain = 'goalkeep.net'),
   CONSTRAINT "ck_access_memberships_2" CHECK (NOT private_write OR private_read),
-  CONSTRAINT "ck_access_memberships_3" CHECK (NOT active OR approval_reference IS NOT NULL)
+  CONSTRAINT "ck_access_memberships_3" CHECK (NOT active OR COALESCE(btrim(approval_reference),'') <> '')
 );
 REVOKE ALL ON TABLE "gk_private"."access_memberships" FROM PUBLIC, anon, authenticated;
 ALTER TABLE "gk_private"."access_memberships" ENABLE ROW LEVEL SECURITY;
@@ -545,9 +550,8 @@ ALTER TABLE "public"."child_caregivers" ADD CONSTRAINT "fk_child_caregivers_2" F
 ALTER TABLE "public"."child_caregivers" ADD CONSTRAINT "fk_child_caregivers_3" FOREIGN KEY ("caregiver_id") REFERENCES "gk_private"."caregivers" ("id") ON DELETE RESTRICT;
 ALTER TABLE "public"."child_caregivers" ADD CONSTRAINT "fk_child_caregivers_4" FOREIGN KEY ("role_vocabulary", "role_code") REFERENCES "public"."reference_values" ("vocabulary", "code") ON DELETE RESTRICT;
 ALTER TABLE "public"."child_caregivers" ADD CONSTRAINT "fk_child_caregivers_5" FOREIGN KEY ("archived_by") REFERENCES auth.users ("id") ON DELETE RESTRICT;
-CREATE INDEX "ix_child_caregivers_0" ON "public"."child_caregivers" ("child_id");
-CREATE INDEX "ix_child_caregivers_1" ON "public"."child_caregivers" ("caregiver_id");
-CREATE INDEX "ix_child_caregivers_2" ON "public"."child_caregivers" ("role_vocabulary", "role_code");
+CREATE INDEX "ix_child_caregivers_0" ON "public"."child_caregivers" ("caregiver_id");
+CREATE INDEX "ix_child_caregivers_1" ON "public"."child_caregivers" ("role_vocabulary", "role_code");
 ALTER TABLE "public"."program_changes" ADD CONSTRAINT "fk_program_changes_0" FOREIGN KEY ("created_by") REFERENCES auth.users ("id") ON DELETE RESTRICT;
 ALTER TABLE "public"."program_changes" ADD CONSTRAINT "fk_program_changes_1" FOREIGN KEY ("updated_by") REFERENCES auth.users ("id") ON DELETE RESTRICT;
 ALTER TABLE "public"."program_changes" ADD CONSTRAINT "fk_program_changes_2" FOREIGN KEY ("child_id") REFERENCES "public"."children" ("id") ON DELETE RESTRICT;

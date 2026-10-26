@@ -95,7 +95,7 @@ def main():
  require(body.count(' {')==len(re.findall(r'^    }$',body,re.M)),'Mermaid entity blocks unbalanced')
  checks.append('Nine required documents, relative links, complete field CSV and Mermaid entity references checked')
  # Prevent obvious source identifiers/contacts and private organization terms from entering publishable files.
- public=list((ROOT/'docs').rglob('*'))+list((ROOT/'scripts').glob('*.py'))+list((ROOT/'supabase').rglob('*.sql'))+list((ROOT/'config').rglob('*.json'))+[ROOT/'AGENTS.md']
+ public=list((ROOT/'docs').rglob('*'))+list((ROOT/'scripts').glob('*.py'))+list((ROOT/'tests').rglob('*.py'))+list((ROOT/'tests').rglob('*.sql'))+list((ROOT/'supabase').rglob('*.sql'))+list((ROOT/'config').rglob('*.json'))+[ROOT/'AGENTS.md']
  public=[p for p in public if p.is_file() and p.suffix not in {'.pyc'}]
  corpus='\n'.join(p.read_text() for p in public if p.name!='verification.json')
  terms=json.loads((private/'redaction-terms.json').read_text())

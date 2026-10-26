@@ -13,7 +13,7 @@ def main():
  manifest=json.loads((ROOT/'work/source-intake/private-manifest.json').read_text())
  inputs={f['alias']:f for f in manifest};books={}
  for a,f in inputs.items():
-  assert digest(f['original_path'])==f['sha256'],'Source hash changed'
+  ensure_source_integrity(digest(f['original_path'])==f['sha256'], 'Source hash changed')
   books[a]=openpyxl.load_workbook(f['original_path'],read_only=True,data_only=False)
  rows={}
  for s in profile['sheets']:
@@ -30,10 +30,10 @@ def main():
   s=next(s for s in profile['sheets'] if (s['source'],s['sheet'])==(a,t))
   rr=[{'entity_kind':entity,'business_id':value(a,t,r,idcol),'identifier_literal':True,'fields':{k:value(a,t,r,c) for k,c in fields.items()},'field_columns':fields,'equivalent_fields':[k for k in fields if k!='program'],'authoritative_fields':[k for k in fields if k!='program'],'reference':ref(a,t,r)} for r in s['record_row_refs']]
   canonical[entity],problems=verified_registry(rr);issues+=problems;records+=rr
- assert not issues and len(canonical['child'])==371 and len(canonical['caregiver'])==716,'Literal authoritative ID validation failed; no constraints approved'
+ ensure_source_integrity(not issues and len(canonical['child'])==371 and len(canonical['caregiver'])==716, 'Literal authoritative ID validation failed; no constraints approved')
  aliases=collections.defaultdict(list);observations=[];idcoverage=collections.Counter();unresolved=[];pair={}
  for r in next(s for s in profile['sheets'] if (s['source'],s['sheet'])==('S05','T07'))['record_row_refs']:
-  cid=value('S05','T07',r,'C');gid=value('S05','T07',r,'B');assert cid in canonical['child'];pair[gid]=cid
+  cid=value('S05','T07',r,'C');gid=value('S05','T07',r,'B');ensure_source_integrity(cid in canonical['child'], 'Source integrity validation failed');pair[gid]=cid
   aliases[cid].append({'name':value('S05','T07',r,'D'),'reference':ref('S05','T07',r)})
  name_labels=('childname','childnames','nameofchild','nameofthechild','fullnameofthechild','traineename')
  for s in profile['sheets']:
@@ -64,24 +64,25 @@ def main():
  q=next(s for s in profile['sheets'] if s['kind']=='questionnaire_primary');mismatches=[]
  for r in q['record_row_refs']:
   cid=value('S01','T01',r,'BA');gid=value('S01','T01',r,'AZ')
-  assert cid in canonical['child'] and gid in canonical['caregiver'] and pair[gid]==cid,'Exact questionnaire relationship failed'
+  ensure_source_integrity(cid in canonical['child'] and gid in canonical['caregiver'] and pair[gid]==cid, 'Exact questionnaire relationship failed')
   if norm(value('S01','T01',r,'A'))!=norm(canonical['child'][cid]['fields']['display_name']):mismatches.append(ref('S01','T01',r))
- assert len(mismatches)==60
+ ensure_source_integrity(len(mismatches)==60, 'Source integrity validation failed')
  actions=plan_recovery(records,canonical,{'child':{'display_name':'text','birth_date':'date','gender_reported':'text','joining_date':'date'},'caregiver':{'display_name':'text'}})
  candidates=[];attendance=collections.Counter()
  for o in observations:
   c=identity_candidates(o,canonical['child'],aliases)
   attendance['rows']+=1;attendance['verified_rows' if any(x['status']=='verified' for x in c) else 'one_candidate' if len(c)==1 else 'ambiguous' if c else 'unmatched']+=1
   candidates.append({'source_reference':o['reference'],'candidates':c})
- assert attendance['rows']==2142
+ ensure_source_integrity(attendance['rows']==2142, 'Source integrity validation failed')
  dispositions=[]
  for s in profile['sheets']:
   p=ROOT/'work/source-intake/sanitized'/f"{s['source']}_{s['sheet']}.jsonl"
   for line in p.read_text().splitlines():
    row=json.loads(line)
    if any(present(v) for v in row['cells'].values()):dispositions.append({'source_reference':ref(s['source'],s['sheet'],row['row']),'status':'reference_only','target_observations':0})
- expected=[d['source_reference'] for d in dispositions];reconciliation=reconcile(expected,dispositions)
- assert reconciliation['ok'] and len(expected)==sum(s['nonempty_rows'] for s in profile['sheets'])
+ expected=[ref(a,t,r) for (a,t),grid in rows.items() for r,cells in enumerate(grid,1) if any(present(c.value) for c in cells)]
+ reconciliation=reconcile(expected,dispositions)
+ ensure_source_integrity(reconciliation['ok'] and len(expected)==sum(s['nonempty_rows'] for s in profile['sheets']), 'Source integrity validation failed')
  private=ROOT/'work/recovery';private.mkdir(exist_ok=True,mode=0o700);os.chmod(private,0o700)
  def save(name,data):
   p=private/name;p.write_text(json.dumps(data,indent=2,default=str)+'\n');p.chmod(0o600)
@@ -91,7 +92,11 @@ def main():
  def mask(v):return None if v is None else 'MASK_'+hmac.new(key,str(v).encode(),hashlib.sha256).hexdigest()[:20]
  save('sanitized-recovery-overlay.json',[{**{k:v for k,v in a.items() if k not in ['business_id','original_value','recovered_value']},'business_id':mask(a['business_id']),'original_value':mask(a['original_value']),'recovered_value':mask(a['recovered_value'])} for a in actions])
  for b in books.values():b.close()
- assert all(digest(f['original_path'])==f['sha256'] for f in manifest)
+ ensure_source_integrity(all(digest(f['original_path'])==f['sha256'] for f in manifest), 'Source integrity validation failed')
  summary={'status':'passed','authoritative_literal_identifiers':{'children':371,'caregivers':716,'caregiver_link_children':len(set(pair.values())),'questionnaire_verified_pairs':106,'questionnaire_name_conflicts':60},'literal_identifier_occurrences':dict(idcoverage),'recovery_actions':dict(collections.Counter(a['validation_status'] for a in actions)),'attendance_investigation':dict(attendance),'reconciliation':reconciliation,'scope':'Targeted source-ID and recovery investigation; full profiling reused. All nonempty rows retained as reference_only; no loading performed. Candidates remain unapproved.','originals_unchanged':True,'private_outputs':'Ignored work/recovery; no source values in this summary','limitations':['Only explicit literal ID columns qualify; formulas are not trusted identifiers','Supplement donor authority not approved','No attempt to invent ADL dates or questionnaire scoring','One disposition per retained row is preservation coverage, not semantic import completion']}
  (ROOT/'docs/evidence/recovery-preparation.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(summary,indent=2))
+
+def ensure_source_integrity(condition,message):
+ if not condition:raise ValueError(message)
+
 if __name__=='__main__':main()

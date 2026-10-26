@@ -111,7 +111,7 @@ Primary key: `id`. Unique keys: `id, child_id`; `child_id, caregiver_id`.
 | role_vocabulary, role_code | reference_values(vocabulary, code) | 0..1 parent per row; RESTRICT |
 | archived_by | auth.users(id) | 0..1 parent per row; RESTRICT |
 
-Indexes: child_id (FK lookup/referential action candidate; benchmark before redundant indexes); caregiver_id (FK lookup/referential action candidate; benchmark before redundant indexes); role_vocabulary, role_code (FK lookup/referential action candidate; benchmark before redundant indexes). See generated SQL for additional candidate partial indexes.
+Indexes: caregiver_id (FK lookup/referential action candidate; benchmark before redundant indexes); role_vocabulary, role_code (FK lookup/referential action candidate; benchmark before redundant indexes). See generated SQL for additional candidate partial indexes.
 
 
 ### public.program_changes

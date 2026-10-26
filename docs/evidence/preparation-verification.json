@@ -1,36 +1,37 @@
 {
   "status": "passed",
-  "scope": "Prepared model, SQL parser/static security and evidence consistency; zero SQL executed",
+  "scope": "Static model/SQL/evidence consistency; this checker executes no SQL. Separate local runtime and read-only remote evidence referenced.",
   "table_count": 19,
   "mapping_coordinates": 5186,
   "migration_files": {
     "20261026171200_ids_schema.sql": {
-      "sql_statements": 205,
-      "plpgsql_functions": 0,
-      "sql_function_bodies": 0,
-      "sha256": "93807b862c9b0ea4ae8f25a3c62c9d6fc3298f852530d05c949ba530b9385450"
+      "sql_statements": 207,
+      "plpgsql_functions": 1,
+      "sql_function_bodies": 1,
+      "sha256": "c797b29ee6ea1d3a018336890d54ad0d563558cc7c4a19291dd69205b893ff53"
     },
     "20261026171201_ids_security.sql": {
       "sql_statements": 119,
       "plpgsql_functions": 7,
       "sql_function_bodies": 2,
-      "sha256": "f36b31d250f9970490354de4a527280e77ae22e334d60d0ecb3185772be8131d"
+      "sha256": "996924ab804aac8ba7b9672c941d1b7941fc812150322d45ba9d6e1294879b5c"
     },
     "20261026171202_ids_integrity.sql": {
-      "sql_statements": 76,
+      "sql_statements": 81,
       "plpgsql_functions": 7,
       "sql_function_bodies": 0,
-      "sha256": "5a75bae7a822296afcc0f010250d3d302ea1fac6ad1c8a86a9aac78efcd02068"
+      "sha256": "5581168a4c6ef61c183552a04474064e44e8bcafdee4bf8e7f1255659cf58abc"
     }
   },
   "nonempty_rows_retained": 20432,
   "source_business_ids_verified": true,
   "mermaid": "Local supported grammar/entity/FK checks passed; official renderer not run",
-  "migrations_applied": false,
+  "remote_migrations_applied": false,
+  "local_runtime_verified_for_current_sql": true,
+  "remote_connection_verified": true,
   "limitations": [
-    "No PostgreSQL catalog/runtime, RLS impersonation, OAuth login or migration replay tests executed",
-    "Role matrix remains draft; role definitions and memberships not seeded",
-    "Exact Supabase project reference/region/read connectivity still unverified",
-    "Scoring/category and source ambiguities are not approved by static tests"
+    "Live Google OAuth and the complete Supabase Auth/PostgREST stack are not tested by local contract fixtures",
+    "Role matrix remains draft; remote role definitions and memberships not activated",
+    "Scoring/category and source ambiguities are not approved by technical tests"
   ]
 }

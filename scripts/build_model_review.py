@@ -95,7 +95,7 @@ def main():
  private_map={'AV':'dropout_reason_reported','G':'diagnosis_1','H':'diagnosis_2','J':'birth_date','L':'gender_reported','M':'child_national_id','N':'blood_group_reported','AC':'contact_address','AD':'sibling_count_reported','AE':'udid_number','AF':'udid_disability_reported','AG':'udid_validity_reported','AH':'udid_percentage_reported','AI':'insurance_number','AJ':'assessment_date','AK':'assessment_age_reported','AL':'family_income_reported','AM':'economic_category_reported','AN':'assessment_fee','AO':'monthly_fee','AP':'monthly_fee_remarks','AQ':'concession_reported','AT':'social_category_reported','AU':'religion_reported','BG':'transition_date','BH':'consent_reported','BI':'comments','BK':'severity_reported'}
  caregiver_map={'O':'display_name','P':'contact_phone','Q':'contact_email','R':'national_id','S':'birth_date','T':'employment_reported','U':'education_reported','V':'display_name','W':'contact_phone','X':'contact_email','Y':'national_id','Z':'birth_date','AA':'employment_reported','AB':'education_reported'}
  mappings=[]
- def dest(t,f):assert t in by and f in by[t]['fields'];return t+'.'+f
+ def dest(t,f):ensure_source_integrity(t in by and f in by[t]['fields'], 'Source integrity validation failed');return t+'.'+f
  for s in p['sheets']:
   fields=list(s['fields'])
   if not fields:
@@ -148,5 +148,9 @@ def main():
  summary={'source_column_slots':len(mappings),'profiled_source_field_instances':sum(len(s['fields']) for s in p['sheets']),'additional_header_or_coordinate_slots':sum(x['coverage_class']=='coordinate_or_header_only' for x in mappings),'retained_field_instances':sum(bool(x['retained_target']) for x in mappings),'operationally_projected_field_instances':sum(bool(x['operational_target']) for x in mappings),'without_named_operational_projection':sum(not x['operational_target'] for x in mappings),'dispositions':dict(collections.Counter(x['disposition'] for x in mappings)),'headerless_worksheets':sum(s['header_row'] is None for s in p['sheets']),'source_worksheet_coverage':len(p['sheets']),'unrepresented_fields':0,'warning':'Retained provenance coverage is not proof of a typed operational field or approved future workflow; archive-only fields are explicitly listed'}
  (ROOT/'docs/evidence/model-mapping-summary.json').write_text(json.dumps(summary,indent=2)+'\n')
  print(json.dumps({'tables':len(models),'core':model['core_table_count'],'mapping':summary},indent=2))
+
+
+def ensure_source_integrity(condition,message):
+ if not condition:raise ValueError(message)
 
 if __name__=='__main__':main()

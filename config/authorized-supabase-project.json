@@ -2,6 +2,8 @@
   "name": "kc2-integrated-data-system",
   "region": "ap-northeast-1",
   "environment": "non-production pilot",
-  "reference_id": null,
-  "verified": false
+  "reference_id": "hmlbdozsqxlwzvjimjwh",
+  "verified": true,
+  "verified_on": "2026-10-27",
+  "verification_method": "Supabase MCP list_projects/get_project and read-only SQL"
 }
