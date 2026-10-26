@@ -1,25 +1,55 @@
 {
   "status": "passed",
-  "scope": "Stage 1 metadata and deliverable integrity only",
+  "scope": "Recovered Stage 1 source/aggregate integrity, independent critical relationship checks, documentation and synthetic regression; business decisions remain open",
+  "counts": {
+    "files": 12,
+    "worksheets": 155,
+    "record_rows_including_views": 6521,
+    "nonempty_cells": 145785,
+    "formulas": 66057,
+    "excel_error_cells": 1,
+    "kind_record_rows": {
+      "questionnaire_primary": 106,
+      "supporting_summary": 0,
+      "questionnaire_subset": 29,
+      "questionnaire_view": 84,
+      "roster_or_other": 296,
+      "daily_attendance": 2142,
+      "annual_attendance_summary": 218,
+      "child_master": 371,
+      "fees_view": 118,
+      "sibling_roster": 0,
+      "child_supplement": 26,
+      "historical_visits": 155,
+      "supporting_unclassified": 0,
+      "severity_view": 370,
+      "support_attendance": 262,
+      "caregiver_link": 716,
+      "support_event_summary": 15,
+      "visit_activity_log": 144,
+      "adl_visit_slots": 1219,
+      "adl_annual_summary": 129,
+      "adl_goals_summary": 121
+    }
+  },
   "checks": [
-    "Original source and README hashes unchanged",
-    "Inventory recomputation matches stored evidence",
-    "All source roots scanned",
-    "Absent NGO records represented as unknown",
-    "Five required reports present",
-    "Relative report links resolve",
-    "Required feature branch active",
-    "No SQL migration directory created",
-    "Git whitespace check passed",
-    "Python scripts compile"
+    "Local source inventory and original guideline/README hashes unchanged",
+    "12 original and 155 sanitized hashes, native sheet IDs, row/cell lineage, cell totals and field denominators verified",
+    "6521 candidate rows and 145785 nonempty cells reconciled without discarding views or unresolved content",
+    "Independent core-table check: 371 unique admissions; 716 caregivers/370 children; 106 valid ID pairs; 60 name conflicts preserved",
+    "ADL evidence reconciles 194 checked visits and four missing dates; ID match denominators reconcile",
+    "Nine required documents, relative links, complete field CSV and Mermaid entity references checked",
+    "Public documents/code scanned for private organization terms and core source identifiers/names/contact strings",
+    "Synthetic end-to-end privacy/lineage/duplicate/date/score/link regression passed",
+    "All Python scripts compile; working/staged Git whitespace checks pass; branch/scope/private-file safeguards pass"
   ],
   "not_validated": [
-    "NGO record quality, identities or relationships",
-    "Sanitization of NGO data",
-    "Supabase connectivity, region, schema or migration",
-    "Remote GitHub access",
-    "Application build, lint or TypeScript checks (no application)",
-    "Google Docs or Sheets access",
-    "Project-owner acceptance"
-  ]
+    "Analyst/schema approval and unresolved business rules",
+    "Live Google formula recalculation and completeness beyond accessible folder results",
+    "Mermaid rendered appearance (structural checks only)",
+    "Supabase project/region/schema/RLS/migration",
+    "Frontend build/lint/TypeScript (no application)",
+    "Remote Git writes or PR creation"
+  ],
+  "reprocessing": "Reused completed full profiles after verifying snapshot/sanitized hashes; re-read only core identity tables for independent validation"
 }

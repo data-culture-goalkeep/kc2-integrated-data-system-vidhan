@@ -4,7 +4,7 @@
     {
       "root": "/workspace/attachments",
       "status": "scanned",
-      "files": 1
+      "files": 13
     },
     {
       "root": "/workspace/library-files",
@@ -30,6 +30,102 @@
       "sha256": "4a1aaa74fc770a93556f901688b2c46449bd3f0f45ce0052f2b35757b33cce99",
       "role": "guidelines",
       "tabular_candidate": false
+    },
+    {
+      "path": "source:S12",
+      "format": ".xlsx",
+      "bytes": 212811,
+      "sha256": "b58d9f62ae2a52d285d537893e61c45f39ce505d44253b791ecf121ddae84e16",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S11",
+      "format": ".xlsx",
+      "bytes": 317449,
+      "sha256": "520b2acdc6ee7eb787e94b3fe92f5a6ec9dce3790dd791565e59ea51dca7420e",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S01",
+      "format": ".xlsx",
+      "bytes": 99764,
+      "sha256": "e974696cf8b2acc984664c7d8b2e8a975fe85cff0d20b3b880c18c72f2ceac31",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S06",
+      "format": ".xlsx",
+      "bytes": 103057,
+      "sha256": "566de586d1eeae7e8316706b5a869144362d34d465acac5c8fb861be9fb746ec",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S09",
+      "format": ".xlsx",
+      "bytes": 323443,
+      "sha256": "a1476273276ba6e0eeacfe6b02dc44139349439d2ea798e73de237faf837ee99",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S10",
+      "format": ".xlsx",
+      "bytes": 288093,
+      "sha256": "3f59a296d0dc49c9f69975ce642d26ea5067b01c1237ed3ddc26462de16670e8",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S08",
+      "format": ".xlsx",
+      "bytes": 304364,
+      "sha256": "bce6d0ede8610d92b3aae8317ce8deec3eb47a0e086b919cc2651142c044bb56",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S07",
+      "format": ".xlsx",
+      "bytes": 483909,
+      "sha256": "d665484031dd0d875812dbe32b9ca9755b9e7501a8706085db65555c855a09b5",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S04",
+      "format": ".xlsx",
+      "bytes": 294004,
+      "sha256": "cc70b78e188641313817d2845945540d1ed778704cbaa636f4b69e710e0e9090",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S03",
+      "format": ".xlsx",
+      "bytes": 647463,
+      "sha256": "cc482b5c77c1b2bb45d150990d3f0e5bba4604874aa029519b40c233997ec67a",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S05",
+      "format": ".xlsx",
+      "bytes": 504938,
+      "sha256": "7bf26b1f92d1d802e4bd15c98484d1c7f85e55b71f1362f4ecee06d467c80886",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
+    },
+    {
+      "path": "source:S02",
+      "format": ".xlsx",
+      "bytes": 300940,
+      "sha256": "20d2d97e4218f6b35af9b25bfd292fb41b4bdd0eeceb0b9bf7b2dd942c88a16c",
+      "role": "ngo_source_snapshot",
+      "tabular_candidate": true
     }
   ],
   "repository_context": {
@@ -48,10 +144,10 @@
     "worksheet_count": 0
   },
   "summary": {
-    "available_input_files": 1,
-    "tabular_candidates": 0,
+    "available_input_files": 13,
+    "tabular_candidates": 12,
     "business_record_count": null,
-    "profiling_status": "blocked_missing_ngo_data"
+    "profiling_status": "sources_available"
   },
   "privacy": "Metadata and structural counts only; no source values, document text, comments or credentials exported."
 }

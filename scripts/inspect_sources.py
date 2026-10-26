@@ -18,8 +18,9 @@ def sha256(path):
             h.update(block)
     return h.hexdigest()
 
-def inspect(roots, guideline, readme):
+def inspect(roots, guideline, readme, intake_manifest=None):
     files, scans = [], []
+    aliases = {str(Path(f['download']['path']).resolve()): f['alias'] for f in (intake_manifest or [])}
     for root in roots:
         root = root.resolve()
         if not root.is_dir():
@@ -28,8 +29,9 @@ def inspect(roots, guideline, readme):
         paths = sorted(p for p in root.rglob('*') if p.is_file() and not (set(p.relative_to(root).parts) & EXCLUDED))
         scans.append({'root': str(root), 'status': 'scanned', 'files': len(paths)})
         for p in paths:
-            files.append({'path': str(p), 'format': p.suffix.lower(), 'bytes': p.stat().st_size,
-                          'sha256': sha256(p), 'role': 'guidelines' if p.resolve() == guideline.resolve() else 'unclassified',
+            alias=aliases.get(str(p.resolve()))
+            files.append({'path': 'source:'+alias if alias else str(p), 'format': p.suffix.lower(), 'bytes': p.stat().st_size,
+                          'sha256': sha256(p), 'role': 'guidelines' if p.resolve() == guideline.resolve() else 'ngo_source_snapshot' if alias else 'unclassified',
                           'tabular_candidate': p.suffix.lower() in TABULAR})
     with ZipFile(guideline) as z:
         document = ET.fromstring(z.read('word/document.xml'))
@@ -48,7 +50,7 @@ def inspect(roots, guideline, readme):
             'repository_context': {'path': str(readme), 'bytes': readme.stat().st_size, 'sha256': sha256(readme)},
             'guideline_structure': structure,
             'summary': {'available_input_files': len(files), 'tabular_candidates': sum(f['tabular_candidate'] for f in files),
-                        'business_record_count': None, 'profiling_status': 'blocked_missing_ngo_data'},
+                        'business_record_count': None, 'profiling_status': 'sources_available' if aliases else 'blocked_missing_ngo_data'},
             'privacy': 'Metadata and structural counts only; no source values, document text, comments or credentials exported.'}
 
 def main():
@@ -57,13 +59,15 @@ def main():
     parser.add_argument('--guideline', type=Path, required=True)
     parser.add_argument('--readme', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--intake-manifest', type=Path)
     args = parser.parse_args()
     # Prevent an output file from becoming an input during subsequent runs.
     output = args.output.resolve()
     for root in args.source_root:
         if output == root.resolve() or root.resolve() in output.parents:
             parser.error('Output must be outside all source roots.')
-    result = inspect(args.source_root, args.guideline, args.readme)
+    manifest=json.loads(args.intake_manifest.read_text()) if args.intake_manifest else None
+    result = inspect(args.source_root, args.guideline, args.readme, manifest)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(result['summary'], sort_keys=True))
