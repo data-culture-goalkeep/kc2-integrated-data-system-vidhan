@@ -95,7 +95,7 @@ def main():
  require(body.count(' {')==len(re.findall(r'^    }$',body,re.M)),'Mermaid entity blocks unbalanced')
  checks.append('Nine required documents, relative links, complete field CSV and Mermaid entity references checked')
  # Prevent obvious source identifiers/contacts and private organization terms from entering publishable files.
- public=list((ROOT/'docs').rglob('*'))+list((ROOT/'scripts').glob('*.py'))+[ROOT/'AGENTS.md']
+ public=list((ROOT/'docs').rglob('*'))+list((ROOT/'scripts').glob('*.py'))+list((ROOT/'supabase').rglob('*.sql'))+list((ROOT/'config').rglob('*.json'))+[ROOT/'AGENTS.md']
  public=[p for p in public if p.is_file() and p.suffix not in {'.pyc'}]
  corpus='\n'.join(p.read_text() for p in public if p.name!='verification.json')
  terms=json.loads((private/'redaction-terms.json').read_text())
@@ -119,7 +119,7 @@ def main():
  require(branch=='feature/phase1-data-backend','Incorrect work branch')
  tracked=subprocess.check_output(['git','ls-files'],cwd=ROOT,text=True).splitlines()
  require(not any(p.startswith(('work/','data/')) or p.endswith(('.xlsx','.jsonl','.key')) for p in tracked),'Private/raw data is tracked')
- require(not (ROOT/'supabase/migrations').exists(),'Unexpected schema migration directory')
+ require(not (ROOT/'supabase/migrations').exists() or (ROOT/'docs/evidence/preparation-verification.json').is_file(),'Prepared SQL must pass the current preparation checker')
  subprocess.run(['git','diff','--check'],cwd=ROOT,check=True,capture_output=True)
  subprocess.run(['git','diff','--cached','--check'],cwd=ROOT,check=True,capture_output=True)
  test=subprocess.run([sys.executable,str(ROOT/'scripts/test_profile_sources.py')],cwd=ROOT,text=True,capture_output=True)

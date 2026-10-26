@@ -1,5 +1,7 @@
 # Stage 2 — Structural comparison and source mapping matrix
 
+Historical discovery/review draft preserved for comparison. The current recommendation, owner decisions and preparation boundary are in [final model](15-final-data-model.md) and [project context](project-context.md).
+
 **DRAFT — all organized projections and constraints require analyst approval.** Model A is the spreadsheet structure; Model B is the proposed relational specification. The original 12-entity sketch is preserved separately. No source record was transformed or migrated by this review.
 
 ## Meaningful structural changes

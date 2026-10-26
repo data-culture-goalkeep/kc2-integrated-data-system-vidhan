@@ -1,5 +1,7 @@
 # Stage 2 — Optimized relational model
 
+Historical discovery/review draft preserved for comparison. The current recommendation, owner decisions and preparation boundary are in [final model](15-final-data-model.md) and [project context](project-context.md).
+
 **DRAFT — recommendations only; analyst approval required before Supabase implementation.**
 
 ## Proposed scope and counts

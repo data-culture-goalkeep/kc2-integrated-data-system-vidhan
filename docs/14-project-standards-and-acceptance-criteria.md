@@ -41,3 +41,7 @@ The first implementation PR must include the accepted model/mapping, timestamped
 ## Current status
 
 Standards registered in AGENTS.md and project context. All model-review deliverables are drafts. Source/business approval decisions D01–D12 remain open. The review’s technical checks can establish coverage and internal consistency; they cannot validate those business rules, prove live database security/performance, or substitute for the first implementation review.
+
+## Latest owner decisions — implementation preparation
+
+The finalization request supersedes the earlier review-only boundary: SQL files may be generated and reviewed, but never applied yet. See [final model](15-final-data-model.md), [recovery](16-data-recovery-and-reconciliation.md), [project verification](17-supabase-connectivity-and-migration-plan.md) and [review/gates](18-implementation-review.md). Child and caregiver unique ID authority is confirmed; questionnaire verified pairs control identity while 60 name disagreements are preserved. Name-only attendance remains candidate evidence. Tokyo ap-northeast-1 intentionally overrides Mumbai for this non-production project. Google Workspace goalkeep.net is the approved pilot domain; future NGO domains need later explicit approval. The Admin/Member matrix is DRAFT and must not be activated without owner approval. No migration, data load or frontend is authorized.

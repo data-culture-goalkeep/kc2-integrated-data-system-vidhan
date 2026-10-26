@@ -1,5 +1,7 @@
 # Stage 1 — Conceptual data model
 
+Historical discovery/review draft preserved for comparison. The current recommendation, owner decisions and preparation boundary are in [final model](15-final-data-model.md) and [project context](project-context.md).
+
 Historical 12-entity baseline. The current **draft** revision is [Stage 2 optimized model](11-optimized-data-model.md); approval is still required. The baseline diagram is preserved in [the archive](archive/stage1-er-diagram.md).
 
 Status: proposal for analyst approval; no physical PostgreSQL schema, SQL migration or enforced relationship exists. This document extends discovery, not Phase 2 implementation. The source structures and actual fields are documented in [entity discovery](03-entity-discovery.md), [draft dictionary](06-data-dictionary-draft.md) and [mapping requirements](source-to-target-mapping.md).

@@ -1,56 +1,43 @@
-# KC2 Phase 1 — Project context
+# KC2 Phase 1 — Current project context
 
-Analyst draft for owner review. Updated 26 October 2026 (Asia/Kolkata).
+Updated 26 October 2026, Asia/Kolkata. Implementation prepared for review; nothing applied.
 
-## Purpose and current boundary
+The owner has authorized final model recommendations, recovery/reconciliation scripts, read-only Supabase verification and timestamped SQL generation. Applying migrations, migrating NGO records, enabling broad access and frontend work remain prohibited. Earlier Stage 1/Stage 2 drafts are preserved in Git and `docs/archive/`; their unresolved identity/location statements are superseded only by the explicit decisions below.
 
-Prepare an accurate, reproducible Phase 1 backend for a later integrated data-entry/analytics application. The intended backend is Supabase PostgreSQL in Mumbai, project name `kc2-integrated-data-system`. Current authorization is Stage 2 data-model review/comparison/optimization and draft documentation only, reusing completed Stage 1. It does not authorize physical implementation or resolve Stage 1 business questions. No physical schema, Supabase connection/table, migration or frontend has been created. Approval is required before implementation.
+## Confirmed owner decisions and organisational differences
 
-## Source and execution authority
+- Exact project: `kc2-integrated-data-system`; Tokyo `ap-northeast-1` intentionally retained for this non-production pilot. This contradicts the original Mumbai technical standard; the latest explicit owner instruction establishes the exception. No alternate project may be used.
+- Unique child/caregiver IDs are authoritative business identifiers; internal UUID keys, separate caregiver entities and child/caregiver relationships. Literal local verification confirms 371 unique child IDs, 716 caregiver IDs over 370 child IDs, 106 verified questionnaire pairs. Sixty conflicting questionnaire child names remain source evidence and do not overwrite the master.
+- Attendance uses exact verified IDs first; names/aliases/programme are candidate evidence only. Recovery requires verified identity, equivalent field meaning, authoritative donor and no contradiction, with a complete audit trail.
+- Google OAuth and verified Goalkeep Workspace `goalkeep.net` identity required for this pilot. Proposed Admin/Member matrix is explicitly draft, not approved for activation. Membership and private access are distinct gates. Future NGO domains require separate approval.
+- Guidelines §3/§5/§6 remain organisational requirements; the complete document was read in initial work, but DOCX page rendering was not independently verified. Google Docs context destination, Google Sheet migration-failure log and PM handover remain later obligations. Secure connector/secret bindings override the guideline example of pasting a token into chat.
 
-The complete official guidelines were read in the initial execution, including images and comments. Project-team §3 steps 8–22 govern copying/sanitization, source model, database/migration lineage and PM handover; §5 governs Git and quality; §6 governs durable context; §4 is future compatibility only. DOCX pagination was not independently verified. The owner's latest instructions authorize Stage 2 architecture review and permanent standards; all proposed revisions remain drafts. This is separate from the guidelines’ Phase 2 frontend work.
+## Evidence recovered and preserved
 
-## Current verified evidence
+12 spreadsheets, 155 sheets, 6,521 candidate rows including views/templates, 145,785 nonempty cells. Full profiling was reused, not repeated. All 12 original and 155 sanitized hashes match frozen evidence. There are 20,432 nonempty rows including headers/formulas/summaries; retention coverage is not an import total. Source coordinates are retained throughout.
 
-- Twelve native Google spreadsheets were listed and downloaded from the authorized source folder. All 155 worksheets were inspected and checked against native sheet metadata. No separate discovery documents were returned. Local read-only snapshots, a private manifest and 155 sanitized JSONL working copies remain available; hashes match the completed profile.
-- 6,521 recognized candidate rows across primary sheets, rosters, summaries and alternate views; this is not a distinct-person count or an import total. There are 145,785 nonempty cells.
-- Master: 371 complete, unique admission numbers; names repeat. Caregiver link: 716 unique caregiver IDs over 370 child IDs, all linked to master admissions. One master child has no caregiver-link row.
-- Primary questionnaire: 106 records; all child/caregiver IDs and caregiver–child pairs resolve. Sixty questionnaire names disagree with ID-linked master names; identity authority remains unapproved.
-- Attendance: 92 daily grids, 2,142 child-sheet rows and 24,687 literal P/A marks. Many name-only joins are unresolved, and 610 marks have no recognized date header. Blanks are never inferred absent.
-- ADL: 1,219 child-sheet rows across ten monthly visit-slot layouts, 194 checked slots, four checked without dates. Support matrices use separate mixed encodings.
-- Other findings include three typed births after joining, missing master DOB/consent, a primary questionnaire score outlier, ambiguous/unparsed date values, repeated rows, calendar mismatches and formula-cache limitations. See the quality report for denominators and source references.
+The targeted investigation resolved 1,193 explicit child-ID occurrences and 822 caregiver-ID occurrences to the verified registries; seven explicit child-ID occurrences remain unresolved and are privately reported. No conflicting identifier is repaired automatically. Attendance aliases supported by ID-linked sources produce 1,009 one-candidate rows, 74 ambiguous and 1,059 unmatched across 2,142 rows; zero approved name-only links. The prior master-name-only baseline (736/11/1,395) remains valid for its narrower method. No missing values met all safe-recovery conditions, so zero automatic fills occurred. Full protected ledgers and sanitized overlays are in ignored `work/recovery/`.
 
-## Model and documentation
+Known issues remain: 610 attendance marks without recognized date headers; four malformed date headers and seven calendar mismatches; four of 194 checked ADL slots without dates; three DOB/joining conflicts; missing DOB/consent; questionnaire scale/formula uncertainty, 86/2,862 missing numeric answers and one outlier; ambiguous/unparsed dates; activity event grain and category definitions. These are not resolved by technical tests.
 
-The conceptual model separates children, caregivers/their links, program changes, questionnaire submissions/items/answers, daily attendance, support participation, ADL visits and activity logs. Source IDs establish some relationships; name-based associations remain provisional. Master health/financial/family fields are preserved in the field inventory and require restricted-access design. No sibling people, payment transactions, clinical definitions or business rules were invented.
+## Recommended architecture and prepared artifacts
 
-Read [inventory](01-source-inventory.md), [profiling](02-data-profiling.md), [entities](03-entity-discovery.md), [questions](04-assumptions-and-questions.md), [conceptual model](05-conceptual-data-model.md), [draft dictionary](06-data-dictionary-draft.md), [ER diagram](07-entity-relationship-diagram.md) and [quality report](08-data-quality-report.md). Source-to-target requirements and reproduction steps are separate linked documents.
+19 tables, versus the prior 17: defer activity_logs (−1), add identity_candidates, recovery_actions and record_audit_events (+3). Necessary domain entities, scoped reference values, three source-lineage tables and explicit membership remain. Private schema isolates restricted child/caregiver/answer/source/security evidence. Imported targets require typed provenance; questionnaire links validate child/caregiver pairs and definition consistency. Audit history is append-only. No NGO business categories or role definitions are seeded.
 
-## Recovery and repository state
+Read [final specification](15-final-data-model.md), [dictionary](06-data-dictionary-draft.md), [ER](07-entity-relationship-diagram.md), [recovery design](16-data-recovery-and-reconciliation.md), [connectivity/migrations](17-supabase-connectivity-and-migration-plan.md) and [extensive implementation review](18-implementation-review.md). The complete final mapping retains all 5,186 source-coordinate slots; raw/organized comparisons and previous models remain in docs 09–12/archive.
 
-The interrupted work was recovered in place. Completed profiling outputs and all downloaded sources were preserved and reused; expensive full profiling was not repeated merely to resume. Stale access-blocked context and the zero-dataset checker were updated to the current evidence. Repository: `data-culture-goalkeep/kc2-integrated-data-system-vidhan`; required branch: `feature/phase1-data-backend`. Git CLI remote access failed at the configured proxy; no remote push, PR, merge or deployment is claimed. Verification evidence describes local checks and their limits.
+Prepared migration files cover schema/constraints/indexes, security, and integrity/audit/lineage. No migration or source record has been executed or loaded. Google OAuth provider configuration and runtime RLS/migration tests are not performed.
 
+## Connectivity, verification and next gate
 
-## Stage 2 review milestone — draft
+Supabase plugin installation now reports enabled/installed after owner connection, but this session exposes no callable Supabase project tools. The Cloud Environment has no Supabase secret binding. Project reference, Tokyo metadata and database read connectivity therefore remain unverified. Do not treat installation as project verification. The CLI is installed; supported secure token binding is an alternative if connector tools remain unavailable. Never ask for credentials in chat.
 
-The original model has 12 conceptual entities. The organized draft has 17 proposed tables: 16 core plus conditional activity_logs, including three explicit provenance/staging tables and one access-membership table. PROGRAM becomes scoped reference_values; restricted child attributes gain a separate profile. Questionnaire response stores a validated child-caregiver association, rather than redundant independent FKs; typed answers and definition-consistency constraints are proposed. Caregiver/person scope remains unresolved, so no caregiver/link merge was adopted. No source/domain entity was removed merely to lower count.
+Local preparation checks parse all SQL and PL/pgSQL, compare model/DDL/FKs/mappings/ER and inspect security invariants. Existing discovery/draft-model checks and synthetic regressions remain required. Machine-readable results are in `docs/evidence/preparation-verification.json`, `verification.json`, `model-review-verification.json` and `recovery-preparation.json`. Parser/static/synthetic success is not runtime or business-rule approval.
 
-The source mapping now covers 5,186 column positions across 155 sheets: 5,044 statistical fields plus 142 header-only/coordinate slots. All have retention locations; 3,366 have conditional named operational projections and 1,820 do not. Archive-only retention is not operational workflow completeness. Stage 1 statistics and originals remain unchanged. A targeted addendum filled the omitted 350 TRAINEE NAME attendance rows: across all 2,142 attendance rows, 736 have one string-match candidate, 11 multiple and 1,395 none. No name-based identity was automatically approved.
+Repository: `data-culture-goalkeep/kc2-integrated-data-system-vidhan`; branch `feature/phase1-data-backend`. Preserve feature commits, never push to main or merge automatically. Check actual remote status before claiming publication. Next: restore callable Supabase access, verify the exact project read-only, obtain explicit migration and role-activation approvals, then perform separately authorized runtime validation and application.
 
-Current deliverables are [review](09-data-model-review.md), [raw/organized comparison](10-raw-vs-organized-model.md), [optimized specification](11-optimized-data-model.md), [full comparison/mapping](12-data-model-comparison-matrix.md), [decision register](13-data-quality-decision-register.md) and [permanent standards](14-project-standards-and-acceptance-criteria.md). Prior models/diagram/dictionary are preserved in `docs/archive/` and commit de729f9.
+Permanent standards: Google authentication and server authorization; sticky header/sidebar and collapsed icons; button-triggered Add/Record/Edit forms; supported secret management; extensive first implementation PR review; simplification and preserved raw/organized comparison; reproducible migrations, source reconciliation and automated quality checks. See AGENTS.md and docs 14.
 
-GitHub read permission was verified, but exact Stage 1 commit de729f9 is absent and feature-branch search returned no branches. Git CLI still cannot reach its configured proxy. Work is preserved locally on the required feature branch; no remote publication or PR is claimed. No database, migration or frontend was created.
+## Publication check
 
-## Permanent owner standards for future tasks
-
-Future Google/Supabase login must admit only approved domains and active authorized memberships/roles, while allowing future NGO domains rather than hardcoding Goalkeep-only access. Domain/role configuration and RLS/security review precede deployment. Login identity and caregiver identities are separate. Use a sticky/fixed top header and collapsible sidebar with visible collapsed icons, responsive navigation and consistent components. Forms open via explicit Add/Record/Edit actions and never remain embedded in the main dashboard.
-
-Use this dedicated environment/repository and supported secret-management mechanisms; no credentials in Git, logs, client code or responses. The first implementation PR must receive extensive documented architecture/code/SQL/security/authentication/permissions/integrity/error/performance/tests/maintainability/Goalkeep-compliance review and must not merge automatically. Every major model revision needs simplification assessment plus preserved raw/organized comparison, full mapping, dictionary and diagram. These standards are confirmed user instructions; the model, business rules, exact login domains and roles remain unapproved.
-
-## Unresolved decisions and next step
-
-Review D01–D12 in [the Stage 2 decision register](13-data-quality-decision-register.md), together with Q01–Q11 in [assumptions and questions](04-assumptions-and-questions.md), especially ID/name authority, crosswalks, caregiver-ID scope, questionnaire source/scoring, attendance denominator/date handling and ADL missing dates. Review the conceptual architecture before authorizing the physical schema. Retain timestamped SQL, complete row lineage, migration reconciliation and the Google Sheet failure log as later Phase 1 obligations. Google Docs context destination/synchronization remains undesignated. Credentials must use secure bindings, not ordinary chat.
-
-## PM Learnings from the Pilot
-
-No PM learning observations or usage/cost figures were supplied. Analyst observations: spreadsheet dimensions include large formula templates; apparent row totals overcount unique people; separately prepared dummy names can conflict with otherwise consistent IDs. Preserve evidence and ask for authority instead of repairing these conflicts silently.
+GitHub transport recovered through the authorized execution path. Remote main was read as `5d886cd85a1925d27149f19e5edf8c26bda80e8e`, a common ancestor of the preserved local feature history. The remote feature branch did not exist at the read check. Publication of verified work will create only the feature branch; main must remain unchanged. Draft PR creation is authorized by repository instructions and the owner request. Check the actual GitHub result before claiming publication.

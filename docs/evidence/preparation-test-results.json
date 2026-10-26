@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "synthetic_test_count": 28,
+  "runner": "python -m unittest discover -s scripts -p test_*.py",
+  "result": "............................\n----------------------------------------------------------------------\nRan 28 tests in 0.279s\n\nOK",
+  "deterministic_regeneration": "passed for final-model, schema/security/integrity SQL, source mapping, dictionary and ER",
+  "sql_execution": false,
+  "runtime_database_tests": "not performed; no permission to apply migrations and no callable project connector"
+}

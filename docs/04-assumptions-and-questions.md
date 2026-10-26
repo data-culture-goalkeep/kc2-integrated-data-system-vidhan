@@ -52,3 +52,7 @@ These document instructions are organisational evidence. The owner's requests go
 - B06 later organisational destination: the source folder does not automatically designate the context-document or migration-error-log location. No Google write is needed for this discovery increment.
 
 No access intervention is needed to finish this local Stage 1 package. It is ready for review with the decisions above outstanding, not ready for an automatic production schema or migration.
+
+## Latest owner decisions — implementation preparation
+
+The finalization request supersedes the earlier review-only boundary: SQL files may be generated and reviewed, but never applied yet. See [final model](15-final-data-model.md), [recovery](16-data-recovery-and-reconciliation.md), [project verification](17-supabase-connectivity-and-migration-plan.md) and [review/gates](18-implementation-review.md). Child and caregiver unique ID authority is confirmed; questionnaire verified pairs control identity while 60 name disagreements are preserved. Name-only attendance remains candidate evidence. Tokyo ap-northeast-1 intentionally overrides Mumbai for this non-production project. Google Workspace goalkeep.net is the approved pilot domain; future NGO domains need later explicit approval. The Admin/Member matrix is DRAFT and must not be activated without owner approval. No migration, data load or frontend is authorized.

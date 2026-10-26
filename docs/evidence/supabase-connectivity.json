@@ -1,0 +1,9 @@
+{
+  "status": "blocked",
+  "expected_name": "kc2-integrated-data-system",
+  "expected_region": "ap-northeast-1",
+  "project_verified": false,
+  "database_read_verified": false,
+  "migrations_applied": false,
+  "reason": "ChatGPT Supabase plugin installed/enabled, but project tools unavailable in this session; no Cloud secret binding for CLI/API fallback."
+}

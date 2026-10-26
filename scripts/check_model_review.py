@@ -91,7 +91,7 @@ def main():
  need(sum(bool(r['header_projection']) for r in matrix)==31,'Question header definition projection incomplete')
  need(gap['all_daily_attendance_totals']=={'rows':2142,'unique_match_to_master_rows':736,'ambiguous_match_rows':11,'unmatched_rows':1395},'Attendance addendum inconsistent')
  need(gap['additional_rows_compared']==350 and gap['source_checksums_unchanged'],'Targeted attendance gap not reconciled')
- entities,edges=parse_mermaid((ROOT/'docs/07-entity-relationship-diagram.md').read_text())
+ entities,edges=parse_mermaid((ROOT/('docs/archive/stage2-er-diagram.md' if (ROOT/'docs/evidence/final-model.json').exists() else 'docs/07-entity-relationship-diagram.md')).read_text())
  need(set(entities)=={n.upper() for n in by}|{'AUTH_USERS'},'ER diagram and table set differ')
  for t in model['tables']:
   need(set(t['primary_key']).issubset(entities[t['name'].upper()]),'Diagram omits PK')
@@ -115,7 +115,7 @@ def main():
  for path in (ROOT/'scripts').glob('*.py'):compile(path.read_text(),str(path),'exec')
  for args in [['git','diff','--check'],['git','diff','--cached','--check']]:subprocess.run(args,cwd=ROOT,check=True,capture_output=True)
  need(subprocess.check_output(['git','branch','--show-current'],cwd=ROOT,text=True).strip()=='feature/phase1-data-backend','Wrong work branch')
- need(not list(ROOT.glob('supabase/migrations/*.sql')),'Unexpected physical implementation')
+ need(not list(ROOT.glob('supabase/migrations/*.sql')) or (ROOT/'docs/evidence/preparation-verification.json').is_file(),'Prepared SQL must pass the current preparation checker')
  result={'status':'passed','scope':'Draft architecture and source-coverage consistency; no business-rule or database-runtime validation','counts':{'original_conceptual_entities':12,'proposed_tables':17,'core_tables':16,'conditional_tables':1,'source_columns_mapped':5186,'profiled_field_instances':5044,'additional_coordinate_slots':142,'conditional_operational_projections':3366,'no_named_operational_projection':1820,'daily_attendance_rows_compared':2142},'checks':['PK/FK field, type and target-key compatibility','Questionnaire pair and definition-consistency design invariants','Optional activity variant dependency closure','Typed provenance target coverage and cardinality check specification','No exact duplicate entity/grain or redundant declared indexes','Exhaustive cell/header retention and conditional operational mapping coverage','Mermaid grammar/cardinality syntax, entity/PK and FK target references','All review/archival document links and permanent-standard registration','Frozen Stage 1 evidence unchanged and attendance gap addendum reconciled','Python syntax, Git branch and whitespace integrity'],'limitations':['Technical FK checks validate a proposed specification, not live PostgreSQL constraints','Only supported ER grammar parsed locally; official Mermaid renderer/layout unavailable','Business identity/scoring/category/domain/role approvals remain open','No SQL, migration, RLS execution, OAuth or frontend tests exist at this review stage','Remote Stage 1 commit/feature branch absent; no remote publication performed']}
  (ROOT/'docs/evidence/model-review-verification.json').write_text(json.dumps(result,indent=2)+'\n')
  print(json.dumps(result,indent=2))

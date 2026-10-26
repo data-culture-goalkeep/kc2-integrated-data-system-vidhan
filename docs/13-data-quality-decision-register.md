@@ -26,3 +26,7 @@ All row/cell evidence remains in [Stage 1 profile](evidence/data-profile.json), 
 ## Decisions needed for implementation
 
 Approve identity authority and identifier scope, the attendance/ADL/support crosswalk and trainee population, date/unknown handling, questionnaire authority/scoring, code vocabularies, sensitive access roles/domains and any required archive-only workflow. Record approver, decision, date, affected rule/source and rationale in durable context; then update mappings and constraints. None of those approvals is inferred from technical checks or from the request to review Stage 2.
+
+## Latest owner decisions — implementation preparation
+
+The finalization request supersedes the earlier review-only boundary: SQL files may be generated and reviewed, but never applied yet. See [final model](15-final-data-model.md), [recovery](16-data-recovery-and-reconciliation.md), [project verification](17-supabase-connectivity-and-migration-plan.md) and [review/gates](18-implementation-review.md). Child and caregiver unique ID authority is confirmed; questionnaire verified pairs control identity while 60 name disagreements are preserved. Name-only attendance remains candidate evidence. Tokyo ap-northeast-1 intentionally overrides Mumbai for this non-production project. Google Workspace goalkeep.net is the approved pilot domain; future NGO domains need later explicit approval. The Admin/Member matrix is DRAFT and must not be activated without owner approval. No migration, data load or frontend is authorized.

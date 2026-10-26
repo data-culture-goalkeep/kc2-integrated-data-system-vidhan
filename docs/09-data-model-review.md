@@ -1,5 +1,7 @@
 # Stage 2 — Data-model architecture review
 
+Historical discovery/review draft preserved for comparison. The current recommendation, owner decisions and preparation boundary are in [final model](15-final-data-model.md) and [project context](project-context.md).
+
 **DRAFT — analyst approval required. No Supabase object or migration exists.** Stage 2 here means Phase 1 architecture review, not the guidelines’ Phase 2 frontend work.
 
 ## Recovery and preservation

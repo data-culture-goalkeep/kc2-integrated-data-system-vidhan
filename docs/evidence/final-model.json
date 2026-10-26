@@ -1,0 +1,3570 @@
+{
+  "status": "FINAL_RECOMMENDATION_PREPARED_NOT_APPLIED",
+  "baseline_commit": "de729f993e60b2af7f33e115bc811ee27aa38b21",
+  "baseline_entity_count": 12,
+  "proposed_table_count": 19,
+  "core_table_count": 19,
+  "optional_tables": [],
+  "managed_external_tables": [
+    "auth.users"
+  ],
+  "tables": [
+    {
+      "name": "reference_values",
+      "purpose": "Database-controlled source-scoped categories; replaces separate PROGRAM-only lookup",
+      "grain": "One approved vocabulary/code",
+      "fields": {
+        "vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "code": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "label": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "active": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "sort_order": {
+          "type": "integer",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "permissions": {
+          "type": "jsonb",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "approval_reference": {
+          "type": "text",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        }
+      },
+      "primary_key": [
+        "vocabulary",
+        "code"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [],
+      "optional": false,
+      "schema": "public"
+    },
+    {
+      "name": "children",
+      "purpose": "Canonical operational identity/context under RLS; display names remain personal",
+      "grain": "One resolved source master identity",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "display_name": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "current_program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "admitted_program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_status_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "status_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "joining_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "dropout_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_business_id": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "current_program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "admitted_program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "status_vocabulary",
+            "child_status_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [
+        [
+          "child_business_id"
+        ]
+      ],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "program_vocabulary",
+            "current_program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "admitted_program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "status_vocabulary",
+            "child_status_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "public"
+    },
+    {
+      "name": "child_private_profiles",
+      "purpose": "Separates restricted child/family/health/financial attributes from operational reads",
+      "grain": "Zero or one restricted profile per child",
+      "fields": {
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "birth_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "gender_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_national_id": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "blood_group_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "contact_address": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "sibling_count_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "diagnosis_1": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "diagnosis_2": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "udid_number": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "udid_disability_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "udid_validity_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "udid_percentage_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "insurance_number": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "assessment_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "assessment_age_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "family_income_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "economic_category_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "assessment_fee": {
+          "type": "numeric",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "monthly_fee": {
+          "type": "numeric",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "monthly_fee_remarks": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "concession_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "social_category_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "religion_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "consent_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "dropout_reason_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "transition_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "comments": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "severity_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "child_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [],
+      "optional": false,
+      "schema": "gk_private"
+    },
+    {
+      "name": "caregivers",
+      "purpose": "Resolved caregiver identity; no global person deduplication by display name",
+      "grain": "One caregiver per verified authoritative caregiver business identifier",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "display_name": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "birth_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "contact_phone": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "contact_email": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "national_id": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "employment_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "education_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "caregiver_business_id": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [
+        [
+          "caregiver_business_id"
+        ]
+      ],
+      "checks": [],
+      "indexes": [],
+      "optional": false,
+      "schema": "gk_private"
+    },
+    {
+      "name": "child_caregivers",
+      "purpose": "Preserves each child/caregiver association independently from person identity",
+      "grain": "One child/caregiver association",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "caregiver_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "role_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "role_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "716/716 source child IDs resolve to 371-key master",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "target": "caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "Owner confirmed globally unique caregiver business identifiers; exact IDs verified",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "role_vocabulary",
+            "role_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [
+        [
+          "id",
+          "child_id"
+        ],
+        [
+          "child_id",
+          "caregiver_id"
+        ]
+      ],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "role_vocabulary",
+            "role_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "public"
+    },
+    {
+      "name": "program_changes",
+      "purpose": "Unpivots promotion slots without inventing interval ends",
+      "grain": "One source promotion observation",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "promotion_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "source_slot": {
+          "type": "integer",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_id",
+            "promotion_date"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "public"
+    },
+    {
+      "name": "questionnaire_responses",
+      "purpose": "Submission context; references the validated pair instead of redundant independent IDs",
+      "grain": "One approved response row/submission",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_caregiver_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "definition_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "definition_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "assessment_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "centre_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "centre_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_caregiver_id"
+          ],
+          "target": "child_caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "106/106 observed pairs consistent, authority Q01 pending",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "definition_vocabulary",
+            "definition_key"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "centre_vocabulary",
+            "centre_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [
+        [
+          "id",
+          "definition_key"
+        ]
+      ],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "definition_vocabulary",
+            "definition_key"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "centre_vocabulary",
+            "centre_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_caregiver_id",
+            "assessment_date"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "public"
+    },
+    {
+      "name": "questionnaire_items",
+      "purpose": "Actual question definitions; one version key without premature questionnaire-framework tables",
+      "grain": "One actual question column within an approved definition",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "definition_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "definition_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "item_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "prompt": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "section_label": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "value_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "ordinal": {
+          "type": "integer",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "definition_vocabulary",
+            "definition_key"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [
+        [
+          "definition_key",
+          "item_key"
+        ],
+        [
+          "definition_key",
+          "ordinal"
+        ],
+        [
+          "id",
+          "definition_key"
+        ]
+      ],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "definition_vocabulary",
+            "definition_key"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "public"
+    },
+    {
+      "name": "questionnaire_answers",
+      "purpose": "Typed values replace untyped recorded_value; preserves missing answers separately",
+      "grain": "One response/item",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "response_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "item_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "definition_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "numeric_value": {
+          "type": "numeric",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "text_value": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "answer_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "response_id",
+            "definition_key"
+          ],
+          "target": "questionnaire_responses",
+          "target_columns": [
+            "id",
+            "definition_key"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "item_id",
+            "definition_key"
+          ],
+          "target": "questionnaire_items",
+          "target_columns": [
+            "id",
+            "definition_key"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [
+        [
+          "response_id",
+          "item_id"
+        ]
+      ],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "response_id",
+            "definition_key"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "item_id",
+            "definition_key"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "gk_private"
+    },
+    {
+      "name": "attendance_observations",
+      "purpose": "Dated source marks kept distinct by service; unresolved names/dates remain staged",
+      "grain": "One resolved child/service/source-date observation",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "service_code": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "service_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "attendance_date": {
+          "type": "date",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "mark_code": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "mark_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "batch_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_status_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "future curated rows only; unresolved source identities remain source_records",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "service_vocabulary",
+            "service_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "mark_vocabulary",
+            "mark_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "service_vocabulary",
+            "service_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "mark_vocabulary",
+            "mark_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_id",
+            "attendance_date"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "public"
+    },
+    {
+      "name": "support_observations",
+      "purpose": "Source-cell support observations; not necessarily one person or a daily P/A event",
+      "grain": "One approved support matrix cell",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "participant_link_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "event_reference": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "event_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "numeric_value": {
+          "type": "numeric",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "text_value": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "conditional on approved identity crosswalk",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "participant_link_id",
+            "child_id"
+          ],
+          "target": "child_caregivers",
+          "target_columns": [
+            "id",
+            "child_id"
+          ],
+          "basis": "when a single participant resolves, require the same child",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "participant_link_id",
+            "child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "public"
+    },
+    {
+      "name": "adl_visits",
+      "purpose": "Preserves true visit flags and undated historical exceptions",
+      "grain": "One checked visit-slot observation",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "visit_flag": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "visit_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "source_slot": {
+          "type": "integer",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "conditional on approved identity crosswalk",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_id",
+            "visit_date"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "public"
+    },
+    {
+      "name": "source_artifacts",
+      "purpose": "Immutable snapshot identity and worksheet/column schema",
+      "grain": "One authorized source-file version",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "source_namespace": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "file_code": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "version_sha256": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "source_locator": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "worksheet_manifest": {
+          "type": "jsonb",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "captured_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [
+        [
+          "source_namespace",
+          "file_code",
+          "version_sha256"
+        ]
+      ],
+      "checks": [],
+      "indexes": [],
+      "optional": false,
+      "schema": "gk_private"
+    },
+    {
+      "name": "source_records",
+      "purpose": "Restricted staging/reconciliation for every nonempty source row, including unresolved/derived fields",
+      "grain": "One artifact/native-sheet/original-row",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "artifact_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "native_sheet_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "source_row": {
+          "type": "integer",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "cell_payload": {
+          "type": "jsonb",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "processing_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "diagnostics": {
+          "type": "jsonb",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "artifact_id"
+          ],
+          "target": "source_artifacts",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [
+        [
+          "artifact_id",
+          "native_sheet_key",
+          "source_row"
+        ]
+      ],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "processing_state",
+            "artifact_id"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "gk_private"
+    },
+    {
+      "name": "source_provenance",
+      "purpose": "Many-source-row/cell to one target without unconstrained polymorphic IDs",
+      "grain": "One source-column group -> one typed target/field group",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "source_record_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "source_columns": {
+          "type": "text[]",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "target_fields": {
+          "type": "text[]",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "rule_reference": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "contribution_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "private_profile_child_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "caregiver_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "child_caregiver_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "program_change_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "response_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "item_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "answer_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "attendance_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "support_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "adl_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "reference_vocabulary": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "reference_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "source_record_id"
+          ],
+          "target": "source_records",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "private_profile_child_id"
+          ],
+          "target": "child_private_profiles",
+          "target_columns": [
+            "child_id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "target": "caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_caregiver_id"
+          ],
+          "target": "child_caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_change_id"
+          ],
+          "target": "program_changes",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "response_id"
+          ],
+          "target": "questionnaire_responses",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "item_id"
+          ],
+          "target": "questionnaire_items",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "answer_id"
+          ],
+          "target": "questionnaire_answers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "attendance_id"
+          ],
+          "target": "attendance_observations",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "support_id"
+          ],
+          "target": "support_observations",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "adl_id"
+          ],
+          "target": "adl_visits",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "reference_vocabulary",
+            "reference_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "source_record_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "private_profile_child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_caregiver_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_change_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "response_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "item_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "answer_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "attendance_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "support_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "adl_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "reference_vocabulary",
+            "reference_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "target_groups": [
+        [
+          "child_id"
+        ],
+        [
+          "private_profile_child_id"
+        ],
+        [
+          "caregiver_id"
+        ],
+        [
+          "child_caregiver_id"
+        ],
+        [
+          "program_change_id"
+        ],
+        [
+          "response_id"
+        ],
+        [
+          "item_id"
+        ],
+        [
+          "answer_id"
+        ],
+        [
+          "attendance_id"
+        ],
+        [
+          "support_id"
+        ],
+        [
+          "adl_id"
+        ],
+        [
+          "reference_vocabulary",
+          "reference_code"
+        ]
+      ],
+      "schema": "gk_private"
+    },
+    {
+      "name": "access_memberships",
+      "purpose": "Application authorization independent of Google sign-in and business caregivers",
+      "grain": "One admitted auth user in this dedicated project",
+      "fields": {
+        "user_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "approved_email_domain": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "role_code": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "role_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "active": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_at": {
+          "type": "timestamptz",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "archived_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "recommended_pending_migration_approval"
+        },
+        "private_read": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "private_write": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "approval_reference": {
+          "type": "text",
+          "nullable": true,
+          "status": "technical_preparation"
+        }
+      },
+      "primary_key": [
+        "user_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "user_id"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "Supabase-managed authentication identity, not NGO caregiver identity",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "role_vocabulary",
+            "role_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "archived_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "soft-delete audit"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "role_vocabulary",
+            "role_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "schema": "gk_private"
+    },
+    {
+      "name": "identity_candidates",
+      "schema": "gk_private",
+      "purpose": "Preserve exact-ID matches and unapproved name/context candidates",
+      "grain": "One staged row/candidate identity/method",
+      "optional": false,
+      "primary_key": [
+        "id"
+      ],
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "source_record_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "caregiver_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "match_method": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "resolution_status": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "evidence": {
+          "type": "jsonb",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        }
+      },
+      "foreign_keys": [
+        {
+          "columns": [
+            "source_record_id"
+          ],
+          "target": "source_records",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "technical evidence/audit"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "technical evidence/audit"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "target": "caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "technical evidence/audit"
+        },
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "audit"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "audit"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "source_record_id"
+          ],
+          "reason": "source investigation"
+        }
+      ]
+    },
+    {
+      "name": "recovery_actions",
+      "schema": "gk_private",
+      "purpose": "Append-only original/proposed value, donor, method and validation audit",
+      "grain": "One recovery/suggestion per source cell and run",
+      "optional": false,
+      "primary_key": [
+        "id"
+      ],
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "source_record_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "donor_source_record_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "caregiver_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "source_column": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "field_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "original_value": {
+          "type": "jsonb",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "recovered_value": {
+          "type": "jsonb",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "method": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "validation_status": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "identity_verified": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "authoritative_source": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "meaning_equivalent": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "has_conflict": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "evidence": {
+          "type": "jsonb",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "run_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        }
+      },
+      "foreign_keys": [
+        {
+          "columns": [
+            "source_record_id"
+          ],
+          "target": "source_records",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "technical evidence/audit"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "technical evidence/audit"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "target": "caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "technical evidence/audit"
+        },
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "audit"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "audit"
+        },
+        {
+          "columns": [
+            "donor_source_record_id"
+          ],
+          "target": "source_records",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "recovery donor lineage"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": [
+        {
+          "columns": [
+            "source_record_id"
+          ],
+          "reason": "source investigation"
+        }
+      ]
+    },
+    {
+      "name": "record_audit_events",
+      "schema": "gk_private",
+      "purpose": "Append-only operational and access-change history; no API insertion",
+      "grain": "One database-generated row change event",
+      "optional": false,
+      "primary_key": [
+        "id"
+      ],
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "schema_name": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "table_name": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "record_key": {
+          "type": "jsonb",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "operation": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "before_value": {
+          "type": "jsonb",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "after_value": {
+          "type": "jsonb",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "technical_preparation"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "technical_preparation"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_preparation"
+        }
+      },
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "audit"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "on_delete": "RESTRICT",
+          "basis": "audit"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [],
+      "indexes": []
+    }
+  ],
+  "facts": "All technical keys/audit/staging/auth fields are recommendations, not invented NGO source fields",
+  "authorization": "Stage 2 review only; SQL, migrations and frontend prohibited",
+  "previous_draft_tables": 17,
+  "authorized_project": {
+    "name": "kc2-integrated-data-system",
+    "region": "ap-northeast-1",
+    "environment": "non-production pilot",
+    "reference_id": null,
+    "verified": false
+  },
+  "role_matrix": {
+    "status": "draft_not_activated",
+    "domain": "goalkeep.net",
+    "proposed_roles": [
+      "Admin",
+      "Member"
+    ],
+    "automatic_member_provisioning": "only after explicit owner approval and active accepted role definition",
+    "admin_assignment": "explicit_only"
+  },
+  "approval_scope": "Analyst IDs/name/recovery rules approved; SQL generation only; no application or migrations",
+  "source_note": "Activity source data retained in source_records; no activity table until event grain approved"
+}

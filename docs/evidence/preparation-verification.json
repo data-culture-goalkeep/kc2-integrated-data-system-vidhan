@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "scope": "Prepared model, SQL parser/static security and evidence consistency; zero SQL executed",
+  "table_count": 19,
+  "mapping_coordinates": 5186,
+  "migration_files": {
+    "20261026171200_ids_schema.sql": {
+      "sql_statements": 205,
+      "plpgsql_functions": 0,
+      "sql_function_bodies": 0,
+      "sha256": "93807b862c9b0ea4ae8f25a3c62c9d6fc3298f852530d05c949ba530b9385450"
+    },
+    "20261026171201_ids_security.sql": {
+      "sql_statements": 119,
+      "plpgsql_functions": 7,
+      "sql_function_bodies": 2,
+      "sha256": "f36b31d250f9970490354de4a527280e77ae22e334d60d0ecb3185772be8131d"
+    },
+    "20261026171202_ids_integrity.sql": {
+      "sql_statements": 76,
+      "plpgsql_functions": 7,
+      "sql_function_bodies": 0,
+      "sha256": "5a75bae7a822296afcc0f010250d3d302ea1fac6ad1c8a86a9aac78efcd02068"
+    }
+  },
+  "nonempty_rows_retained": 20432,
+  "source_business_ids_verified": true,
+  "mermaid": "Local supported grammar/entity/FK checks passed; official renderer not run",
+  "migrations_applied": false,
+  "limitations": [
+    "No PostgreSQL catalog/runtime, RLS impersonation, OAuth login or migration replay tests executed",
+    "Role matrix remains draft; role definitions and memberships not seeded",
+    "Exact Supabase project reference/region/read connectivity still unverified",
+    "Scoring/category and source ambiguities are not approved by static tests"
+  ]
+}
