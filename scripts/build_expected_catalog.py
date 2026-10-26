@@ -5,6 +5,14 @@ import time
 import uuid
 from run_postgres_tests import LocalDatabase,ROOT,IMAGE
 
+def write_catalog(path,catalog):
+    """Keep complete metadata while storing one record per line for manageable review diffs."""
+    sections=[]
+    for category,records in catalog.items():
+        body=',\n'.join('    '+json.dumps(record,sort_keys=True,separators=(',',':')) for record in records)
+        sections.append('  '+json.dumps(category)+': [\n'+body+'\n  ]')
+    path.write_text('{\n'+',\n'.join(sections)+'\n}\n')
+
 def main():
     db=LocalDatabase('gk-kc2-catalog-'+uuid.uuid4().hex[:12])
     start=db.docker('run','--rm','-d','--network','none','--name',db.name,
@@ -20,7 +28,7 @@ def main():
         for p in sorted((ROOT/'supabase/migrations').glob('*.sql')):db.execute(p.read_text())
         query=(ROOT/'scripts/sql/inspect_ids_catalog.sql').read_text()
         result=json.loads(db.execute('BEGIN READ ONLY; SET LOCAL search_path=pg_catalog;'+query+'ROLLBACK;'))
-        (ROOT/'docs/evidence/expected-deployment-catalog.json').write_text(json.dumps(result,indent=2)+'\n')
+        write_catalog(ROOT/'docs/evidence/expected-deployment-catalog.json',result)
         print(json.dumps({k:len(v) for k,v in result.items()}))
     finally:
         if db.docker('rm','-f',db.name).returncode:raise RuntimeError('Disposable cleanup failed')
