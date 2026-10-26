@@ -1,5 +1,7 @@
 # PR #1 connectivity and implementation review
 
+Historical preparation/review milestone. The later owner-authorized Stage 3 deployment is complete; current applied status, ledger mapping and live results are in [deployment report](20-supabase-deployment-report.md) and [live validation](21-live-database-validation.md).
+
 Reviewed 27 October 2026 (Asia/Kolkata). Base review head: `3e01f25e4a4f0fbd56d8b593216ff58b8f209d4f`; PR remains draft and unmerged. This is an extensive implementation self-review with execution evidence, not independent owner approval. No remote objects, data or policies were changed.
 
 ## Verified target and region exception

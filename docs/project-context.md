@@ -1,8 +1,8 @@
 # KC2 Phase 1 — Current project context
 
-Updated 27 October 2026, Asia/Kolkata. Implementation prepared for review; nothing applied.
+Updated 27 October 2026, Asia/Kolkata. Stage 3 schema deployed and live-validated; no NGO data or memberships loaded.
 
-The owner has authorized final model recommendations, recovery/reconciliation scripts, read-only Supabase verification and timestamped SQL generation. Applying migrations, migrating NGO records, enabling broad access and frontend work remain prohibited. Earlier Stage 1/Stage 2 drafts are preserved in Git and `docs/archive/`; their unresolved identity/location statements are superseded only by the explicit decisions below.
+The owner subsequently authorized Stage 3 application of only the exact three reviewed SQL migrations. Those migrations are now applied. Migrating NGO records, enabling memberships/broad access/OAuth, further DDL and frontend work remain prohibited without a new authorization. Earlier Stage 1/Stage 2 drafts are preserved in Git and `docs/archive/`; their unresolved identity/location statements are superseded only by the explicit decisions below.
 
 ## Confirmed owner decisions and organisational differences
 
@@ -26,15 +26,15 @@ Known issues remain: 610 attendance marks without recognized date headers; four 
 
 Read [final specification](15-final-data-model.md), [dictionary](06-data-dictionary-draft.md), [ER](07-entity-relationship-diagram.md), [recovery design](16-data-recovery-and-reconciliation.md), [connectivity/migrations](17-supabase-connectivity-and-migration-plan.md) and [extensive implementation review](18-implementation-review.md). The complete final mapping retains all 5,186 source-coordinate slots; raw/organized comparisons and previous models remain in docs 09–12/archive.
 
-Prepared migration files cover schema/constraints/indexes, security, and integrity/audit/lineage. No remote migration or NGO source record has been executed or loaded. Local synthetic PostgreSQL migration/RLS tests now pass; live Google OAuth/provider configuration remains unverified.
+Prepared migration files cover schema/constraints/indexes, security, and integrity/audit/lineage. At the base-PR review milestone no remote migration or NGO record had been loaded. Stage 3 has since applied the schema only; NGO rows remain absent. Local synthetic tests and live SQL catalog/denial checks now pass; Google OAuth/provider configuration remains unverified.
 
 ## Connectivity, verification and next gate
 
-Supabase connectivity is verified through the connected MCP account: exact project kc2-integrated-data-system, reference hmlbdozsqxlwzvjimjwh, Tokyo ap-northeast-1, ACTIVE_HEALTHY, PostgreSQL 17.11. Explicit read-only queries succeeded. No application/non-platform tables or migration history exist. One accessible organisation/project was returned; no alternate project was selected. The empty database security advisor returned no lints. No token, password or personal Auth records were retrieved. The secure CLI/API fallback is optional; it writes separate evidence and does not overwrite MCP verification. See docs/evidence/supabase-connectivity.json.
+Supabase connectivity is verified through the connected MCP account: exact project kc2-integrated-data-system, reference hmlbdozsqxlwzvjimjwh, Tokyo ap-northeast-1, ACTIVE_HEALTHY, PostgreSQL 17.11. Explicit read-only queries succeeded. The project was empty at preflight; it now has the 19 reviewed tables and three recorded migrations. One accessible organisation/project was returned; no alternate project was selected. Post-deployment advisor findings are documented in docs 20/21, replacing the earlier empty-database scan. No token, password or personal Auth records were retrieved. The secure CLI/API fallback is optional; it writes separate evidence and does not overwrite MCP verification. See docs/evidence/supabase-connectivity.json.
 
 Local preparation checks parse all SQL and PL/pgSQL, compare model/DDL/FKs/mappings/ER and inspect security invariants. Existing discovery/draft-model checks and synthetic regressions remain required. Machine-readable results are in `docs/evidence/preparation-verification.json`, `verification.json`, `model-review-verification.json` and `recovery-preparation.json`. Parser/static/synthetic success is not runtime or business-rule approval.
 
-Repository: `data-culture-goalkeep/kc2-integrated-data-system-vidhan`; branch `feature/phase1-data-backend`. Preserve feature commits, never push to main or merge automatically. Check actual remote status before claiming publication. Next: obtain explicit migration and role-activation approvals, then perform separately authorized remote application. Local disposable runtime testing is now authorized and completed; real OAuth/REST integration remains unverified.
+Repository: `data-culture-goalkeep/kc2-integrated-data-system-vidhan`; branch `feature/phase1-data-backend`. Preserve feature commits, never push to main or merge automatically. Check actual remote status before claiming publication. Stage 3 schema deployment is complete. Next: prepare source mappings/loader/reconciliation for review and obtain separate data-load and role-activation approvals. No further remote application is authorized; real OAuth/REST integration remains unverified.
 
 Permanent standards: Google authentication and server authorization; sticky header/sidebar and collapsed icons; button-triggered Add/Record/Edit forms; supported secret management; extensive first implementation PR review; simplification and preserved raw/organized comparison; reproducible migrations, source reconciliation and automated quality checks. See AGENTS.md and docs 14.
 
@@ -48,4 +48,18 @@ Read [current review and readiness](19-base-pr-review-and-readiness.md). The 19-
 
 37 Python tests and 46 PostgreSQL runtime tests pass. Migrations execute on a digest-pinned, network-isolated PostgreSQL 17.11 with synthetic Supabase Auth fixtures; a second fresh replay and transaction rollback tests pass. No real Google login, complete Supabase stack/PostgREST test or NGO load is claimed. Four pinned Python packages show no advisories in queried PyPI metadata. See docs/evidence/postgres-runtime-review.json and dependency-review.json.
 
-Known critical/high review defects are fixed locally. SQL is suitable for owner-reviewed application approval, with no permission to apply remotely. The draft role matrix/initial Admin/private grants and real OAuth validation remain separate activation gates. PR #1 remains draft/unmerged; review fixes stay on feature/phase1-data-backend.
+At base-PR review the known critical/high defects were fixed and SQL was ready for approval. The owner subsequently authorized Stage 3 and those exact files are now deployed; this does not authorize additional schema changes. The draft role matrix/initial Admin/private grants and real OAuth validation remain separate activation gates. PR #1 remains draft/unmerged; review fixes stay on feature/phase1-data-backend.
+
+## Stage 3 deployment milestone
+
+The exact three reviewed files from PR head 277d4d0 were applied sequentially via Supabase MCP to hmlbdozsqxlwzvjimjwh / Tokyo. Before the first write, remote history/application tables were empty and every file matched PR bytes and local runtime hashes. All three calls succeeded without retries, drops or recovery. Source files are unchanged. See [deployment report](20-supabase-deployment-report.md) and [live validation](21-live-database-validation.md), which supersede earlier preparation-only/empty-database statements.
+
+Live comparison is exact across 19 tables, 334 columns, 221 constraints, 72 indexes, 81 triggers, 40 policies, 15 functions, 399 effective table privileges and 45 function privileges. Eleven live SQL-role denial checks pass. One rollback-only child insert was attempted and rejected; all 19 tables remain empty, including membership/reference/audit evidence. No Auth user, Admin, role definition, NGO record or OAuth/frontend configuration was created. Local 37 Python / 46 PostgreSQL test results remain distinct from live verification.
+
+MCP assigned remote ledger versions 20261026210941 / 20261026211010 / 20261026211029, while ledger names retain the original file timestamps. This metadata difference is fully mapped in deployment-validation.json. It requires a reviewed alignment plan before any CLI db push/reset/repair; no history repair or file renaming was attempted. There is no architecture difference.
+
+The live advisor has one INFO for deliberately policy-free private memberships and two WARN findings for guarded public SECURITY DEFINER RPCs. These are documented reviewed choices, not a claim of a clean advisor scan. Live unapproved callers were denied. Do not add permissive policies merely to remove findings.
+
+Schema implementation is complete and fail-closed. Actual NGO migration is not yet ready/authorized: business mappings and exceptions, sanitized scope, an idempotent loader, rejection log and source-level reconciliation need review and approval. Role-matrix/initial Admin/private grants and Google OAuth/HTTP validation remain separate future gates. Never rerun or edit deployed migration files. PR #1 remains unmerged; preserve the feature history.
+
+The preserved final-model.json and earlier preparation reports are the reviewed source specification/history; their PREPARED status metadata does not supersede actual state in deployment-validation.json and docs 20/21.

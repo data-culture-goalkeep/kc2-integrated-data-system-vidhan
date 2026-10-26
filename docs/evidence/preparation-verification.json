@@ -26,7 +26,7 @@
   "nonempty_rows_retained": 20432,
   "source_business_ids_verified": true,
   "mermaid": "Local supported grammar/entity/FK checks passed; official renderer not run",
-  "remote_migrations_applied": false,
+  "deployment_status_evidence": "deployment-validation.json when present; this static checker neither applies nor independently queries remote migrations",
   "local_runtime_verified_for_current_sql": true,
   "remote_connection_verified": true,
   "limitations": [

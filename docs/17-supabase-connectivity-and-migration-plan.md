@@ -1,5 +1,7 @@
 # Supabase connectivity and migration preparation
 
+Historical preparation/review milestone. The later owner-authorized Stage 3 deployment is complete; current applied status, ledger mapping and live results are in [deployment report](20-supabase-deployment-report.md) and [live validation](21-live-database-validation.md).
+
 ## Exact environment and access
 
 Use only `kc2-integrated-data-system`, Tokyo `ap-northeast-1`, non-production pilot. The owner explicitly retained Tokyo despite the earlier Mumbai standard. `config/authorized-supabase-project.json` pins reference hmlbdozsqxlwzvjimjwh and verified=true after successful read-only verification on 27 October 2026. Do not infer a reference from project name or select a different project.

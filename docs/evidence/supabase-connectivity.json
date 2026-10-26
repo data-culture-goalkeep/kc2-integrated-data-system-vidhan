@@ -9,10 +9,55 @@
   "project_status": "ACTIVE_HEALTHY",
   "postgres_version": "17.11",
   "transaction_read_only": "on",
-  "application_tables_in_public_and_gk_private": [],
-  "migrations": [],
-  "security_advisories": [],
-  "migrations_applied": false,
+  "application_tables_in_public_and_gk_private": [
+    "gk_private.access_memberships",
+    "gk_private.caregivers",
+    "gk_private.child_private_profiles",
+    "gk_private.identity_candidates",
+    "gk_private.questionnaire_answers",
+    "gk_private.record_audit_events",
+    "gk_private.recovery_actions",
+    "gk_private.source_artifacts",
+    "gk_private.source_provenance",
+    "gk_private.source_records",
+    "public.adl_visits",
+    "public.attendance_observations",
+    "public.child_caregivers",
+    "public.children",
+    "public.program_changes",
+    "public.questionnaire_items",
+    "public.questionnaire_responses",
+    "public.reference_values",
+    "public.support_observations"
+  ],
+  "migrations": [
+    {
+      "version": "20261026210941",
+      "name": "20261026171200_ids_schema"
+    },
+    {
+      "version": "20261026211010",
+      "name": "20261026171201_ids_security"
+    },
+    {
+      "version": "20261026211029",
+      "name": "20261026171202_ids_integrity"
+    }
+  ],
+  "security_advisories": [
+    {
+      "name": "rls_enabled_no_policy",
+      "level": "INFO",
+      "count": 1
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "level": "WARN",
+      "count": 2
+    }
+  ],
+  "migrations_applied": true,
   "method": "Connected Supabase MCP; no CLI token required",
-  "verified_on": "2026-10-27"
+  "verified_on": "2026-10-27",
+  "deployment_validation": "deployment-validation.json"
 }
