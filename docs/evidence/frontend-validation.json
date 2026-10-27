@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "scope": "Synthetic loopback preview only; no live Supabase/OAuth access",
+  "production_build": "passed",
+  "typescript": "passed",
+  "playwright_tests": 10,
+  "browser_runtime_errors": 0,
+  "browser_supabase_requests": 0,
+  "runtime_dependency_advisories": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "lockfile_sha256": "73f6071d6e206fad1818c449bdc113c5093910910c2fde487ef695e7ac6a87af",
+  "live_api_enabled": false,
+  "oauth_activated": false,
+  "memberships_activated": false,
+  "fixture_preview_host": "127.0.0.1",
+  "nonlocal_host_denied": true,
+  "screenshots_synthetic": true,
+  "remote_writes": 0
+}

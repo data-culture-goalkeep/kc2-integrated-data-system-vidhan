@@ -7,3 +7,8 @@ __pycache__/
 work/
 data/
 *.log
+frontend/node_modules/
+frontend/.next/
+frontend/test-results/
+frontend/playwright-report/
+frontend/*.tsbuildinfo
