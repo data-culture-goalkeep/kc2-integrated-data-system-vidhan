@@ -1,0 +1,51 @@
+{
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "project_name": "kc2-integrated-data-system",
+  "region": "ap-northeast-1",
+  "environment": "non-production pilot",
+  "migration_file": "supabase/migrations/20261027132550_attendance_import_staging.sql",
+  "migration_sha256": "972746410ba3e2cddb149aae5ec1568b86e5ca70d1a3472cb0bf4c2d6e5b3790",
+  "baseline_migration_ledger": [
+    {
+      "version": "20261026210941",
+      "name": "20261026171200_ids_schema"
+    },
+    {
+      "version": "20261026211010",
+      "name": "20261026171201_ids_security"
+    },
+    {
+      "version": "20261026211029",
+      "name": "20261026171202_ids_integrity"
+    }
+  ],
+  "baseline_counts": {
+    "public.children": 371,
+    "public.adl_visits": 0,
+    "gk_private.caregivers": 716,
+    "public.program_changes": 128,
+    "public.child_caregivers": 716,
+    "public.reference_values": 47,
+    "gk_private.source_records": 20432,
+    "public.questionnaire_items": 31,
+    "gk_private.recovery_actions": 0,
+    "gk_private.source_artifacts": 12,
+    "public.support_observations": 0,
+    "gk_private.source_provenance": 5772,
+    "gk_private.access_memberships": 0,
+    "gk_private.identity_candidates": 2089,
+    "gk_private.record_audit_events": 28293,
+    "public.attendance_observations": 0,
+    "public.questionnaire_responses": 106,
+    "gk_private.questionnaire_answers": 3286,
+    "gk_private.child_private_profiles": 371
+  },
+  "baseline_catalog_sha256": "b03bf0cc95bd7c806414cbc454e6919090ed464df44c8a9bf70563e636e43b32",
+  "changes": [
+    "one restricted staging table and its new guard function/triggers/indexes"
+  ],
+  "existing_19_tables_modified": false,
+  "existing_policies_modified": false,
+  "existing_audit_history_modified": false,
+  "remote_execution_authorized": false
+}
