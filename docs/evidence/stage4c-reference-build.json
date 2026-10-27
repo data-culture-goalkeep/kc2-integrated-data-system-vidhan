@@ -1,0 +1,28 @@
+{
+  "scope": "Local network=none reference from exact original SQL; no remote writes",
+  "status": "passed",
+  "checkpoints": 180,
+  "final_counts": {
+    "children": 371,
+    "adl_visits": 0,
+    "caregivers": 716,
+    "source_records": 20432,
+    "program_changes": 128,
+    "child_caregivers": 716,
+    "recovery_actions": 0,
+    "reference_values": 47,
+    "source_artifacts": 12,
+    "source_provenance": 5772,
+    "access_memberships": 0,
+    "identity_candidates": 2089,
+    "questionnaire_items": 31,
+    "record_audit_events": 28293,
+    "support_observations": 0,
+    "questionnaire_answers": 3286,
+    "child_private_profiles": 371,
+    "attendance_observations": 0,
+    "questionnaire_responses": 106
+  },
+  "container_removed": true,
+  "snapshot_normalization": "Server-created source_artifacts.captured_at omitted from cross-environment digests; all 12 live artifacts including that field sealed separately in stage4c-live-anchor.json. Constant artifact payload digest normalized across the existing 180 checkpoints using one isolated original artifact transaction; full reference build was preserved."
+}

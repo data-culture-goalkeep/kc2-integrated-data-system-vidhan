@@ -1,6 +1,6 @@
 # KC2 Phase 1 — Current project context
 
-Updated 27 October 2026, Asia/Kolkata. Stage 4B authorized migration interrupted: 12 artifacts and 9,988 staged source records committed; operational tables and memberships remain empty. Recovery is not authorized.
+Updated 27 October 2026 UTC. Stage 4C recovery preparation is verified; no remote recovery was executed or authorized. Stage 4B remains interrupted at 40 commits: 12 artifacts and 9,988 staged source records; every other table is empty. Read docs 31–33 for the latest recovery gate.
 
 The owner subsequently authorized Stage 3 application of only the exact three reviewed SQL migrations. Those migrations are now applied. Migrating NGO records, enabling memberships/broad access/OAuth, further DDL and frontend work remain prohibited without a new authorization. Earlier Stage 1/Stage 2 drafts are preserved in Git and `docs/archive/`; their unresolved identity/location statements are superseded only by the explicit decisions below.
 
@@ -97,3 +97,16 @@ Request data/index 40, ID 7653cf553859020440bf72d015bf26a6f16e62a1216fb34207415b
 Docs 28–30 and stage4b-interrupted-execution-results.json supersede the earlier empty-database state for current data. They do not overwrite prior Stage 3/4A/preflight historical evidence. The private Google report preserves 11,222 preparation findings and separately adds 250 execution interruption rows plus twelve summaries; no sharing was changed.
 
 The original authorization artifact is archived, no active owner-authorization.json remains and write mode is disabled. The bounded recovery proposal enumerates 179 remaining original request hashes and requires a separately reviewed prefix-aware executor/new binding and separate owner approval. Preserve the initial-load nonempty-target guard and the four approved code files. Do not restart, replay the committed prefix, delete/reset/repair data or silently activate access. Stage 4B is incomplete; Phase 2 remains prohibited.
+
+
+## Stage 4C recovery preparation milestone
+
+Recovered the prior uncommitted recovery scripts, 180 local checkpoints, packets and source snapshot; reused profiling/reference work. The new separate recovery pathway preserves the four original implementation files and deployed SQL. It transports deterministic gzip/SHA-256 packets through stateless MCP commands, with per-request durable dispatch/acknowledgment, exact checkpoint validation and no automatic retry of uncertain requests. The original initial-load guard is unchanged.
+
+All 82 Python tests, 11 full isolated recovery/fault cases, nine offline bridge cases covering all 179 packets and 11 local access-denial checks pass. The isolated run executes only original remaining data 40–136 and source-status 0–81 after reconstructing the prefix locally. It reconciles 34,077 direct rows, 28,293 generated audit events, all 20,432 statuses, source lineage and 99 FK checks. These are local verified expectations, not actual live recovery results.
+
+The latest live read-only preflight still matches all committed-prefix payload/key/status hashes: 12 artifacts and 9,988 staged source rows, zero elsewhere, no active import, unchanged schema/RLS/privileges/ledger. Live SQL-role checks deny anonymous reads and hide all rows from an unapproved authenticated session across 18 selectable tables. Status finalization is explicitly allowed to update the existing rows only through approved status/audit changes; independent anchors protect their immutable content, diagnostics, IDs, coordinates and creation metadata, plus every artifact field.
+
+Read docs/31-migration-recovery-design.md, docs/32-recovery-test-results.md and docs/33-recovery-execution-readiness.md. New recovery manifest SHA-256: bfbc196c3f718a9bc8de49619031424955fcf8385d2c893a732b5853b995ec92. It binds the original plan/manifest and recovery planning hash 4fc7f1d0d35443d1d3f80445883924676f6b91563291ff2344717165c6d2022e, committed prefix, remaining 179 exact SQL requests, frozen sources, code, checkpoints and target. There is no active owner-authorization artifact or recovery journal.
+
+Next gate: actual separate owner approval for that exact manifest/destination/scope and execution window, followed by fresh preflight/private-report checks before any write. Unknown outcomes require a separate bounded recovery decision; never replay the original first 40, reset/delete data, change schema or weaken security. Business decisions for excluded facts remain open. PR #1 remains draft/unmerged; no memberships/OAuth/frontend/Phase 2.
