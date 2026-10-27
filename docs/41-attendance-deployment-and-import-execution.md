@@ -1,5 +1,7 @@
 # Stage 6 — Attendance deployment succeeded; import blocked
 
+**Historical first attempt.** A subsequent direct owner authorization loaded and verified the first 172 batches / 34,400 rows before a runtime interruption. The current checkpoint and remaining 44 batches are documented in [docs 42](42-attendance-import-checkpoint-and-continuation.md). Do not interpret the zero counts below as the current database state.
+
 **The reviewed protected staging schema is deployed. Attendance evidence has not been imported.** Stop checkpoint: original attendance batch index **0**, request ID `239b2cbacd3a517e81333c2b2d0061e5cfce69528b665c6518d303839743fe8f`. All **216 transactions / 43,160 records remain outstanding**. No retry was attempted.
 
 ## Authorization and actual deployment

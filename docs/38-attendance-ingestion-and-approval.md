@@ -1,6 +1,6 @@
 # Attendance ingestion — prepared, not deployed
 
-**Historical preparation report.** Stage 6 deployed the exact staging migration, but automatic approval review blocked the first import request. Live staging remains empty; see [actual execution and bounded checkpoint](41-attendance-deployment-and-import-execution.md). Approved manifest bytes below are unchanged.
+**Historical preparation report.** Stage 6 deployed the exact staging migration. A later direct approval loaded 172 batches / 34,400 records before interruption; see the [current checkpoint](42-attendance-import-checkpoint-and-continuation.md). Approved manifest bytes below are unchanged.
 
 The latest owner instruction authorizes protected attendance preparation and local testing, superseding the earlier blanket deferral of uncertain attendance. It does **not** authorize remote DDL or inserts. Exact destination: kc2-integrated-data-system / `hmlbdozsqxlwzvjimjwh`, Tokyo `ap-northeast-1`, internal non-production pilot. The existing remote database still has 19 tables and zero operational attendance rows.
 
