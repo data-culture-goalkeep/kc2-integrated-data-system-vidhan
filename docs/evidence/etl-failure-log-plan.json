@@ -1,0 +1,27 @@
+{
+  "columns": [
+    "Source file",
+    "Row reference",
+    "Reason for failure"
+  ],
+  "source_names": "S01\u2013S12 aliases, not original filenames",
+  "rows_by_tab": {
+    "S01": 112,
+    "S02": 344,
+    "S03": 558,
+    "S04": 377,
+    "S05": 969,
+    "S06": 144,
+    "S07": 2499,
+    "S08": 1593,
+    "S09": 1230,
+    "S10": 2005,
+    "S11": 160,
+    "S12": 1231
+  },
+  "total_rows": 11222,
+  "source_tabs": 12,
+  "content_policy": "Only aliases, sheet/row coordinates, processing status and allowlisted reason codes; no source values/identifiers",
+  "scope": "Preparation exceptions/findings, not remote migration failures. Normal source-only retention is excluded.",
+  "remote_records_loaded": 0
+}

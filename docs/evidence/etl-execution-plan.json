@@ -1,0 +1,48 @@
+{
+  "stage": "4A preparation only",
+  "target_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "remote_loading_authorized": false,
+  "plan_sha256": "7f96ad770c792286a798d588a2a59550c4c0719a802d3ed9884b826d400aa25f",
+  "files": 12,
+  "worksheets": 155,
+  "source_rows": 20432,
+  "direct_target_counts": {
+    "reference_values": 47,
+    "children": 371,
+    "child_private_profiles": 371,
+    "caregivers": 716,
+    "child_caregivers": 716,
+    "program_changes": 128,
+    "questionnaire_responses": 106,
+    "questionnaire_items": 31,
+    "questionnaire_answers": 3286,
+    "attendance_observations": 0,
+    "support_observations": 0,
+    "adl_visits": 0,
+    "source_artifacts": 12,
+    "source_records": 20432,
+    "source_provenance": 5772,
+    "access_memberships": 0,
+    "identity_candidates": 2089,
+    "recovery_actions": 0,
+    "record_audit_events": 0
+  },
+  "generated_audit_events": 28293,
+  "batch_size": 250,
+  "data_batches": 137,
+  "source_status_batches": 82,
+  "scope": "Source preservation and verified-ID/literal pending facts only; no accepted business categories, scoring or unresolved identity facts",
+  "deferred": [
+    "attendance",
+    "ADL",
+    "support matrices/aggregate events",
+    "alternate questionnaire views",
+    "activity logs"
+  ],
+  "required_before_remote_write": [
+    "Explicit Stage 4B scoped bundle authorization",
+    "Destination-bound authenticated executor and fresh target/source/schema preflight"
+  ],
+  "recovery": "Stop at failed transaction; preserve previous commits and reconcile before strict replay; no destructive automatic rollback"
+}

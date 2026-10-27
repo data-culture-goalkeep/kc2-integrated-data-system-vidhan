@@ -19,6 +19,20 @@
     "unmatched": 1059,
     "ambiguous": 74
   },
+  "additional_identity_investigation": {
+    "support_attendance": {
+      "rows": 262,
+      "one_candidate": 249,
+      "ambiguous": 6,
+      "unmatched": 7
+    },
+    "adl_visit_slots": {
+      "rows": 1219,
+      "one_candidate": 631,
+      "unmatched": 568,
+      "ambiguous": 20
+    }
+  },
   "reconciliation": {
     "ok": true,
     "duplicate_expected_references": {},

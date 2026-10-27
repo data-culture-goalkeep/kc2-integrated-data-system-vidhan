@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "plan_sha256": "7f96ad770c792286a798d588a2a59550c4c0719a802d3ed9884b826d400aa25f",
+  "source_rows_reconciled": 20432,
+  "source_columns_retained": 5186,
+  "worksheets": 155,
+  "files": 12,
+  "target_records_local": 34077,
+  "generated_audit_local": 28293,
+  "runtime_negative_tests": 9,
+  "idempotent_replay_insertions": 0,
+  "remote_records_loaded": 0,
+  "remote_all_tables_empty": true,
+  "google_report_rows_verified": 11222,
+  "scope": "Source preservation and verified-ID/literal pending facts only; no accepted business categories, scoring or unresolved identity facts",
+  "business_rules_validated": false,
+  "remote_loading_authorized": false,
+  "execution_gates": [
+    "Explicit Stage 4B authorization",
+    "Destination-bound executor and fresh target/source/schema preflight"
+  ],
+  "operational_category_gates": [
+    "attendance",
+    "ADL",
+    "support matrices/aggregate events",
+    "alternate questionnaire views",
+    "activity logs",
+    "date fidelity",
+    "canonical categories and scoring",
+    "unverified parent crosswalk and sensitive numeric retention"
+  ]
+}
