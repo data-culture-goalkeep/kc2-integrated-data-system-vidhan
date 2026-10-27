@@ -72,13 +72,16 @@ def dollar_block(body):
     required(tag not in body,'Unexpected dollar tag collision')
     return tag+body+tag
 
-def compile_record(record,tables=None):
+def compile_record(record,tables=None,aggregate_receipts=False):
     tables=tables or model_tables();validate_record(record,tables);spec=tables[record['table']];v=record['values']
     q=sql_identifier(spec['schema'])+'.'+sql_identifier(spec['name'])
     columns=list(v);literals={c:sql_value(v[c],spec['fields'][c]['type'],c) for c in columns}
     keys=','.join(sql_identifier(c) for c in spec['primary_key'])
     insert=f"INSERT INTO {q} ({','.join(sql_identifier(c) for c in columns)}) VALUES ({','.join(literals[c] for c in columns)}) ON CONFLICT ({keys}) DO NOTHING RETURNING 1"
-    receipt=f"WITH inserted AS ({insert}) SELECT jsonb_build_object('table',{sql_text(spec['name'])},'inserted',count(*)) FROM inserted;"
+    value=f"jsonb_build_object('table',{sql_text(spec['name'])},'inserted',count(*))"
+    if aggregate_receipts:
+        value="set_config('gk.etl_receipts',(current_setting('gk.etl_receipts')::jsonb || jsonb_build_array("+value+"))::text,true) IS NOT NULL"
+    receipt=f"WITH inserted AS ({insert}) SELECT {value} FROM inserted;"
     # Audit/default fields are deliberately excluded. Mutable source processing diagnostics are not identity payload.
     compared=[c for c in columns if not(spec['name']=='source_records' and c in {'processing_state','diagnostics'})]
     predicate=' AND '.join(sql_identifier(c)+' IS NOT DISTINCT FROM '+literals[c] for c in compared)

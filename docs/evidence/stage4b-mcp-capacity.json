@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "scope": "Read-only synthetic SQL comment padding and generated receipt array; no application DML",
+  "sql_bytes": 790283,
+  "receipt_rows": 250,
+  "final_select_before_commit_supported": true,
+  "remote_records_written": 0
+}

@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "tests": 9,
+  "bridge_sha256": "5981a4b7dab765dc6ae4ee953971e70e06d2b44657e0aa7b548e8a81318e2742",
+  "scope": "Offline bridge with synthetic tools only; Unicode/chunk transport, readonly default, exact destination, source/privacy/catalog guards, failure propagation",
+  "remote_calls": 0
+}

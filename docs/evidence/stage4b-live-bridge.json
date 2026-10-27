@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "mode": "default read-only",
+  "live_connector": true,
+  "verified_on": "2026-10-27",
+  "target_project": "hmlbdozsqxlwzvjimjwh",
+  "catalog_exact_match": true,
+  "all_19_tables_empty": true,
+  "source_versions_unchanged": 12,
+  "private_failure_destination_verified": true,
+  "remote_data_writes": 0,
+  "remote_schema_changes": 0,
+  "authorization_file_created": false,
+  "manifest_sha256": "8cf2df9dd09a74234b26f1a99c61d17ed7f1f733eca2f016a4f0429c869471b4",
+  "bridge_code_sha256": "5981a4b7dab765dc6ae4ee953971e70e06d2b44657e0aa7b548e8a81318e2742"
+}
