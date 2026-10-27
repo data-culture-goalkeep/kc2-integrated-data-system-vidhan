@@ -1,0 +1,193 @@
+{
+  "status": "stopped_after_confirmed_statement_timeout",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "approved_import_manifest_sha256": "911c47968c61fb19a0227e0ab86eae2937dec2e673b9b94c4713ed08bb3ab4ed",
+  "approved_continuation_plan_sha256": "e137a5008ea428acf0e045386f464c5546f6500884f5e282bfa79d55c3ae9a6f",
+  "approval_issued_at_ist": "2026-10-27T23:35:56+05:30",
+  "approval_expires_at_ist": "2026-10-28T03:35:56+05:30",
+  "approval_issued_at_utc": "2026-10-27T18:05:56Z",
+  "approval_expires_at_utc": "2026-10-27T22:05:56Z",
+  "approval_timestamp_basis": "Earliest clock-tool observation immediately after current direct owner message; independent platform receipt timestamp not exposed",
+  "continuation_transactions_committed": 1,
+  "confirmed_total_committed_transactions": 173,
+  "failed_original_index": 173,
+  "failed_request_id": "e3c83fd3b3c3d4b7537108bf2686638e7b9d1cb39de9b6456d6108dc772bcbef",
+  "database_error_code": "57014",
+  "database_error": "canceling statement due to statement timeout",
+  "failure_context": "PL/pgSQL inline replay guard, line 1 at IF",
+  "failed_transaction_committed": false,
+  "uncertain_outcomes_remaining": 0,
+  "retries": 0,
+  "remaining_transactions": 43,
+  "remaining_records": 8560,
+  "next_original_index": 173,
+  "actual_reconciliation": {
+    "codes": {
+      "PENDING": 34600
+    },
+    "kinds": {
+      "MARK": 22675,
+      "FORMULA": 189,
+      "SUMMARY_VALUE": 2204,
+      "SOURCE_CONTEXT": 9532
+    },
+    "total": 34600,
+    "sheets": 80,
+    "reviews": {
+      "pending": 34600
+    },
+    "dates_all": {
+      "MISSING": 9541,
+      "UNPARSED": 3628,
+      "FORMULA_UNRESOLVED": 383,
+      "SANITIZED_UNTRUSTED": 21048
+    },
+    "dates_cells": {
+      "MISSING": 9,
+      "UNPARSED": 3628,
+      "FORMULA_UNRESOLVED": 383,
+      "SANITIZED_UNTRUSTED": 21048
+    },
+    "source_rows": 9532,
+    "identity_all": {
+      "AMBIGUOUS": 578,
+      "UNMATCHED": 19106,
+      "PROVISIONAL_MATCH": 14916
+    },
+    "parsed_dates": 0,
+    "daily_rosters": 1827,
+    "daily_pa_marks": 21103,
+    "identity_cells": {
+      "AMBIGUOUS": 519,
+      "UNMATCHED": 10813,
+      "PROVISIONAL_MATCH": 13736
+    },
+    "verified_children": 0,
+    "invalid_candidates": 0,
+    "header_disagreements": 0,
+    "invalid_source_links": 0,
+    "duplicate_coordinates": 0,
+    "operational_attendance": 0,
+    "source_mark_disagreements": 0
+  },
+  "exact_first_173_transaction_keys_and_full_payloads_match": true,
+  "previous_34400_staging_rows_including_timestamps_unchanged": true,
+  "original_19_tables_data_and_audit_unchanged": true,
+  "existing_table_counts": {
+    "public.children": 371,
+    "public.adl_visits": 0,
+    "gk_private.caregivers": 716,
+    "public.program_changes": 128,
+    "public.child_caregivers": 716,
+    "public.reference_values": 47,
+    "gk_private.source_records": 20432,
+    "public.questionnaire_items": 31,
+    "gk_private.recovery_actions": 0,
+    "gk_private.source_artifacts": 12,
+    "public.support_observations": 0,
+    "gk_private.source_provenance": 5772,
+    "gk_private.access_memberships": 0,
+    "gk_private.identity_candidates": 2089,
+    "gk_private.record_audit_events": 28293,
+    "public.attendance_observations": 0,
+    "public.questionnaire_responses": 106,
+    "gk_private.questionnaire_answers": 3286,
+    "gk_private.child_private_profiles": 371
+  },
+  "catalog_rls_privileges_triggers_ledger_unchanged": true,
+  "active_imports": 0,
+  "authorization_active": false,
+  "live_staging_read_denials": [
+    {
+      "role": "anon",
+      "read_denied": true
+    },
+    {
+      "role": "authenticated",
+      "read_denied": true
+    },
+    {
+      "role": "service_role",
+      "read_denied": true
+    }
+  ],
+  "read_only_query_plans": {
+    "original": {
+      "root_estimated_cost": 769561.04,
+      "nodes": [
+        {
+          "Node Type": "Nested Loop",
+          "Join Type": "Anti",
+          "Plan Rows": 100,
+          "Total Cost": 769561.04
+        },
+        {
+          "Node Type": "Function Scan",
+          "Plan Rows": 100,
+          "Total Cost": 1
+        },
+        {
+          "Node Type": "Materialize",
+          "Plan Rows": 34163,
+          "Total Cost": 10746.44
+        },
+        {
+          "Node Type": "Seq Scan",
+          "Relation Name": "attendance_import_staging",
+          "Plan Rows": 34163,
+          "Total Cost": 5670.63
+        }
+      ]
+    },
+    "indexed": {
+      "root_estimated_cost": 235.3,
+      "nodes": [
+        {
+          "Node Type": "Nested Loop",
+          "Join Type": "Anti",
+          "Plan Rows": 100,
+          "Total Cost": 235.3
+        },
+        {
+          "Node Type": "Function Scan",
+          "Plan Rows": 100,
+          "Total Cost": 1
+        },
+        {
+          "Node Type": "Index Scan",
+          "Relation Name": "attendance_import_staging",
+          "Index Name": "attendance_import_staging_pkey",
+          "Plan Rows": 1,
+          "Total Cost": 2.33
+        }
+      ]
+    }
+  },
+  "proposed_fix_applied_remotely": false,
+  "original_statement_timeout_seconds": 60,
+  "proposed_statement_timeout_seconds": 60,
+  "local_amendment_tests": {
+    "scope": "network=none disposable PostgreSQL; approved sanitized fixtures only; no remote writes",
+    "tests": {
+      "exact_schema_and_nonempty_34600_row_fixture": true,
+      "all_43_amended_batches_loaded_with_original_60_second_limit": true,
+      "representative_idempotent_replay": true,
+      "conflicting_payload_rejected": true,
+      "committed_prefix_timestamps_original_data_and_audit_unchanged": true,
+      "three_unapproved_roles_still_denied": true,
+      "all_43160_keys_and_full_payloads_match_original_approved_records": true,
+      "no_identity_date_code_promotion": true
+    },
+    "status": "passed",
+    "proposed_transactions": 43,
+    "final_staging_rows": 43160,
+    "slowest_amended_batch_seconds": 0.26179759501246735,
+    "total_amended_seconds": 5.9780901659542,
+    "unchanged_statement_timeout_seconds": 60,
+    "expected_new_remote_rows": 8560,
+    "container_removed": true
+  },
+  "full_migration_complete": false,
+  "private_journal_sha256": "35c12b00a6fa6a51f03ebeac1c96c7e04947535e6ccbd390ac703a457e7c0710"
+}

@@ -1,5 +1,7 @@
 # Attendance import — verified checkpoint, incomplete
 
+**Historical checkpoint.** A later authorized continuation committed index 172, then index 173 failed with a replay-guard statement timeout. Current state is **173 commits / 34,600 rows**, with 43 batches remaining. See [actual timeout report](43-attendance-continuation-timeout-report.md) and the [locally tested SQL amendment](44-attendance-indexed-guard-amendment.md).
+
 **172 of 216 transactions committed; 34,400 of 43,160 staging records are live.** Execution stopped after an interruption. Do not replay indices 0–171. Original indices **172–215**, comprising **44 transactions / 8,760 records**, remain outstanding. No operational attendance was created.
 
 ## Authorization and interruption
