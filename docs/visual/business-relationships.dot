@@ -1,0 +1,21 @@
+digraph business { graph [rankdir=LR,bgcolor=white,pad=.4,nodesep=.5,ranksep=.9,fontname="DejaVu Sans",labelloc=t,label="Goalkeep KC-2 · Business relationships (existing schema)\nPeach = restricted. Imported projections are pending; candidates are not accepted identities."]; node [shape=box,style="rounded,filled",fillcolor="#e5f0ff",fontname="DejaVu Sans",fontsize=12,margin=.18];edge[fontname="DejaVu Sans",fontsize=10,color="#536b8a"];
+ children[label="Children\n371 · public.children"];
+ profiles[label="Restricted child profiles\n371 · gk_private.child_private_profiles",fillcolor="#fff0df"];
+ caregivers[label="Caregivers\n716 · gk_private.caregivers",fillcolor="#fff0df"];
+ links[label="Verified ID relationships\n716 · public.child_caregivers"];
+ responses[label="Questionnaire responses\n106 · public.questionnaire_responses"];
+ items[label="Question definitions\n31 · public.questionnaire_items"];
+ answers[label="Literal answer slots\n3,286 · gk_private.questionnaire_answers",fillcolor="#fff0df"];
+ programmes[label="Programme source slots\n128 pending · public.program_changes\nDates NULL"];
+ candidates[label="Identity candidates\n2,089 unapproved\ngk_private.identity_candidates",fillcolor="#fff0df"];
+ observations[label="Attendance / ADL / support\n3 deployed tables · all empty"];
+ children -> profiles[label="0..1 profile per child"];
+ children -> links[label="0..many links"];
+ caregivers -> links[label="0..many links"];
+ links -> responses[label="0..many responses"];
+ responses -> answers[label="0..many answers"];
+ items -> answers[label="0..many answers\nsame form definition enforced"];
+ children -> programmes[label="0..many source slots"];
+ children -> observations[label="0..many future observations"];
+ children -> candidates[label="possible match only",style=dashed];
+}

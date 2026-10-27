@@ -1,0 +1,161 @@
+erDiagram
+    GK_PRIVATE_ACCESS_MEMBERSHIPS {
+        uuid user_id PK
+    }
+    GK_PRIVATE_CAREGIVERS {
+        uuid id PK
+    }
+    GK_PRIVATE_CHILD_PRIVATE_PROFILES {
+        uuid child_id PK
+    }
+    GK_PRIVATE_IDENTITY_CANDIDATES {
+        uuid id PK
+    }
+    GK_PRIVATE_QUESTIONNAIRE_ANSWERS {
+        uuid id PK
+    }
+    GK_PRIVATE_RECORD_AUDIT_EVENTS {
+        uuid id PK
+    }
+    GK_PRIVATE_RECOVERY_ACTIONS {
+        uuid id PK
+    }
+    GK_PRIVATE_SOURCE_ARTIFACTS {
+        uuid id PK
+    }
+    GK_PRIVATE_SOURCE_PROVENANCE {
+        uuid id PK
+    }
+    GK_PRIVATE_SOURCE_RECORDS {
+        uuid id PK
+    }
+    PUBLIC_ADL_VISITS {
+        uuid id PK
+    }
+    PUBLIC_ATTENDANCE_OBSERVATIONS {
+        uuid id PK
+    }
+    PUBLIC_CHILD_CAREGIVERS {
+        uuid id PK
+    }
+    PUBLIC_CHILDREN {
+        uuid id PK
+    }
+    PUBLIC_PROGRAM_CHANGES {
+        uuid id PK
+    }
+    PUBLIC_QUESTIONNAIRE_ITEMS {
+        uuid id PK
+    }
+    PUBLIC_QUESTIONNAIRE_RESPONSES {
+        uuid id PK
+    }
+    PUBLIC_REFERENCE_VALUES {
+        text vocabulary PK
+        text code PK
+    }
+    PUBLIC_SUPPORT_OBSERVATIONS {
+        uuid id PK
+    }
+    AUTH_USERS {
+        uuid id PK
+    }
+    AUTH_USERS |o--o{ GK_PRIVATE_ACCESS_MEMBERSHIPS : "fk_access_memberships_0"
+    AUTH_USERS |o--o{ GK_PRIVATE_ACCESS_MEMBERSHIPS : "fk_access_memberships_1"
+    AUTH_USERS ||--o| GK_PRIVATE_ACCESS_MEMBERSHIPS : "fk_access_memberships_2"
+    PUBLIC_REFERENCE_VALUES ||--o{ GK_PRIVATE_ACCESS_MEMBERSHIPS : "fk_access_memberships_3"
+    AUTH_USERS |o--o{ GK_PRIVATE_ACCESS_MEMBERSHIPS : "fk_access_memberships_4"
+    AUTH_USERS |o--o{ GK_PRIVATE_CAREGIVERS : "fk_caregivers_0"
+    AUTH_USERS |o--o{ GK_PRIVATE_CAREGIVERS : "fk_caregivers_1"
+    AUTH_USERS |o--o{ GK_PRIVATE_CAREGIVERS : "fk_caregivers_2"
+    AUTH_USERS |o--o{ GK_PRIVATE_CHILD_PRIVATE_PROFILES : "fk_child_private_profiles_0"
+    AUTH_USERS |o--o{ GK_PRIVATE_CHILD_PRIVATE_PROFILES : "fk_child_private_profiles_1"
+    PUBLIC_CHILDREN ||--o| GK_PRIVATE_CHILD_PRIVATE_PROFILES : "fk_child_private_profiles_2"
+    AUTH_USERS |o--o{ GK_PRIVATE_CHILD_PRIVATE_PROFILES : "fk_child_private_profiles_3"
+    GK_PRIVATE_SOURCE_RECORDS ||--o{ GK_PRIVATE_IDENTITY_CANDIDATES : "fk_identity_candidates_0"
+    PUBLIC_CHILDREN |o--o{ GK_PRIVATE_IDENTITY_CANDIDATES : "fk_identity_candidates_1"
+    GK_PRIVATE_CAREGIVERS |o--o{ GK_PRIVATE_IDENTITY_CANDIDATES : "fk_identity_candidates_2"
+    AUTH_USERS |o--o{ GK_PRIVATE_IDENTITY_CANDIDATES : "fk_identity_candidates_3"
+    AUTH_USERS |o--o{ GK_PRIVATE_IDENTITY_CANDIDATES : "fk_identity_candidates_4"
+    AUTH_USERS |o--o{ GK_PRIVATE_QUESTIONNAIRE_ANSWERS : "fk_questionnaire_answers_0"
+    AUTH_USERS |o--o{ GK_PRIVATE_QUESTIONNAIRE_ANSWERS : "fk_questionnaire_answers_1"
+    PUBLIC_QUESTIONNAIRE_RESPONSES ||--o{ GK_PRIVATE_QUESTIONNAIRE_ANSWERS : "fk_questionnaire_answers_2"
+    PUBLIC_QUESTIONNAIRE_ITEMS ||--o{ GK_PRIVATE_QUESTIONNAIRE_ANSWERS : "fk_questionnaire_answers_3"
+    AUTH_USERS |o--o{ GK_PRIVATE_QUESTIONNAIRE_ANSWERS : "fk_questionnaire_answers_4"
+    AUTH_USERS |o--o{ GK_PRIVATE_RECORD_AUDIT_EVENTS : "fk_record_audit_events_0"
+    AUTH_USERS |o--o{ GK_PRIVATE_RECORD_AUDIT_EVENTS : "fk_record_audit_events_1"
+    GK_PRIVATE_SOURCE_RECORDS ||--o{ GK_PRIVATE_RECOVERY_ACTIONS : "fk_recovery_actions_0"
+    PUBLIC_CHILDREN |o--o{ GK_PRIVATE_RECOVERY_ACTIONS : "fk_recovery_actions_1"
+    GK_PRIVATE_CAREGIVERS |o--o{ GK_PRIVATE_RECOVERY_ACTIONS : "fk_recovery_actions_2"
+    AUTH_USERS |o--o{ GK_PRIVATE_RECOVERY_ACTIONS : "fk_recovery_actions_3"
+    AUTH_USERS |o--o{ GK_PRIVATE_RECOVERY_ACTIONS : "fk_recovery_actions_4"
+    GK_PRIVATE_SOURCE_RECORDS |o--o{ GK_PRIVATE_RECOVERY_ACTIONS : "fk_recovery_actions_5"
+    AUTH_USERS |o--o{ GK_PRIVATE_SOURCE_ARTIFACTS : "fk_source_artifacts_0"
+    AUTH_USERS |o--o{ GK_PRIVATE_SOURCE_ARTIFACTS : "fk_source_artifacts_1"
+    AUTH_USERS |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_0"
+    AUTH_USERS |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_1"
+    GK_PRIVATE_QUESTIONNAIRE_ANSWERS |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_10"
+    PUBLIC_ATTENDANCE_OBSERVATIONS |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_11"
+    PUBLIC_SUPPORT_OBSERVATIONS |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_12"
+    PUBLIC_ADL_VISITS |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_13"
+    PUBLIC_REFERENCE_VALUES |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_14"
+    GK_PRIVATE_SOURCE_RECORDS ||--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_2"
+    PUBLIC_CHILDREN |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_3"
+    GK_PRIVATE_CHILD_PRIVATE_PROFILES |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_4"
+    GK_PRIVATE_CAREGIVERS |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_5"
+    PUBLIC_CHILD_CAREGIVERS |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_6"
+    PUBLIC_PROGRAM_CHANGES |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_7"
+    PUBLIC_QUESTIONNAIRE_RESPONSES |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_8"
+    PUBLIC_QUESTIONNAIRE_ITEMS |o--o{ GK_PRIVATE_SOURCE_PROVENANCE : "fk_source_provenance_9"
+    AUTH_USERS |o--o{ GK_PRIVATE_SOURCE_RECORDS : "fk_source_records_0"
+    AUTH_USERS |o--o{ GK_PRIVATE_SOURCE_RECORDS : "fk_source_records_1"
+    GK_PRIVATE_SOURCE_ARTIFACTS ||--o{ GK_PRIVATE_SOURCE_RECORDS : "fk_source_records_2"
+    AUTH_USERS |o--o{ PUBLIC_ADL_VISITS : "fk_adl_visits_0"
+    AUTH_USERS |o--o{ PUBLIC_ADL_VISITS : "fk_adl_visits_1"
+    PUBLIC_CHILDREN ||--o{ PUBLIC_ADL_VISITS : "fk_adl_visits_2"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_ADL_VISITS : "fk_adl_visits_3"
+    AUTH_USERS |o--o{ PUBLIC_ADL_VISITS : "fk_adl_visits_4"
+    AUTH_USERS |o--o{ PUBLIC_ATTENDANCE_OBSERVATIONS : "fk_attendance_observations_0"
+    AUTH_USERS |o--o{ PUBLIC_ATTENDANCE_OBSERVATIONS : "fk_attendance_observations_1"
+    PUBLIC_CHILDREN ||--o{ PUBLIC_ATTENDANCE_OBSERVATIONS : "fk_attendance_observations_2"
+    PUBLIC_REFERENCE_VALUES ||--o{ PUBLIC_ATTENDANCE_OBSERVATIONS : "fk_attendance_observations_3"
+    PUBLIC_REFERENCE_VALUES ||--o{ PUBLIC_ATTENDANCE_OBSERVATIONS : "fk_attendance_observations_4"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_ATTENDANCE_OBSERVATIONS : "fk_attendance_observations_5"
+    AUTH_USERS |o--o{ PUBLIC_ATTENDANCE_OBSERVATIONS : "fk_attendance_observations_6"
+    AUTH_USERS |o--o{ PUBLIC_CHILD_CAREGIVERS : "fk_child_caregivers_0"
+    AUTH_USERS |o--o{ PUBLIC_CHILD_CAREGIVERS : "fk_child_caregivers_1"
+    PUBLIC_CHILDREN ||--o{ PUBLIC_CHILD_CAREGIVERS : "fk_child_caregivers_2"
+    GK_PRIVATE_CAREGIVERS ||--o{ PUBLIC_CHILD_CAREGIVERS : "fk_child_caregivers_3"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_CHILD_CAREGIVERS : "fk_child_caregivers_4"
+    AUTH_USERS |o--o{ PUBLIC_CHILD_CAREGIVERS : "fk_child_caregivers_5"
+    AUTH_USERS |o--o{ PUBLIC_CHILDREN : "fk_children_0"
+    AUTH_USERS |o--o{ PUBLIC_CHILDREN : "fk_children_1"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_CHILDREN : "fk_children_2"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_CHILDREN : "fk_children_3"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_CHILDREN : "fk_children_4"
+    AUTH_USERS |o--o{ PUBLIC_CHILDREN : "fk_children_5"
+    AUTH_USERS |o--o{ PUBLIC_PROGRAM_CHANGES : "fk_program_changes_0"
+    AUTH_USERS |o--o{ PUBLIC_PROGRAM_CHANGES : "fk_program_changes_1"
+    PUBLIC_CHILDREN ||--o{ PUBLIC_PROGRAM_CHANGES : "fk_program_changes_2"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_PROGRAM_CHANGES : "fk_program_changes_3"
+    AUTH_USERS |o--o{ PUBLIC_PROGRAM_CHANGES : "fk_program_changes_4"
+    AUTH_USERS |o--o{ PUBLIC_QUESTIONNAIRE_ITEMS : "fk_questionnaire_items_0"
+    AUTH_USERS |o--o{ PUBLIC_QUESTIONNAIRE_ITEMS : "fk_questionnaire_items_1"
+    PUBLIC_REFERENCE_VALUES ||--o{ PUBLIC_QUESTIONNAIRE_ITEMS : "fk_questionnaire_items_2"
+    AUTH_USERS |o--o{ PUBLIC_QUESTIONNAIRE_ITEMS : "fk_questionnaire_items_3"
+    AUTH_USERS |o--o{ PUBLIC_QUESTIONNAIRE_RESPONSES : "fk_questionnaire_responses_0"
+    AUTH_USERS |o--o{ PUBLIC_QUESTIONNAIRE_RESPONSES : "fk_questionnaire_responses_1"
+    PUBLIC_CHILD_CAREGIVERS ||--o{ PUBLIC_QUESTIONNAIRE_RESPONSES : "fk_questionnaire_responses_2"
+    PUBLIC_REFERENCE_VALUES ||--o{ PUBLIC_QUESTIONNAIRE_RESPONSES : "fk_questionnaire_responses_3"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_QUESTIONNAIRE_RESPONSES : "fk_questionnaire_responses_4"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_QUESTIONNAIRE_RESPONSES : "fk_questionnaire_responses_5"
+    AUTH_USERS |o--o{ PUBLIC_QUESTIONNAIRE_RESPONSES : "fk_questionnaire_responses_6"
+    AUTH_USERS |o--o{ PUBLIC_REFERENCE_VALUES : "fk_reference_values_0"
+    AUTH_USERS |o--o{ PUBLIC_REFERENCE_VALUES : "fk_reference_values_1"
+    AUTH_USERS |o--o{ PUBLIC_REFERENCE_VALUES : "fk_reference_values_2"
+    AUTH_USERS |o--o{ PUBLIC_SUPPORT_OBSERVATIONS : "fk_support_observations_0"
+    AUTH_USERS |o--o{ PUBLIC_SUPPORT_OBSERVATIONS : "fk_support_observations_1"
+    PUBLIC_CHILDREN ||--o{ PUBLIC_SUPPORT_OBSERVATIONS : "fk_support_observations_2"
+    PUBLIC_CHILD_CAREGIVERS |o--o{ PUBLIC_SUPPORT_OBSERVATIONS : "fk_support_observations_3"
+    PUBLIC_REFERENCE_VALUES |o--o{ PUBLIC_SUPPORT_OBSERVATIONS : "fk_support_observations_4"
+    AUTH_USERS |o--o{ PUBLIC_SUPPORT_OBSERVATIONS : "fk_support_observations_5"

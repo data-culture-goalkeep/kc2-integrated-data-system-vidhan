@@ -1,0 +1,10 @@
+flowchart LR
+ CHILDREN[Children: 371] -->|0..1| PRIVATE[Restricted child profiles: 371]
+ CHILDREN -->|many links| LINKS[Child-caregiver links: 716]
+ CAREGIVERS[Restricted caregivers: 716] -->|many links| LINKS
+ LINKS --> RESPONSES[Questionnaire responses: 106]
+ RESPONSES --> ANSWERS[Restricted answers: 3286]
+ ITEMS[Item definitions: 31] --> ANSWERS
+ CHILDREN --> PROGRAMMES[Programme slots: 128 pending, dates NULL]
+ CHILDREN -. possible match only .-> CANDIDATES[Restricted candidates: 2089 unapproved]
+ CHILDREN --> OBS[Attendance / ADL / support: empty]
