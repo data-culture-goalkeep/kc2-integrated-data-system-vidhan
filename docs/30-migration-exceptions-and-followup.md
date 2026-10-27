@@ -1,5 +1,7 @@
 # Stage 4B — Migration exceptions and recovery follow-up
 
+> Historical interruption snapshot. The authorized Stage 4C recovery subsequently completed; current live results are in [execution](34-recovery-execution-report.md), [reconciliation](35-final-migration-reconciliation.md) and [follow-up](36-post-migration-data-quality.md). Original evidence below is retained; its stopped/preparation statements are historical.
+
 **Migration incomplete; recovery not authorized or executed.** The command transport disconnected after 40 acknowledged transactions. Data request 40 / transaction 41 has no committed rows, confirmed from live key sets and zero active import transactions. One request was interrupted; 178 were never attempted. No PostgreSQL constraint rejection was captured, and source data was not changed to make a test pass.
 
 ## Actual execution exception ledger

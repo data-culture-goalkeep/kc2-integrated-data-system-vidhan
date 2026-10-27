@@ -1,5 +1,7 @@
 # Stage 4C — Recovery test results
 
+> Historical preparation snapshot. The authorized Stage 4C recovery subsequently completed; current live results are in [execution](34-recovery-execution-report.md), [reconciliation](35-final-migration-reconciliation.md) and [follow-up](36-post-migration-data-quality.md). Original evidence below is retained; its stopped/preparation statements are historical.
+
 The recovery preparation was tested on disposable, digest-pinned PostgreSQL 17.11 with `--network none`, no published ports, the exact three deployed migrations and the approved sanitized snapshot. No test runner accepts a remote database URL. Synthetic Auth fixtures simulate PostgreSQL claims; these are not Google OAuth or HTTP/PostgREST tests. Remote operations in this task were read-only.
 
 ## Verified tests

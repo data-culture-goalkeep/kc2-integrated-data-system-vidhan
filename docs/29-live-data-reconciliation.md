@@ -1,5 +1,7 @@
 # Stage 4B — Live data reconciliation after interruption
 
+> Historical interruption snapshot. The authorized Stage 4C recovery subsequently completed; current live results are in [execution](34-recovery-execution-report.md), [reconciliation](35-final-migration-reconciliation.md) and [follow-up](36-post-migration-data-quality.md). Original evidence below is retained; its stopped/preparation statements are historical.
+
 **Scope: verified committed prefix only; full migration incomplete.** Actual Supabase reads confirm 12 source artifacts and 9,988 source records, totaling 10,000 inserted rows. All operational, provenance, candidate, membership, reference, recovery and audit tables remain empty. No planning expectation is presented as an actual remote count.
 
 ## Exact record and relationship verification

@@ -1,5 +1,7 @@
 # Stage 4B — Supabase migration execution
 
+> Historical interruption snapshot. The authorized Stage 4C recovery subsequently completed; current live results are in [execution](34-recovery-execution-report.md), [reconciliation](35-final-migration-reconciliation.md) and [follow-up](36-post-migration-data-quality.md). Original evidence below is retained; its stopped/preparation statements are historical.
+
 **Status: interrupted and incomplete.** Forty transactions committed successfully. Execution stopped on a local command-transport failure; no retry or whole-job restart was performed. This report records actual live state, not the earlier planning/local test counts.
 
 ## Authorization and exact target

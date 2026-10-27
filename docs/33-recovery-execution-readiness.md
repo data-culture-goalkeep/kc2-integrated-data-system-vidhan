@@ -1,5 +1,7 @@
 # Stage 4C — Recovery execution readiness
 
+> Historical preparation snapshot. The authorized Stage 4C recovery subsequently completed; current live results are in [execution](34-recovery-execution-report.md), [reconciliation](35-final-migration-reconciliation.md) and [follow-up](36-post-migration-data-quality.md). Original evidence below is retained; its stopped/preparation statements are historical.
+
 **Preparation is verified; remote recovery is not authorized or executed.** Stage 4B remains incomplete. Read [the design](31-migration-recovery-design.md), [tests](32-recovery-test-results.md) and [machine checks](evidence/stage4c-verification.json). PR #1 stays draft/unmerged on `feature/phase1-data-backend`.
 
 ## Exact execution binding

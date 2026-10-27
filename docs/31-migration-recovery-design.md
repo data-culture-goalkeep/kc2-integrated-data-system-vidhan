@@ -1,5 +1,7 @@
 # Stage 4C — Checkpoint recovery design
 
+> Historical preparation snapshot. The authorized Stage 4C recovery subsequently completed; current live results are in [execution](34-recovery-execution-report.md), [reconciliation](35-final-migration-reconciliation.md) and [follow-up](36-post-migration-data-quality.md). Original evidence below is retained; its stopped/preparation statements are historical.
+
 Preparation only, 27 October 2026 UTC. No remote recovery transaction has been submitted. The original Stage 4B import remains incomplete. This separate mode preserves the original loader, compiler, bridge, SQL and initial-load nonempty-target guard byte for byte.
 
 ## Recovered baseline and scope
