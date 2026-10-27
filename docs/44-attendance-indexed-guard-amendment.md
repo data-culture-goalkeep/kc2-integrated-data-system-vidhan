@@ -1,5 +1,7 @@
 # Proposed indexed replay guard — separate approval required
 
+**Historical proposal, now explicitly approved and executed.** The exact manifest below was authorized for 173–215; all 43 transactions committed and live reconciliation passed. Its immutable preparation flags remain unchanged; the consumed authorization is separate and inactive. Current results are in [docs 45](45-attendance-staging-execution-complete.md) and [docs 46](46-attendance-final-source-reconciliation.md). Do not rerun any packet.
+
 **Prepared and tested locally only. Not applied remotely.** The current database checkpoint is 173 committed original batches / 34,600 pending records. The remaining scope is only original indices **173–215**, **43 transactions / 8,560 records**, targeting the same Tokyo pilot `hmlbdozsqxlwzvjimjwh`.
 
 ## Minimal technical change

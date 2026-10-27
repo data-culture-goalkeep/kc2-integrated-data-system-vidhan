@@ -1,5 +1,7 @@
 # Attendance continuation — stopped on a confirmed timeout
 
+**Historical failed attempt, subsequently resolved by separately approved revised SQL.** All 43 amended tail transactions later committed and full live reconciliation passed: **43,160 staging records / 216 accounted-for batches**. See [final execution](45-attendance-staging-execution-complete.md) and [source reconciliation](46-attendance-final-source-reconciliation.md). The failure evidence below is preserved.
+
 **Live import is incomplete: 173 committed batches, 34,600 pending staging records.** Original batch 172 committed; batch 173 failed and did not commit. No later batch ran, no request was retried and no outcome remains uncertain. Original indices **173–215**, comprising **43 transactions / 8,560 records**, remain outstanding.
 
 ## Authorization and actual execution

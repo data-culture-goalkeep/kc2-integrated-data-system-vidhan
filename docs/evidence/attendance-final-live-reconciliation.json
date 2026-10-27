@@ -1,0 +1,131 @@
+{
+  "status": "completed_live_reconciled",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "checked_at_utc": "2026-10-27T18:51:40.482185+00:00",
+  "checked_at_ist": "2026-10-28T00:21:40.482185+05:30",
+  "approved_indexed_manifest_sha256": "d990a38ee68612363dda031dd036b95e905d81ee40d0e52b5917fe707f474307",
+  "original_import_manifest_sha256": "911c47968c61fb19a0227e0ab86eae2937dec2e673b9b94c4713ed08bb3ab4ed",
+  "approval_issued_at_utc": "2026-10-27T18:39:42Z",
+  "approval_expiry_utc": "2026-10-27T22:39:42Z",
+  "approval_issued_at_ist": "2026-10-28T00:09:42+05:30",
+  "approval_expiry_ist": "2026-10-28T04:09:42+05:30",
+  "approval_timestamp_basis": "Earliest clock observation after current direct owner authorization; separate platform receipt timestamp unavailable",
+  "authorization_window_satisfied": true,
+  "revised_transactions_committed": 43,
+  "new_staging_rows": 8560,
+  "total_committed_transactions_accounted_for": 216,
+  "acknowledged_commits_all_runs": 215,
+  "prior_commit_independently_verified_readonly": 1,
+  "revised_run_failed_or_uncertain_requests": 0,
+  "unresolved_outcomes": 0,
+  "revised_run_retries": 0,
+  "historical_timeout_attempt_preserved": {
+    "original_index": 173,
+    "committed": false,
+    "sqlstate": "57014"
+  },
+  "first_dispatch_utc": "2026-10-27T18:42:06.484760+00:00",
+  "last_acknowledgement_utc": "2026-10-27T18:49:36.090481+00:00",
+  "actual_reconciliation": {
+    "codes": {
+      "PENDING": 43160
+    },
+    "kinds": {
+      "MARK": 26259,
+      "FORMULA": 189,
+      "SUMMARY_VALUE": 2579,
+      "SOURCE_CONTEXT": 14132,
+      "AUXILIARY_VALUE": 1
+    },
+    "total": 43160,
+    "sheets": 107,
+    "reviews": {
+      "pending": 43160
+    },
+    "dates_all": {
+      "MISSING": 14142,
+      "UNPARSED": 4004,
+      "FORMULA_UNRESOLVED": 452,
+      "SANITIZED_UNTRUSTED": 24562
+    },
+    "dates_cells": {
+      "MISSING": 10,
+      "UNPARSED": 4004,
+      "FORMULA_UNRESOLVED": 452,
+      "SANITIZED_UNTRUSTED": 24562
+    },
+    "source_rows": 14132,
+    "identity_all": {
+      "AMBIGUOUS": 804,
+      "UNMATCHED": 25684,
+      "PROVISIONAL_MATCH": 16672
+    },
+    "parsed_dates": 0,
+    "daily_rosters": 2142,
+    "daily_pa_marks": 24687,
+    "identity_cells": {
+      "AMBIGUOUS": 723,
+      "UNMATCHED": 12947,
+      "PROVISIONAL_MATCH": 15358
+    },
+    "verified_children": 0,
+    "invalid_candidates": 0,
+    "header_disagreements": 0,
+    "invalid_source_links": 0,
+    "duplicate_coordinates": 0,
+    "operational_attendance": 0,
+    "source_mark_disagreements": 0
+  },
+  "all_expected_keys_and_full_payloads_match": true,
+  "hash_bucket_count": 256,
+  "missing_extra_or_changed_expected_records": 0,
+  "unexplained_source_losses": 0,
+  "all_prior_34600_staging_rows_including_timestamps_unchanged": true,
+  "all_original_19_tables_complete_rows_and_timestamps_unchanged": true,
+  "existing_table_counts": {
+    "public.children": 371,
+    "public.adl_visits": 0,
+    "gk_private.caregivers": 716,
+    "public.program_changes": 128,
+    "public.child_caregivers": 716,
+    "public.reference_values": 47,
+    "gk_private.source_records": 20432,
+    "public.questionnaire_items": 31,
+    "gk_private.recovery_actions": 0,
+    "gk_private.source_artifacts": 12,
+    "public.support_observations": 0,
+    "gk_private.source_provenance": 5772,
+    "gk_private.access_memberships": 0,
+    "gk_private.identity_candidates": 2089,
+    "gk_private.record_audit_events": 28293,
+    "public.attendance_observations": 0,
+    "public.questionnaire_responses": 106,
+    "gk_private.questionnaire_answers": 3286,
+    "gk_private.child_private_profiles": 371
+  },
+  "schema_rls_permissions_constraints_triggers_ledger_unchanged": true,
+  "live_read_denials": [
+    {
+      "role": "anon",
+      "read_denied": true
+    },
+    {
+      "role": "authenticated",
+      "read_denied": true
+    },
+    {
+      "role": "service_role",
+      "read_denied": true
+    }
+  ],
+  "application_tables": 20,
+  "statement_timeout_seconds": 60,
+  "new_indexes_or_schema_changes": 0,
+  "memberships_or_oauth_activated": false,
+  "prior_journal_sha256": "35c12b00a6fa6a51f03ebeac1c96c7e04947535e6ccbd390ac703a457e7c0710",
+  "revised_journal_sha256": "7732fc71d01135fe89437569b40df86a27e18964c8d31af65259d069e52f294e",
+  "authorization_active": false,
+  "active_imports": 0,
+  "business_operational_approval": false
+}
