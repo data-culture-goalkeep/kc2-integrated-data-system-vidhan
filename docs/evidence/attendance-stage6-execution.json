@@ -1,0 +1,954 @@
+{
+  "status": "deployment_succeeded_import_blocked_by_automatic_approval_review",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "environment": "non-production internal pilot",
+  "checked_at_utc": "2026-10-27T14:40:47.100024+00:00",
+  "deployment_manifest_sha256": "7973aaf818b255d8f2411b74a1c3725a9a57f6f771bebcda32cc37348cc0dba4",
+  "import_manifest_sha256": "911c47968c61fb19a0227e0ab86eae2937dec2e673b9b94c4713ed08bb3ab4ed",
+  "migration_file": "supabase/migrations/20261027132550_attendance_import_staging.sql",
+  "migration_sha256": "972746410ba3e2cddb149aae5ec1568b86e5ca70d1a3472cb0bf4c2d6e5b3790",
+  "live_migration_ledger": [
+    {
+      "version": "20261026210941",
+      "name": "20261026171200_ids_schema"
+    },
+    {
+      "version": "20261026211010",
+      "name": "20261026171201_ids_security"
+    },
+    {
+      "version": "20261026211029",
+      "name": "20261026171202_ids_integrity"
+    },
+    {
+      "version": "20261027143527",
+      "name": "20261027132550_attendance_import_staging"
+    }
+  ],
+  "application_tables": 20,
+  "original_table_counts": {
+    "public.children": 371,
+    "public.adl_visits": 0,
+    "gk_private.caregivers": 716,
+    "public.program_changes": 128,
+    "public.child_caregivers": 716,
+    "public.reference_values": 47,
+    "gk_private.source_records": 20432,
+    "public.questionnaire_items": 31,
+    "gk_private.recovery_actions": 0,
+    "gk_private.source_artifacts": 12,
+    "public.support_observations": 0,
+    "gk_private.source_provenance": 5772,
+    "gk_private.access_memberships": 0,
+    "gk_private.identity_candidates": 2089,
+    "gk_private.record_audit_events": 28293,
+    "public.attendance_observations": 0,
+    "public.questionnaire_responses": 106,
+    "gk_private.questionnaire_answers": 3286,
+    "gk_private.child_private_profiles": 371
+  },
+  "original_19_table_counts_and_full_payload_aggregate_fingerprints_unchanged": true,
+  "existing_schema_rls_privileges_triggers_unchanged": true,
+  "staging_structure": {
+    "tables": [
+      {
+        "rls": true,
+        "name": "attendance_import_staging",
+        "schema": "gk_private",
+        "force_rls": true
+      }
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "source_record_id",
+        "type": "uuid",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "header_source_record_id",
+        "type": "uuid",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": false,
+        "position": 3,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "artifact_id",
+        "type": "uuid",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "source_file",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 5,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "source_sheet",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 6,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "native_sheet_key",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 7,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "source_row",
+        "type": "integer",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 8,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "source_column",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 9,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "source_reference",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 10,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "observation_kind",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 11,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "recorded_child_identifier",
+        "type": "jsonb",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": "'null'::jsonb",
+        "identity": "",
+        "not_null": true,
+        "position": 12,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "recorded_child_name",
+        "type": "jsonb",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": "'null'::jsonb",
+        "identity": "",
+        "not_null": true,
+        "position": 13,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "original_mark",
+        "type": "jsonb",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 14,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "original_header",
+        "type": "jsonb",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": "'null'::jsonb",
+        "identity": "",
+        "not_null": true,
+        "position": 15,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "header_label",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": false,
+        "position": 16,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "program_reported",
+        "type": "jsonb",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": "'null'::jsonb",
+        "identity": "",
+        "not_null": true,
+        "position": 17,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "parsed_date",
+        "type": "date",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": false,
+        "position": 18,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "verified_child_id",
+        "type": "uuid",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": false,
+        "position": 19,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "candidate_child_ids",
+        "type": "uuid[]",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": "'{}'::uuid[]",
+        "identity": "",
+        "not_null": true,
+        "position": 20,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "identity_status",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 21,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "date_status",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 22,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "code_status",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 23,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "review_status",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": "'pending'::text",
+        "identity": "",
+        "not_null": true,
+        "position": 24,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "flags",
+        "type": "text[]",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 25,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "provenance",
+        "type": "jsonb",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": null,
+        "identity": "",
+        "not_null": true,
+        "position": 26,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "review_notes",
+        "type": "text",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": "''::text",
+        "identity": "",
+        "not_null": true,
+        "position": 27,
+        "collation": "default",
+        "generated": ""
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": "now()",
+        "identity": "",
+        "not_null": true,
+        "position": 28,
+        "collation": null,
+        "generated": ""
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "default": "now()",
+        "identity": "",
+        "not_null": true,
+        "position": 29,
+        "collation": null,
+        "generated": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "attendance_import_staging_pkey",
+        "table": "attendance_import_staging",
+        "valid": true,
+        "schema": "gk_private",
+        "unique": true,
+        "primary": true,
+        "definition": "CREATE UNIQUE INDEX attendance_import_staging_pkey ON gk_private.attendance_import_staging USING btree (id)"
+      },
+      {
+        "name": "attendance_import_staging_source_record_id_source_column_key",
+        "table": "attendance_import_staging",
+        "valid": true,
+        "schema": "gk_private",
+        "unique": true,
+        "primary": false,
+        "definition": "CREATE UNIQUE INDEX attendance_import_staging_source_record_id_source_column_key ON gk_private.attendance_import_staging USING btree (source_record_id, source_column)"
+      },
+      {
+        "name": "attendance_staging_artifact_idx",
+        "table": "attendance_import_staging",
+        "valid": true,
+        "schema": "gk_private",
+        "unique": false,
+        "primary": false,
+        "definition": "CREATE INDEX attendance_staging_artifact_idx ON gk_private.attendance_import_staging USING btree (artifact_id)"
+      },
+      {
+        "name": "attendance_staging_child_date_idx",
+        "table": "attendance_import_staging",
+        "valid": true,
+        "schema": "gk_private",
+        "unique": false,
+        "primary": false,
+        "definition": "CREATE INDEX attendance_staging_child_date_idx ON gk_private.attendance_import_staging USING btree (verified_child_id, parsed_date) WHERE (verified_child_id IS NOT NULL)"
+      },
+      {
+        "name": "attendance_staging_header_idx",
+        "table": "attendance_import_staging",
+        "valid": true,
+        "schema": "gk_private",
+        "unique": false,
+        "primary": false,
+        "definition": "CREATE INDEX attendance_staging_header_idx ON gk_private.attendance_import_staging USING btree (header_source_record_id)"
+      },
+      {
+        "name": "attendance_staging_review_idx",
+        "table": "attendance_import_staging",
+        "valid": true,
+        "schema": "gk_private",
+        "unique": false,
+        "primary": false,
+        "definition": "CREATE INDEX attendance_staging_review_idx ON gk_private.attendance_import_staging USING btree (review_status, identity_status)"
+      }
+    ],
+    "policies": [],
+    "triggers": [
+      {
+        "name": "attendance_staging_guard",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "enabled": "O",
+        "deferrable": false,
+        "definition": "CREATE TRIGGER attendance_staging_guard BEFORE INSERT OR DELETE OR UPDATE ON gk_private.attendance_import_staging FOR EACH ROW EXECUTE FUNCTION gk_private.guard_attendance_import_staging()",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_staging_no_truncate",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "enabled": "O",
+        "deferrable": false,
+        "definition": "CREATE TRIGGER attendance_staging_no_truncate BEFORE TRUNCATE ON gk_private.attendance_import_staging FOR EACH STATEMENT EXECUTE FUNCTION gk_private.guard_attendance_import_staging()",
+        "initially_deferred": false
+      }
+    ],
+    "functions": [
+      {
+        "name": "guard_attendance_import_staging",
+        "schema": "gk_private",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION gk_private.guard_attendance_import_staging()\n RETURNS trigger\n LANGUAGE plpgsql\n SET search_path TO 'pg_catalog'\nAS $function$\nDECLARE sr gk_private.source_records%ROWTYPE; hr gk_private.source_records%ROWTYPE;\nBEGIN\n IF TG_OP IN ('DELETE','TRUNCATE') THEN RAISE EXCEPTION 'ATTENDANCE_EVIDENCE_DELETION_DENIED'; END IF;\n IF TG_OP='UPDATE' THEN\n  IF (to_jsonb(NEW)-ARRAY['updated_at','review_notes','review_status']) IS DISTINCT FROM\n     (to_jsonb(OLD)-ARRAY['updated_at','review_notes','review_status']) THEN\n    RAISE EXCEPTION 'ATTENDANCE_SOURCE_EVIDENCE_IMMUTABLE';\n  END IF;\n  NEW.created_at:=OLD.created_at; NEW.updated_at:=now(); RETURN NEW;\n END IF;\n SELECT * INTO STRICT sr FROM gk_private.source_records WHERE id=NEW.source_record_id;\n IF sr.artifact_id<>NEW.artifact_id OR sr.native_sheet_key<>NEW.native_sheet_key OR sr.source_row<>NEW.source_row THEN\n  RAISE EXCEPTION 'ATTENDANCE_SOURCE_COORDINATE_MISMATCH';\n END IF;\n IF NOT EXISTS(SELECT 1 FROM gk_private.source_artifacts WHERE id=NEW.artifact_id AND file_code=NEW.source_file AND worksheet_manifest->NEW.source_sheet->>'native_sheet_key'=NEW.native_sheet_key) THEN\n  RAISE EXCEPTION 'ATTENDANCE_SOURCE_FILE_MISMATCH';\n END IF;\n IF NEW.source_reference<>NEW.source_file||'/'||NEW.source_sheet||'/R'||NEW.source_row::text THEN RAISE EXCEPTION 'ATTENDANCE_SOURCE_REFERENCE_MISMATCH'; END IF;\n IF NEW.provenance->>'roster_row'='true' AND (NEW.recorded_child_name IS DISTINCT FROM COALESCE(sr.cell_payload->(NEW.provenance->>'name_column'),'null'::jsonb) OR NEW.recorded_child_identifier IS DISTINCT FROM COALESCE(sr.cell_payload->(NEW.provenance->>'identifier_column'),'null'::jsonb)) THEN RAISE EXCEPTION 'ATTENDANCE_RECORDED_IDENTITY_MISMATCH'; END IF;\n IF NEW.source_column<>'__ROW__' AND NEW.original_mark IS DISTINCT FROM COALESCE(sr.cell_payload->NEW.source_column,'null'::jsonb) THEN\n  RAISE EXCEPTION 'ATTENDANCE_SOURCE_MARK_MISMATCH';\n END IF;\n IF NEW.header_source_record_id IS NOT NULL THEN\n  SELECT * INTO STRICT hr FROM gk_private.source_records WHERE id=NEW.header_source_record_id;\n  IF hr.artifact_id<>NEW.artifact_id OR hr.native_sheet_key<>NEW.native_sheet_key OR\n     NEW.original_header IS DISTINCT FROM COALESCE(hr.cell_payload->NEW.source_column,'null'::jsonb) THEN\n   RAISE EXCEPTION 'ATTENDANCE_HEADER_MISMATCH';\n  END IF;\n END IF;\n IF EXISTS(SELECT 1 FROM unnest(NEW.candidate_child_ids) x(id) WHERE id IS NULL OR NOT EXISTS(SELECT 1 FROM public.children c WHERE c.id=x.id)) OR\n    cardinality(NEW.candidate_child_ids)<>(SELECT count(DISTINCT x) FROM unnest(NEW.candidate_child_ids) x) THEN\n  RAISE EXCEPTION 'ATTENDANCE_INVALID_CANDIDATE';\n END IF;\n -- No name-only verification or trusting syntactically valid sanitized dates.\n IF NEW.identity_status='VERIFIED' AND NOT EXISTS(SELECT 1 FROM public.children c WHERE c.id=NEW.verified_child_id AND to_jsonb(c.child_business_id)=NEW.recorded_child_identifier) THEN\n  RAISE EXCEPTION 'ATTENDANCE_EXACT_ID_REQUIRED';\n END IF;\n IF NEW.date_status='VERIFIED' AND NEW.provenance->'date_fidelity_approved' IS DISTINCT FROM 'true'::jsonb THEN\n  RAISE EXCEPTION 'ATTENDANCE_DATE_FIDELITY_REQUIRED';\n END IF;\n IF NEW.code_status='VERIFIED' AND NEW.provenance->'attendance_codes_approved' IS DISTINCT FROM 'true'::jsonb THEN RAISE EXCEPTION 'ATTENDANCE_CODE_APPROVAL_REQUIRED'; END IF;\n NEW.created_at:=now(); NEW.updated_at:=NEW.created_at; RETURN NEW;\nEND $function$\n",
+        "configuration": [
+          "search_path=pg_catalog"
+        ],
+        "security_definer": false
+      }
+    ],
+    "constraints": [
+      {
+        "name": "attendance_import_staging_artifact_id_fkey",
+        "type": "f",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (artifact_id) REFERENCES gk_private.source_artifacts(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_check",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((identity_status = 'VERIFIED'::text) = (verified_child_id IS NOT NULL))",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_check1",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((date_status = 'VERIFIED'::text) = (parsed_date IS NOT NULL))",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_check2",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (identity_status <> 'PROVISIONAL_MATCH'::text OR cardinality(candidate_child_ids) = 1)",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_check3",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (identity_status <> 'AMBIGUOUS'::text OR cardinality(candidate_child_ids) > 1)",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_check4",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (identity_status <> 'UNMATCHED'::text OR cardinality(candidate_child_ids) = 0)",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_check5",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((observation_kind = 'SOURCE_CONTEXT'::text) = (source_column = '__ROW__'::text))",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_code_status_check",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (code_status = ANY (ARRAY['VERIFIED'::text, 'PENDING'::text]))",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_date_status_check",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (date_status = ANY (ARRAY['VERIFIED'::text, 'MISSING'::text, 'FORMULA_UNRESOLVED'::text, 'SANITIZED_UNTRUSTED'::text, 'UNPARSED'::text]))",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_header_source_record_id_fkey",
+        "type": "f",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (header_source_record_id) REFERENCES gk_private.source_records(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_identity_status_check",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (identity_status = ANY (ARRAY['VERIFIED'::text, 'PROVISIONAL_MATCH'::text, 'AMBIGUOUS'::text, 'UNMATCHED'::text]))",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_observation_kind_check",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (observation_kind = ANY (ARRAY['MARK'::text, 'FORMULA'::text, 'SUMMARY_VALUE'::text, 'AUXILIARY_VALUE'::text, 'SOURCE_CONTEXT'::text]))",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_pkey",
+        "type": "p",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_provenance_check",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (jsonb_typeof(provenance) = 'object'::text)",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_review_status_check",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (review_status = ANY (ARRAY['pending'::text, 'reviewed'::text, 'excluded'::text]))",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_source_column_check",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (source_column ~ '^([A-Z]{1,3}|__ROW__)$'::text)",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_source_record_id_fkey",
+        "type": "f",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (source_record_id) REFERENCES gk_private.source_records(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_source_record_id_source_column_key",
+        "type": "u",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (source_record_id, source_column)",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_source_row_check",
+        "type": "c",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (source_row > 0)",
+        "initially_deferred": false
+      },
+      {
+        "name": "attendance_import_staging_verified_child_id_fkey",
+        "type": "f",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (verified_child_id) REFERENCES public.children(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      }
+    ],
+    "table_privileges": [
+      {
+        "role": "anon",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "anon",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "anon",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "anon",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "anon",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "anon",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "anon",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "authenticated",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "authenticated",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "authenticated",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "authenticated",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "authenticated",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "authenticated",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "authenticated",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "service_role",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "service_role",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "service_role",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "service_role",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "service_role",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "service_role",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "service_role",
+        "table": "attendance_import_staging",
+        "schema": "gk_private",
+        "allowed": false,
+        "privilege": "UPDATE"
+      }
+    ],
+    "function_privileges": [
+      {
+        "name": "guard_attendance_import_staging",
+        "role": "anon",
+        "schema": "gk_private",
+        "execute": false,
+        "arguments": ""
+      },
+      {
+        "name": "guard_attendance_import_staging",
+        "role": "authenticated",
+        "schema": "gk_private",
+        "execute": false,
+        "arguments": ""
+      },
+      {
+        "name": "guard_attendance_import_staging",
+        "role": "service_role",
+        "schema": "gk_private",
+        "execute": false,
+        "arguments": ""
+      }
+    ]
+  },
+  "import_transactions_expected": 216,
+  "import_requests_submitted": 1,
+  "import_committed_acknowledgements": 0,
+  "import_requests_blocked_before_execution": 1,
+  "server_failed_transactions": 0,
+  "uncertain_transactions": 0,
+  "next_batch_index": 0,
+  "remaining_transactions": 216,
+  "blocked_request_id": "239b2cbacd3a517e81333c2b2d0061e5cfce69528b665c6518d303839743fe8f",
+  "actual_live_staging": {
+    "staging_rows": 0,
+    "daily_marks": 0,
+    "verified_identity": 0,
+    "verified_date": 0,
+    "operational_rows": 0,
+    "active_imports": 0
+  },
+  "live_duplicate_coordinates": 0,
+  "live_identity_status_counts": {},
+  "live_date_status_counts": {},
+  "live_code_status_counts": {},
+  "all_43160_expected_keys_absent": true,
+  "source_to_staging_coverage_complete": false,
+  "prepared_only_counts": {
+    "worksheets": 107,
+    "daily_roster_rows": 2142,
+    "daily_literal_marks": 24687,
+    "observation_candidates": 29028,
+    "source_context_records": 14132,
+    "staged_records": 43160,
+    "identity_observation_counts": {
+      "PROVISIONAL_MATCH": 15358,
+      "UNMATCHED": 12947,
+      "AMBIGUOUS": 723
+    },
+    "date_observation_counts": {
+      "SANITIZED_UNTRUSTED": 24562,
+      "FORMULA_UNRESOLVED": 452,
+      "UNPARSED": 4004,
+      "MISSING": 10
+    }
+  },
+  "security": {
+    "rls_enabled": true,
+    "rls_forced": true,
+    "all_application_table_privileges_denied": true,
+    "guard_execute_denied": true,
+    "staging_policies": 0,
+    "live_read_denials": [
+      {
+        "role": "anon",
+        "read_denied": true,
+        "error_code": "42501"
+      },
+      {
+        "role": "authenticated",
+        "read_denied": true,
+        "error_code": "42501"
+      },
+      {
+        "role": "service_role",
+        "read_denied": true,
+        "error_code": "42501"
+      }
+    ],
+    "memberships": 0,
+    "oauth_activated": false
+  },
+  "automatic_review_rejection_reason": "Writes sensitive attendance-derived records; reviewer did not recognize separate approval of the exact manifests in available user evidence. The current attached request contains that approval; no bypass or retry was attempted.",
+  "owner_authorization_reference": "Current user-pasted request: Goalkeep KC-2 \u2014 Stage 6: Attendance Deployment and Import",
+  "authorization_active": false,
+  "private_journal_sha256": "6ddacc75bb6c7f4c1ba73d4cf757d089f78d8ca845dbcb5dc595ac15f6173e94",
+  "retries": 0,
+  "new_execution_control_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "sql_and_source_packets_unchanged": true
+}
