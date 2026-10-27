@@ -1,0 +1,116 @@
+{
+  "status": "interrupted_incomplete",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "run_id": "cc107f2c5fab4d4da63903d4503d8789",
+  "confirmed_committed_transactions": 40,
+  "confirmed_direct_inserts": {
+    "source_artifacts": 12,
+    "source_records": 9988
+  },
+  "live_counts": {
+    "public.children": 0,
+    "public.adl_visits": 0,
+    "gk_private.caregivers": 0,
+    "public.program_changes": 0,
+    "public.child_caregivers": 0,
+    "public.reference_values": 0,
+    "gk_private.source_records": 9988,
+    "public.questionnaire_items": 0,
+    "gk_private.recovery_actions": 0,
+    "gk_private.source_artifacts": 12,
+    "public.support_observations": 0,
+    "gk_private.source_provenance": 0,
+    "gk_private.access_memberships": 0,
+    "gk_private.identity_candidates": 0,
+    "gk_private.record_audit_events": 0,
+    "public.attendance_observations": 0,
+    "public.questionnaire_responses": 0,
+    "gk_private.questionnaire_answers": 0,
+    "gk_private.child_private_profiles": 0
+  },
+  "source_rows_loaded_staged": 9988,
+  "source_rows_not_loaded": 10444,
+  "source_status_updates": 0,
+  "operational_records_loaded": 0,
+  "generated_audit_rows": 0,
+  "interrupted_request": {
+    "phase": "data",
+    "index": 40,
+    "request_id": "7653cf553859020440bf72d015bf26a6f16e62a1216fb34207415bdb90b7b93b",
+    "outcome": "No committed rows; confirmed by exact live prefix reconciliation"
+  },
+  "interrupted_request_source_rows": 250,
+  "other_not_loaded_source_rows": 10194,
+  "remaining_transactions": 179,
+  "remaining_data_transactions": 97,
+  "remaining_source_status_transactions": 82,
+  "schema_security_unchanged": true,
+  "active_import_transactions": 0,
+  "source_outcomes": {
+    "source_preserved_staged": 9988,
+    "interrupted_request_not_committed": 250,
+    "not_attempted_after_stop": 10194
+  },
+  "source_rows_by_file": {
+    "S01": {
+      "source_preserved_staged": 368
+    },
+    "S02": {
+      "source_preserved_staged": 1220
+    },
+    "S03": {
+      "source_preserved_staged": 1847
+    },
+    "S04": {
+      "source_preserved_staged": 1206
+    },
+    "S05": {
+      "source_preserved_staged": 1150
+    },
+    "S06": {
+      "source_preserved_staged": 588
+    },
+    "S07": {
+      "source_preserved_staged": 2828
+    },
+    "S08": {
+      "source_preserved_staged": 781,
+      "interrupted_request_not_committed": 250,
+      "not_attempted_after_stop": 2135
+    },
+    "S09": {
+      "not_attempted_after_stop": 3092
+    },
+    "S10": {
+      "not_attempted_after_stop": 2117
+    },
+    "S11": {
+      "not_attempted_after_stop": 1298
+    },
+    "S12": {
+      "not_attempted_after_stop": 1552
+    }
+  },
+  "journal_sha256": "9095eca5417fc4886978dc52d32f49ae3d103fc850b953a77f6137f227c688de",
+  "private_outcome_ledger": "Ignored work/remote-etl/partial-source-execution-outcomes.json",
+  "private_interruption_ledger": "Ignored work/remote-etl/execution-interruption-exceptions.json",
+  "google_report_new_rows": {
+    "S01": 1,
+    "S02": 1,
+    "S03": 1,
+    "S04": 1,
+    "S05": 1,
+    "S06": 1,
+    "S07": 1,
+    "S08": 251,
+    "S09": 1,
+    "S10": 1,
+    "S11": 1,
+    "S12": 1
+  },
+  "recovery_plan_sha256": "4fc7f1d0d35443d1d3f80445883924676f6b91563291ff2344717165c6d2022e",
+  "recovery_authorized": false,
+  "migration_complete": false,
+  "cause": "Approved bridge stopped after exec_command failed: exec-server transport disconnected; no PostgreSQL error response was captured"
+}

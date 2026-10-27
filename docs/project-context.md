@@ -1,6 +1,6 @@
 # KC2 Phase 1 — Current project context
 
-Updated 27 October 2026, Asia/Kolkata. Stage 3 schema deployed and live-validated; no NGO data or memberships loaded.
+Updated 27 October 2026, Asia/Kolkata. Stage 4B authorized migration interrupted: 12 artifacts and 9,988 staged source records committed; operational tables and memberships remain empty. Recovery is not authorized.
 
 The owner subsequently authorized Stage 3 application of only the exact three reviewed SQL migrations. Those migrations are now applied. Migrating NGO records, enabling memberships/broad access/OAuth, further DDL and frontend work remain prohibited without a new authorization. Earlier Stage 1/Stage 2 drafts are preserved in Git and `docs/archive/`; their unresolved identity/location statements are superseded only by the explicit decisions below.
 
@@ -85,3 +85,15 @@ The same twelve Drive versions, protected originals and 155 sanitized hashes mat
 The adapter aggregates receipts in transaction-local settings and returns one bound envelope before COMMIT, avoiding dependence on separate intermediate result sets. A live read-only probe validated the format and a 790,283-byte request/250 synthetic receipt capacity. The actual largest batch is 787,875 bytes; 137 data transactions and 82 state-finalization transactions are prepared. Controlled loading would insert 34,077 direct rows and 28,293 generated audit events and update 20,432 source states; memberships, roles and unresolved operational facts remain excluded.
 
 Execution still needs a new explicit owner authorization bound to exact project, plan, manifest, scope and expiry. No authorization file was created; no write mode was enabled. Failure/unknown commit outcome stops execution; no automatic retry, destructive rollback or reset. An existing partial target blocks normal execution and needs reviewed recovery. Dates, identity decisions, category meanings and questionnaire interpretation retain their exclusions. Doc 27 and the latest preflight evidence distinguish local full-load tests, offline bridge tests and actual live read-only checks.
+
+## Stage 4B authorized execution — interrupted, 27 October 2026
+
+The owner explicitly authorized original plan 7f96ad770c792286a798d588a2a59550c4c0719a802d3ed9884b826d400aa25f and execution manifest 8cf2df9dd09a74234b26f1a99c61d17ed7f1f733eca2f016a4f0429c869471b4. Fresh checks passed, and the unchanged reviewed adapter executed 40 data transactions. A local exec-server transport disconnection stopped the bridge before the next request committed. The waiting local worker was stopped. No retry, whole-job restart, schema change or recovery write occurred.
+
+Live reconciliation proves exactly the first 40 acknowledged batches: 12 source artifacts and 9,988 source records. Every source record is staged; source-state updates, operational projections, provenance, reference definitions, candidates, memberships and audit events are zero. All 99 FK checks pass for the current partial state; the complete schema/RLS/privilege catalog remains unchanged. Anonymous reads are denied and an unapproved authenticated role sees zero rows across 18 selectable tables, including populated private source tables.
+
+Request data/index 40, ID 7653cf553859020440bf72d015bf26a6f16e62a1216fb34207415bdb90b7b93b, has no committed rows and no import transaction is active. The remaining work is 97 data requests (indices 40–136) plus all 82 source-status requests. The outcome ledger accounts for all 20,432 rows: 9,988 staged, 250 interrupted/uncommitted and 10,194 unattempted. The original 1,194/15,301/3,623/314 classifications remain planning values, not final live states.
+
+Docs 28–30 and stage4b-interrupted-execution-results.json supersede the earlier empty-database state for current data. They do not overwrite prior Stage 3/4A/preflight historical evidence. The private Google report preserves 11,222 preparation findings and separately adds 250 execution interruption rows plus twelve summaries; no sharing was changed.
+
+The original authorization artifact is archived, no active owner-authorization.json remains and write mode is disabled. The bounded recovery proposal enumerates 179 remaining original request hashes and requires a separately reviewed prefix-aware executor/new binding and separate owner approval. Preserve the initial-load nonempty-target guard and the four approved code files. Do not restart, replay the committed prefix, delete/reset/repair data or silently activate access. Stage 4B is incomplete; Phase 2 remains prohibited.

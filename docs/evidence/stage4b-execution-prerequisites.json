@@ -1,0 +1,21 @@
+{
+  "verified_at": "2026-10-27T04:05:28.858430+00:00",
+  "verification_scope": "All checks completed before the first remote write; no changes to the approved bound implementation",
+  "approved_plan_sha256": "7f96ad770c792286a798d588a2a59550c4c0719a802d3ed9884b826d400aa25f",
+  "approved_manifest_sha256": "8cf2df9dd09a74234b26f1a99c61d17ed7f1f733eca2f016a4f0429c869471b4",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "postgres_version": "17.11",
+  "reviewed_commit": "bd991ddc27178d6d3167bd514bf7556d170c58b8",
+  "source_files": 12,
+  "sanitized_worksheets": 155,
+  "original_and_sanitized_hashes_unchanged": true,
+  "drive_versions_unchanged": true,
+  "catalog_and_security_equal_approved_reference": true,
+  "all_19_tables_empty_before_execution": true,
+  "ledger_matches_three_deployed_migrations": true,
+  "migration_identity": "postgres",
+  "migration_permissions_verified": true,
+  "failure_report_owner_private": true,
+  "authorization_source": "Explicit owner instruction in this conversation; earlier preflight-only loading restriction superseded for exact scope"
+}
