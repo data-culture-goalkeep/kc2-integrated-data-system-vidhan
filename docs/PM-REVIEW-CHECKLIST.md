@@ -34,6 +34,6 @@
 | Technical handover acceptance | Pending | Pending |
 | Business/operational data acceptance | Pending | Pending |
 | Access activation and Phase 2 live dependencies | Pending | Pending |
-| PR merge approval | Pending | Pending |
+| PR merge approval | Owner / 28 October 2026 | Normal dependency-ordered integration authorized; independent review/protection gate remains blocked |
 
 Technical delivery, migration execution, business acceptance and user-access activation are separate approvals. Pending staging is not verified attendance. A PR marked ready for review is neither approved nor merged. See [handover](PHASE1-HANDOVER.md), [live evidence](evidence/phase1-final-delivery-verification.json) and [proposed increment](47-historical-recovery-and-increment.md).
