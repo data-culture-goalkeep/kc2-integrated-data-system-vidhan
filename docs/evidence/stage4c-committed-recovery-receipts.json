@@ -1,0 +1,1685 @@
+[
+  {
+    "sequence": 0,
+    "phase": "data",
+    "index": 40,
+    "request_id": "7653cf553859020440bf72d015bf26a6f16e62a1216fb34207415bdb90b7b93b",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 1,
+    "phase": "data",
+    "index": 41,
+    "request_id": "0f9a0e4108ac4537d3e48bdb3ee2c85718c3305af89b47326ae49e626426dc5a",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 2,
+    "phase": "data",
+    "index": 42,
+    "request_id": "c5c63bdde83bf8394944bddfa22e8304754e9e4f9b3d97ea5c618e56a6b2032b",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 3,
+    "phase": "data",
+    "index": 43,
+    "request_id": "7ef2b6a642c583d82abbc2f8837a0f3d715a9684900b800664a297a3df773b4d",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 4,
+    "phase": "data",
+    "index": 44,
+    "request_id": "88a60fb93045434a53451197b7cab50027a08600178c6bfd3724b4844b7df5f5",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 5,
+    "phase": "data",
+    "index": 45,
+    "request_id": "d74967a817ba10741a9c89ab4a95bdb75d1e1e91d178094b9a77063b25febb3b",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 6,
+    "phase": "data",
+    "index": 46,
+    "request_id": "386c1419cd25a8d3bf7453e8b63bbd0b55a4c042a1cc07be99f89361e03e17f1",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 7,
+    "phase": "data",
+    "index": 47,
+    "request_id": "be3b55d019d741761027001a6e16ee1ddaae344730039efc58215973de0f9b5d",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 8,
+    "phase": "data",
+    "index": 48,
+    "request_id": "686463bda844a18a70f09445735677d78a25d88f4ab9238361b4fef09a86d69e",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 9,
+    "phase": "data",
+    "index": 49,
+    "request_id": "ca7cde8fb5fc279dd01638f020764fbe2bd611196d696be668927dd26da7aa63",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 10,
+    "phase": "data",
+    "index": 50,
+    "request_id": "0c97f65e05f9d27df33d4220c9b96c49497cd92e12d2ee8dcb41a199668db85c",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 11,
+    "phase": "data",
+    "index": 51,
+    "request_id": "3bcbefd97f14c7c7183219250207c947d77bfc3178566be5d5d5435f29211a43",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 12,
+    "phase": "data",
+    "index": 52,
+    "request_id": "764c2b8cdacbb57c6c92ea823e9d786563f9bd96cb9d9d101212d5e84f272ab8",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 13,
+    "phase": "data",
+    "index": 53,
+    "request_id": "b28d61616eefbb6fc5de8f698b5ce25645f03597e934fbc476481b33137a9e77",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 14,
+    "phase": "data",
+    "index": 54,
+    "request_id": "698d3b36f78570bd75cde628166c1d58ca94dcc760275034783df6f8b82bb6e1",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 15,
+    "phase": "data",
+    "index": 55,
+    "request_id": "c4e9ab5ca6e19e88c667197ef53e856d4345b33bb1ed60454a85b09f4f2a239a",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 16,
+    "phase": "data",
+    "index": 56,
+    "request_id": "9194b0147d94ac68c4c73b2bd802f884e900967120f9f043aed67ee12d764b5e",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 17,
+    "phase": "data",
+    "index": 57,
+    "request_id": "909b253d12252a7a2096ec54940ae65b51f731d0114c54aa020a6598a7c3b913",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 18,
+    "phase": "data",
+    "index": 58,
+    "request_id": "c7935bb2a7a6f19fc190913b00e1023a21d9c7e6b33a24027006b1da8fa3f06f",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 19,
+    "phase": "data",
+    "index": 59,
+    "request_id": "32cd546b39dd91990440c18b54fe4e73e8c872803613d947e2e26d7801144f1d",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 20,
+    "phase": "data",
+    "index": 60,
+    "request_id": "4f6c209af917e595d18fc1dc9b86019748bbb15d7baf75c01fa5206b72ea38c6",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 21,
+    "phase": "data",
+    "index": 61,
+    "request_id": "5dfa334a6000c25759bcbb871c7a63b5d03d0f714a695ad9c541f5b388b2cbc9",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 22,
+    "phase": "data",
+    "index": 62,
+    "request_id": "c1295c185e9d04f4c5524092343e2891966a982a38cd78f1c2ba6942f615c57a",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 23,
+    "phase": "data",
+    "index": 63,
+    "request_id": "74f76be8bdb473100f5759c21e05b6128794d1a192d671a978ff638d80344180",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 24,
+    "phase": "data",
+    "index": 64,
+    "request_id": "3ce36ef1ae82919b1f9acbe3cbbdc202257b5c9e3ca016ce1fdd76c4fb0d4f7e",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 25,
+    "phase": "data",
+    "index": 65,
+    "request_id": "b1b6324e774dce42e2891dad0c274a04370b23627656c7ea077bafa0c7ef9225",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 26,
+    "phase": "data",
+    "index": 66,
+    "request_id": "6fb5a44b9d204e03629d7847d3d8b4aa235bb1782533fb533e0e9d05cd8d505d",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 27,
+    "phase": "data",
+    "index": 67,
+    "request_id": "2dac988dc6890df631dc2570c3023b815aeda17d5898aa88347e97646dc9c965",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 28,
+    "phase": "data",
+    "index": 68,
+    "request_id": "2e2484ec2445ea9cb4ae0aae74eeb22d67e82af81043c2ebcafcabb2edce3034",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 29,
+    "phase": "data",
+    "index": 69,
+    "request_id": "8e0b960ae993887617c384bfc4b02e86b9283390c5c766a68266e9db267247f7",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 30,
+    "phase": "data",
+    "index": 70,
+    "request_id": "96d113c11707847883c6c1d6f1a9c5e77d05e721bfa7b6f1913c1c092700c1cc",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 31,
+    "phase": "data",
+    "index": 71,
+    "request_id": "6e5251283e25e9ad3f121b4161b7037c895a5d6e0edee043b46c87c779bb1f5f",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 32,
+    "phase": "data",
+    "index": 72,
+    "request_id": "b166fc59c0b904b184c7bd54d0bbf97c43b8fb370b31875fec4c5b846cb5e97e",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 33,
+    "phase": "data",
+    "index": 73,
+    "request_id": "ab23a0d09839f593b746fe426969c9b4baf553a19dba12f9a889145577b4c038",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 34,
+    "phase": "data",
+    "index": 74,
+    "request_id": "1666cdb77858744433c30d21e5d0a1bef400f066ae6a0e46ed1d7df557b34f55",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 35,
+    "phase": "data",
+    "index": 75,
+    "request_id": "d144d96d517e45a24babfeec8b47c8b6b5a86259fcbd548c64f8a1ca6d05f72d",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 36,
+    "phase": "data",
+    "index": 76,
+    "request_id": "abfeb27b98ff446dbe130e52b1ec7f2a83eb98a617e529e7b8e86f1dde8dfa4b",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 37,
+    "phase": "data",
+    "index": 77,
+    "request_id": "d839b0877733927f4c37825c4d570b132696839bf2d9f6e3f28aad6da19857c1",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 38,
+    "phase": "data",
+    "index": 78,
+    "request_id": "95eaa97e22ab16fd7d9a437aa8c32b1a83a1bef4361e9965a5ee789baf8d90f8",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 39,
+    "phase": "data",
+    "index": 79,
+    "request_id": "d8334825f5e6ee8a5b6bfcbd9c5055cdd10c71070eb4285ee7717cda76f3c97f",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 40,
+    "phase": "data",
+    "index": 80,
+    "request_id": "c6d596a8fe3f02897dee180a0e4ce8ff38a1b71e2faac83b947892284b0e539b",
+    "inserted_by_table": {
+      "source_records": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 41,
+    "phase": "data",
+    "index": 81,
+    "request_id": "5a4defb88fff1e7b07018e8a16beea5a7a505070e74137a3bc453261d8959e16",
+    "inserted_by_table": {
+      "reference_values": 28,
+      "source_provenance": 28,
+      "source_records": 194
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 42,
+    "phase": "data",
+    "index": 82,
+    "request_id": "d4e9c2a031a4226ecb6cbeeeea13ef67a342ff5cc73ffc0c678ba4229c5f790a",
+    "inserted_by_table": {
+      "children": 106,
+      "reference_values": 19,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 43,
+    "phase": "data",
+    "index": 83,
+    "request_id": "d7017e566e0b2f04a813283e760f58530704bfcdb7f840a602ca12ad2fdeee13",
+    "inserted_by_table": {
+      "children": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 44,
+    "phase": "data",
+    "index": 84,
+    "request_id": "f94b570a131d4c628f616c2d3921a253f219accfaceac5462ac888bc97c45d73",
+    "inserted_by_table": {
+      "children": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 45,
+    "phase": "data",
+    "index": 85,
+    "request_id": "11f5f809c28dcbd6b0710a028162a7e00e91d3214a0a92a6a0b09191b7b1e953",
+    "inserted_by_table": {
+      "child_private_profiles": 110,
+      "children": 15,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 46,
+    "phase": "data",
+    "index": 86,
+    "request_id": "d3e18b078a8b0b482eef8d32e883cbadfc4c20fdc9394380d1b524a3ce54661a",
+    "inserted_by_table": {
+      "child_private_profiles": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 47,
+    "phase": "data",
+    "index": 87,
+    "request_id": "641cacc3fe9871ae15eea4637811492d7e140f7f04f13d8acbceb3bcc005e9cc",
+    "inserted_by_table": {
+      "child_private_profiles": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 48,
+    "phase": "data",
+    "index": 88,
+    "request_id": "1a51e80cbea308a00919dd3da621fd5bd4ef0ef5778eb49c7e4f16b934f377d7",
+    "inserted_by_table": {
+      "caregivers": 114,
+      "child_private_profiles": 11,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 49,
+    "phase": "data",
+    "index": 89,
+    "request_id": "4eab7ba8e3c72ec78ddcd426212e4c5bf6e6c8cb81c6beba3896b71c327a22fd",
+    "inserted_by_table": {
+      "caregivers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 50,
+    "phase": "data",
+    "index": 90,
+    "request_id": "249dfa7c0ed7dd0fd4fd86b615d5afc4a27209687762905ba509956fa24362ee",
+    "inserted_by_table": {
+      "caregivers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 51,
+    "phase": "data",
+    "index": 91,
+    "request_id": "d9b45db3f143b9be28bf1e3f6d6ca997c29dbecc04524d19621ffd9a594b3073",
+    "inserted_by_table": {
+      "caregivers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 52,
+    "phase": "data",
+    "index": 92,
+    "request_id": "610b17fd32784a61e8a61b5c520c25053d3a279ada3bcb1e44f0a91cf7ade5b9",
+    "inserted_by_table": {
+      "caregivers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 53,
+    "phase": "data",
+    "index": 93,
+    "request_id": "f40f1629313a3612bdd239d1d70f5384a73466f946fb64dbdcc0e62092a4f8d5",
+    "inserted_by_table": {
+      "caregivers": 102,
+      "child_caregivers": 23,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 54,
+    "phase": "data",
+    "index": 94,
+    "request_id": "011b4982a391e9ce1b0e9916da7289545e3ff19e1cfd1eeabbd96521077ac58f",
+    "inserted_by_table": {
+      "child_caregivers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 55,
+    "phase": "data",
+    "index": 95,
+    "request_id": "575b1bfe049b5d46d33a4d2420dbd39f33c37759b67074d0c7e6499694ee9f8d",
+    "inserted_by_table": {
+      "child_caregivers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 56,
+    "phase": "data",
+    "index": 96,
+    "request_id": "c23bb247dd7396e596f9760354342a150165f84ec87530bedf9f6ca07d8ce900",
+    "inserted_by_table": {
+      "child_caregivers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 57,
+    "phase": "data",
+    "index": 97,
+    "request_id": "ce9dca8aa2ed75cf65892da7bba88a4e22cbf83cba911ec9c678fb95f14ab47a",
+    "inserted_by_table": {
+      "child_caregivers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 58,
+    "phase": "data",
+    "index": 98,
+    "request_id": "33a27122f0d4186459f490f3eaf7a521b02be7231cf291179f488f99677c78cb",
+    "inserted_by_table": {
+      "child_caregivers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 59,
+    "phase": "data",
+    "index": 99,
+    "request_id": "f3ed59a6925553eb2c34c8c9fbc1ec54b23fff2d5681f01f5012c74f2f90e7fc",
+    "inserted_by_table": {
+      "child_caregivers": 68,
+      "program_changes": 57,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 60,
+    "phase": "data",
+    "index": 100,
+    "request_id": "100b01c3be16d7fb1f8f813c4c8cd27fe285d8f9ed0a8d1ed89be65c9c7d00bf",
+    "inserted_by_table": {
+      "program_changes": 71,
+      "questionnaire_items": 31,
+      "questionnaire_responses": 23,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 61,
+    "phase": "data",
+    "index": 101,
+    "request_id": "f4ce278c3a321730b348ddca6cb256e8bcaa862052dd5710ecd8451aba7c0c87",
+    "inserted_by_table": {
+      "questionnaire_answers": 42,
+      "questionnaire_responses": 83,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 62,
+    "phase": "data",
+    "index": 102,
+    "request_id": "15bdf3e0427ecde3409edf9c43077a07e553fbf1b849eae2406d15bb35088c9b",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 63,
+    "phase": "data",
+    "index": 103,
+    "request_id": "f712b28fe35b6dce45980231cebfb1c0d58d41528e0735c173cf88f696160718",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 64,
+    "phase": "data",
+    "index": 104,
+    "request_id": "ad8ccb5d1af51dc41dfd788e1961bab463864cfcdb35ce3765cc17e7a7d6df90",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 65,
+    "phase": "data",
+    "index": 105,
+    "request_id": "4e7f52179536d4becf244123da7fb8f812ffd636f16fc0edd77abaffb43b96dc",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 66,
+    "phase": "data",
+    "index": 106,
+    "request_id": "e70094df9251ce5056f4631f7f436902e5b5d38b643c22ce841901d67ec538b6",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 67,
+    "phase": "data",
+    "index": 107,
+    "request_id": "440ad4bfbe19afa6cff1c45621ef5c79a9e96bd812e7c30074c71b379a5e66fc",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 68,
+    "phase": "data",
+    "index": 108,
+    "request_id": "2a97fea1e3bd6a4e58b74de54103217f3158a9567b2261cce7d40d6e64cd473a",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 69,
+    "phase": "data",
+    "index": 109,
+    "request_id": "2eaf3f282395774df9f92a2dd62c2cdc0f39fa9b0f714032f3f03670b02d582b",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 70,
+    "phase": "data",
+    "index": 110,
+    "request_id": "226ee4befcbd49d524af47b4c6dc360d75f9df61f50194c9a1e67a5bf8bdafe6",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 71,
+    "phase": "data",
+    "index": 111,
+    "request_id": "5d803979c6e8ce8fd111c8f508f277cb7a2768eac57cdbc733fc904a31bb9c9e",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 72,
+    "phase": "data",
+    "index": 112,
+    "request_id": "e221862a0b70efe0f11ba7ff4ba05882881f8dd87227a6b908bcb5a136cfad99",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 73,
+    "phase": "data",
+    "index": 113,
+    "request_id": "c0c167e31a20624e28d009182de89bce3bbbf0b7801d2725317895286fcf524f",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 74,
+    "phase": "data",
+    "index": 114,
+    "request_id": "d75a30a0ddca007b0b3599b84c4078495735bb893f4b1d5007e44bccbb7539ce",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 75,
+    "phase": "data",
+    "index": 115,
+    "request_id": "142d191a13b8beeb7484d789478fe2f36aba3d9eb722075ecffcfd08f7e542fe",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 76,
+    "phase": "data",
+    "index": 116,
+    "request_id": "cff74b1502c472d1b3e6e4a0a7bc5ee3c64d8acf086535c77f0e9f7d74e8fe08",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 77,
+    "phase": "data",
+    "index": 117,
+    "request_id": "f6cbd5b3d0947c1c389a771dfb9660d91252a0dd31e7a5b0d70617eacb6185cc",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 78,
+    "phase": "data",
+    "index": 118,
+    "request_id": "dba380d2e359a4211bd0e5288752aaeae9f64b3c781749d34dae6597968969c3",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 79,
+    "phase": "data",
+    "index": 119,
+    "request_id": "77c2d8e8c41162272bc672712aabbfaca44f385a3bb2295a9631353d475292ac",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 80,
+    "phase": "data",
+    "index": 120,
+    "request_id": "ec4181b2441e325f233c4df7aeed5d90632d5bc2bfb36bb2a41b6430b4ffd346",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 81,
+    "phase": "data",
+    "index": 121,
+    "request_id": "efb1f283e2e32a6eb404ae476bc39c2d3be14db1181087b5bcd550ea0c61ae6d",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 82,
+    "phase": "data",
+    "index": 122,
+    "request_id": "8095c79d2cc50b5d416e7066522ce9decbf2bb55f68c3ecf37c103491edd8e22",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 83,
+    "phase": "data",
+    "index": 123,
+    "request_id": "2f796761fe7b68e250fcc1b523194b751088edf669d1c674d869b1897b7ff432",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 84,
+    "phase": "data",
+    "index": 124,
+    "request_id": "2b297bd795d7a120693b829479dcd6f81536daec8ea21f525522ad69088ee90a",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 85,
+    "phase": "data",
+    "index": 125,
+    "request_id": "6074c5b5f10bef63d8e435e8c050186c41b70e50fbfabdba8008124910a50061",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 86,
+    "phase": "data",
+    "index": 126,
+    "request_id": "ffe38345d05fd57c64e0ea140e8f021911095d681128888649e7c323d2959807",
+    "inserted_by_table": {
+      "questionnaire_answers": 125,
+      "source_provenance": 125
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 87,
+    "phase": "data",
+    "index": 127,
+    "request_id": "2b36523364ceb96bea13532c8a849a3eee4f46b15de3286a10513d08e2dd9989",
+    "inserted_by_table": {
+      "identity_candidates": 12,
+      "questionnaire_answers": 119,
+      "source_provenance": 119
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 88,
+    "phase": "data",
+    "index": 128,
+    "request_id": "73763a672f8d5dda3c67e92f9283fc070a954dc473bfa8117b97f1e3fd444bee",
+    "inserted_by_table": {
+      "identity_candidates": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 89,
+    "phase": "data",
+    "index": 129,
+    "request_id": "c1a1f13bfa51ecd90e07d1cf217a764a511c34f9deb1329cc89c2421d9c4bcff",
+    "inserted_by_table": {
+      "identity_candidates": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 90,
+    "phase": "data",
+    "index": 130,
+    "request_id": "a427235e02bad3e48aa2fd85e55dca470aec94484b4952bf0848205db6eae7ed",
+    "inserted_by_table": {
+      "identity_candidates": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 91,
+    "phase": "data",
+    "index": 131,
+    "request_id": "485e5698efee32abc67c688fabb19f2421747b0a1eefa5960f4f6658590fb895",
+    "inserted_by_table": {
+      "identity_candidates": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 92,
+    "phase": "data",
+    "index": 132,
+    "request_id": "db221905d2d2da823346799495de6c4c41d8969704f82010217e47ec45bdd331",
+    "inserted_by_table": {
+      "identity_candidates": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 93,
+    "phase": "data",
+    "index": 133,
+    "request_id": "9455b909562bbaeb735feaf0a26dbae3d2d7a2fb297b97360b3ba5556bf24287",
+    "inserted_by_table": {
+      "identity_candidates": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 94,
+    "phase": "data",
+    "index": 134,
+    "request_id": "f42d9d95dcb061e135b8ec2fef08de1add111d2233a5d034233e35c711dc2295",
+    "inserted_by_table": {
+      "identity_candidates": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 95,
+    "phase": "data",
+    "index": 135,
+    "request_id": "6c56f6e43838be8e783eda42c3c85a5e0e6706c8bbf1cf3eda3fd02c9c40c2cc",
+    "inserted_by_table": {
+      "identity_candidates": 250
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 96,
+    "phase": "data",
+    "index": 136,
+    "request_id": "b008f17673cca89e693306d0874086a90aa94ae5b2ccc583862ef760e8e72551",
+    "inserted_by_table": {
+      "identity_candidates": 77
+    },
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 97,
+    "phase": "source_status",
+    "index": 0,
+    "request_id": "2e8287d2ddc7e55344c060655067a3ac19d5479cc2b4d4c866a491c28467427c",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 98,
+    "phase": "source_status",
+    "index": 1,
+    "request_id": "39450ed1f6413d50a9a241da2e4044fa7fcbb8792f8e2f456d2af19cb9d4165d",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 99,
+    "phase": "source_status",
+    "index": 2,
+    "request_id": "9f4ed9e627e1ddb781070e4c03d4981e03c595fa854d0ec9669c31facb2146f2",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 100,
+    "phase": "source_status",
+    "index": 3,
+    "request_id": "ce6f366e21c6f3dc01acee9b9e1c1b648cf25bbea2c24de89b27830f7deb7be5",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 101,
+    "phase": "source_status",
+    "index": 4,
+    "request_id": "20421d7658d5a005f890fa429ed5c65f0296d35d103395b609c1d7d978f523ce",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 102,
+    "phase": "source_status",
+    "index": 5,
+    "request_id": "756dc8d1bf1eee4f13437525385eb112d5f60fe679a429ce1cb201f61256eb54",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 103,
+    "phase": "source_status",
+    "index": 6,
+    "request_id": "c96c4dc577c67364fb975244b39230893f674843fd9da10466dd90b01e5d265f",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 104,
+    "phase": "source_status",
+    "index": 7,
+    "request_id": "2f73f62e674b5629019f9939f150c833a4fa5809fdd31c8462d29ff61c97579b",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 105,
+    "phase": "source_status",
+    "index": 8,
+    "request_id": "3ab00658e5b618bfa2b0d813dd3b07d833ae2a054ae9aa9000230f5953f24f8c",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 106,
+    "phase": "source_status",
+    "index": 9,
+    "request_id": "ff052fe87d18b25f0eb4de09f9fbf34c4d1aa9ba902be91c87436c820a400b96",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 107,
+    "phase": "source_status",
+    "index": 10,
+    "request_id": "b41dbe164187aadcca9334031a9d63873ec952fd7b680b60566ef820caa1433b",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 108,
+    "phase": "source_status",
+    "index": 11,
+    "request_id": "5baf3da6e7552a527686808372cc9ff0da7ff7782b21c1f798c558cb6ba1f3d3",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 109,
+    "phase": "source_status",
+    "index": 12,
+    "request_id": "b47cf7963e410cf78463e1d269e69688db8a0edb01669dcd3ccccd00906a1376",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 110,
+    "phase": "source_status",
+    "index": 13,
+    "request_id": "73ca4205291bc29c30831ef958ccd188a557385fa32375d40400f9cd28b933e4",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 111,
+    "phase": "source_status",
+    "index": 14,
+    "request_id": "652943364e4a213b5194716445f6d289536fd7169dd2e3fbc2c31d7189b7fa32",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 112,
+    "phase": "source_status",
+    "index": 15,
+    "request_id": "a46a6415c5f141a1b71f4ba5f7417047a844215b411556f8038af34f7d10b928",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 113,
+    "phase": "source_status",
+    "index": 16,
+    "request_id": "896835b6c37e4164dd9e519c4b512761777e79b70e2b293e6dfed4bb06c4bac1",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 114,
+    "phase": "source_status",
+    "index": 17,
+    "request_id": "478ff22a6955e3da32050c2c98fd844b661615ddd99c7ae1e396e3c59bf18931",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 115,
+    "phase": "source_status",
+    "index": 18,
+    "request_id": "29c2052d15164c94651ae1311ebf95a30523c513cf67cb3e6c54083fe0cfa413",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 116,
+    "phase": "source_status",
+    "index": 19,
+    "request_id": "e9845b4b45bd68c8b784e7d5f395f2abdfd01e7a2e2857686ecfe178e43f7a3d",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 117,
+    "phase": "source_status",
+    "index": 20,
+    "request_id": "092dd66e8450944f3cc1c9f7dfe703fcb7d10f410d719d66b34330439423e7d7",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 118,
+    "phase": "source_status",
+    "index": 21,
+    "request_id": "daafb9a0415ff2f39d668d954f37e2441370a42784c5b5507b9b348a6d70fbe3",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 119,
+    "phase": "source_status",
+    "index": 22,
+    "request_id": "dd56ffe3fabadad9cbe78fcb0adee929e6b8a5edd5568f97fc81c728dc9c6029",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 120,
+    "phase": "source_status",
+    "index": 23,
+    "request_id": "1ceb27ee096e38ca6dc101c590e777719a871956f0b3d3748fc6b2bd714686c9",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 121,
+    "phase": "source_status",
+    "index": 24,
+    "request_id": "a3b2c3ff9dff271a586efe4cfa886d3ee8438004ce402a25e6bab8214792b8ea",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 122,
+    "phase": "source_status",
+    "index": 25,
+    "request_id": "007f03799c5d08c91132d0119ae2d8f3dadbf9001b7fb8a78251a21dc91a3e63",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 123,
+    "phase": "source_status",
+    "index": 26,
+    "request_id": "e69870675b19ba5bd249adbf5c1793a64f506b95f46b9edf0f0d2a6b232cc907",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 124,
+    "phase": "source_status",
+    "index": 27,
+    "request_id": "0fcd1ae61ae2cca3da8136a9e22219249f10b11c466207f6a00425ac17e5ddda",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 125,
+    "phase": "source_status",
+    "index": 28,
+    "request_id": "456c3a86b315524ca6c380b140f891b915b3d36987b2836aa17711fc72eab53e",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 126,
+    "phase": "source_status",
+    "index": 29,
+    "request_id": "146a06dee9f3e1cebc5af57d5b7ea56aac80cfd8ba7b7a402cc3e67822445a68",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 127,
+    "phase": "source_status",
+    "index": 30,
+    "request_id": "965d1e3fe26cc5bf1d8b3fcb45ba2834ceeec080d7452d304a7a9e372a6b8186",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 128,
+    "phase": "source_status",
+    "index": 31,
+    "request_id": "5765ead4d3f54f66a5372012a35dfdcf1288e60a25d96597d6e1aa6f917f54b3",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 129,
+    "phase": "source_status",
+    "index": 32,
+    "request_id": "dac4d463763121403daddef627df423b75dc70386779310af1c19440c85ade0b",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 130,
+    "phase": "source_status",
+    "index": 33,
+    "request_id": "071988d7b1c5c6cf203faf02495d17466f59feaae678f123dcb6e601fe0c7344",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 131,
+    "phase": "source_status",
+    "index": 34,
+    "request_id": "5e42ed02fa6ec8c7819e67cd5a241ed513b166b18eafd8ef4412695a31c61f21",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 132,
+    "phase": "source_status",
+    "index": 35,
+    "request_id": "6e1a9caab0614541174508eb65f00717686821dd137edf8f348e492c1a458e75",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 133,
+    "phase": "source_status",
+    "index": 36,
+    "request_id": "175f2f64958d1cb22048409940e74f137820467f617d28429747e3d11403a4ec",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 134,
+    "phase": "source_status",
+    "index": 37,
+    "request_id": "d8c368caf2260779b57d2e0221708bf8b6f683c4d7d87bfec045b614728a6bcf",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 135,
+    "phase": "source_status",
+    "index": 38,
+    "request_id": "969024374bdb9ef2293b8ab6592996cc25052b71d7b37150c51147ec826596fb",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 136,
+    "phase": "source_status",
+    "index": 39,
+    "request_id": "a482f769f8eb33d2ba274060276ec8c7987c714075c04f1fbfa5964fed53d9b3",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 137,
+    "phase": "source_status",
+    "index": 40,
+    "request_id": "e556ebcfee600d7358d147989e24aee6c76a13eed67533f747efc39384b15cbd",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 138,
+    "phase": "source_status",
+    "index": 41,
+    "request_id": "fab2ff59a1e058a1b41822d152dd22aa194599e7671a0ede7051df716b0b7097",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 139,
+    "phase": "source_status",
+    "index": 42,
+    "request_id": "56753ff26f8005782baf12cbf924e6476663086ead4a009e28e5e776d073ca05",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 140,
+    "phase": "source_status",
+    "index": 43,
+    "request_id": "24a62dec60a01cc53e3a698d0238cf4bd5e5dc63dec7aa5d72dcbc16ef8f8e96",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 141,
+    "phase": "source_status",
+    "index": 44,
+    "request_id": "5e371b9605220bf9a7d05c9008db5ff4830619740ea484e482d4430584584275",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 142,
+    "phase": "source_status",
+    "index": 45,
+    "request_id": "1b720629dbd1f1a16aaa2086cc17eb30e8b12ab9a0484f39e80f610016aed31c",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 143,
+    "phase": "source_status",
+    "index": 46,
+    "request_id": "8983bef41abc65ae9b42307b907b818f90ca7558a7dfc7ed780548caa1603da1",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 144,
+    "phase": "source_status",
+    "index": 47,
+    "request_id": "92f4ceda30706e6157b1da647b6e9f0f35dc81addb9ed39786451011927f1fca",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 145,
+    "phase": "source_status",
+    "index": 48,
+    "request_id": "a97baeb63847b4cc31a89d10f8d489e6d5bdb264726a30ed92b2f4954c79f958",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 146,
+    "phase": "source_status",
+    "index": 49,
+    "request_id": "93b9b2deba475ab5159b0923637f383bc203d14476b20b99e8c592b0419801af",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 147,
+    "phase": "source_status",
+    "index": 50,
+    "request_id": "f155144cfc5eb13384145132230bf64be57e90fc844b7422e0356e1dd068d7c1",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 148,
+    "phase": "source_status",
+    "index": 51,
+    "request_id": "6b9a58f0d37160a5025cc0fd5ce5f5c59869fde232613cce6524757811a9b36e",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 149,
+    "phase": "source_status",
+    "index": 52,
+    "request_id": "2df4802c1e40dcddf7b5d44c92e89b1b5ed11425670eb5ce6a64148db01eec91",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 150,
+    "phase": "source_status",
+    "index": 53,
+    "request_id": "1300d67a40fa25a91d9369e725b399170488185066936300c3ac5174549e48d8",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 151,
+    "phase": "source_status",
+    "index": 54,
+    "request_id": "b8eaf11f133d94f65a4be2714310761804bf167f1f05911cfd0156e53ee6e895",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 152,
+    "phase": "source_status",
+    "index": 55,
+    "request_id": "dfb6965c1e25c638f996677d17e3be7d6be6d65439e70470069f3479f0d107b6",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 153,
+    "phase": "source_status",
+    "index": 56,
+    "request_id": "c0ad6a292e99f0917e1e973d4bb46407f6f21155d6b0dfe78bc0d78d1f229c66",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 154,
+    "phase": "source_status",
+    "index": 57,
+    "request_id": "9a01ab6c84582b236f12857642006598c3c561f424dd6f36ae29c3d77841f9a6",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 155,
+    "phase": "source_status",
+    "index": 58,
+    "request_id": "72e0990840233321ebb02e213b8e94352e161dcf947f96a7ccc82a02cec146c8",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 156,
+    "phase": "source_status",
+    "index": 59,
+    "request_id": "43a2949d38f7c98c0728fbf737bfb9b98b15d290d6c8b1a4ae9747c5e3d0effc",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 157,
+    "phase": "source_status",
+    "index": 60,
+    "request_id": "4c94c955aadd3f71a9a8dbd22a9ff40f047ac66fdbf210b55b88ed8cfe3fba82",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 158,
+    "phase": "source_status",
+    "index": 61,
+    "request_id": "c41e2e8575e30e64e538239bfcdc971a16381fe347b62c480ebb0fc5073c1da5",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 159,
+    "phase": "source_status",
+    "index": 62,
+    "request_id": "10918dfe406a6445bce0ae2709ed6257b2eeff543598703675617caa1141220a",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 160,
+    "phase": "source_status",
+    "index": 63,
+    "request_id": "8be01807b444550bab41d20c2ccb67dc12b05c6c6e98b0b8091924aa9b719bc0",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 161,
+    "phase": "source_status",
+    "index": 64,
+    "request_id": "85d6a229bcac0ad1d04e3dad73d860bec8b08486b147b8076f818ae3c011c844",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 162,
+    "phase": "source_status",
+    "index": 65,
+    "request_id": "dab282a0e6ea9569f9eec03fbce8579b93a16740aba873e91fb13caf74d26a14",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 163,
+    "phase": "source_status",
+    "index": 66,
+    "request_id": "77a28a3545599694444d3039f47ea299b5cd6dba1b9777135c6de03f62dca9da",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 164,
+    "phase": "source_status",
+    "index": 67,
+    "request_id": "364e3b7cced4c785f9f336f6217030d8d13048c4afe54bdd427539d32afad643",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 165,
+    "phase": "source_status",
+    "index": 68,
+    "request_id": "6864a53a909dcce351591032e8dbe62c8a7ce754ee35ee8321f891e0f1876b50",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 166,
+    "phase": "source_status",
+    "index": 69,
+    "request_id": "fcdc4de431057c8dae3bf9448397809349baef00eea714fec75eff259036a775",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 167,
+    "phase": "source_status",
+    "index": 70,
+    "request_id": "71d7006b95f6480de35ae48008d8065f162c37487a4aa7b98c5590d86cea8cf3",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 168,
+    "phase": "source_status",
+    "index": 71,
+    "request_id": "2d1713537b80051019263470983823f85b1788d481275d2a3c521f59dacd4b58",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 169,
+    "phase": "source_status",
+    "index": 72,
+    "request_id": "0e056034e33a1e29bb2c74cbedf7ddcd8919bf2cfe31adc6285a324c4d1da309",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 170,
+    "phase": "source_status",
+    "index": 73,
+    "request_id": "a0e17f43fbb9d1a3477ce9e3c80e067f13c2b76e2cbc147ce0670daa876c4357",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 171,
+    "phase": "source_status",
+    "index": 74,
+    "request_id": "31c7503538f9184a30c95aac8f9b86071b59eecc446501d92a69d0a624df3348",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 172,
+    "phase": "source_status",
+    "index": 75,
+    "request_id": "0dd02527edcaac01d2bfa6b75e10a613049359667fe5a45e4673e970eac921d3",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 173,
+    "phase": "source_status",
+    "index": 76,
+    "request_id": "2614d9d66d647b13bd3bc6148cc679dc867fc60d960ed623d3bdae878f8fef4b",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 174,
+    "phase": "source_status",
+    "index": 77,
+    "request_id": "ce406358d1c37e55a48ec58b35614b2df7765af463b228f753787a90cc07afa9",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 175,
+    "phase": "source_status",
+    "index": 78,
+    "request_id": "ad09ddab251879841162898135ccff1d8c8b66522de3f654f1075ba55f0fcf5d",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 176,
+    "phase": "source_status",
+    "index": 79,
+    "request_id": "d0df427bf80e51d60c49c921ece20be144254e4a011495fffaa500d1e2e393f4",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 177,
+    "phase": "source_status",
+    "index": 80,
+    "request_id": "f0883dbdfbad763600f84e40fa0cb7d39b40081623c0c4bb75e75e48512abbb1",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  },
+  {
+    "sequence": 178,
+    "phase": "source_status",
+    "index": 81,
+    "request_id": "c70ca013a21e82d713fbcc4c63f0c49fc9f8e3889e286db3a84fd883f371d57c",
+    "inserted_by_table": {},
+    "outcome": "validated_commit_acknowledgment"
+  }
+]

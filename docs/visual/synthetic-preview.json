@@ -1,0 +1,68 @@
+{
+  "scope": "SYNTHETIC DEMONSTRATION ONLY; no NGO records, never inserted; partial field shapes, not import-ready",
+  "children": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "child_business_id": "DEMO-CHILD-001",
+      "display_name": "Synthetic child",
+      "origin_kind": "import",
+      "review_state": "pending"
+    }
+  ],
+  "caregivers": [
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "caregiver_business_id": "DEMO-CAREGIVER-001",
+      "display_name": "Synthetic caregiver",
+      "origin_kind": "import",
+      "review_state": "pending"
+    }
+  ],
+  "child_caregivers": [
+    {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "child_id": "00000000-0000-4000-8000-000000000001",
+      "caregiver_id": "00000000-0000-4000-8000-000000000002",
+      "origin_kind": "import",
+      "review_state": "pending"
+    }
+  ],
+  "questionnaire_responses": [
+    {
+      "id": "00000000-0000-4000-8000-000000000004",
+      "child_caregiver_id": "00000000-0000-4000-8000-000000000003",
+      "definition_key": "DEMO-INSTRUMENT",
+      "assessment_date": null,
+      "origin_kind": "import",
+      "review_state": "pending"
+    }
+  ],
+  "source_records": [
+    {
+      "id": "00000000-0000-4000-8000-000000000005",
+      "artifact_id": "00000000-0000-4000-8000-000000000006",
+      "native_sheet_key": "DEMO-SHEET",
+      "source_row": 2,
+      "cell_payload": {
+        "A": "DEMO ONLY"
+      },
+      "processing_state": "blocked",
+      "diagnostics": {
+        "planned_status": "awaiting_identity_resolution"
+      }
+    }
+  ],
+  "identity_candidates": [
+    {
+      "id": "00000000-0000-4000-8000-000000000007",
+      "source_record_id": "00000000-0000-4000-8000-000000000005",
+      "child_id": "00000000-0000-4000-8000-000000000001",
+      "match_method": "name_context",
+      "resolution_status": "candidate",
+      "evidence": {
+        "synthetic": true,
+        "approved": false
+      }
+    }
+  ]
+}

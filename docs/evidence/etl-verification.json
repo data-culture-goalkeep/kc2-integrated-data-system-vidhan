@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "python_tests": 49,
+  "local_etl_runtime_cases": 9,
+  "existing_postgres_cases": 46,
+  "existing_postgres_scope": "Prior reviewed unchanged schema; not rerun as part of Stage 4A",
+  "saved_evidence_checks": {
+    "verification.json": "passed",
+    "model-review-verification.json": "passed",
+    "preparation-verification.json": "passed",
+    "deployment-validation.json": "passed",
+    "etl-readiness.json": "passed"
+  },
+  "new_document_links": "all resolve",
+  "source_privacy_check": "check_discovery.py passed across public files and protected source identifiers; no records included",
+  "python_syntax": "compileall passed",
+  "git_whitespace": "passed before staging; repeated on staged files",
+  "git_integrity": "fsck passed",
+  "etl_code_sha256": {
+    "scripts/etl_core.py": "201d7eca9b272d75373fd43193a36e87742f4fa8ea032115680e33475e8b9bc2",
+    "scripts/etl_loader.py": "82a72c73603a82a6d70219f46b1e188693c77e4905706a02d7197de93fc78777",
+    "scripts/prepare_etl.py": "fcdbd242cab5bb8cd9bd9b7d2951867d7956bb6d8b0faecebf37cf8d9f57eea9",
+    "scripts/run_etl_tests.py": "bd90bad218f26af8a25dc4e39c2ad99312891b14af00e6dc86fe748b0c91df73",
+    "tests/etl_runtime_cases.py": "46b00561c670732850b92c16b54bd6d650d616071a30163fff1fbb0b8a1e65b8",
+    "scripts/test_etl.py": "b02ebf1b6f0cc9dcf53d49ba004cbc2066e95375d8c519144fbb7613163f76f4",
+    "scripts/check_etl_readiness.py": "c8668439253d5e767fc3d8db35dde4e1caaf008e1140aae2ea8394ff3898b16d"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "synthetic_test_count": 37,
+  "runner": "work/review-venv/bin/python -m unittest discover -s scripts -p 'test_*.py'",
+  "result": ".....................................\n----------------------------------------------------------------------\nRan 37 tests in 0.940s\n\nOK",
+  "previous_preparation_test_count": 28,
+  "local_postgres_execution": "Separate report: postgres-runtime-review.json",
+  "remote_migrations_applied": false,
+  "business_rules_approved_by_tests": false
+}

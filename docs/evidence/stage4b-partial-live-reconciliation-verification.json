@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "differences": {},
+  "foreign_key_checks": 99,
+  "record_key_set_tables": 18,
+  "source_rows_reconciled": 9988,
+  "scope": "Live key sets, source coordinates/statuses, relationships, provenance, audit and excluded categories; does not approve business meaning"
+}

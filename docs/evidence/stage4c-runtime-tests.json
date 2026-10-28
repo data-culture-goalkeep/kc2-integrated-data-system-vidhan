@@ -1,0 +1,48 @@
+{
+  "scope": "LOCAL network=none PostgreSQL only; exact deployed schema and approved sanitized snapshot",
+  "remote_writes": 0,
+  "recovery_manifest_sha256": "bfbc196c3f718a9bc8de49619031424955fcf8385d2c893a732b5853b995ec92",
+  "tests": {
+    "conflicting_existing_record_rejected": true,
+    "transaction_rollback_preserves_prefix": true,
+    "connection_failure_blocks_and_diagnoses": true,
+    "exact_179_remaining_transactions": true,
+    "known_ack_checkpoint_resume_without_replay": true,
+    "duplicate_completed_transaction_rejected": true,
+    "committed_prefix_immutable_fields_preserved": true,
+    "audit_and_source_status_totals": true,
+    "full_source_lineage_identity_fk_reconciliation": true,
+    "schema_rls_privileges_and_triggers_unchanged": true,
+    "lost_ack_committed_not_retried": true
+  },
+  "local_timestamp_fixture": "Only immutable ingestion/creation metadata anchor is local; original SQL/code/reference checkpoint series unchanged",
+  "runtime_seconds": 118.514,
+  "final_counts": {
+    "children": 371,
+    "adl_visits": 0,
+    "caregivers": 716,
+    "source_records": 20432,
+    "program_changes": 128,
+    "child_caregivers": 716,
+    "recovery_actions": 0,
+    "reference_values": 47,
+    "source_artifacts": 12,
+    "source_provenance": 5772,
+    "access_memberships": 0,
+    "identity_candidates": 2089,
+    "questionnaire_items": 31,
+    "record_audit_events": 28293,
+    "support_observations": 0,
+    "questionnaire_answers": 3286,
+    "child_private_profiles": 371,
+    "attendance_observations": 0,
+    "questionnaire_responses": 106
+  },
+  "source_states": {
+    "blocked": 3937,
+    "resolved": 1194,
+    "reference_only": 15301
+  },
+  "status": "passed",
+  "containers_removed": true
+}

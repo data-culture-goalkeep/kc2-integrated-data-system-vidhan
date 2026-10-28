@@ -1,0 +1,98 @@
+{
+  "S01": {
+    "blocked": 0,
+    "resolved": 107,
+    "source_rows": 368,
+    "reference_only": 261,
+    "business_pending": 0,
+    "identity_pending": 0
+  },
+  "S02": {
+    "blocked": 344,
+    "resolved": 0,
+    "source_rows": 1220,
+    "reference_only": 876,
+    "business_pending": 0,
+    "identity_pending": 344
+  },
+  "S03": {
+    "blocked": 155,
+    "resolved": 371,
+    "source_rows": 1847,
+    "reference_only": 1321,
+    "business_pending": 155,
+    "identity_pending": 0
+  },
+  "S04": {
+    "blocked": 376,
+    "resolved": 0,
+    "source_rows": 1206,
+    "reference_only": 830,
+    "business_pending": 0,
+    "identity_pending": 376
+  },
+  "S05": {
+    "blocked": 277,
+    "resolved": 716,
+    "source_rows": 1150,
+    "reference_only": 157,
+    "business_pending": 15,
+    "identity_pending": 262
+  },
+  "S06": {
+    "blocked": 143,
+    "resolved": 0,
+    "source_rows": 588,
+    "reference_only": 445,
+    "business_pending": 0,
+    "identity_pending": 143
+  },
+  "S07": {
+    "blocked": 384,
+    "resolved": 0,
+    "source_rows": 2828,
+    "reference_only": 2444,
+    "business_pending": 6,
+    "identity_pending": 378
+  },
+  "S08": {
+    "blocked": 424,
+    "resolved": 0,
+    "source_rows": 3166,
+    "reference_only": 2742,
+    "business_pending": 37,
+    "identity_pending": 387
+  },
+  "S09": {
+    "blocked": 257,
+    "resolved": 0,
+    "source_rows": 3092,
+    "reference_only": 2835,
+    "business_pending": 36,
+    "identity_pending": 221
+  },
+  "S10": {
+    "blocked": 200,
+    "resolved": 0,
+    "source_rows": 2117,
+    "reference_only": 1917,
+    "business_pending": 65,
+    "identity_pending": 135
+  },
+  "S11": {
+    "blocked": 158,
+    "resolved": 0,
+    "source_rows": 1298,
+    "reference_only": 1140,
+    "business_pending": 0,
+    "identity_pending": 158
+  },
+  "S12": {
+    "blocked": 1219,
+    "resolved": 0,
+    "source_rows": 1552,
+    "reference_only": 333,
+    "business_pending": 0,
+    "identity_pending": 1219
+  }
+}

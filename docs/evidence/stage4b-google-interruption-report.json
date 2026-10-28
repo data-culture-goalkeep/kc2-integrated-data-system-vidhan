@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1SJiptTAllO4icQffkM-6eCRzNjTwj3q6JtqVe816xpM/edit",
+  "owner_private": true,
+  "sources": 12,
+  "preparation_rows_preserved": 11222,
+  "interrupted_source_rows": 250,
+  "execution_summary_rows": 12,
+  "total_data_rows": 11484,
+  "tabs": [
+    {
+      "source": "S01",
+      "preparation_rows_preserved": 112,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S02",
+      "preparation_rows_preserved": 344,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S03",
+      "preparation_rows_preserved": 558,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S04",
+      "preparation_rows_preserved": 377,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S05",
+      "preparation_rows_preserved": 969,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S06",
+      "preparation_rows_preserved": 144,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S07",
+      "preparation_rows_preserved": 2499,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S08",
+      "preparation_rows_preserved": 1593,
+      "interruption_rows": 250,
+      "execution_summaries": 1,
+      "new_rows_verified": 251,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S09",
+      "preparation_rows_preserved": 1230,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S10",
+      "preparation_rows_preserved": 2005,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S11",
+      "preparation_rows_preserved": 160,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    },
+    {
+      "source": "S12",
+      "preparation_rows_preserved": 1231,
+      "interruption_rows": 0,
+      "execution_summaries": 1,
+      "new_rows_verified": 1,
+      "all_existing_values_preserved": true
+    }
+  ],
+  "verification": "Full before/after cell-value equality including unchanged preparation prefixes; native edge structure inspected; new rows copy prior formats and resize only appended rows; no rendered visual inspection available",
+  "database_migration_status": "interrupted_incomplete; no recovery write performed",
+  "appended_native_rows_style_verified": 262,
+  "rendered_visual_inspection": false
+}

@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "tests_run": 82,
+  "failures": 0,
+  "errors": 0,
+  "command": "python -m unittest discover -s scripts -p 'test_*.py'",
+  "scope": "64 existing plus 18 checkpoint contracts; local only"
+}

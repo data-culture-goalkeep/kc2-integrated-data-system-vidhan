@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "scope": "Static model/SQL/evidence consistency; this checker executes no SQL. Separate local runtime and read-only remote evidence referenced.",
+  "table_count": 19,
+  "mapping_coordinates": 5186,
+  "migration_files": {
+    "20261026171200_ids_schema.sql": {
+      "sql_statements": 207,
+      "plpgsql_functions": 1,
+      "sql_function_bodies": 1,
+      "sha256": "15f862280d9a90fffbf98bdf99b8be774712245a6357ba5c233052b2c3391892"
+    },
+    "20261026171201_ids_security.sql": {
+      "sql_statements": 119,
+      "plpgsql_functions": 7,
+      "sql_function_bodies": 2,
+      "sha256": "996924ab804aac8ba7b9672c941d1b7941fc812150322d45ba9d6e1294879b5c"
+    },
+    "20261026171202_ids_integrity.sql": {
+      "sql_statements": 81,
+      "plpgsql_functions": 7,
+      "sql_function_bodies": 0,
+      "sha256": "5581168a4c6ef61c183552a04474064e44e8bcafdee4bf8e7f1255659cf58abc"
+    }
+  },
+  "nonempty_rows_retained": 20432,
+  "source_business_ids_verified": true,
+  "mermaid": "Local supported grammar/entity/FK checks passed; official renderer not run",
+  "deployment_status_evidence": "deployment-validation.json when present; this static checker neither applies nor independently queries remote migrations",
+  "local_runtime_verified_for_current_sql": true,
+  "remote_connection_verified": true,
+  "limitations": [
+    "Live Google OAuth and the complete Supabase Auth/PostgREST stack are not tested by local contract fixtures",
+    "Role matrix remains draft; remote role definitions and memberships not activated",
+    "Scoring/category and source ambiguities are not approved by technical tests"
+  ]
+}

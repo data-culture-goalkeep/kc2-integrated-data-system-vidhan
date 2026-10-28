@@ -1,0 +1,3022 @@
+[
+  {
+    "source": "S01",
+    "sheet": "T01",
+    "native_sheet_id": 1625775028,
+    "grain": "questionnaire_primary",
+    "nonempty_rows": 107,
+    "candidate_rows": 106,
+    "column_positions": 55,
+    "classification_counts": {
+      "CONFIRMED": 34,
+      "PENDING": 21
+    },
+    "operational_targets": [
+      "questionnaire_answers",
+      "questionnaire_responses"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S01",
+    "sheet": "T02",
+    "native_sheet_id": 488430918,
+    "grain": "supporting_summary",
+    "nonempty_rows": 68,
+    "candidate_rows": 0,
+    "column_positions": 6,
+    "classification_counts": {
+      "TECHNICAL": 6
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S01",
+    "sheet": "T03",
+    "native_sheet_id": 1849256821,
+    "grain": "supporting_summary",
+    "nonempty_rows": 45,
+    "candidate_rows": 0,
+    "column_positions": 4,
+    "classification_counts": {
+      "TECHNICAL": 4
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S01",
+    "sheet": "T04",
+    "native_sheet_id": 164753171,
+    "grain": "supporting_summary",
+    "nonempty_rows": 30,
+    "candidate_rows": 0,
+    "column_positions": 31,
+    "classification_counts": {
+      "TECHNICAL": 31
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S01",
+    "sheet": "T05",
+    "native_sheet_id": 567906267,
+    "grain": "questionnaire_subset",
+    "nonempty_rows": 30,
+    "candidate_rows": 29,
+    "column_positions": 51,
+    "classification_counts": {
+      "PENDING": 51
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S01",
+    "sheet": "T06",
+    "native_sheet_id": 0,
+    "grain": "questionnaire_view",
+    "nonempty_rows": 47,
+    "candidate_rows": 45,
+    "column_positions": 34,
+    "classification_counts": {
+      "PENDING": 34
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S01",
+    "sheet": "T07",
+    "native_sheet_id": 544048199,
+    "grain": "questionnaire_view",
+    "nonempty_rows": 41,
+    "candidate_rows": 39,
+    "column_positions": 34,
+    "classification_counts": {
+      "PENDING": 34
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T01",
+    "native_sheet_id": 0,
+    "grain": "roster_or_other",
+    "nonempty_rows": 38,
+    "candidate_rows": 35,
+    "column_positions": 3,
+    "classification_counts": {
+      "TECHNICAL": 3
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T02",
+    "native_sheet_id": 1847486247,
+    "grain": "daily_attendance",
+    "nonempty_rows": 102,
+    "candidate_rows": 39,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T03",
+    "native_sheet_id": 8302086,
+    "grain": "daily_attendance",
+    "nonempty_rows": 97,
+    "candidate_rows": 35,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T04",
+    "native_sheet_id": 519096675,
+    "grain": "daily_attendance",
+    "nonempty_rows": 88,
+    "candidate_rows": 28,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T05",
+    "native_sheet_id": 405528612,
+    "grain": "daily_attendance",
+    "nonempty_rows": 101,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T06",
+    "native_sheet_id": 1286339822,
+    "grain": "daily_attendance",
+    "nonempty_rows": 101,
+    "candidate_rows": 30,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T07",
+    "native_sheet_id": 574497639,
+    "grain": "daily_attendance",
+    "nonempty_rows": 100,
+    "candidate_rows": 30,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T08",
+    "native_sheet_id": 962421008,
+    "grain": "daily_attendance",
+    "nonempty_rows": 97,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T09",
+    "native_sheet_id": 803660783,
+    "grain": "daily_attendance",
+    "nonempty_rows": 95,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T10",
+    "native_sheet_id": 321387021,
+    "grain": "daily_attendance",
+    "nonempty_rows": 94,
+    "candidate_rows": 28,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T11",
+    "native_sheet_id": 497634584,
+    "grain": "daily_attendance",
+    "nonempty_rows": 94,
+    "candidate_rows": 28,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T12",
+    "native_sheet_id": 1647906362,
+    "grain": "annual_attendance_summary",
+    "nonempty_rows": 43,
+    "candidate_rows": 41,
+    "column_positions": 15,
+    "classification_counts": {
+      "TECHNICAL": 15
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T13",
+    "native_sheet_id": 1889988315,
+    "grain": "daily_attendance",
+    "nonempty_rows": 85,
+    "candidate_rows": 19,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S02",
+    "sheet": "T14",
+    "native_sheet_id": 1454192408,
+    "grain": "daily_attendance",
+    "nonempty_rows": 85,
+    "candidate_rows": 20,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T01",
+    "native_sheet_id": 173988604,
+    "grain": "child_master",
+    "nonempty_rows": 989,
+    "candidate_rows": 371,
+    "column_positions": 64,
+    "classification_counts": {
+      "TECHNICAL": 5,
+      "CONFIRMED": 25,
+      "PENDING": 34
+    },
+    "operational_targets": [
+      "caregivers",
+      "child_private_profiles",
+      "children",
+      "program_changes"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T02",
+    "native_sheet_id": 813504523,
+    "grain": "fees_view",
+    "nonempty_rows": 123,
+    "candidate_rows": 118,
+    "column_positions": 4,
+    "classification_counts": {
+      "TECHNICAL": 4
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T03",
+    "native_sheet_id": 2143013482,
+    "grain": "sibling_roster",
+    "nonempty_rows": 1,
+    "candidate_rows": 0,
+    "column_positions": 26,
+    "classification_counts": {
+      "TECHNICAL": 26
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T04",
+    "native_sheet_id": 1466093995,
+    "grain": "child_supplement",
+    "nonempty_rows": 3,
+    "candidate_rows": 2,
+    "column_positions": 48,
+    "classification_counts": {
+      "TECHNICAL": 48
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T05",
+    "native_sheet_id": 155158840,
+    "grain": "historical_visits",
+    "nonempty_rows": 156,
+    "candidate_rows": 155,
+    "column_positions": 12,
+    "classification_counts": {
+      "TECHNICAL": 12
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T06",
+    "native_sheet_id": 265313887,
+    "grain": "child_supplement",
+    "nonempty_rows": 5,
+    "candidate_rows": 4,
+    "column_positions": 48,
+    "classification_counts": {
+      "TECHNICAL": 48
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T07",
+    "native_sheet_id": 346452973,
+    "grain": "supporting_unclassified",
+    "nonempty_rows": 32,
+    "candidate_rows": 0,
+    "column_positions": 7,
+    "classification_counts": {
+      "TECHNICAL": 7
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T08",
+    "native_sheet_id": 1477105164,
+    "grain": "supporting_unclassified",
+    "nonempty_rows": 0,
+    "candidate_rows": 0,
+    "column_positions": 1,
+    "classification_counts": {
+      "TECHNICAL": 1
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T09",
+    "native_sheet_id": 794727868,
+    "grain": "supporting_unclassified",
+    "nonempty_rows": 119,
+    "candidate_rows": 0,
+    "column_positions": 10,
+    "classification_counts": {
+      "TECHNICAL": 10
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T10",
+    "native_sheet_id": 1537800647,
+    "grain": "child_supplement",
+    "nonempty_rows": 22,
+    "candidate_rows": 20,
+    "column_positions": 60,
+    "classification_counts": {
+      "TECHNICAL": 60
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T11",
+    "native_sheet_id": 761212788,
+    "grain": "supporting_unclassified",
+    "nonempty_rows": 26,
+    "candidate_rows": 0,
+    "column_positions": 30,
+    "classification_counts": {
+      "TECHNICAL": 30
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S03",
+    "sheet": "T12",
+    "native_sheet_id": 953173471,
+    "grain": "severity_view",
+    "nonempty_rows": 371,
+    "candidate_rows": 370,
+    "column_positions": 26,
+    "classification_counts": {
+      "TECHNICAL": 26
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T01",
+    "native_sheet_id": 0,
+    "grain": "roster_or_other",
+    "nonempty_rows": 48,
+    "candidate_rows": 45,
+    "column_positions": 3,
+    "classification_counts": {
+      "TECHNICAL": 3
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T02",
+    "native_sheet_id": 520508336,
+    "grain": "daily_attendance",
+    "nonempty_rows": 93,
+    "candidate_rows": 39,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T03",
+    "native_sheet_id": 1778328445,
+    "grain": "daily_attendance",
+    "nonempty_rows": 100,
+    "candidate_rows": 40,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T04",
+    "native_sheet_id": 1019038883,
+    "grain": "daily_attendance",
+    "nonempty_rows": 83,
+    "candidate_rows": 30,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T05",
+    "native_sheet_id": 589258203,
+    "grain": "daily_attendance",
+    "nonempty_rows": 100,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T06",
+    "native_sheet_id": 1268059911,
+    "grain": "daily_attendance",
+    "nonempty_rows": 99,
+    "candidate_rows": 30,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T07",
+    "native_sheet_id": 1766250575,
+    "grain": "daily_attendance",
+    "nonempty_rows": 99,
+    "candidate_rows": 32,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T08",
+    "native_sheet_id": 278211763,
+    "grain": "daily_attendance",
+    "nonempty_rows": 97,
+    "candidate_rows": 31,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T09",
+    "native_sheet_id": 600212866,
+    "grain": "daily_attendance",
+    "nonempty_rows": 95,
+    "candidate_rows": 30,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T10",
+    "native_sheet_id": 1307332823,
+    "grain": "daily_attendance",
+    "nonempty_rows": 94,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T11",
+    "native_sheet_id": 1955405485,
+    "grain": "daily_attendance",
+    "nonempty_rows": 94,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T12",
+    "native_sheet_id": 100366561,
+    "grain": "annual_attendance_summary",
+    "nonempty_rows": 46,
+    "candidate_rows": 44,
+    "column_positions": 19,
+    "classification_counts": {
+      "TECHNICAL": 19
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T13",
+    "native_sheet_id": 160492277,
+    "grain": "daily_attendance",
+    "nonempty_rows": 79,
+    "candidate_rows": 43,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S04",
+    "sheet": "T14",
+    "native_sheet_id": 1018241816,
+    "grain": "daily_attendance",
+    "nonempty_rows": 79,
+    "candidate_rows": 14,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S05",
+    "sheet": "T01",
+    "native_sheet_id": 45538190,
+    "grain": "support_attendance",
+    "nonempty_rows": 93,
+    "candidate_rows": 92,
+    "column_positions": 26,
+    "classification_counts": {
+      "PENDING": 26
+    },
+    "operational_targets": [
+      "support_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S05",
+    "sheet": "T02",
+    "native_sheet_id": 1721911855,
+    "grain": "support_attendance",
+    "nonempty_rows": 150,
+    "candidate_rows": 0,
+    "column_positions": 26,
+    "classification_counts": {
+      "PENDING": 26
+    },
+    "operational_targets": [
+      "support_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S05",
+    "sheet": "T03",
+    "native_sheet_id": 385256536,
+    "grain": "support_attendance",
+    "nonempty_rows": 31,
+    "candidate_rows": 30,
+    "column_positions": 28,
+    "classification_counts": {
+      "PENDING": 28
+    },
+    "operational_targets": [
+      "support_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S05",
+    "sheet": "T04",
+    "native_sheet_id": 207831328,
+    "grain": "support_attendance",
+    "nonempty_rows": 16,
+    "candidate_rows": 15,
+    "column_positions": 26,
+    "classification_counts": {
+      "PENDING": 26
+    },
+    "operational_targets": [
+      "support_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S05",
+    "sheet": "T05",
+    "native_sheet_id": 1250622738,
+    "grain": "support_attendance",
+    "nonempty_rows": 16,
+    "candidate_rows": 15,
+    "column_positions": 28,
+    "classification_counts": {
+      "PENDING": 28
+    },
+    "operational_targets": [
+      "support_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S05",
+    "sheet": "T06",
+    "native_sheet_id": 833239551,
+    "grain": "support_attendance",
+    "nonempty_rows": 111,
+    "candidate_rows": 110,
+    "column_positions": 28,
+    "classification_counts": {
+      "PENDING": 28
+    },
+    "operational_targets": [
+      "support_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S05",
+    "sheet": "T07",
+    "native_sheet_id": 184154422,
+    "grain": "caregiver_link",
+    "nonempty_rows": 717,
+    "candidate_rows": 716,
+    "column_positions": 4,
+    "classification_counts": {
+      "CONFIRMED": 4
+    },
+    "operational_targets": [
+      "caregivers",
+      "child_caregivers"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S05",
+    "sheet": "T08",
+    "native_sheet_id": 29619453,
+    "grain": "support_event_summary",
+    "nonempty_rows": 16,
+    "candidate_rows": 15,
+    "column_positions": 26,
+    "classification_counts": {
+      "PENDING": 26
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T01",
+    "native_sheet_id": 0,
+    "grain": "roster_or_other",
+    "nonempty_rows": 23,
+    "candidate_rows": 20,
+    "column_positions": 3,
+    "classification_counts": {
+      "TECHNICAL": 3
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T02",
+    "native_sheet_id": 1536484750,
+    "grain": "daily_attendance",
+    "nonempty_rows": 46,
+    "candidate_rows": 19,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T03",
+    "native_sheet_id": 1765520663,
+    "grain": "daily_attendance",
+    "nonempty_rows": 39,
+    "candidate_rows": 12,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T04",
+    "native_sheet_id": 659221940,
+    "grain": "daily_attendance",
+    "nonempty_rows": 46,
+    "candidate_rows": 11,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T05",
+    "native_sheet_id": 455687570,
+    "grain": "daily_attendance",
+    "nonempty_rows": 47,
+    "candidate_rows": 11,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T06",
+    "native_sheet_id": 240358838,
+    "grain": "daily_attendance",
+    "nonempty_rows": 47,
+    "candidate_rows": 11,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T07",
+    "native_sheet_id": 1332272460,
+    "grain": "daily_attendance",
+    "nonempty_rows": 46,
+    "candidate_rows": 11,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T08",
+    "native_sheet_id": 1607950807,
+    "grain": "daily_attendance",
+    "nonempty_rows": 46,
+    "candidate_rows": 11,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T09",
+    "native_sheet_id": 944349610,
+    "grain": "daily_attendance",
+    "nonempty_rows": 46,
+    "candidate_rows": 11,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T10",
+    "native_sheet_id": 1558088837,
+    "grain": "daily_attendance",
+    "nonempty_rows": 45,
+    "candidate_rows": 10,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T11",
+    "native_sheet_id": 108499508,
+    "grain": "daily_attendance",
+    "nonempty_rows": 45,
+    "candidate_rows": 10,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T12",
+    "native_sheet_id": 1064344713,
+    "grain": "daily_attendance",
+    "nonempty_rows": 45,
+    "candidate_rows": 8,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T13",
+    "native_sheet_id": 2119245033,
+    "grain": "daily_attendance",
+    "nonempty_rows": 45,
+    "candidate_rows": 18,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S06",
+    "sheet": "T14",
+    "native_sheet_id": 2133347153,
+    "grain": "annual_attendance_summary",
+    "nonempty_rows": 22,
+    "candidate_rows": 20,
+    "column_positions": 15,
+    "classification_counts": {
+      "TECHNICAL": 15
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T01",
+    "native_sheet_id": 2057253508,
+    "grain": "roster_or_other",
+    "nonempty_rows": 32,
+    "candidate_rows": 31,
+    "column_positions": 26,
+    "classification_counts": {
+      "TECHNICAL": 26
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T02",
+    "native_sheet_id": 0,
+    "grain": "daily_attendance",
+    "nonempty_rows": 200,
+    "candidate_rows": 28,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T03",
+    "native_sheet_id": 1411389030,
+    "grain": "visit_activity_log",
+    "nonempty_rows": 204,
+    "candidate_rows": 6,
+    "column_positions": 10,
+    "classification_counts": {
+      "PENDING": 10
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T04",
+    "native_sheet_id": 1595076321,
+    "grain": "daily_attendance",
+    "nonempty_rows": 198,
+    "candidate_rows": 30,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T05",
+    "native_sheet_id": 6172351,
+    "grain": "daily_attendance",
+    "nonempty_rows": 198,
+    "candidate_rows": 30,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T06",
+    "native_sheet_id": 1103055660,
+    "grain": "daily_attendance",
+    "nonempty_rows": 198,
+    "candidate_rows": 30,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T07",
+    "native_sheet_id": 958130403,
+    "grain": "daily_attendance",
+    "nonempty_rows": 196,
+    "candidate_rows": 29,
+    "column_positions": 43,
+    "classification_counts": {
+      "PENDING": 43
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T08",
+    "native_sheet_id": 310170897,
+    "grain": "daily_attendance",
+    "nonempty_rows": 196,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T09",
+    "native_sheet_id": 489294403,
+    "grain": "daily_attendance",
+    "nonempty_rows": 196,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T10",
+    "native_sheet_id": 141272899,
+    "grain": "daily_attendance",
+    "nonempty_rows": 196,
+    "candidate_rows": 30,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T11",
+    "native_sheet_id": 1605746410,
+    "grain": "daily_attendance",
+    "nonempty_rows": 196,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T12",
+    "native_sheet_id": 807387846,
+    "grain": "daily_attendance",
+    "nonempty_rows": 196,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T13",
+    "native_sheet_id": 1350166126,
+    "grain": "daily_attendance",
+    "nonempty_rows": 196,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T14",
+    "native_sheet_id": 1079038873,
+    "grain": "daily_attendance",
+    "nonempty_rows": 196,
+    "candidate_rows": 29,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T15",
+    "native_sheet_id": 2014264992,
+    "grain": "daily_attendance",
+    "nonempty_rows": 198,
+    "candidate_rows": 27,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S07",
+    "sheet": "T16",
+    "native_sheet_id": 1101460866,
+    "grain": "annual_attendance_summary",
+    "nonempty_rows": 32,
+    "candidate_rows": 29,
+    "column_positions": 24,
+    "classification_counts": {
+      "TECHNICAL": 24
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T01",
+    "native_sheet_id": 1842590180,
+    "grain": "roster_or_other",
+    "nonempty_rows": 62,
+    "candidate_rows": 60,
+    "column_positions": 3,
+    "classification_counts": {
+      "TECHNICAL": 3
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T02",
+    "native_sheet_id": 1355572932,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 40,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T03",
+    "native_sheet_id": 2066856667,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 44,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T04",
+    "native_sheet_id": 519740109,
+    "grain": "daily_attendance",
+    "nonempty_rows": 200,
+    "candidate_rows": 43,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T05",
+    "native_sheet_id": 613426879,
+    "grain": "daily_attendance",
+    "nonempty_rows": 100,
+    "candidate_rows": 40,
+    "column_positions": 39,
+    "classification_counts": {
+      "PENDING": 39
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T06",
+    "native_sheet_id": 1385668247,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 41,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T07",
+    "native_sheet_id": 1352126711,
+    "grain": "daily_attendance",
+    "nonempty_rows": 194,
+    "candidate_rows": 39,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T08",
+    "native_sheet_id": 1301696248,
+    "grain": "daily_attendance",
+    "nonempty_rows": 193,
+    "candidate_rows": 39,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T09",
+    "native_sheet_id": 829762584,
+    "grain": "daily_attendance",
+    "nonempty_rows": 190,
+    "candidate_rows": 36,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T10",
+    "native_sheet_id": 1631659914,
+    "grain": "daily_attendance",
+    "nonempty_rows": 184,
+    "candidate_rows": 32,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T11",
+    "native_sheet_id": 1331399179,
+    "grain": "visit_activity_log",
+    "nonempty_rows": 200,
+    "candidate_rows": 10,
+    "column_positions": 7,
+    "classification_counts": {
+      "PENDING": 7
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T12",
+    "native_sheet_id": 1971138979,
+    "grain": "daily_attendance",
+    "nonempty_rows": 184,
+    "candidate_rows": 33,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T13",
+    "native_sheet_id": 1437748711,
+    "grain": "visit_activity_log",
+    "nonempty_rows": 1002,
+    "candidate_rows": 27,
+    "column_positions": 9,
+    "classification_counts": {
+      "PENDING": 9
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S08",
+    "sheet": "T14",
+    "native_sheet_id": 1480188728,
+    "grain": "annual_attendance_summary",
+    "nonempty_rows": 54,
+    "candidate_rows": 52,
+    "column_positions": 26,
+    "classification_counts": {
+      "TECHNICAL": 26
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T01",
+    "native_sheet_id": 816878166,
+    "grain": "roster_or_other",
+    "nonempty_rows": 25,
+    "candidate_rows": 24,
+    "column_positions": 9,
+    "classification_counts": {
+      "TECHNICAL": 9
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T02",
+    "native_sheet_id": 1031506581,
+    "grain": "daily_attendance",
+    "nonempty_rows": 200,
+    "candidate_rows": 23,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T03",
+    "native_sheet_id": 1373923460,
+    "grain": "daily_attendance",
+    "nonempty_rows": 198,
+    "candidate_rows": 23,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T04",
+    "native_sheet_id": 149775557,
+    "grain": "daily_attendance",
+    "nonempty_rows": 199,
+    "candidate_rows": 21,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T05",
+    "native_sheet_id": 316102221,
+    "grain": "daily_attendance",
+    "nonempty_rows": 199,
+    "candidate_rows": 20,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T06",
+    "native_sheet_id": 938148564,
+    "grain": "daily_attendance",
+    "nonempty_rows": 198,
+    "candidate_rows": 23,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T07",
+    "native_sheet_id": 1130196333,
+    "grain": "daily_attendance",
+    "nonempty_rows": 198,
+    "candidate_rows": 23,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T08",
+    "native_sheet_id": 1529167765,
+    "grain": "daily_attendance",
+    "nonempty_rows": 196,
+    "candidate_rows": 22,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T09",
+    "native_sheet_id": 1395078983,
+    "grain": "daily_attendance",
+    "nonempty_rows": 197,
+    "candidate_rows": 22,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T10",
+    "native_sheet_id": 1550179743,
+    "grain": "daily_attendance",
+    "nonempty_rows": 197,
+    "candidate_rows": 22,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T11",
+    "native_sheet_id": 2080956775,
+    "grain": "daily_attendance",
+    "nonempty_rows": 197,
+    "candidate_rows": 22,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T12",
+    "native_sheet_id": 1287461287,
+    "grain": "visit_activity_log",
+    "nonempty_rows": 1009,
+    "candidate_rows": 36,
+    "column_positions": 28,
+    "classification_counts": {
+      "PENDING": 28
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T13",
+    "native_sheet_id": 462752606,
+    "grain": "roster_or_other",
+    "nonempty_rows": 28,
+    "candidate_rows": 25,
+    "column_positions": 19,
+    "classification_counts": {
+      "TECHNICAL": 19
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S09",
+    "sheet": "T14",
+    "native_sheet_id": 1054104276,
+    "grain": "roster_or_other",
+    "nonempty_rows": 51,
+    "candidate_rows": 25,
+    "column_positions": 28,
+    "classification_counts": {
+      "TECHNICAL": 28
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T01",
+    "native_sheet_id": 781236772,
+    "grain": "roster_or_other",
+    "nonempty_rows": 18,
+    "candidate_rows": 17,
+    "column_positions": 3,
+    "classification_counts": {
+      "TECHNICAL": 3
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T02",
+    "native_sheet_id": 1236500862,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 12,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T03",
+    "native_sheet_id": 1930102952,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 13,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T04",
+    "native_sheet_id": 660716141,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 16,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T05",
+    "native_sheet_id": 1444020093,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 16,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T06",
+    "native_sheet_id": 368884833,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 12,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T07",
+    "native_sheet_id": 1936406187,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 12,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T08",
+    "native_sheet_id": 1262887427,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 12,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T09",
+    "native_sheet_id": 355951110,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 14,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T10",
+    "native_sheet_id": 1650168445,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 14,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T11",
+    "native_sheet_id": 1756565826,
+    "grain": "daily_attendance",
+    "nonempty_rows": 201,
+    "candidate_rows": 14,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T12",
+    "native_sheet_id": 1028534378,
+    "grain": "visit_activity_log",
+    "nonempty_rows": 29,
+    "candidate_rows": 28,
+    "column_positions": 26,
+    "classification_counts": {
+      "PENDING": 26
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T13",
+    "native_sheet_id": 336862578,
+    "grain": "visit_activity_log",
+    "nonempty_rows": 39,
+    "candidate_rows": 37,
+    "column_positions": 5,
+    "classification_counts": {
+      "PENDING": 5
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S10",
+    "sheet": "T14",
+    "native_sheet_id": 84484348,
+    "grain": "annual_attendance_summary",
+    "nonempty_rows": 21,
+    "candidate_rows": 19,
+    "column_positions": 18,
+    "classification_counts": {
+      "TECHNICAL": 18
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T01",
+    "native_sheet_id": 0,
+    "grain": "roster_or_other",
+    "nonempty_rows": 17,
+    "candidate_rows": 14,
+    "column_positions": 4,
+    "classification_counts": {
+      "TECHNICAL": 4
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T02",
+    "native_sheet_id": 2088813038,
+    "grain": "daily_attendance",
+    "nonempty_rows": 101,
+    "candidate_rows": 15,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T03",
+    "native_sheet_id": 808780969,
+    "grain": "daily_attendance",
+    "nonempty_rows": 99,
+    "candidate_rows": 14,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T04",
+    "native_sheet_id": 1931500813,
+    "grain": "daily_attendance",
+    "nonempty_rows": 97,
+    "candidate_rows": 13,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T05",
+    "native_sheet_id": 1048199191,
+    "grain": "supporting_unclassified",
+    "nonempty_rows": 0,
+    "candidate_rows": 0,
+    "column_positions": 1,
+    "classification_counts": {
+      "TECHNICAL": 1
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T06",
+    "native_sheet_id": 1382922947,
+    "grain": "daily_attendance",
+    "nonempty_rows": 101,
+    "candidate_rows": 14,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T07",
+    "native_sheet_id": 541429104,
+    "grain": "daily_attendance",
+    "nonempty_rows": 100,
+    "candidate_rows": 14,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T08",
+    "native_sheet_id": 1438624454,
+    "grain": "daily_attendance",
+    "nonempty_rows": 101,
+    "candidate_rows": 14,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T09",
+    "native_sheet_id": 1792942030,
+    "grain": "daily_attendance",
+    "nonempty_rows": 99,
+    "candidate_rows": 12,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T10",
+    "native_sheet_id": 1917306177,
+    "grain": "daily_attendance",
+    "nonempty_rows": 97,
+    "candidate_rows": 11,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T11",
+    "native_sheet_id": 2037820947,
+    "grain": "daily_attendance",
+    "nonempty_rows": 96,
+    "candidate_rows": 10,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T12",
+    "native_sheet_id": 227290881,
+    "grain": "daily_attendance",
+    "nonempty_rows": 96,
+    "candidate_rows": 10,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T13",
+    "native_sheet_id": 18482078,
+    "grain": "annual_attendance_summary",
+    "nonempty_rows": 15,
+    "candidate_rows": 13,
+    "column_positions": 17,
+    "classification_counts": {
+      "TECHNICAL": 17
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T14",
+    "native_sheet_id": 1851344340,
+    "grain": "daily_attendance",
+    "nonempty_rows": 92,
+    "candidate_rows": 6,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T15",
+    "native_sheet_id": 1015112517,
+    "grain": "daily_attendance",
+    "nonempty_rows": 91,
+    "candidate_rows": 15,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S11",
+    "sheet": "T16",
+    "native_sheet_id": 896828950,
+    "grain": "daily_attendance",
+    "nonempty_rows": 96,
+    "candidate_rows": 10,
+    "column_positions": 44,
+    "classification_counts": {
+      "PENDING": 44
+    },
+    "operational_targets": [
+      "attendance_observations"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T01",
+    "native_sheet_id": 1990536268,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 129,
+    "candidate_rows": 120,
+    "column_positions": 13,
+    "classification_counts": {
+      "PENDING": 13
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T02",
+    "native_sheet_id": 652024600,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 131,
+    "candidate_rows": 124,
+    "column_positions": 12,
+    "classification_counts": {
+      "PENDING": 12
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T03",
+    "native_sheet_id": 2146081699,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 133,
+    "candidate_rows": 125,
+    "column_positions": 12,
+    "classification_counts": {
+      "PENDING": 12
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T04",
+    "native_sheet_id": 937313461,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 130,
+    "candidate_rows": 125,
+    "column_positions": 12,
+    "classification_counts": {
+      "PENDING": 12
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T05",
+    "native_sheet_id": 404073444,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 131,
+    "candidate_rows": 128,
+    "column_positions": 12,
+    "classification_counts": {
+      "PENDING": 12
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T06",
+    "native_sheet_id": 1718551904,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 121,
+    "candidate_rows": 119,
+    "column_positions": 12,
+    "classification_counts": {
+      "PENDING": 12
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T07",
+    "native_sheet_id": 767204979,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 121,
+    "candidate_rows": 119,
+    "column_positions": 12,
+    "classification_counts": {
+      "PENDING": 12
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T08",
+    "native_sheet_id": 1614031659,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 122,
+    "candidate_rows": 120,
+    "column_positions": 12,
+    "classification_counts": {
+      "PENDING": 12
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T09",
+    "native_sheet_id": 1678169122,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 121,
+    "candidate_rows": 119,
+    "column_positions": 12,
+    "classification_counts": {
+      "PENDING": 12
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T10",
+    "native_sheet_id": 443386830,
+    "grain": "adl_visit_slots",
+    "nonempty_rows": 122,
+    "candidate_rows": 120,
+    "column_positions": 12,
+    "classification_counts": {
+      "PENDING": 12
+    },
+    "operational_targets": [
+      "adl_visits"
+    ],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T11",
+    "native_sheet_id": 1673865943,
+    "grain": "adl_annual_summary",
+    "nonempty_rows": 169,
+    "candidate_rows": 129,
+    "column_positions": 15,
+    "classification_counts": {
+      "TECHNICAL": 15
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  },
+  {
+    "source": "S12",
+    "sheet": "T12",
+    "native_sheet_id": 596904855,
+    "grain": "adl_goals_summary",
+    "nonempty_rows": 122,
+    "candidate_rows": 121,
+    "column_positions": 4,
+    "classification_counts": {
+      "TECHNICAL": 4
+    },
+    "operational_targets": [],
+    "retention_targets": [
+      "source_artifacts",
+      "source_records"
+    ],
+    "identifier_rule": "No name-only approved joins"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "method": "optional CLI/API fallback",
+  "status": "blocked",
+  "expected_name": "kc2-integrated-data-system",
+  "expected_region": "ap-northeast-1",
+  "project_verified": false,
+  "database_read_verified": false,
+  "migrations_applied": false,
+  "reason": "No secure SUPABASE_ACCESS_TOKEN binding for this optional API fallback. Connected MCP verification, if present, is preserved separately; no live API call attempted."
+}

@@ -1,0 +1,10 @@
+{
+  "stage1_local_commit": "de729f993e60b2af7f33e115bc811ee27aa38b21",
+  "repository_read_confirmed": true,
+  "connector_compare_feature_with_main": "404 NOT_FOUND",
+  "connector_fetch_exact_stage1_commit": "422 No commit found for SHA",
+  "git_cli_remote_check": "failed: configured proxy unreachable",
+  "conclusion": "Stage1 commit is not available from the authorized remote repository; feature-branch remote comparison unavailable",
+  "remote_writes_performed": false,
+  "connector_feature_branch_search": "No matching branches returned, cursor null"
+}

@@ -1,0 +1,20 @@
+{
+  "source_folder_url": "https://drive.google.com/drive/folders/1D3HZYoV31XauFZCzPDALnQ3NSxD-xuIy",
+  "authorization": "Owner requests recursive source discovery; read/list/download only; preserve originals",
+  "drive_plugin_state": "connected_read_access_verified",
+  "folder_listing_attempted": true,
+  "folder_permissions_verified": true,
+  "network_policy": "Workspace restricted networking is separate from the functioning authenticated Drive connector.",
+  "remote_file_count": 12,
+  "remote_record_count": null,
+  "ngo_files_downloaded": 12,
+  "ngo_files_sanitized": 12,
+  "ngo_files_profiled": 12,
+  "conceptual_model_status": "draft_for_schema_approval",
+  "required_intervention": null,
+  "database_changes_performed": false,
+  "verification_scope": "Source metadata, snapshot and sanitized hash integrity, profile coverage, aggregate data checks and documented conceptual discovery",
+  "worksheets_profiled": 155,
+  "recognized_candidate_rows_including_views": 6521,
+  "stage1_status": "prepared_for_analyst_approval"
+}

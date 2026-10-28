@@ -1,0 +1,16 @@
+{
+  "scope": "Offline exact bridge with simulated tools; no remote calls",
+  "tests": {
+    "default_readonly": true,
+    "no_approval": true,
+    "all_179": true,
+    "corrupt_packet": true,
+    "wrong_sql_hash": true,
+    "wrong_request_id": true,
+    "lost_rpc_ack": true,
+    "failed_dispatch": true,
+    "failed_response_persistence": true
+  },
+  "packets_verified": 179,
+  "status": "passed"
+}

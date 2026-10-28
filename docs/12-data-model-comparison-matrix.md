@@ -1,0 +1,46 @@
+# Stage 2 — Structural comparison and source mapping matrix
+
+Historical discovery/review draft preserved for comparison. The current recommendation, owner decisions and preparation boundary are in [final model](15-final-data-model.md) and [project context](project-context.md).
+
+**DRAFT — all organized projections and constraints require analyst approval.** Model A is the spreadsheet structure; Model B is the proposed relational specification. The original 12-entity sketch is preserved separately. No source record was transformed or migrated by this review.
+
+## Meaningful structural changes
+
+| ID | Raw / original structure | Proposed change and affected source | Why / integrity or usability benefit | Preservation and complexity | Necessity / gate |
+| --- | --- | --- | --- | --- | --- |
+| M01 | Human-readable names and admissions repeated in many sheets | Internal child UUID plus source namespace/admission candidate; S03 B/C and name-bearing sheets | Stable DB references independent of spelling or display-name correction | Original names/IDs stay in restricted source records; adds crosswalk resolution, not invented identity | Necessary; Q01–Q03 |
+| M02 | Original CAREGIVER and CHILD_CAREGIVER with unclear code scope | Retain both, put source caregiver code on scoped association | Avoid falsely treating a child-specific ID as a global person key; supports real shared caregivers if approved | No table merge. UUID caregiver identity is proposed; no name-based deduplication | Necessary until Q02; merging is a rejected simplification pending evidence |
+| M03 | Response stores independent child/caregiver IDs | One child_caregiver_id FK for S01 AZ/BA | Enforces the observed pair, removes redundant independent IDs and mismatched-pair risk | Both raw IDs remain in source provenance; no lost relationship | Necessary; Q01/Q02 |
+| M04 | Program-only lookup in original sketch | Replace PROGRAM with reference_values(vocabulary,code) for approved scoped categories | One controlled-value mechanism; avoid many near-identical lookup tables | Retains program/status/centre/service/role distinctions; adds fixed discriminator checks | Necessary; category approval. Never conflate batch and program |
+| M05 | Sensitive child fields sit alongside operational identity | New child_private_profiles, child-keyed 0..1 | Clearer permissions boundary for health/family/financial/consent attributes | Adds one table, no attributes lost. Core child/caregiver names remain protected too | Recommended for least privilege; Q10 access matrix |
+| M06 | Mother/father contact/employment/name columns | Conditional caregiver projections using source role/crosswalk | Can normalize person attributes without duplicating parent data on a child | No automatic attribution; unmatched parent fields remain retained with explicit pending projections | Conditional; Q02/Q03/Q10 |
+| M07 | Five promotion/date column pairs | program_changes child observations; S03 AW:BF | Removes repeating columns; supports later changes without schema alterations | Slot/column lineage retained; no inferred end dates or reordered history | Necessary; Q09 |
+| M08 | 31 question columns on each questionnaire row | Items + responses + typed answers, E:AI | Item-level validation/reporting without a column per new question | Adds row cardinality, not new questions; source column/prompt/value retained | Necessary; Q04/Q05 |
+| M09 | Original untyped recorded_value and no definition-consistency edge | Numeric/text answer columns, explicit missing state and composite definition FKs | Prevents mixed-string numeric calculations and cross-definition answers | A small controlled definition key avoids a full questionnaire-engine hierarchy | Necessary; scale/missingness remain unapproved |
+| M10 | Formula summaries, totals, age/year (including reported joining year BJ) and annual views | Reconciliation inputs, not duplicated authoritative fact tables | Prevents stale totals, duplicated events/people and unapproved metric logic | Formula/source output retained in source payload/snapshot; reported joining year remains comparison evidence, while curated year derives from joining_date. No claimed recalculation | Necessary; Q04/Q05/Q09 |
+| M11 | Dates as attendance columns, names/program/batch repeated | attendance_observations by resolved child/service/date/source cell | Queryable date-grain facts; no unique(child,date) that would block multiple services | Date/header cells and reported context preserved; unresolved marks remain staged | Necessary; Q03/Q06; trainee scope separate |
+| M12 | M/F, counts, Yes and aggregate support totals | support_observations kept distinct from daily P/A and ADL | Preserves source-cell grain instead of inventing one attendee per composite marker | Event labels and numeric/text values retained. Aggregate summaries are not person rows | Necessary grain separation; Q07 |
+| M13 | Five ADL checkbox/date pairs per month | adl_visits for checked slots with explicit imported undated exception | False flags do not become visits; date completeness remains visible | All false/blank slots retained in source records; four dates not invented | Necessary; Q03/Q08 |
+| M14 | Activity notes/plans and repeated descriptions | Conditional activity_logs after actual event/workflow decision | Avoids prematurely treating 144 content rows as 144 events | Full source content retained; table stays designed but optional. Deferral must include its provenance pointer/FK/index | Conditional; Q11 |
+| M15 | Source-file/sheet/row strings in original concept | source_artifacts + source_records + typed source_provenance | File-version identity, complete retained rows, multi-source/cell lineage and real target FKs | Three technical tables replace multiple per-tab/per-entity source schemes; bounded sparse target metadata has explicit check overhead | Necessary for traceability; not an NGO domain entity |
+| M16 | Authentication absent from source/domain model | access_memberships referencing managed auth.users | Login and project authorization separated from caregiver/person records | One technical table; auth.users is not copied or counted in proposed tables | Required by latest owner standards; role/domain list needs approval |
+| M17 | Duplicate basic FK indexes possible in a generated schema | Deduplicate identical/prefix indexes covered by PK/unique/longer candidate indexes | Reduces write/storage cost without removing known join paths | No database exists to benchmark; all index candidates remain review recommendations | Necessary design check; empirical tuning later |
+
+## Exhaustive source-field/coordinate matrix
+
+[source-target-coverage.csv](evidence/source-target-coverage.csv) is the full automated matrix: one row per source/worksheet/column position, with native sheet ID, original label, candidate-row denominator, missing count, cell/header retention targets, named operational projection, disposition, reason and approval gate.
+
+Coverage is **5,186/5,186 column positions across 155 worksheets**: the 5,044 statistically profiled fields plus 142 header-only/coordinate positions not present in the statistical field register. This includes the zero-record sibling template and father-support template, headerless supporting content and empty-grid positions. It is not 5,186 distinct business attributes.
+
+- 3,366 positions have a conditional named operational projection.
+- 1,820 have no named operational projection: explicitly retained reference/derived/unused/template content or optional activity projections. They are not automatically approved for exclusion.
+- All positions retain source cell representation and header/coordinate metadata through source_records/source_artifacts and the protected original snapshot. **Zero have no retention representation.** This is a preservation test, not a declaration that every desired future workflow has a typed table.
+- The 31 primary questionnaire question headers also project to actual item prompts; values project separately to typed answers.
+
+The matrix retains the analyst’s ability to identify source fields with **no current curated target** by filtering blank operational_target; no manual mapping work is requested. They must be approved as reconciliation-only, deferred, or assigned a typed operational field before a workflow requiring them is implemented. A sibling header alone does not create sibling people; no entity or value was invented to fill a mapping gap.
+
+## Information and relationship checks
+
+The checker requires exactly one matrix row for each expected coordinate, verifies named target table/field existence, header retention, source-lineage paths, PK/FK target-key/type compatibility and optional-model dependency closure. It also checks that none of the archived fields is falsely marked operationally implemented. Technical completeness does not certify scoring, identity authority, category synonyms or business requiredness.
+
+The two representations and their decisions remain permanent project artifacts. Every major future model revision must update this matrix, the raw/organized comparison, dictionary, ER diagram, simplification assessment and approval record together.

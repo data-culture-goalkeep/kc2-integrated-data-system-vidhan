@@ -1,0 +1,30 @@
+{
+  "recovery_status": "completed_in_place",
+  "sources_restoration_required": false,
+  "source_spreadsheets_available": 12,
+  "sanitized_worksheets_available": 155,
+  "completed_before_resume": [
+    "Full 12-workbook, 155-worksheet profiling with final totals",
+    "Auxiliary ID-pair, name-conflict, ADL, contact-format, calendar and formula-signature checks",
+    "All source/sanitized snapshots and checksum evidence",
+    "Initial conceptual entity/diagram draft and source-to-target requirements"
+  ],
+  "incomplete_at_resume": [
+    "Aggregate inventory/worksheet/column reports had not been rendered",
+    "Context/questions and source access state still described an obsolete blocker",
+    "Original verifier still assumed zero datasets",
+    "Requested standalone documents 05 through 08 were missing",
+    "Verified feature-branch commit pending"
+  ],
+  "previous_failures_and_resolution": [
+    "An interim native/export worksheet-title assertion failed on long native tab names; a later successful full run used checked native indices and normalized/truncated names, preserving exact private mapping",
+    "Git CLI remote check failed at its configured proxy; local work preserved, no push/PR claimed"
+  ],
+  "actions_this_resume": [
+    "Verified 12 source and 155 sanitized hashes against the completed profile",
+    "Reused full profile and auxiliary evidence without downloading or repeating full profiling",
+    "Rendered aggregate reports and completed requested documents",
+    "Updated evidence verifier for the available datasets and independent core-table checks"
+  ],
+  "remaining_gate": "Analyst discovery/schema approval; business questions Q01-Q11 remain unresolved"
+}

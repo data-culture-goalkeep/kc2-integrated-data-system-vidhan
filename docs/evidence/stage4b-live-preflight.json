@@ -1,0 +1,215 @@
+{
+  "verified_at": "2026-10-27",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "counts": {
+    "public.children": 0,
+    "public.adl_visits": 0,
+    "gk_private.caregivers": 0,
+    "public.program_changes": 0,
+    "public.child_caregivers": 0,
+    "public.reference_values": 0,
+    "gk_private.source_records": 0,
+    "public.questionnaire_items": 0,
+    "gk_private.recovery_actions": 0,
+    "gk_private.source_artifacts": 0,
+    "public.support_observations": 0,
+    "gk_private.source_provenance": 0,
+    "gk_private.access_memberships": 0,
+    "gk_private.identity_candidates": 0,
+    "gk_private.record_audit_events": 0,
+    "public.attendance_observations": 0,
+    "public.questionnaire_responses": 0,
+    "gk_private.questionnaire_answers": 0,
+    "gk_private.child_private_profiles": 0
+  },
+  "permissions": {
+    "database_role": "postgres",
+    "session_role": "postgres",
+    "database_name": "postgres",
+    "postgres_version": "PostgreSQL 17.11 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit",
+    "server_version_num": 170011,
+    "privileged_bypassrls": true,
+    "superuser": false,
+    "effective_privileges": [
+      {
+        "table": "reference_values",
+        "insert": true,
+        "schema": "public",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "children",
+        "insert": true,
+        "schema": "public",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "child_private_profiles",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "caregivers",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "child_caregivers",
+        "insert": true,
+        "schema": "public",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "program_changes",
+        "insert": true,
+        "schema": "public",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "questionnaire_responses",
+        "insert": true,
+        "schema": "public",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "questionnaire_items",
+        "insert": true,
+        "schema": "public",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "questionnaire_answers",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "attendance_observations",
+        "insert": true,
+        "schema": "public",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "support_observations",
+        "insert": true,
+        "schema": "public",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "adl_visits",
+        "insert": true,
+        "schema": "public",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "source_artifacts",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "source_records",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "source_provenance",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "access_memberships",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "identity_candidates",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "recovery_actions",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      },
+      {
+        "table": "record_audit_events",
+        "insert": true,
+        "schema": "gk_private",
+        "select": true,
+        "update": true,
+        "schema_usage": true
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "version": "20261026210941",
+      "name": "20261026171200_ids_schema"
+    },
+    {
+      "version": "20261026211010",
+      "name": "20261026171201_ids_security"
+    },
+    {
+      "version": "20261026211029",
+      "name": "20261026171202_ids_integrity"
+    }
+  ],
+  "read_only_transport_probe": [
+    {
+      "etl_receipt": {
+        "outcome": "completed",
+        "protocol": "goalkeep-mcp-etl-v1",
+        "receipts": [],
+        "request_id": "readonly-preflight-20261027"
+      }
+    }
+  ],
+  "remote_writes": false,
+  "default_transaction_read_only": "off"
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "Isolated local PostgreSQL; synthetic Supabase Auth contract, no remote writes",
+  "image": "postgres@sha256:858bb5e98eed02eb8cafbcdc007f9a65d1b613972028944a8ec2133ccaf80d27",
+  "network": "none",
+  "published_ports": [],
+  "remote_migrations_applied": false,
+  "migration_hashes": {
+    "20261026171200_ids_schema.sql": "15f862280d9a90fffbf98bdf99b8be774712245a6357ba5c233052b2c3391892",
+    "20261026171201_ids_security.sql": "996924ab804aac8ba7b9672c941d1b7941fc812150322d45ba9d6e1294879b5c",
+    "20261026171202_ids_integrity.sql": "5581168a4c6ef61c183552a04474064e44e8bcafdee4bf8e7f1255659cf58abc"
+  },
+  "limitations": [
+    "Not the complete Supabase stack or live Google OAuth",
+    "JWT claims are simulated via PostgreSQL settings; signature verification is outside these tests"
+  ],
+  "postgres_version": "17.11 (Debian 17.11-1.pgdg12+2)",
+  "status": "passed",
+  "tests_run": 46,
+  "failures": [],
+  "errors": [],
+  "container_removed": true
+}

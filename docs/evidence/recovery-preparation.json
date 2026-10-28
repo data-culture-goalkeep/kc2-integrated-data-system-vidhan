@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "authoritative_literal_identifiers": {
+    "children": 371,
+    "caregivers": 716,
+    "caregiver_link_children": 370,
+    "questionnaire_verified_pairs": 106,
+    "questionnaire_name_conflicts": 60
+  },
+  "literal_identifier_occurrences": {
+    "child_resolved": 1193,
+    "caregiver_resolved": 822,
+    "child_unresolved": 7
+  },
+  "recovery_actions": {},
+  "attendance_investigation": {
+    "rows": 2142,
+    "one_candidate": 1009,
+    "unmatched": 1059,
+    "ambiguous": 74
+  },
+  "additional_identity_investigation": {
+    "support_attendance": {
+      "rows": 262,
+      "one_candidate": 249,
+      "ambiguous": 6,
+      "unmatched": 7
+    },
+    "adl_visit_slots": {
+      "rows": 1219,
+      "one_candidate": 631,
+      "unmatched": 568,
+      "ambiguous": 20
+    }
+  },
+  "reconciliation": {
+    "ok": true,
+    "duplicate_expected_references": {},
+    "invalid_target_count_rows": [],
+    "expected_rows": 20432,
+    "accounted_rows": 20432,
+    "missing_rows": [],
+    "unexpected_rows": [],
+    "duplicate_dispositions": {},
+    "invalid_status_rows": [],
+    "proposed_observations": 0
+  },
+  "scope": "Targeted source-ID and recovery investigation; full profiling reused. All nonempty rows retained as reference_only; no loading performed. Candidates remain unapproved.",
+  "originals_unchanged": true,
+  "private_outputs": "Ignored work/recovery; no source values in this summary",
+  "limitations": [
+    "Only explicit literal ID columns qualify; formulas are not trusted identifiers",
+    "Supplement donor authority not approved",
+    "No attempt to invent ADL dates or questionnaire scoring",
+    "One disposition per retained row is preservation coverage, not semantic import completion"
+  ]
+}

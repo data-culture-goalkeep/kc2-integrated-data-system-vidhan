@@ -1,0 +1,84 @@
+{
+  "verified_on": "2026-10-27",
+  "files": [
+    {
+      "source": "S01",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S02",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S03",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S04",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S05",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S06",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S07",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S08",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S09",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S10",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S11",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    },
+    {
+      "source": "S12",
+      "modified_time_unchanged": true,
+      "mime_type": "application/vnd.google-apps.spreadsheet",
+      "not_trashed": true
+    }
+  ],
+  "all_twelve_drive_versions_unchanged": true,
+  "private_failure_destination_verified": true,
+  "google_report_shared": false,
+  "report_permissions": "single owner; no new sharing",
+  "source_personal_data_read_into_chat": false,
+  "failure_report_tabs_verified": 12,
+  "failure_report_grid_layout_matches": true
+}

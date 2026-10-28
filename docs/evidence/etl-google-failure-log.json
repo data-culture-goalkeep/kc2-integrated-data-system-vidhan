@@ -1,0 +1,72 @@
+{
+  "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1SJiptTAllO4icQffkM-6eCRzNjTwj3q6JtqVe816xpM/edit",
+  "verified_at": "2026-10-27",
+  "private_owner_only": true,
+  "source_tabs": 12,
+  "total_rows": 11222,
+  "verification": "Full cell-for-cell native readback against generated metadata-only report, all twelve tabs",
+  "tabs": [
+    {
+      "source": "S01",
+      "rows": 112,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S02",
+      "rows": 344,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S03",
+      "rows": 558,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S04",
+      "rows": 377,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S05",
+      "rows": 969,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S06",
+      "rows": 144,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S07",
+      "rows": 2499,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S08",
+      "rows": 1593,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S09",
+      "rows": 1230,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S10",
+      "rows": 2005,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S11",
+      "rows": 160,
+      "full_readback_equal": true
+    },
+    {
+      "source": "S12",
+      "rows": 1231,
+      "full_readback_equal": true
+    }
+  ],
+  "formatting": "Frozen headers, wrapped cells, column widths and filters configured; no rendered visual inspection available",
+  "remote_load_failures_reported": false
+}

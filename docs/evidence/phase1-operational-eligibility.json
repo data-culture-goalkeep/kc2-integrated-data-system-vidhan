@@ -1,0 +1,84 @@
+{
+  "status": "prepared_blocked",
+  "remote_writes": 0,
+  "additional_fully_verified_records": 0,
+  "additional_safe_pending_operational_records": 0,
+  "source_candidate_rows_by_kind": {
+    "adl_annual_summary": {
+      "source_candidate_rows": 129,
+      "literal_id_verified_rows": 0,
+      "not_name_candidate_investigation": 129
+    },
+    "adl_goals_summary": {
+      "source_candidate_rows": 121,
+      "literal_id_verified_rows": 0,
+      "not_name_candidate_investigation": 121
+    },
+    "adl_visit_slots": {
+      "source_candidate_rows": 1219,
+      "literal_id_verified_rows": 0,
+      "one_candidate": 631,
+      "unmatched": 568,
+      "ambiguous": 20
+    },
+    "annual_attendance_summary": {
+      "source_candidate_rows": 218,
+      "literal_id_verified_rows": 0,
+      "not_name_candidate_investigation": 218
+    },
+    "daily_attendance": {
+      "source_candidate_rows": 2142,
+      "literal_id_verified_rows": 0,
+      "one_candidate": 1009,
+      "unmatched": 1059,
+      "ambiguous": 74
+    },
+    "historical_visits": {
+      "source_candidate_rows": 155,
+      "literal_id_verified_rows": 0,
+      "not_name_candidate_investigation": 155
+    },
+    "questionnaire_subset": {
+      "source_candidate_rows": 29,
+      "literal_id_verified_rows": 0,
+      "not_name_candidate_investigation": 29
+    },
+    "questionnaire_view": {
+      "source_candidate_rows": 84,
+      "literal_id_verified_rows": 0,
+      "not_name_candidate_investigation": 84
+    },
+    "support_attendance": {
+      "source_candidate_rows": 262,
+      "literal_id_verified_rows": 0,
+      "one_candidate": 249,
+      "ambiguous": 6,
+      "unmatched": 7
+    },
+    "support_event_summary": {
+      "source_candidate_rows": 15,
+      "literal_id_verified_rows": 0,
+      "not_name_candidate_investigation": 15
+    },
+    "visit_activity_log": {
+      "source_candidate_rows": 144,
+      "literal_id_verified_rows": 0,
+      "not_name_candidate_investigation": 144
+    }
+  },
+  "adl_checked_slots": 194,
+  "adl_missing_date_slots": 4,
+  "already_migrated_pending": {
+    "program_changes": 128,
+    "questionnaire_responses": 106,
+    "questionnaire_answers": 3286
+  },
+  "approved_date_fidelity": false,
+  "new_operational_records": [],
+  "name_only_identity_acceptance": false,
+  "execution_authorization": false,
+  "private_ledger_rows": 4518,
+  "private_ledger_sha256": "bb5353a6ae36e97b98d017b5b1d2db62fd96786eabd7c53f09a2be48ef91d4b0",
+  "future_loading": "Reuse etl_core.validate_record, stable_id, typed provenance and compile_batch after verified cell-level mapping and a separately approved incremental manifest; never reuse consumed initial-load/recovery authorization",
+  "gates": "Attendance requires non-NULL verified date and approved service/mark codes. ADL/support may use NULL dates but still need a verified child and approved observation grain. Pending does not waive FKs or justify invented facts."
+}

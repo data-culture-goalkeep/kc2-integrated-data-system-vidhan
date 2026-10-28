@@ -1,0 +1,96 @@
+{
+  "status": "passed",
+  "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1SJiptTAllO4icQffkM-6eCRzNjTwj3q6JtqVe816xpM/edit",
+  "owner_private": true,
+  "sources": 12,
+  "preparation_rows_preserved": 11222,
+  "historical_execution_entries_marked_recovered": 262,
+  "interrupted_rows_marked_recovered": 250,
+  "historical_summaries_marked_recovered": 12,
+  "new_completion_summaries": 12,
+  "total_data_rows": 11496,
+  "all_values_read_back": true,
+  "original_history_text_retained": true,
+  "sharing_unchanged": true,
+  "changed_native_cells_checked": 298,
+  "formatting_and_constraints_verified": true,
+  "rendered_visual_inspection": false,
+  "visual_evidence": "Best-effort native API inspection: wrapped literal cells, copied formats, targeted row sizing; no rendered visual inspection claimed",
+  "verified_at": "2026-10-27T08:56:15.274Z",
+  "tabs": [
+    {
+      "source": "S01",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 115,
+      "source_rows": 368
+    },
+    {
+      "source": "S02",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 347,
+      "source_rows": 1220
+    },
+    {
+      "source": "S03",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 561,
+      "source_rows": 1847
+    },
+    {
+      "source": "S04",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 380,
+      "source_rows": 1206
+    },
+    {
+      "source": "S05",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 972,
+      "source_rows": 1150
+    },
+    {
+      "source": "S06",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 147,
+      "source_rows": 588
+    },
+    {
+      "source": "S07",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 2502,
+      "source_rows": 2828
+    },
+    {
+      "source": "S08",
+      "historical_rows_marked_recovered": 251,
+      "new_summary_row": 1846,
+      "source_rows": 3166
+    },
+    {
+      "source": "S09",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 1233,
+      "source_rows": 3092
+    },
+    {
+      "source": "S10",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 2008,
+      "source_rows": 2117
+    },
+    {
+      "source": "S11",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 163,
+      "source_rows": 1298
+    },
+    {
+      "source": "S12",
+      "historical_rows_marked_recovered": 1,
+      "new_summary_row": 1234,
+      "source_rows": 1552
+    }
+  ],
+  "database_migration_status": "complete_within_approved_preservation_pending_record_scope; business acceptance remains pending",
+  "filter_ranges_cover_all_used_rows": true
+}

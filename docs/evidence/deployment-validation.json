@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "source_commit": "277d4d0236fff9c26ea85cf3bb01b89755cff57a",
+  "remote_migrations_applied": true,
+  "catalog_counts": {
+    "tables": 19,
+    "columns": 334,
+    "indexes": 72,
+    "policies": 40,
+    "triggers": 81,
+    "functions": 15,
+    "constraints": 221,
+    "table_privileges": 399,
+    "function_privileges": 45
+  },
+  "constraint_types": {
+    "c": 78,
+    "f": 99,
+    "p": 19,
+    "t": 14,
+    "u": 11
+  },
+  "catalog_exact_match": true,
+  "architecture_differences": [],
+  "all_tables_rls": true,
+  "all_tables_empty": true,
+  "live_denial_checks_passed": 11,
+  "unauthenticated_table_grants": 0,
+  "delete_truncate_grants": 0,
+  "migration_metadata_difference": "MCP assigned remote version IDs; ledger names retain source file timestamps. Do not blindly use CLI db push against the differing version IDs.",
+  "migration_mapping": [
+    {
+      "file": "supabase/migrations/20261026171200_ids_schema.sql",
+      "sha256": "15f862280d9a90fffbf98bdf99b8be774712245a6357ba5c233052b2c3391892",
+      "remote_version": "20261026210941",
+      "remote_name": "20261026171200_ids_schema"
+    },
+    {
+      "file": "supabase/migrations/20261026171201_ids_security.sql",
+      "sha256": "996924ab804aac8ba7b9672c941d1b7941fc812150322d45ba9d6e1294879b5c",
+      "remote_version": "20261026211010",
+      "remote_name": "20261026171201_ids_security"
+    },
+    {
+      "file": "supabase/migrations/20261026171202_ids_integrity.sql",
+      "sha256": "5581168a4c6ef61c183552a04474064e44e8bcafdee4bf8e7f1255659cf58abc",
+      "remote_version": "20261026211029",
+      "remote_name": "20261026171202_ids_integrity"
+    }
+  ],
+  "security_advisor_disposition": "Two WARN findings for guarded public SECURITY DEFINER RPCs and one INFO for deliberately policy-free private membership table; reviewed controls retained.",
+  "limitations": [
+    "SQL-role simulations do not verify Google OAuth or HTTP/PostgREST authentication",
+    "No live positive authorized-role workflow or audit event was created; those are covered by separate local synthetic tests",
+    "Data loading, role activation, OAuth and frontend remain outside this authorization"
+  ]
+}

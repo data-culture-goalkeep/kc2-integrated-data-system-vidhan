@@ -1,0 +1,34 @@
+{
+  "project_name": "kc2-integrated-data-system",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "designation": "Owner-authorized non-production pilot",
+  "approved_commit": "277d4d0236fff9c26ea85cf3bb01b89755cff57a",
+  "pr_number": 1,
+  "migration_files": [
+    {
+      "file": "supabase/migrations/20261026171200_ids_schema.sql",
+      "sha256": "15f862280d9a90fffbf98bdf99b8be774712245a6357ba5c233052b2c3391892",
+      "pr_bytes_equal": true,
+      "local_runtime_verified": true
+    },
+    {
+      "file": "supabase/migrations/20261026171201_ids_security.sql",
+      "sha256": "996924ab804aac8ba7b9672c941d1b7941fc812150322d45ba9d6e1294879b5c",
+      "pr_bytes_equal": true,
+      "local_runtime_verified": true
+    },
+    {
+      "file": "supabase/migrations/20261026171202_ids_integrity.sql",
+      "sha256": "5581168a4c6ef61c183552a04474064e44e8bcafdee4bf8e7f1255659cf58abc",
+      "pr_bytes_equal": true,
+      "local_runtime_verified": true
+    }
+  ],
+  "pre_deployment_application_tables": 0,
+  "pre_deployment_migrations": [],
+  "private_schema_exists": false,
+  "unresolved_critical_or_high_findings": 0,
+  "deployment_authorization": "Explicit Stage 3 owner request; three reviewed migrations only; no data, memberships, OAuth or broad access",
+  "status": "prerequisites_passed"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "package": "fflate",
+    "version": "0.8.2",
+    "registry_tarball_sha256": "61fd5061e2fc8e5e3e3129f7f2fec7bd78a313e1bf4becbf1cc1cc9998d141dc",
+    "file": "scripts/vendor/fflate-0.8.2.js",
+    "sha256": "c3b34f2e9f5e74d4d7d64e01cac7a0c01954c6c406414d42185c7b53d6875ddf",
+    "license": "MIT",
+    "purpose": "Bounded lossless transport or SHA-256; no runtime dependency/network fetch"
+  },
+  {
+    "package": "js-sha256",
+    "version": "0.11.1",
+    "registry_tarball_sha256": "2456e5d3a9089f1333d6ad162af7700508d0d84d1b3ecf2ce1448d58d5e83112",
+    "file": "scripts/vendor/js-sha256-0.11.1.js",
+    "sha256": "4b53da9acab6a5d4010107be2025002fe1a22da64804dd5200b46895cb899219",
+    "license": "MIT",
+    "purpose": "Bounded lossless transport or SHA-256; no runtime dependency/network fetch"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "scope": "Interrupted execution accounting and safe stopped state, not migration completion",
+  "committed_transactions": 40,
+  "outstanding_transactions": 179,
+  "preserved_source_rows": 9988,
+  "not_loaded_source_rows": 10444,
+  "all_source_outcomes_accounted": 20432,
+  "schema_security_unchanged": true,
+  "active_authorization": false,
+  "recovery_authorized": false,
+  "migration_complete": false
+}

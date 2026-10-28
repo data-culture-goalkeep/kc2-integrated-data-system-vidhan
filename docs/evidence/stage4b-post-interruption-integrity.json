@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "originals_verified_unchanged": 12,
+  "sanitized_worksheets_verified_unchanged": 155,
+  "approved_plan_and_manifest_unchanged": true,
+  "all_four_bound_files_unchanged": true,
+  "active_authorization_exists": false,
+  "recovery_writes": 0
+}

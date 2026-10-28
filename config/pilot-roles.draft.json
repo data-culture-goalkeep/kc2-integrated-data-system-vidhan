@@ -1,0 +1,11 @@
+{
+  "status": "draft_requires_project_owner_approval_no_activation",
+  "domain": "goalkeep.net",
+  "provider": "google",
+  "roles": {
+    "admin": {"read": true, "write": true, "soft_delete": true, "manage_access": true, "review_data": true},
+    "member": {"read": true, "write": true, "soft_delete": false, "manage_access": false, "review_data": false}
+  },
+  "private_access": "Explicit per-user read/write authorization; no default private access for either role",
+  "first_admin": "Explicit owner-approved backend bootstrap; never self-assigned or automatically seeded"
+}

@@ -1,0 +1,31 @@
+{
+  "verified_at": "2026-10-27",
+  "method": "Supabase MCP get_project and BEGIN READ ONLY table counts; no remote data or schema writes",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "project_name": "kc2-integrated-data-system",
+  "region": "ap-northeast-1",
+  "database_status": "ACTIVE_HEALTHY",
+  "application_table_counts": {
+    "reference_values": 0,
+    "children": 0,
+    "child_private_profiles": 0,
+    "caregivers": 0,
+    "child_caregivers": 0,
+    "program_changes": 0,
+    "questionnaire_responses": 0,
+    "questionnaire_items": 0,
+    "questionnaire_answers": 0,
+    "attendance_observations": 0,
+    "support_observations": 0,
+    "adl_visits": 0,
+    "source_artifacts": 0,
+    "source_records": 0,
+    "source_provenance": 0,
+    "access_memberships": 0,
+    "identity_candidates": 0,
+    "recovery_actions": 0,
+    "record_audit_events": 0
+  },
+  "all_19_tables_empty": true,
+  "remote_data_loaded": false
+}

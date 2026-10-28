@@ -1,0 +1,2990 @@
+{
+  "status": "DRAFT_UNAPPROVED_NO_DATABASE_IMPLEMENTATION",
+  "baseline_commit": "de729f993e60b2af7f33e115bc811ee27aa38b21",
+  "baseline_entity_count": 12,
+  "proposed_table_count": 17,
+  "core_table_count": 16,
+  "optional_tables": [
+    "activity_logs"
+  ],
+  "managed_external_tables": [
+    "auth.users"
+  ],
+  "tables": [
+    {
+      "name": "reference_values",
+      "purpose": "Database-controlled source-scoped categories; replaces separate PROGRAM-only lookup",
+      "grain": "One approved vocabulary/code",
+      "fields": {
+        "vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "code": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "label": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "active": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "sort_order": {
+          "type": "integer",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        }
+      },
+      "primary_key": [
+        "vocabulary",
+        "code"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "Never seed canonical meanings, roles or synonym mappings without analyst approval; preserve source-scoped distinctions"
+      ],
+      "indexes": [],
+      "optional": false
+    },
+    {
+      "name": "children",
+      "purpose": "Canonical operational identity/context under RLS; display names remain personal",
+      "grain": "One resolved source master identity",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "source_namespace": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "source_admission_number": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "display_name": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "current_program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "admitted_program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "child_status_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "status_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "joining_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "dropout_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "current_program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "admitted_program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "status_vocabulary",
+            "child_status_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "program_vocabulary is server-generated fixed program discriminator; MATCH SIMPLE composite FK permits unknown code NULL",
+        "program_vocabulary is server-generated fixed program discriminator; MATCH SIMPLE composite FK permits unknown code NULL",
+        "status_vocabulary is server-generated fixed child_status discriminator; MATCH SIMPLE composite FK permits unknown code NULL",
+        "Source admission uniqueness is a proposed partial unique(source_namespace,source_admission_number), gated on Q02; never unique(display_name)",
+        "Birth/joining inequality is not imposed until correction/exception handling approved; original 3 conflicts preserved"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "program_vocabulary",
+            "current_program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "admitted_program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "status_vocabulary",
+            "child_status_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "child_private_profiles",
+      "purpose": "Separates restricted child/family/health/financial attributes from operational reads",
+      "grain": "Zero or one restricted profile per child",
+      "fields": {
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "birth_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "gender_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "child_national_id": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "blood_group_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "contact_address": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "sibling_count_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "diagnosis_1": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "diagnosis_2": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "udid_number": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "udid_disability_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "udid_validity_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "udid_percentage_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "insurance_number": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "assessment_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "assessment_age_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "family_income_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "economic_category_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "assessment_fee": {
+          "type": "numeric",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "monthly_fee": {
+          "type": "numeric",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "monthly_fee_remarks": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "concession_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "social_category_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "religion_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "consent_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "dropout_reason_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "transition_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "comments": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "severity_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "child_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs"
+      ],
+      "indexes": [],
+      "optional": false
+    },
+    {
+      "name": "caregivers",
+      "purpose": "Resolved caregiver identity; no global person deduplication by display name",
+      "grain": "One identified caregiver source identity pending scope review",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "display_name": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "birth_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "contact_phone": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "contact_email": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "national_id": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "employment_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "education_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs"
+      ],
+      "indexes": [],
+      "optional": false
+    },
+    {
+      "name": "child_caregivers",
+      "purpose": "Preserves the verified child/caregiver pair and source identifier scope",
+      "grain": "One child/caregiver association",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "caregiver_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "source_namespace": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "source_caregiver_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "role_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "role_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "716/716 source child IDs resolve to 371-key master",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "target": "caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "caregiver identity scope remains Q02",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "role_vocabulary",
+            "role_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [
+        [
+          "id",
+          "child_id"
+        ],
+        [
+          "source_namespace",
+          "child_id",
+          "source_caregiver_code"
+        ]
+      ],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "role_vocabulary is server-generated fixed caregiver_role discriminator; MATCH SIMPLE composite FK permits unknown code NULL"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "role_vocabulary",
+            "role_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "program_changes",
+      "purpose": "Unpivots promotion slots without inventing interval ends",
+      "grain": "One source promotion observation",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "promotion_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "source_slot": {
+          "type": "integer",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "program_vocabulary is server-generated fixed program discriminator; MATCH SIMPLE composite FK permits unknown code NULL"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_id",
+            "promotion_date"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "questionnaire_responses",
+      "purpose": "Submission context; references the validated pair instead of redundant independent IDs",
+      "grain": "One approved response row/submission",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "child_caregiver_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "definition_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "definition_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "assessment_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "centre_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "centre_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_caregiver_id"
+          ],
+          "target": "child_caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "106/106 observed pairs consistent, authority Q01 pending",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "definition_vocabulary",
+            "definition_key"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "centre_vocabulary",
+            "centre_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [
+        [
+          "id",
+          "definition_key"
+        ]
+      ],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "definition_vocabulary is server-generated fixed questionnaire_definition discriminator; MATCH SIMPLE composite FK permits unknown code NULL",
+        "program_vocabulary is server-generated fixed program discriminator; MATCH SIMPLE composite FK permits unknown code NULL",
+        "centre_vocabulary is server-generated fixed centre discriminator; MATCH SIMPLE composite FK permits unknown code NULL"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "definition_vocabulary",
+            "definition_key"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "centre_vocabulary",
+            "centre_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_caregiver_id",
+            "assessment_date"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "questionnaire_items",
+      "purpose": "Actual question definitions; one version key without premature questionnaire-framework tables",
+      "grain": "One actual question column within an approved definition",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "definition_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "definition_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "item_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "prompt": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "section_label": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "value_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "ordinal": {
+          "type": "integer",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "definition_vocabulary",
+            "definition_key"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [
+        [
+          "definition_key",
+          "item_key"
+        ],
+        [
+          "definition_key",
+          "ordinal"
+        ],
+        [
+          "id",
+          "definition_key"
+        ]
+      ],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "definition_vocabulary is server-generated fixed questionnaire_definition discriminator; MATCH SIMPLE composite FK permits unknown code NULL"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "definition_vocabulary",
+            "definition_key"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "questionnaire_answers",
+      "purpose": "Typed values replace untyped recorded_value; preserves missing answers separately",
+      "grain": "One response/item",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "response_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "item_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "definition_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "numeric_value": {
+          "type": "numeric",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "text_value": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "answer_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "response_id",
+            "definition_key"
+          ],
+          "target": "questionnaire_responses",
+          "target_columns": [
+            "id",
+            "definition_key"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "item_id",
+            "definition_key"
+          ],
+          "target": "questionnaire_items",
+          "target_columns": [
+            "id",
+            "definition_key"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [
+        [
+          "response_id",
+          "item_id"
+        ]
+      ],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "At most one numeric_value/text_value; both NULL allowed only for explicit missing answer_state",
+        "Value kind agrees with item definition via constrained server write path; no 1..5 range until Q05"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "response_id",
+            "definition_key"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "item_id",
+            "definition_key"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "attendance_observations",
+      "purpose": "Dated source marks kept distinct by service; unresolved names/dates remain staged",
+      "grain": "One resolved child/service/source-date observation",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "service_code": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "service_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "attendance_date": {
+          "type": "date",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "mark_code": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "mark_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "batch_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "child_status_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "future curated rows only; unresolved source identities remain source_records",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "service_vocabulary",
+            "service_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "mark_vocabulary",
+            "mark_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "service_vocabulary is server-generated fixed service_context discriminator; MATCH SIMPLE composite FK permits unknown code NULL",
+        "mark_vocabulary is server-generated fixed attendance_mark discriminator; MATCH SIMPLE composite FK permits unknown code NULL",
+        "program_vocabulary is server-generated fixed program discriminator; MATCH SIMPLE composite FK permits unknown code NULL",
+        "No unique(child_id,date): multiple services and observations can coexist",
+        "Resolved child/date/code required in curated rows; unknowns remain staged, never invented"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "service_vocabulary",
+            "service_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "mark_vocabulary",
+            "mark_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_id",
+            "attendance_date"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "support_observations",
+      "purpose": "Source-cell support observations; not necessarily one person or a daily P/A event",
+      "grain": "One approved support matrix cell",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "participant_link_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "event_reference": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "event_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "numeric_value": {
+          "type": "numeric",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "text_value": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "conditional on approved identity crosswalk",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "participant_link_id",
+            "child_id"
+          ],
+          "target": "child_caregivers",
+          "target_columns": [
+            "id",
+            "child_id"
+          ],
+          "basis": "when a single participant resolves, require the same child",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "program_vocabulary is server-generated fixed program discriminator; MATCH SIMPLE composite FK permits unknown code NULL"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "participant_link_id",
+            "child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "adl_visits",
+      "purpose": "Preserves true visit flags and undated historical exceptions",
+      "grain": "One checked visit-slot observation",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "program_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "program_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "visit_flag": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "visit_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "source_slot": {
+          "type": "integer",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "conditional on approved identity crosswalk",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "program_vocabulary is server-generated fixed program discriminator; MATCH SIMPLE composite FK permits unknown code NULL",
+        "visit_flag must be true for this fact grain; false/blank source slots retained in source_records",
+        "visit_date may be NULL only for imported pending-date record with provenance; future manual entry requires date"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "program_vocabulary",
+            "program_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_id",
+            "visit_date"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "activity_logs",
+      "purpose": "Structured activity records only after row-grain/workflow approval; archive retained regardless",
+      "grain": "One approved activity event, not each candidate content row",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "activity_description": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "activity_date": {
+          "type": "date",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "source_status_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "batch_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "participant_count_reported": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "origin_kind": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_import_or_manual"
+        },
+        "review_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "technical_review_metadata"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs"
+      ],
+      "indexes": [],
+      "optional": true
+    },
+    {
+      "name": "source_artifacts",
+      "purpose": "Immutable snapshot identity and worksheet/column schema",
+      "grain": "One authorized source-file version",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "source_namespace": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "file_code": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "version_sha256": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "source_locator": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "worksheet_manifest": {
+          "type": "jsonb",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "captured_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [
+        [
+          "source_namespace",
+          "file_code",
+          "version_sha256"
+        ]
+      ],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs"
+      ],
+      "indexes": [],
+      "optional": false
+    },
+    {
+      "name": "source_records",
+      "purpose": "Restricted staging/reconciliation for every nonempty source row, including unresolved/derived fields",
+      "grain": "One artifact/native-sheet/original-row",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "artifact_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "native_sheet_key": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "source_row": {
+          "type": "integer",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "cell_payload": {
+          "type": "jsonb",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "processing_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "diagnostics": {
+          "type": "jsonb",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "artifact_id"
+          ],
+          "target": "source_artifacts",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [
+        [
+          "artifact_id",
+          "native_sheet_key",
+          "source_row"
+        ]
+      ],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "processing_state",
+            "artifact_id"
+          ],
+          "reason": "proposed common entry/report filter",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    },
+    {
+      "name": "source_provenance",
+      "purpose": "Many-source-row/cell to one target without unconstrained polymorphic IDs",
+      "grain": "One source-column group -> one typed target/field group",
+      "fields": {
+        "id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "source_record_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "source_columns": {
+          "type": "text[]",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "target_fields": {
+          "type": "text[]",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "rule_reference": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "contribution_state": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "child_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "private_profile_child_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "caregiver_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "child_caregiver_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "program_change_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "response_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "item_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "answer_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "attendance_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "support_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "adl_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "activity_id": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "draft_recommendation",
+          "enabled_if": "activity_logs"
+        },
+        "reference_vocabulary": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "reference_code": {
+          "type": "text",
+          "nullable": true,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        }
+      },
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "source_record_id"
+          ],
+          "target": "source_records",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "target": "children",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "private_profile_child_id"
+          ],
+          "target": "child_private_profiles",
+          "target_columns": [
+            "child_id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "target": "caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "child_caregiver_id"
+          ],
+          "target": "child_caregivers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "program_change_id"
+          ],
+          "target": "program_changes",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "response_id"
+          ],
+          "target": "questionnaire_responses",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "item_id"
+          ],
+          "target": "questionnaire_items",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "answer_id"
+          ],
+          "target": "questionnaire_answers",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "attendance_id"
+          ],
+          "target": "attendance_observations",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "support_id"
+          ],
+          "target": "support_observations",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "adl_id"
+          ],
+          "target": "adl_visits",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "activity_id"
+          ],
+          "target": "activity_logs",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT",
+          "enabled_if": "activity_logs"
+        },
+        {
+          "columns": [
+            "reference_vocabulary",
+            "reference_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "draft design; no database exists",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "Exactly one complete target group, all other target columns NULL; partial reference vocabulary/code pair forbidden",
+        "source_columns and target_fields nonempty; field/column membership checked by bounded mapping validator",
+        "rule_reference identifies approved transformation/mapping version; contribution_state distinguishes selected/supporting/conflict evidence, without treating links as business approval",
+        "Import idempotency must use immutable artifact/sheet/row/column/slot plus target-kind and approved rule identity; repeated exports/business events need approved reconciliation keys, not random UUID deduplication",
+        "Before promotion of imported target rows, deferred constraint trigger or transactional import validator requires >=1 provenance link; update provenance atomically with edits"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "source_record_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "private_profile_child_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "caregiver_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "child_caregiver_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "program_change_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "response_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "item_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "answer_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "attendance_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "support_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "adl_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        },
+        {
+          "columns": [
+            "activity_id"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended",
+          "enabled_if": [
+            "activity_logs"
+          ]
+        },
+        {
+          "columns": [
+            "reference_vocabulary",
+            "reference_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false,
+      "target_groups": [
+        [
+          "child_id"
+        ],
+        [
+          "private_profile_child_id"
+        ],
+        [
+          "caregiver_id"
+        ],
+        [
+          "child_caregiver_id"
+        ],
+        [
+          "program_change_id"
+        ],
+        [
+          "response_id"
+        ],
+        [
+          "item_id"
+        ],
+        [
+          "answer_id"
+        ],
+        [
+          "attendance_id"
+        ],
+        [
+          "support_id"
+        ],
+        [
+          "adl_id"
+        ],
+        [
+          "activity_id"
+        ],
+        [
+          "reference_vocabulary",
+          "reference_code"
+        ]
+      ]
+    },
+    {
+      "name": "access_memberships",
+      "purpose": "Application authorization independent of Google sign-in and business caregivers",
+      "grain": "One admitted auth user in this dedicated project",
+      "fields": {
+        "user_id": {
+          "type": "uuid",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "approved_email_domain": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "role_code": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "role_vocabulary": {
+          "type": "text",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "active": {
+          "type": "boolean",
+          "nullable": false,
+          "status": "draft_recommendation"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_at": {
+          "type": "timestamptz",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        },
+        "created_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "updated_by": {
+          "type": "uuid",
+          "nullable": true,
+          "status": "proposed_technical_audit_field"
+        },
+        "actor_ref": {
+          "type": "text",
+          "nullable": false,
+          "status": "proposed_technical_audit_field"
+        }
+      },
+      "primary_key": [
+        "user_id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "created_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "updated_by"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "proposed technical audit",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "user_id"
+          ],
+          "target": "auth.users",
+          "target_columns": [
+            "id"
+          ],
+          "basis": "Supabase-managed authentication identity, not NGO caregiver identity",
+          "on_delete": "RESTRICT"
+        },
+        {
+          "columns": [
+            "role_vocabulary",
+            "role_code"
+          ],
+          "target": "reference_values",
+          "target_columns": [
+            "vocabulary",
+            "code"
+          ],
+          "basis": "proposed controlled vocabulary",
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "unique_keys": [],
+      "checks": [
+        "Audit stamps server-managed; null created_by/updated_by allowed for identified import actor only, never fabricated user IDs",
+        "role_vocabulary is server-generated fixed access_role discriminator; MATCH SIMPLE composite FK permits unknown code NULL"
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "role_vocabulary",
+            "role_code"
+          ],
+          "reason": "FK lookup/referential action candidate; benchmark before redundant indexes",
+          "status": "recommended"
+        }
+      ],
+      "optional": false
+    }
+  ],
+  "facts": "All technical keys/audit/staging/auth fields are recommendations, not invented NGO source fields",
+  "authorization": "Stage 2 review only; SQL, migrations and frontend prohibited"
+}

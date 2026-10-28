@@ -1,0 +1,65 @@
+{
+  "scope": "Isolated local PostgreSQL with staged source records; no remote writes",
+  "remote_writes": 0,
+  "status": "passed",
+  "checks": [
+    {
+      "check": "anon_read_denied",
+      "passed": true,
+      "sqlstate": "42501"
+    },
+    {
+      "check": "unapproved_identity_no_capabilities",
+      "passed": true
+    },
+    {
+      "check": "unapproved_operational_read_zero",
+      "passed": true
+    },
+    {
+      "check": "restricted_child_profile_read_zero",
+      "passed": true
+    },
+    {
+      "check": "unapproved_operational_insert_denied",
+      "passed": true,
+      "reason": "Workspace session required",
+      "sqlstate": "P0001"
+    },
+    {
+      "check": "direct_membership_write_denied",
+      "passed": true,
+      "sqlstate": "42501"
+    },
+    {
+      "check": "privilege_escalation_rpc_denied",
+      "passed": true,
+      "reason": "Access administration not authorized",
+      "sqlstate": "P0001"
+    },
+    {
+      "check": "unapproved_registration_denied",
+      "passed": true,
+      "reason": "Verified Goalkeep Workspace OAuth session required",
+      "sqlstate": "P0001"
+    },
+    {
+      "check": "authenticated_delete_denied",
+      "passed": true,
+      "sqlstate": "42501"
+    },
+    {
+      "check": "audit_insert_privilege_denied",
+      "passed": true,
+      "sqlstate": "42501"
+    },
+    {
+      "check": "source_evidence_write_denied",
+      "passed": true,
+      "sqlstate": "42501"
+    }
+  ],
+  "source_rows": 9988,
+  "rollback_preserved_checkpoint": true,
+  "container_removed": true
+}

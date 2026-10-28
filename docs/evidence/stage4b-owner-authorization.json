@@ -1,0 +1,33 @@
+{
+  "approved": true,
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "scope": "source-preservation-and-pending-verified-id-v1",
+  "plan_sha256": "7f96ad770c792286a798d588a2a59550c4c0719a802d3ed9884b826d400aa25f",
+  "manifest_sha256": "8cf2df9dd09a74234b26f1a99c61d17ed7f1f733eca2f016a4f0429c869471b4",
+  "approval_reference": "Explicit project-owner message in this conversation, 27 October 2026, titled Goalkeep KC-2 \u2014 Stage 4B: Authorized Data Migration; exact hashes and exclusions stated",
+  "issued_at": "2026-10-27T03:54:45.896960+00:00",
+  "expires_at": "2026-10-27T07:54:45.896960+00:00",
+  "source_scope": {
+    "files": 12,
+    "worksheets": 155,
+    "nonempty_source_rows": 20432,
+    "programme_slots_pending_null_dates": 128
+  },
+  "exclusions": [
+    "operational attendance",
+    "operational ADL",
+    "operational support observations",
+    "name-only identity approval",
+    "invented dates or scores or category meanings",
+    "memberships and OAuth",
+    "schema changes or migrations or resets or repair or deletion"
+  ],
+  "authorization_artifact": "Ignored owner-only work/remote-etl/owner-authorization.json",
+  "fresh_prerequisites": "Exact hashes/code, source integrity, target, ledger, catalog/privileges/RLS and empty target passed; failure destination private",
+  "approved_requests": 219,
+  "nonproduction_region_exception": "Tokyo intentionally retained instead of Mumbai",
+  "execution_status": "interrupted; recovery not authorized",
+  "active_authorization_artifact_removed": true,
+  "archived_artifact": "Ignored work/remote-etl/authorization-interrupted-cc107f2c5fab4d4da63903d4503d8789.json",
+  "archived_at": "2026-10-27T04:43:41.739237+00:00"
+}

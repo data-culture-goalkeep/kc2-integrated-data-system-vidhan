@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "checkpoint": 0,
+  "remote_writes": 0,
+  "manifest_sha256": "bfbc196c3f718a9bc8de49619031424955fcf8385d2c893a732b5853b995ec92",
+  "checked_at_utc": "2026-10-27T07:32:44.684Z",
+  "note": "Actual live read-only preflight; no recovery write attempted"
+}

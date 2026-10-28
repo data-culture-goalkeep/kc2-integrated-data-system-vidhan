@@ -1,0 +1,27 @@
+{
+  "approval_reference": "Owner conversation message: Goalkeep KC-2 \u2014 Stage 4C: Authorized Migration Recovery Execution; explicitly authorizes exactly this manifest and 179 remaining transactions for four hours",
+  "approved": true,
+  "expires_at": "2026-10-27T11:49:56+00:00",
+  "issued_at": "2026-10-27T07:49:56+00:00",
+  "mode": "kc2-prefix-40-checkpoint-recovery-v1",
+  "original_execution_manifest_sha256": "8cf2df9dd09a74234b26f1a99c61d17ed7f1f733eca2f016a4f0429c869471b4",
+  "original_plan_sha256": "7f96ad770c792286a798d588a2a59550c4c0719a802d3ed9884b826d400aa25f",
+  "preserve_committed_prefix": 40,
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "recovery_manifest_sha256": "bfbc196c3f718a9bc8de49619031424955fcf8385d2c893a732b5853b995ec92",
+  "recovery_planning_sha256": "4fc7f1d0d35443d1d3f80445883924676f6b91563291ff2344717165c6d2022e",
+  "region": "ap-northeast-1",
+  "remaining_data_indices": [
+    40,
+    136
+  ],
+  "remaining_source_status_indices": [
+    0,
+    81
+  ],
+  "scope": "source-preservation-and-pending-verified-id-v1",
+  "timestamp_source": "First observed receipt time from clock.curr_time at start of this execution turn",
+  "active_authorization_artifact_removed": true,
+  "archived_artifact": "Ignored work/stage4c/owner-authorization-archived.json",
+  "authorization_artifact_sha256": "bf886920903c678d423b1cb80b82a3f108a21982eedef08f6a9fd611c0a55eb8"
+}

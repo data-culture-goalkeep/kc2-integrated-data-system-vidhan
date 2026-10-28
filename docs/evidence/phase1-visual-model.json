@@ -1,0 +1,1331 @@
+{
+  "catalog_sha256": "b03bf0cc95bd7c806414cbc454e6919090ed464df44c8a9bf70563e636e43b32",
+  "application_tables": [
+    "gk_private.access_memberships",
+    "gk_private.caregivers",
+    "gk_private.child_private_profiles",
+    "gk_private.identity_candidates",
+    "gk_private.questionnaire_answers",
+    "gk_private.record_audit_events",
+    "gk_private.recovery_actions",
+    "gk_private.source_artifacts",
+    "gk_private.source_provenance",
+    "gk_private.source_records",
+    "public.adl_visits",
+    "public.attendance_observations",
+    "public.child_caregivers",
+    "public.children",
+    "public.program_changes",
+    "public.questionnaire_items",
+    "public.questionnaire_responses",
+    "public.reference_values",
+    "public.support_observations"
+  ],
+  "managed_external": [
+    "auth.users"
+  ],
+  "primary_keys": {
+    "gk_private.access_memberships": [
+      "user_id"
+    ],
+    "gk_private.caregivers": [
+      "id"
+    ],
+    "gk_private.child_private_profiles": [
+      "child_id"
+    ],
+    "gk_private.identity_candidates": [
+      "id"
+    ],
+    "gk_private.questionnaire_answers": [
+      "id"
+    ],
+    "gk_private.record_audit_events": [
+      "id"
+    ],
+    "gk_private.recovery_actions": [
+      "id"
+    ],
+    "gk_private.source_artifacts": [
+      "id"
+    ],
+    "gk_private.source_provenance": [
+      "id"
+    ],
+    "gk_private.source_records": [
+      "id"
+    ],
+    "public.adl_visits": [
+      "id"
+    ],
+    "public.attendance_observations": [
+      "id"
+    ],
+    "public.child_caregivers": [
+      "id"
+    ],
+    "public.children": [
+      "id"
+    ],
+    "public.program_changes": [
+      "id"
+    ],
+    "public.questionnaire_items": [
+      "id"
+    ],
+    "public.questionnaire_responses": [
+      "id"
+    ],
+    "public.reference_values": [
+      "vocabulary",
+      "code"
+    ],
+    "public.support_observations": [
+      "id"
+    ]
+  },
+  "foreign_keys": [
+    {
+      "name": "fk_access_memberships_0",
+      "child": "gk_private.access_memberships",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_access_memberships_1",
+      "child": "gk_private.access_memberships",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_access_memberships_2",
+      "child": "gk_private.access_memberships",
+      "columns": [
+        "user_id"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_access_memberships_3",
+      "child": "gk_private.access_memberships",
+      "columns": [
+        "role_vocabulary",
+        "role_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (role_vocabulary, role_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_access_memberships_4",
+      "child": "gk_private.access_memberships",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_caregivers_0",
+      "child": "gk_private.caregivers",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_caregivers_1",
+      "child": "gk_private.caregivers",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_caregivers_2",
+      "child": "gk_private.caregivers",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_private_profiles_0",
+      "child": "gk_private.child_private_profiles",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_private_profiles_1",
+      "child": "gk_private.child_private_profiles",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_private_profiles_2",
+      "child": "gk_private.child_private_profiles",
+      "columns": [
+        "child_id"
+      ],
+      "parent": "public.children",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_id) REFERENCES public.children(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_private_profiles_3",
+      "child": "gk_private.child_private_profiles",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_identity_candidates_0",
+      "child": "gk_private.identity_candidates",
+      "columns": [
+        "source_record_id"
+      ],
+      "parent": "gk_private.source_records",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (source_record_id) REFERENCES gk_private.source_records(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_identity_candidates_1",
+      "child": "gk_private.identity_candidates",
+      "columns": [
+        "child_id"
+      ],
+      "parent": "public.children",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_id) REFERENCES public.children(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_identity_candidates_2",
+      "child": "gk_private.identity_candidates",
+      "columns": [
+        "caregiver_id"
+      ],
+      "parent": "gk_private.caregivers",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (caregiver_id) REFERENCES gk_private.caregivers(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_identity_candidates_3",
+      "child": "gk_private.identity_candidates",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_identity_candidates_4",
+      "child": "gk_private.identity_candidates",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_answers_0",
+      "child": "gk_private.questionnaire_answers",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_answers_1",
+      "child": "gk_private.questionnaire_answers",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_answers_2",
+      "child": "gk_private.questionnaire_answers",
+      "columns": [
+        "response_id",
+        "definition_key"
+      ],
+      "parent": "public.questionnaire_responses",
+      "parent_columns": [
+        "id",
+        "definition_key"
+      ],
+      "definition": "FOREIGN KEY (response_id, definition_key) REFERENCES public.questionnaire_responses(id, definition_key) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_answers_3",
+      "child": "gk_private.questionnaire_answers",
+      "columns": [
+        "item_id",
+        "definition_key"
+      ],
+      "parent": "public.questionnaire_items",
+      "parent_columns": [
+        "id",
+        "definition_key"
+      ],
+      "definition": "FOREIGN KEY (item_id, definition_key) REFERENCES public.questionnaire_items(id, definition_key) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_answers_4",
+      "child": "gk_private.questionnaire_answers",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_record_audit_events_0",
+      "child": "gk_private.record_audit_events",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_record_audit_events_1",
+      "child": "gk_private.record_audit_events",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_recovery_actions_0",
+      "child": "gk_private.recovery_actions",
+      "columns": [
+        "source_record_id"
+      ],
+      "parent": "gk_private.source_records",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (source_record_id) REFERENCES gk_private.source_records(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_recovery_actions_1",
+      "child": "gk_private.recovery_actions",
+      "columns": [
+        "child_id"
+      ],
+      "parent": "public.children",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_id) REFERENCES public.children(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_recovery_actions_2",
+      "child": "gk_private.recovery_actions",
+      "columns": [
+        "caregiver_id"
+      ],
+      "parent": "gk_private.caregivers",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (caregiver_id) REFERENCES gk_private.caregivers(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_recovery_actions_3",
+      "child": "gk_private.recovery_actions",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_recovery_actions_4",
+      "child": "gk_private.recovery_actions",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_recovery_actions_5",
+      "child": "gk_private.recovery_actions",
+      "columns": [
+        "donor_source_record_id"
+      ],
+      "parent": "gk_private.source_records",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (donor_source_record_id) REFERENCES gk_private.source_records(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_artifacts_0",
+      "child": "gk_private.source_artifacts",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_artifacts_1",
+      "child": "gk_private.source_artifacts",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_0",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_1",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_10",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "answer_id"
+      ],
+      "parent": "gk_private.questionnaire_answers",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (answer_id) REFERENCES gk_private.questionnaire_answers(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_11",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "attendance_id"
+      ],
+      "parent": "public.attendance_observations",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (attendance_id) REFERENCES public.attendance_observations(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_12",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "support_id"
+      ],
+      "parent": "public.support_observations",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (support_id) REFERENCES public.support_observations(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_13",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "adl_id"
+      ],
+      "parent": "public.adl_visits",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (adl_id) REFERENCES public.adl_visits(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_14",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "reference_vocabulary",
+        "reference_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (reference_vocabulary, reference_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_2",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "source_record_id"
+      ],
+      "parent": "gk_private.source_records",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (source_record_id) REFERENCES gk_private.source_records(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_3",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "child_id"
+      ],
+      "parent": "public.children",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_id) REFERENCES public.children(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_4",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "private_profile_child_id"
+      ],
+      "parent": "gk_private.child_private_profiles",
+      "parent_columns": [
+        "child_id"
+      ],
+      "definition": "FOREIGN KEY (private_profile_child_id) REFERENCES gk_private.child_private_profiles(child_id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_5",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "caregiver_id"
+      ],
+      "parent": "gk_private.caregivers",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (caregiver_id) REFERENCES gk_private.caregivers(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_6",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "child_caregiver_id"
+      ],
+      "parent": "public.child_caregivers",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_caregiver_id) REFERENCES public.child_caregivers(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_7",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "program_change_id"
+      ],
+      "parent": "public.program_changes",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (program_change_id) REFERENCES public.program_changes(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_8",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "response_id"
+      ],
+      "parent": "public.questionnaire_responses",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (response_id) REFERENCES public.questionnaire_responses(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_provenance_9",
+      "child": "gk_private.source_provenance",
+      "columns": [
+        "item_id"
+      ],
+      "parent": "public.questionnaire_items",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (item_id) REFERENCES public.questionnaire_items(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_records_0",
+      "child": "gk_private.source_records",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_records_1",
+      "child": "gk_private.source_records",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_source_records_2",
+      "child": "gk_private.source_records",
+      "columns": [
+        "artifact_id"
+      ],
+      "parent": "gk_private.source_artifacts",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (artifact_id) REFERENCES gk_private.source_artifacts(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_adl_visits_0",
+      "child": "public.adl_visits",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_adl_visits_1",
+      "child": "public.adl_visits",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_adl_visits_2",
+      "child": "public.adl_visits",
+      "columns": [
+        "child_id"
+      ],
+      "parent": "public.children",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_id) REFERENCES public.children(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_adl_visits_3",
+      "child": "public.adl_visits",
+      "columns": [
+        "program_vocabulary",
+        "program_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (program_vocabulary, program_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_adl_visits_4",
+      "child": "public.adl_visits",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_attendance_observations_0",
+      "child": "public.attendance_observations",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_attendance_observations_1",
+      "child": "public.attendance_observations",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_attendance_observations_2",
+      "child": "public.attendance_observations",
+      "columns": [
+        "child_id"
+      ],
+      "parent": "public.children",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_id) REFERENCES public.children(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_attendance_observations_3",
+      "child": "public.attendance_observations",
+      "columns": [
+        "service_vocabulary",
+        "service_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (service_vocabulary, service_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_attendance_observations_4",
+      "child": "public.attendance_observations",
+      "columns": [
+        "mark_vocabulary",
+        "mark_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (mark_vocabulary, mark_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_attendance_observations_5",
+      "child": "public.attendance_observations",
+      "columns": [
+        "program_vocabulary",
+        "program_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (program_vocabulary, program_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_attendance_observations_6",
+      "child": "public.attendance_observations",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_caregivers_0",
+      "child": "public.child_caregivers",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_caregivers_1",
+      "child": "public.child_caregivers",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_caregivers_2",
+      "child": "public.child_caregivers",
+      "columns": [
+        "child_id"
+      ],
+      "parent": "public.children",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_id) REFERENCES public.children(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_caregivers_3",
+      "child": "public.child_caregivers",
+      "columns": [
+        "caregiver_id"
+      ],
+      "parent": "gk_private.caregivers",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (caregiver_id) REFERENCES gk_private.caregivers(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_caregivers_4",
+      "child": "public.child_caregivers",
+      "columns": [
+        "role_vocabulary",
+        "role_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (role_vocabulary, role_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_child_caregivers_5",
+      "child": "public.child_caregivers",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_children_0",
+      "child": "public.children",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_children_1",
+      "child": "public.children",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_children_2",
+      "child": "public.children",
+      "columns": [
+        "program_vocabulary",
+        "current_program_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (program_vocabulary, current_program_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_children_3",
+      "child": "public.children",
+      "columns": [
+        "program_vocabulary",
+        "admitted_program_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (program_vocabulary, admitted_program_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_children_4",
+      "child": "public.children",
+      "columns": [
+        "status_vocabulary",
+        "child_status_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (status_vocabulary, child_status_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_children_5",
+      "child": "public.children",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_program_changes_0",
+      "child": "public.program_changes",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_program_changes_1",
+      "child": "public.program_changes",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_program_changes_2",
+      "child": "public.program_changes",
+      "columns": [
+        "child_id"
+      ],
+      "parent": "public.children",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_id) REFERENCES public.children(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_program_changes_3",
+      "child": "public.program_changes",
+      "columns": [
+        "program_vocabulary",
+        "program_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (program_vocabulary, program_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_program_changes_4",
+      "child": "public.program_changes",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_items_0",
+      "child": "public.questionnaire_items",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_items_1",
+      "child": "public.questionnaire_items",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_items_2",
+      "child": "public.questionnaire_items",
+      "columns": [
+        "definition_vocabulary",
+        "definition_key"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (definition_vocabulary, definition_key) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_items_3",
+      "child": "public.questionnaire_items",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_responses_0",
+      "child": "public.questionnaire_responses",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_responses_1",
+      "child": "public.questionnaire_responses",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_responses_2",
+      "child": "public.questionnaire_responses",
+      "columns": [
+        "child_caregiver_id"
+      ],
+      "parent": "public.child_caregivers",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_caregiver_id) REFERENCES public.child_caregivers(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_responses_3",
+      "child": "public.questionnaire_responses",
+      "columns": [
+        "definition_vocabulary",
+        "definition_key"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (definition_vocabulary, definition_key) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_responses_4",
+      "child": "public.questionnaire_responses",
+      "columns": [
+        "program_vocabulary",
+        "program_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (program_vocabulary, program_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_responses_5",
+      "child": "public.questionnaire_responses",
+      "columns": [
+        "centre_vocabulary",
+        "centre_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (centre_vocabulary, centre_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_questionnaire_responses_6",
+      "child": "public.questionnaire_responses",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_reference_values_0",
+      "child": "public.reference_values",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_reference_values_1",
+      "child": "public.reference_values",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_reference_values_2",
+      "child": "public.reference_values",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_support_observations_0",
+      "child": "public.support_observations",
+      "columns": [
+        "created_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_support_observations_1",
+      "child": "public.support_observations",
+      "columns": [
+        "updated_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (updated_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_support_observations_2",
+      "child": "public.support_observations",
+      "columns": [
+        "child_id"
+      ],
+      "parent": "public.children",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (child_id) REFERENCES public.children(id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_support_observations_3",
+      "child": "public.support_observations",
+      "columns": [
+        "participant_link_id",
+        "child_id"
+      ],
+      "parent": "public.child_caregivers",
+      "parent_columns": [
+        "id",
+        "child_id"
+      ],
+      "definition": "FOREIGN KEY (participant_link_id, child_id) REFERENCES public.child_caregivers(id, child_id) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_support_observations_4",
+      "child": "public.support_observations",
+      "columns": [
+        "program_vocabulary",
+        "program_code"
+      ],
+      "parent": "public.reference_values",
+      "parent_columns": [
+        "vocabulary",
+        "code"
+      ],
+      "definition": "FOREIGN KEY (program_vocabulary, program_code) REFERENCES public.reference_values(vocabulary, code) ON DELETE RESTRICT"
+    },
+    {
+      "name": "fk_support_observations_5",
+      "child": "public.support_observations",
+      "columns": [
+        "archived_by"
+      ],
+      "parent": "auth.users",
+      "parent_columns": [
+        "id"
+      ],
+      "definition": "FOREIGN KEY (archived_by) REFERENCES auth.users(id) ON DELETE RESTRICT"
+    }
+  ],
+  "fk_table_pair_groups": 59,
+  "svg_drawn_relationship_groups": 41,
+  "svg_common_actor_fks_bundled": 51,
+  "mermaid_relationships": 99,
+  "private_tables": [
+    "gk_private.access_memberships",
+    "gk_private.caregivers",
+    "gk_private.child_private_profiles",
+    "gk_private.identity_candidates",
+    "gk_private.questionnaire_answers",
+    "gk_private.record_audit_events",
+    "gk_private.recovery_actions",
+    "gk_private.source_artifacts",
+    "gk_private.source_provenance",
+    "gk_private.source_records"
+  ]
+}

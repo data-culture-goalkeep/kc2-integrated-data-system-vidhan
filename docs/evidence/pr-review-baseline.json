@@ -1,0 +1,22 @@
+{
+  "reviewed_pr_head": "3e01f25e4a4f0fbd56d8b593216ff58b8f209d4f",
+  "initial_python_tests_passed": 28,
+  "initial_postgres_fixture_setup": {
+    "status": "failed",
+    "sqlstate": "42702",
+    "function": "gk_private.check_reference_state",
+    "cause": "ambiguous variable code versus table column"
+  },
+  "after_binding_fix": {
+    "tests_run": 29,
+    "failures": 1,
+    "failed_case": "Member questionnaire item insertion was permitted"
+  },
+  "source_data_in_test_fixtures": false,
+  "effective_default_acl_regression": {
+    "tests_run": 46,
+    "failures": 1,
+    "cause": "Narrower GRANT did not remove inherited public service_role ALL privileges",
+    "fix": "Explicit service_role REVOKE before least-privilege grants"
+  }
+}

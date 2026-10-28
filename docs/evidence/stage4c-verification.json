@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "recovery_manifest_sha256": "bfbc196c3f718a9bc8de49619031424955fcf8385d2c893a732b5853b995ec92",
+  "remaining_transactions": 179,
+  "reference_checkpoints": 180,
+  "packets_sha256_verified": 179,
+  "original_loader_sql_unchanged": true,
+  "live_checkpoint_verified": 0,
+  "remote_recovery_writes": 0,
+  "execution_authorized": false,
+  "unit_tests": 82,
+  "isolated_recovery_cases": 11,
+  "offline_bridge_cases": 9,
+  "local_denial_checks": 11
+}

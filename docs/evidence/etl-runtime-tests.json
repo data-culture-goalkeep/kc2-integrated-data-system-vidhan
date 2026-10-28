@@ -1,0 +1,79 @@
+{
+  "scope": "Local PostgreSQL 17 only; sanitized pilot bundle plus synthetic negative cases",
+  "image": "postgres@sha256:858bb5e98eed02eb8cafbcdc007f9a65d1b613972028944a8ec2133ccaf80d27",
+  "network": "none",
+  "remote_data_loaded": false,
+  "plan_sha256": "7f96ad770c792286a798d588a2a59550c4c0719a802d3ed9884b826d400aa25f",
+  "first_load": {
+    "status": "passed",
+    "inserted": {
+      "source_artifacts": 12,
+      "source_records": 20432,
+      "reference_values": 47,
+      "source_provenance": 5772,
+      "children": 371,
+      "child_private_profiles": 371,
+      "caregivers": 716,
+      "child_caregivers": 716,
+      "program_changes": 128,
+      "questionnaire_items": 31,
+      "questionnaire_responses": 106,
+      "questionnaire_answers": 3286,
+      "identity_candidates": 2089
+    },
+    "committed_batches": 137
+  },
+  "second_load": {
+    "status": "passed",
+    "inserted": 0,
+    "verified_existing": 34077,
+    "all_table_counts_unchanged": true
+  },
+  "target_reconciliation": {
+    "status": "passed",
+    "expected": {
+      "source_artifacts": 12,
+      "source_records": 20432,
+      "reference_values": 47,
+      "source_provenance": 5772,
+      "children": 371,
+      "child_private_profiles": 371,
+      "caregivers": 716,
+      "child_caregivers": 716,
+      "program_changes": 128,
+      "questionnaire_items": 31,
+      "questionnaire_responses": 106,
+      "questionnaire_answers": 3286,
+      "identity_candidates": 2089
+    },
+    "actual": {
+      "children": 371,
+      "adl_visits": 0,
+      "caregivers": 716,
+      "source_records": 20432,
+      "program_changes": 128,
+      "child_caregivers": 716,
+      "recovery_actions": 0,
+      "reference_values": 47,
+      "source_artifacts": 12,
+      "source_provenance": 5772,
+      "access_memberships": 0,
+      "identity_candidates": 2089,
+      "questionnaire_items": 31,
+      "record_audit_events": 28293,
+      "support_observations": 0,
+      "questionnaire_answers": 3286,
+      "child_private_profiles": 371,
+      "attendance_observations": 0,
+      "questionnaire_responses": 106
+    },
+    "mismatches": {},
+    "audit_rows_database_generated": 28293,
+    "scope": "Target-row cardinalities; independent source-row disposition coverage is validated separately"
+  },
+  "status": "passed",
+  "negative_and_transaction_tests": 9,
+  "failures": [],
+  "errors": [],
+  "container_removed": true
+}

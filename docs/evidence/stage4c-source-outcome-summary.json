@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "source_rows": 20432,
+  "unique_source_ids": 20432,
+  "source_states": {
+    "resolved": 1194,
+    "reference_only": 15301,
+    "blocked": 3937
+  },
+  "row_level_outcomes_sha256": "4a73f68bbf4f8519679d75b69e96e8c111827d811577ef3cdba93da3f54ab680",
+  "private_path": "Ignored work/stage4c/final-source-execution-outcomes.json",
+  "operational_acceptance": "pending or excluded; preservation success is not business approval"
+}

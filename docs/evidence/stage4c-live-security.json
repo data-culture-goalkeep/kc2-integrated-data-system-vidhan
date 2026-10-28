@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "scope": "Live read-only SQL-role checks; no DML or memberships",
+  "checks": {
+    "public.children": 0,
+    "public.adl_visits": 0,
+    "anonymous_read_denied": true,
+    "gk_private.caregivers": 0,
+    "public.program_changes": 0,
+    "public.child_caregivers": 0,
+    "public.reference_values": 0,
+    "gk_private.source_records": 0,
+    "public.questionnaire_items": 0,
+    "gk_private.recovery_actions": 0,
+    "gk_private.source_artifacts": 0,
+    "public.support_observations": 0,
+    "gk_private.source_provenance": 0,
+    "gk_private.identity_candidates": 0,
+    "gk_private.record_audit_events": 0,
+    "public.attendance_observations": 0,
+    "public.questionnaire_responses": 0,
+    "gk_private.questionnaire_answers": 0,
+    "gk_private.child_private_profiles": 0
+  },
+  "remote_recovery_writes": 0
+}

@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "application_tables": 19,
+  "exact_fks_represented": 99,
+  "live_reconciliation": "passed",
+  "schema_rls_unchanged": true,
+  "additional_eligible_operational_records": 0,
+  "new_remote_writes": 0,
+  "metadata_preview_executed_read_only": true,
+  "svg_rendered_and_inspected": true,
+  "mermaid_relationships_structurally_checked": true,
+  "full_unit_and_isolated_tests_replayed": false,
+  "prior_test_evidence_reused": "82 Python tests and isolated recovery/security tests; implementation hashes unchanged"
+}

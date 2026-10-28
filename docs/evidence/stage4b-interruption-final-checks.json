@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scope": "Verified safe interrupted state and accurate reporting; migration remains incomplete",
+  "migration_status": "interrupted_incomplete",
+  "python_tests_passed": 64,
+  "foreign_key_checks_zero_violations": 99,
+  "committed_prefix_transactions_verified": 40,
+  "remaining_transactions_not_executed": 179,
+  "source_outcomes_accounted": 20432,
+  "source_original_and_sanitized_hashes_unchanged": true,
+  "approved_bound_code_unchanged": true,
+  "source_privacy_and_documentation_checks": "passed",
+  "python_syntax_and_readonly_sql_parsing": "passed",
+  "git_whitespace_and_fsck": "passed; staged check repeated before commit",
+  "all_19_live_counts_rechecked_stable": true,
+  "automatic_retry_performed": false,
+  "recovery_authorized": false,
+  "code_sha256": {
+    "scripts/verify_stage4b_execution.py": "16441e21cfe438bd5b0c3bd8a3945987e3da8e993ba417f1fa639e29b345de14",
+    "scripts/report_stage4b_interruption.py": "4c2811c1b3223c5e64a849bf6040c950fa6285562bcdd483b52798c3a7cf2a89",
+    "scripts/check_stage4b_interruption.py": "da7c28673bce346944fc8d5d7ecfe4d0a7c2e3fe50ed0a898e105cd70fcec226"
+  }
+}
