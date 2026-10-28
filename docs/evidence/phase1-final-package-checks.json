@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "source_files_hashed": 12,
+  "sanitized_sheets_hashed": 155,
+  "bound_increment_transactions": 197,
+  "unrepresented_attendance_evidence_cells": 0,
+  "duplicate_attendance_evidence_keys": 0,
+  "full_diagram_tables": 20,
+  "diagram_foreign_keys": 103,
+  "dictionary_columns": 363,
+  "new_unit_tests": 11,
+  "isolated_runtime_checks": 9,
+  "relative_document_links": "passed",
+  "svg_xml": "passed",
+  "git_whitespace_integrity_and_backend_ancestry": "passed",
+  "private_work_untracked": true,
+  "remote_writes": 0,
+  "remote_increment_authorized": false
+}

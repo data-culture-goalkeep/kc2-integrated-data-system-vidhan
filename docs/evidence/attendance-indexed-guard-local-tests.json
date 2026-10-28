@@ -1,0 +1,21 @@
+{
+  "scope": "network=none disposable PostgreSQL; approved sanitized fixtures only; no remote writes",
+  "tests": {
+    "exact_schema_and_nonempty_34600_row_fixture": true,
+    "all_43_amended_batches_loaded_with_original_60_second_limit": true,
+    "representative_idempotent_replay": true,
+    "conflicting_payload_rejected": true,
+    "committed_prefix_timestamps_original_data_and_audit_unchanged": true,
+    "three_unapproved_roles_still_denied": true,
+    "all_43160_keys_and_full_payloads_match_original_approved_records": true,
+    "no_identity_date_code_promotion": true
+  },
+  "status": "passed",
+  "proposed_transactions": 43,
+  "final_staging_rows": 43160,
+  "slowest_amended_batch_seconds": 0.26179759501246735,
+  "total_amended_seconds": 5.9780901659542,
+  "unchanged_statement_timeout_seconds": 60,
+  "expected_new_remote_rows": 8560,
+  "container_removed": true
+}

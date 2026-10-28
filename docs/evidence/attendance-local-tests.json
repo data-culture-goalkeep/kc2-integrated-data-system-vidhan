@@ -1,0 +1,29 @@
+{
+  "scope": "Network=none disposable PostgreSQL; approved sanitized inputs; no remote writes",
+  "tests": {
+    "local_new_migration_applied": true,
+    "all_source_cells_and_contexts_loaded": true,
+    "representative_idempotent_replay_all_kinds_and_identity_states": true,
+    "all_original_19_tables_unchanged": true,
+    "conflicting_existing_record_rejected": true,
+    "immutable_source_evidence_protected": true,
+    "three_unapproved_roles_denied_read_write": true,
+    "partial_batch_failure_atomic_rollback": true,
+    "delete_truncate_denied": true,
+    "invalid_candidate_rejected": true,
+    "no_fabricated_identity_date_or_approval": true
+  },
+  "status": "passed",
+  "staged_rows": 43160,
+  "operational_attendance": 0,
+  "original_audit_rows": 28293,
+  "replayed_rows": 458,
+  "reconciliation": {
+    "SOURCE_CONTEXT": 14132,
+    "MARK": 26259,
+    "SUMMARY_VALUE": 2579,
+    "FORMULA": 189,
+    "AUXILIARY_VALUE": 1
+  },
+  "container_removed": true
+}

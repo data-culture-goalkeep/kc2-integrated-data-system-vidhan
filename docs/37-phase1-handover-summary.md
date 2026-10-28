@@ -1,3 +1,5 @@
+> Historical milestone preserved. Current deployed 20-table model and final results: [Phase 1 handover](PHASE1-HANDOVER.md), [final dictionary](FINAL-DATA-DICTIONARY.md), [actual ER diagram](visual/final-deployed-er.svg).
+
 # Phase 1 — Fast-track handover
 
 Verified 27 October 2026, 17:57 IST. Exact project **kc2-integrated-data-system / hmlbdozsqxlwzvjimjwh**, Tokyo `ap-northeast-1`, PostgreSQL 17.11; owner-designated non-production pilot. Tokyo is the explicit exception to Mumbai. **The deployed backend and approved preservation/pending-record migration are complete. Business-approved operational data and application access are not complete.** No new remote write or migration batch was executed in this handover.
