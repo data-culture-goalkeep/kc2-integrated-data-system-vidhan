@@ -1,3 +1,5 @@
+> Historical milestone preserved. Current deployed 20-table model and final results: [Phase 1 handover](PHASE1-HANDOVER.md), [final dictionary](FINAL-DATA-DICTIONARY.md), [actual ER diagram](visual/final-deployed-er.svg).
+
 # Data dictionary — final recommendation, not deployed
 
 Complete target column types and nullability follow. Source positions and original field labels remain in the [final mapping](evidence/final-source-target-coverage.csv); previous source-oriented dictionary is preserved in [Stage 2 archive](archive/stage2-data-dictionary.md). SQL contains exact defaults, checks, grants and triggers.

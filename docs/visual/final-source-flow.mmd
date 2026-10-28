@@ -1,0 +1,9 @@
+flowchart LR
+ ORIGINAL[12 unchanged originals / 155 sheets] --> LOCAL[Local privacy processing]
+ LOCAL --> SOURCE[20432 sanitized source rows]
+ SOURCE --> ID[Verified-ID pending projections]
+ SOURCE --> STAGING[43160 attendance staging rows]
+ ORIGINAL --> RECOVERY[Private original-date recovery ledger]
+ RECOVERY --> APPROVAL[197 date updates prepared: owner approval required]
+ ID --> TRACE[Source provenance and append-only audit]
+ STAGING -. authoritative ID + calendar + semantics .-> OP[Operational promotion: none eligible now]
