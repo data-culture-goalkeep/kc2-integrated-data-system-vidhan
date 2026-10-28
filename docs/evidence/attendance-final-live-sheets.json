@@ -1,0 +1,858 @@
+[
+  {
+    "source_file": "S02",
+    "source_sheet": "T02",
+    "staged_records": 318,
+    "contexts": 102,
+    "cells": 216,
+    "daily_marks": 216
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T03",
+    "staged_records": 324,
+    "contexts": 97,
+    "cells": 227,
+    "daily_marks": 227
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T04",
+    "staged_records": 260,
+    "contexts": 88,
+    "cells": 172,
+    "daily_marks": 172
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T05",
+    "staged_records": 268,
+    "contexts": 101,
+    "cells": 167,
+    "daily_marks": 167
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T06",
+    "staged_records": 274,
+    "contexts": 101,
+    "cells": 173,
+    "daily_marks": 173
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T07",
+    "staged_records": 304,
+    "contexts": 100,
+    "cells": 204,
+    "daily_marks": 204
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T08",
+    "staged_records": 260,
+    "contexts": 97,
+    "cells": 163,
+    "daily_marks": 163
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T09",
+    "staged_records": 288,
+    "contexts": 95,
+    "cells": 193,
+    "daily_marks": 193
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T10",
+    "staged_records": 297,
+    "contexts": 94,
+    "cells": 203,
+    "daily_marks": 203
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T11",
+    "staged_records": 282,
+    "contexts": 94,
+    "cells": 188,
+    "daily_marks": 188
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T12",
+    "staged_records": 531,
+    "contexts": 43,
+    "cells": 488,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T13",
+    "staged_records": 196,
+    "contexts": 85,
+    "cells": 111,
+    "daily_marks": 111
+  },
+  {
+    "source_file": "S02",
+    "source_sheet": "T14",
+    "staged_records": 195,
+    "contexts": 85,
+    "cells": 110,
+    "daily_marks": 110
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T02",
+    "staged_records": 276,
+    "contexts": 93,
+    "cells": 183,
+    "daily_marks": 183
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T03",
+    "staged_records": 319,
+    "contexts": 100,
+    "cells": 219,
+    "daily_marks": 219
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T04",
+    "staged_records": 178,
+    "contexts": 83,
+    "cells": 95,
+    "daily_marks": 95
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T05",
+    "staged_records": 120,
+    "contexts": 100,
+    "cells": 20,
+    "daily_marks": 20
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T06",
+    "staged_records": 238,
+    "contexts": 99,
+    "cells": 139,
+    "daily_marks": 139
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T07",
+    "staged_records": 221,
+    "contexts": 99,
+    "cells": 122,
+    "daily_marks": 122
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T08",
+    "staged_records": 97,
+    "contexts": 97,
+    "cells": 0,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T09",
+    "staged_records": 95,
+    "contexts": 95,
+    "cells": 0,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T10",
+    "staged_records": 171,
+    "contexts": 94,
+    "cells": 77,
+    "daily_marks": 77
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T11",
+    "staged_records": 134,
+    "contexts": 94,
+    "cells": 40,
+    "daily_marks": 40
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T12",
+    "staged_records": 574,
+    "contexts": 46,
+    "cells": 528,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T13",
+    "staged_records": 144,
+    "contexts": 79,
+    "cells": 65,
+    "daily_marks": 65
+  },
+  {
+    "source_file": "S04",
+    "source_sheet": "T14",
+    "staged_records": 144,
+    "contexts": 79,
+    "cells": 65,
+    "daily_marks": 65
+  },
+  {
+    "source_file": "S05",
+    "source_sheet": "T01",
+    "staged_records": 1013,
+    "contexts": 93,
+    "cells": 920,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S05",
+    "source_sheet": "T02",
+    "staged_records": 150,
+    "contexts": 150,
+    "cells": 0,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S05",
+    "source_sheet": "T03",
+    "staged_records": 113,
+    "contexts": 31,
+    "cells": 82,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S05",
+    "source_sheet": "T04",
+    "staged_records": 46,
+    "contexts": 16,
+    "cells": 30,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S05",
+    "source_sheet": "T05",
+    "staged_records": 46,
+    "contexts": 16,
+    "cells": 30,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S05",
+    "source_sheet": "T06",
+    "staged_records": 621,
+    "contexts": 111,
+    "cells": 510,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S05",
+    "source_sheet": "T08",
+    "staged_records": 31,
+    "contexts": 16,
+    "cells": 15,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T02",
+    "staged_records": 164,
+    "contexts": 46,
+    "cells": 118,
+    "daily_marks": 118
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T03",
+    "staged_records": 121,
+    "contexts": 39,
+    "cells": 82,
+    "daily_marks": 82
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T04",
+    "staged_records": 111,
+    "contexts": 46,
+    "cells": 65,
+    "daily_marks": 65
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T05",
+    "staged_records": 91,
+    "contexts": 47,
+    "cells": 44,
+    "daily_marks": 44
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T06",
+    "staged_records": 114,
+    "contexts": 47,
+    "cells": 67,
+    "daily_marks": 67
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T07",
+    "staged_records": 121,
+    "contexts": 46,
+    "cells": 75,
+    "daily_marks": 75
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T08",
+    "staged_records": 110,
+    "contexts": 46,
+    "cells": 64,
+    "daily_marks": 64
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T09",
+    "staged_records": 116,
+    "contexts": 46,
+    "cells": 70,
+    "daily_marks": 70
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T10",
+    "staged_records": 115,
+    "contexts": 45,
+    "cells": 70,
+    "daily_marks": 70
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T11",
+    "staged_records": 83,
+    "contexts": 45,
+    "cells": 38,
+    "daily_marks": 38
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T12",
+    "staged_records": 95,
+    "contexts": 45,
+    "cells": 50,
+    "daily_marks": 50
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T13",
+    "staged_records": 87,
+    "contexts": 45,
+    "cells": 42,
+    "daily_marks": 42
+  },
+  {
+    "source_file": "S06",
+    "source_sheet": "T14",
+    "staged_records": 262,
+    "contexts": 22,
+    "cells": 240,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T02",
+    "staged_records": 761,
+    "contexts": 200,
+    "cells": 561,
+    "daily_marks": 561
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T04",
+    "staged_records": 805,
+    "contexts": 198,
+    "cells": 607,
+    "daily_marks": 607
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T05",
+    "staged_records": 888,
+    "contexts": 198,
+    "cells": 690,
+    "daily_marks": 690
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T06",
+    "staged_records": 690,
+    "contexts": 198,
+    "cells": 492,
+    "daily_marks": 492
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T07",
+    "staged_records": 1081,
+    "contexts": 196,
+    "cells": 885,
+    "daily_marks": 696
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T08",
+    "staged_records": 689,
+    "contexts": 196,
+    "cells": 493,
+    "daily_marks": 493
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T09",
+    "staged_records": 747,
+    "contexts": 196,
+    "cells": 551,
+    "daily_marks": 551
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T10",
+    "staged_records": 735,
+    "contexts": 196,
+    "cells": 539,
+    "daily_marks": 539
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T11",
+    "staged_records": 747,
+    "contexts": 196,
+    "cells": 551,
+    "daily_marks": 551
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T12",
+    "staged_records": 776,
+    "contexts": 196,
+    "cells": 580,
+    "daily_marks": 580
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T13",
+    "staged_records": 672,
+    "contexts": 196,
+    "cells": 476,
+    "daily_marks": 476
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T14",
+    "staged_records": 588,
+    "contexts": 196,
+    "cells": 392,
+    "daily_marks": 392
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T15",
+    "staged_records": 198,
+    "contexts": 198,
+    "cells": 0,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S07",
+    "source_sheet": "T16",
+    "staged_records": 351,
+    "contexts": 32,
+    "cells": 319,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T02",
+    "staged_records": 969,
+    "contexts": 201,
+    "cells": 768,
+    "daily_marks": 768
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T03",
+    "staged_records": 1125,
+    "contexts": 201,
+    "cells": 924,
+    "daily_marks": 924
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T04",
+    "staged_records": 967,
+    "contexts": 200,
+    "cells": 767,
+    "daily_marks": 767
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T05",
+    "staged_records": 700,
+    "contexts": 100,
+    "cells": 600,
+    "daily_marks": 600
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T06",
+    "staged_records": 808,
+    "contexts": 201,
+    "cells": 607,
+    "daily_marks": 607
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T07",
+    "staged_records": 903,
+    "contexts": 194,
+    "cells": 709,
+    "daily_marks": 709
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T08",
+    "staged_records": 788,
+    "contexts": 193,
+    "cells": 595,
+    "daily_marks": 595
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T09",
+    "staged_records": 825,
+    "contexts": 190,
+    "cells": 635,
+    "daily_marks": 635
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T10",
+    "staged_records": 814,
+    "contexts": 184,
+    "cells": 630,
+    "daily_marks": 630
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T12",
+    "staged_records": 771,
+    "contexts": 184,
+    "cells": 587,
+    "daily_marks": 587
+  },
+  {
+    "source_file": "S08",
+    "source_sheet": "T14",
+    "staged_records": 668,
+    "contexts": 54,
+    "cells": 614,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T02",
+    "staged_records": 665,
+    "contexts": 200,
+    "cells": 465,
+    "daily_marks": 465
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T03",
+    "staged_records": 678,
+    "contexts": 198,
+    "cells": 480,
+    "daily_marks": 480
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T04",
+    "staged_records": 560,
+    "contexts": 199,
+    "cells": 361,
+    "daily_marks": 361
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T05",
+    "staged_records": 499,
+    "contexts": 199,
+    "cells": 300,
+    "daily_marks": 300
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T06",
+    "staged_records": 612,
+    "contexts": 198,
+    "cells": 414,
+    "daily_marks": 414
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T07",
+    "staged_records": 660,
+    "contexts": 198,
+    "cells": 462,
+    "daily_marks": 462
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T08",
+    "staged_records": 592,
+    "contexts": 196,
+    "cells": 396,
+    "daily_marks": 396
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T09",
+    "staged_records": 615,
+    "contexts": 197,
+    "cells": 418,
+    "daily_marks": 418
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T10",
+    "staged_records": 617,
+    "contexts": 197,
+    "cells": 420,
+    "daily_marks": 420
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T11",
+    "staged_records": 575,
+    "contexts": 197,
+    "cells": 378,
+    "daily_marks": 378
+  },
+  {
+    "source_file": "S09",
+    "source_sheet": "T12",
+    "staged_records": 1010,
+    "contexts": 1009,
+    "cells": 1,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T02",
+    "staged_records": 434,
+    "contexts": 201,
+    "cells": 233,
+    "daily_marks": 233
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T03",
+    "staged_records": 496,
+    "contexts": 201,
+    "cells": 295,
+    "daily_marks": 295
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T04",
+    "staged_records": 441,
+    "contexts": 201,
+    "cells": 240,
+    "daily_marks": 240
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T05",
+    "staged_records": 437,
+    "contexts": 201,
+    "cells": 236,
+    "daily_marks": 236
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T06",
+    "staged_records": 405,
+    "contexts": 201,
+    "cells": 204,
+    "daily_marks": 204
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T07",
+    "staged_records": 453,
+    "contexts": 201,
+    "cells": 252,
+    "daily_marks": 252
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T08",
+    "staged_records": 417,
+    "contexts": 201,
+    "cells": 216,
+    "daily_marks": 216
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T09",
+    "staged_records": 453,
+    "contexts": 201,
+    "cells": 252,
+    "daily_marks": 252
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T10",
+    "staged_records": 481,
+    "contexts": 201,
+    "cells": 280,
+    "daily_marks": 280
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T11",
+    "staged_records": 463,
+    "contexts": 201,
+    "cells": 262,
+    "daily_marks": 262
+  },
+  {
+    "source_file": "S10",
+    "source_sheet": "T14",
+    "staged_records": 242,
+    "contexts": 21,
+    "cells": 221,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T02",
+    "staged_records": 163,
+    "contexts": 101,
+    "cells": 62,
+    "daily_marks": 62
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T03",
+    "staged_records": 163,
+    "contexts": 99,
+    "cells": 64,
+    "daily_marks": 64
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T04",
+    "staged_records": 157,
+    "contexts": 97,
+    "cells": 60,
+    "daily_marks": 60
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T06",
+    "staged_records": 160,
+    "contexts": 101,
+    "cells": 59,
+    "daily_marks": 59
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T07",
+    "staged_records": 165,
+    "contexts": 100,
+    "cells": 65,
+    "daily_marks": 65
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T08",
+    "staged_records": 198,
+    "contexts": 101,
+    "cells": 97,
+    "daily_marks": 97
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T09",
+    "staged_records": 169,
+    "contexts": 99,
+    "cells": 70,
+    "daily_marks": 70
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T10",
+    "staged_records": 171,
+    "contexts": 97,
+    "cells": 74,
+    "daily_marks": 74
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T11",
+    "staged_records": 151,
+    "contexts": 96,
+    "cells": 55,
+    "daily_marks": 55
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T12",
+    "staged_records": 170,
+    "contexts": 96,
+    "cells": 74,
+    "daily_marks": 74
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T13",
+    "staged_records": 169,
+    "contexts": 15,
+    "cells": 154,
+    "daily_marks": 0
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T14",
+    "staged_records": 123,
+    "contexts": 92,
+    "cells": 31,
+    "daily_marks": 31
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T15",
+    "staged_records": 116,
+    "contexts": 91,
+    "cells": 25,
+    "daily_marks": 25
+  },
+  {
+    "source_file": "S11",
+    "source_sheet": "T16",
+    "staged_records": 96,
+    "contexts": 96,
+    "cells": 0,
+    "daily_marks": 0
+  }
+]

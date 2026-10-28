@@ -1,0 +1,162 @@
+{
+  "version": "historical-original-evidence-v1",
+  "status": "recovered_original_evidence_not_operational_approval",
+  "source_snapshot": {
+    "source_snapshot_sha256": "5fdce897a81ef5c7f6e440f6fca17dbc96712f8a82b4cd9f63ded94fc2d5e229",
+    "committed_receipts_sha256": "c873bb5d9478ee30d522fa8b6b6341046a9c7b5b20fae7930ec9e4831d691764"
+  },
+  "original_files": 12,
+  "worksheets": 155,
+  "datasets": {
+    "adl_visit_slots": {
+      "evidence_candidates": 194,
+      "verified_id_candidates": 0,
+      "original_dates_recovered": 190,
+      "dates_without_detected_weekday_conflicts": 190,
+      "weekday_conflict_candidates": 0,
+      "unresolved_dates": 4,
+      "identity_methods": {
+        "NO_AUTHORITATIVE_ID": 194
+      },
+      "date_methods": {
+        "ORIGINAL_TYPED_DATE": 188,
+        "MISSING_DATE": 4,
+        "UNAMBIGUOUS_NUMERIC_DATE": 2
+      },
+      "eligible_operational": 0
+    },
+    "annual_attendance_summary": {
+      "evidence_candidates": 2564,
+      "verified_id_candidates": 0,
+      "original_dates_recovered": 0,
+      "dates_without_detected_weekday_conflicts": 0,
+      "weekday_conflict_candidates": 0,
+      "unresolved_dates": 2564,
+      "identity_methods": {
+        "NO_AUTHORITATIVE_ID": 2564
+      },
+      "date_methods": {
+        "UNVERIFIED_DATE": 2564
+      },
+      "eligible_operational": 0
+    },
+    "daily_attendance": {
+      "evidence_candidates": 24876,
+      "verified_id_candidates": 0,
+      "original_dates_recovered": 24087,
+      "dates_without_detected_weekday_conflicts": 24060,
+      "weekday_conflict_candidates": 15,
+      "unresolved_dates": 789,
+      "identity_methods": {
+        "NO_AUTHORITATIVE_ID": 24876
+      },
+      "date_methods": {
+        "ORIGINAL_TYPED_DATE": 23544,
+        "VERIFIED_SOURCE_LET_CALENDAR": 452,
+        "VERIFIED_REPEATED_CALENDAR_GRID": 91,
+        "UNVERIFIED_DATE": 789
+      },
+      "eligible_operational": 0
+    },
+    "historical_visits": {
+      "evidence_candidates": 155,
+      "verified_id_candidates": 0,
+      "original_dates_recovered": 153,
+      "dates_without_detected_weekday_conflicts": 153,
+      "weekday_conflict_candidates": 0,
+      "unresolved_dates": 2,
+      "identity_methods": {
+        "NO_AUTHORITATIVE_ID": 155
+      },
+      "date_methods": {
+        "ORIGINAL_TYPED_DATE": 135,
+        "ORIGINAL_NAMED_MONTH_DATE": 17,
+        "UNVERIFIED_DATE": 2,
+        "UNAMBIGUOUS_NUMERIC_DATE": 1
+      },
+      "eligible_operational": 0
+    },
+    "support_attendance": {
+      "evidence_candidates": 1572,
+      "verified_id_candidates": 0,
+      "original_dates_recovered": 1018,
+      "dates_without_detected_weekday_conflicts": 1018,
+      "weekday_conflict_candidates": 0,
+      "unresolved_dates": 554,
+      "identity_methods": {
+        "NO_AUTHORITATIVE_ID": 1062,
+        "UNKNOWN_CAREGIVER_IDENTIFIER": 510
+      },
+      "date_methods": {
+        "ORIGINAL_TYPED_DATE": 1018,
+        "UNVERIFIED_DATE": 554
+      },
+      "eligible_operational": 0
+    },
+    "support_event_summary": {
+      "evidence_candidates": 30,
+      "verified_id_candidates": 0,
+      "original_dates_recovered": 14,
+      "dates_without_detected_weekday_conflicts": 14,
+      "weekday_conflict_candidates": 0,
+      "unresolved_dates": 16,
+      "identity_methods": {
+        "NO_AUTHORITATIVE_ID": 30
+      },
+      "date_methods": {
+        "UNVERIFIED_DATE": 16,
+        "ORIGINAL_TYPED_DATE": 14
+      },
+      "eligible_operational": 0
+    },
+    "visit_activity_log": {
+      "evidence_candidates": 145,
+      "verified_id_candidates": 0,
+      "original_dates_recovered": 103,
+      "dates_without_detected_weekday_conflicts": 103,
+      "weekday_conflict_candidates": 0,
+      "unresolved_dates": 42,
+      "identity_methods": {
+        "NO_AUTHORITATIVE_ID": 145
+      },
+      "date_methods": {
+        "UNVERIFIED_DATE": 16,
+        "ORIGINAL_TYPED_DATE": 85,
+        "MISSING_DATE": 24,
+        "UNAMBIGUOUS_NUMERIC_DATE": 18,
+        "AMBIGUOUS_DATE_ORDER": 2
+      },
+      "eligible_operational": 0
+    }
+  },
+  "private_evidence_rows": 29536,
+  "private_ledger_sha256": "616cd02fe24e7b177129b1124bf0ab0ac7d1b44363c8f07b0ab394fd2f2fa781",
+  "existing_verified_id_date_update_candidates": {
+    "program_changes": 91,
+    "questionnaire_responses": 106
+  },
+  "date_update_chronology_conflicts_excluded": 7,
+  "date_update_plan_sha256": "628a7b3864ae9c245ab9092608d77e1dd982200aea1db9d6b816a7b034f30897",
+  "identity_formula_cells_by_dataset": {
+    "support_attendance": 110,
+    "daily_attendance": 784
+  },
+  "support_formula_id_review": {
+    "formula_cells": 110,
+    "cached_identifiers_in_registry": 102,
+    "unique_exact_lookup_names": 92,
+    "newly_verified_links": 0,
+    "reason": "Name-derived VLOOKUP results are not independently verified child identities"
+  },
+  "date_values_uploaded": 0,
+  "remote_writes": 0,
+  "staging_replayed": false,
+  "eligible_operational": 0,
+  "meaning_rules_approved": false,
+  "limitations": [
+    "Original literal dates are source evidence, not independent confirmation the event occurred.",
+    "No inferred identities from names, serial roster numbers, or row alignment.",
+    "Unsupported formula and ambiguous text calendars remain unresolved.",
+    "Source-context, formulas, summaries and participation marks are not automatically child attendance events."
+  ]
+}

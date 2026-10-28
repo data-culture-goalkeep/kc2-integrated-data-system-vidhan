@@ -1,0 +1,17 @@
+{
+  "scope": "Synthetic only, disposable network=none PostgreSQL; exact four deployed migrations; no remote writes",
+  "status": "passed",
+  "tests": {
+    "conditional_date_update_evidence_provenance_and_one_audit": true,
+    "idempotent_replay_preserves_timestamps_and_audit": true,
+    "conflicting_date_rolls_back_without_evidence": true,
+    "questionnaire_date_update_exact_pair_and_idempotent_audit": true,
+    "nonmember_private_evidence_not_visible": true,
+    "verified_attendance_projection_replay_and_fk": true,
+    "adl_and_support_nullable_dates_no_fabrication": true,
+    "missing_source_fk_rolls_back_entire_unit": true,
+    "source_immutability_empty_memberships_and_20_rls_tables": true
+  },
+  "tests_passed": 9,
+  "container_removed": true
+}

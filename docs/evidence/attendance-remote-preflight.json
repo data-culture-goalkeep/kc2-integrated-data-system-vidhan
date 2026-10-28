@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "checked_at_utc": "2026-10-27T13:40:20.933Z",
+  "tables": 19,
+  "staging_table_exists": false,
+  "catalog_rls_privileges_triggers_unchanged": true,
+  "counts": {
+    "public.children": 371,
+    "public.adl_visits": 0,
+    "gk_private.caregivers": 716,
+    "public.program_changes": 128,
+    "public.child_caregivers": 716,
+    "public.reference_values": 47,
+    "gk_private.source_records": 20432,
+    "public.questionnaire_items": 31,
+    "gk_private.recovery_actions": 0,
+    "gk_private.source_artifacts": 12,
+    "public.support_observations": 0,
+    "gk_private.source_provenance": 5772,
+    "gk_private.access_memberships": 0,
+    "gk_private.identity_candidates": 2089,
+    "gk_private.record_audit_events": 28293,
+    "public.attendance_observations": 0,
+    "public.questionnaire_responses": 106,
+    "gk_private.questionnaire_answers": 3286,
+    "gk_private.child_private_profiles": 371
+  },
+  "remote_writes": 0
+}

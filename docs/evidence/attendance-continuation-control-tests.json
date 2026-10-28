@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "execution_control_tests": 5,
+  "resumption_window_and_payload_tests": 6,
+  "bounded_continuation_tests": 2,
+  "total": 13,
+  "python_syntax": "passed",
+  "javascript_syntax": "passed",
+  "remote_negative_test_writes": 0,
+  "new_continuation_mode_executed": false
+}

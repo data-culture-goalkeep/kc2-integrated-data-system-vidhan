@@ -1,0 +1,11 @@
+flowchart LR
+ CHILDREN[Children: 371] --> LINKS[Verified ID child-caregiver links: 716]
+ CAREGIVERS[Restricted caregivers: 716] --> LINKS
+ CHILDREN --> PRIVATE[Restricted child profiles: 371]
+ LINKS --> Q[Questionnaire responses: 106 pending]
+ Q --> A[Restricted literal answer slots: 3286]
+ CHILDREN --> P[Programme slots: 128 pending]
+ SOURCE[Restricted source rows: 20432] --> STAGE[Restricted attendance staging: 43160 pending]
+ SOURCE --> CANDIDATES[Restricted identity candidates: 2089]
+ CHILDREN -. requires verified child and event evidence .-> OPS[Attendance / ADL / support: 0]
+ STAGE -. no approved promotion yet .-> OPS

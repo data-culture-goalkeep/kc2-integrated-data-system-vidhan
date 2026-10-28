@@ -1,0 +1,6 @@
+{
+  "deployment_manifest_sha256": "7973aaf818b255d8f2411b74a1c3725a9a57f6f771bebcda32cc37348cc0dba4",
+  "import_manifest_sha256": "911c47968c61fb19a0227e0ab86eae2937dec2e673b9b94c4713ed08bb3ab4ed",
+  "migration_sql_sha256": "972746410ba3e2cddb149aae5ec1568b86e5ca70d1a3472cb0bf4c2d6e5b3790",
+  "remote_applied": false
+}

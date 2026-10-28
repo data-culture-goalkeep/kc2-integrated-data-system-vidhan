@@ -1,3 +1,5 @@
+> Historical milestone preserved. Current deployed 20-table model and final results: [Phase 1 handover](PHASE1-HANDOVER.md), [final dictionary](FINAL-DATA-DICTIONARY.md), [actual ER diagram](visual/final-deployed-er.svg).
+
 # Deployed ER model — current Phase 1 schema
 
 19 deployed application/evidence tables, verified against the live Tokyo project. AUTH_USERS is managed by Supabase and excluded from that count. The compact Mermaid below omits common audit-actor links; the [catalog-derived visual](visual/deployed-er.svg), [all 99 exact FK relationships](visual/deployed-er.mmd) and [readable key reference](visual/deployed-keys.md) reflect the actual schema. Provenance targets are mutually exclusive; identity candidates are not approved observations. See [current handover](37-phase1-handover-summary.md).

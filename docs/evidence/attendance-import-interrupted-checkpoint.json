@@ -1,0 +1,95 @@
+{
+  "status": "interrupted_exact_committed_prefix_verified_readonly",
+  "project_reference": "hmlbdozsqxlwzvjimjwh",
+  "region": "ap-northeast-1",
+  "checked_at_utc": "2026-10-27T18:01:14.267428+00:00",
+  "import_manifest_sha256": "911c47968c61fb19a0227e0ab86eae2937dec2e673b9b94c4713ed08bb3ab4ed",
+  "approved_resumption_plan_sha256": "a77979c4844da64c6aed511c7a56ba64938135a586b7f5caec4a4536bce1fa8a",
+  "approval_issued_at_utc": "2026-10-27T14:46:21Z",
+  "approval_expires_at_utc": "2026-10-27T18:46:21Z",
+  "approval_timestamp_basis": "First observed via clock tool immediately after direct owner message; no platform message receipt timestamp exposed",
+  "acknowledged_transactions": 171,
+  "additional_live_verified_commit": {
+    "index": 171,
+    "request_id": "220a58b344bbaa5617e4b41f88fcf055e89f15d7c8f1788a566a0e730a905e3f"
+  },
+  "confirmed_committed_transactions": 172,
+  "server_failed_transactions": 0,
+  "uncertain_transaction_outcomes_remaining": 0,
+  "retries": 0,
+  "remaining_transactions": 44,
+  "next_original_index": 172,
+  "remaining_records": 8760,
+  "actual_reconciliation": {
+    "codes": {
+      "PENDING": 34400
+    },
+    "kinds": {
+      "MARK": 22567,
+      "FORMULA": 189,
+      "SUMMARY_VALUE": 2204,
+      "SOURCE_CONTEXT": 9440
+    },
+    "total": 34400,
+    "sheets": 80,
+    "reviews": {
+      "pending": 34400
+    },
+    "dates_all": {
+      "MISSING": 9449,
+      "UNPARSED": 3628,
+      "FORMULA_UNRESOLVED": 383,
+      "SANITIZED_UNTRUSTED": 20940
+    },
+    "dates_cells": {
+      "MISSING": 9,
+      "UNPARSED": 3628,
+      "FORMULA_UNRESOLVED": 383,
+      "SANITIZED_UNTRUSTED": 20940
+    },
+    "source_rows": 9440,
+    "identity_all": {
+      "AMBIGUOUS": 578,
+      "UNMATCHED": 18970,
+      "PROVISIONAL_MATCH": 14852
+    },
+    "parsed_dates": 0,
+    "daily_rosters": 1821,
+    "daily_pa_marks": 20995,
+    "identity_cells": {
+      "AMBIGUOUS": 519,
+      "UNMATCHED": 10765,
+      "PROVISIONAL_MATCH": 13676
+    },
+    "verified_children": 0,
+    "invalid_candidates": 0,
+    "header_disagreements": 0,
+    "invalid_source_links": 0,
+    "duplicate_coordinates": 0,
+    "operational_attendance": 0,
+    "source_mark_disagreements": 0
+  },
+  "exact_prefix_keys_and_full_payloads_match": true,
+  "missing_or_unexplained_records_within_committed_prefix": 0,
+  "original_19_tables_counts_and_full_payload_fingerprints_unchanged": true,
+  "schema_rls_privileges_triggers_ledger_unchanged": true,
+  "live_read_denials": [
+    {
+      "role": "anon",
+      "read_denied": true
+    },
+    {
+      "role": "authenticated",
+      "read_denied": true
+    },
+    {
+      "role": "service_role",
+      "read_denied": true
+    }
+  ],
+  "active_imports": 0,
+  "journal_sha256": "bea7c5816dd9a7fa1224c5aa119a51cbb63b6b3445751c245919086ba41bfd8e",
+  "authorization_active": false,
+  "interruption_evidence": "Wait tool returned aborted by user; execution cell 119 subsequently not found. Request 171 was submitted without a journaled acknowledgement. Read-only exact-prefix comparison establishes that it committed.",
+  "migration_complete": false
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "amendment_unit_tests": 2,
+  "execution_boundary_unit_tests": 2,
+  "isolated_postgres_checks": 8,
+  "python_syntax": "passed",
+  "javascript_syntax": "passed",
+  "new_sql_or_mode_executed_remotely": false,
+  "new_owner_approval_artifact_exists": false
+}
