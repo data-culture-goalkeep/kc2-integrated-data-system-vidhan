@@ -1,6 +1,6 @@
 # Final deployed data dictionary
 
-Generated from the actual 20-table PostgreSQL catalog; checked 28 October 2026, 11:05 IST. Private schemas remain restricted. Defaults, nullability, primary/foreign keys and constraints below are actual deployed definitions. This replaces draft specifications for current-schema inspection; historical dictionaries remain evidence.
+Generated from the actual 20-table PostgreSQL catalog; checked 28 October 2026, 11:05 IST; changed row counts verified 28 October 2026, 13:49:50 IST. Private schemas remain restricted. Defaults, nullability, primary/foreign keys and constraints below are actual deployed definitions. This replaces draft specifications for current-schema inspection; historical dictionaries remain evidence.
 
 ## gk_private.access_memberships
 
@@ -267,7 +267,7 @@ Constraints:
 
 ## gk_private.record_audit_events
 
-Rows: 28,293. RLS enabled: True; FORCE RLS: False. Primary key: `id`.
+Rows: 28,490. RLS enabled: True; FORCE RLS: False. Primary key: `id`.
 
 | Column | PostgreSQL type | Nullable | Default / generation |
 |---|---|---|---|
@@ -292,7 +292,7 @@ Constraints:
 
 ## gk_private.recovery_actions
 
-Rows: 0. RLS enabled: True; FORCE RLS: False. Primary key: `id`.
+Rows: 197. RLS enabled: True; FORCE RLS: False. Primary key: `id`.
 
 | Column | PostgreSQL type | Nullable | Default / generation |
 |---|---|---|---|
@@ -364,7 +364,7 @@ Constraints:
 
 ## gk_private.source_provenance
 
-Rows: 5,772. RLS enabled: True; FORCE RLS: False. Primary key: `id`.
+Rows: 5,969. RLS enabled: True; FORCE RLS: False. Primary key: `id`.
 
 | Column | PostgreSQL type | Nullable | Default / generation |
 |---|---|---|---|

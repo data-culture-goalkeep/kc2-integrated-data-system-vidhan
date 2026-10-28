@@ -16,11 +16,11 @@ Supabase `kc2-integrated-data-system` (`hmlbdozsqxlwzvjimjwh`), Tokyo `ap-northe
 
 ## Migration status
 
-20,432 source rows; 371 children; 716 caregivers and 716 child-caregiver links; 106 questionnaire responses / 3,286 answer slots; 128 programme slots; 28,293 audit events. All imported projections remain pending business review.
+20,432 source rows; 371 children; 716 caregivers and 716 child-caregiver links; 106 questionnaire responses / 3,286 answer slots; 128 programme slots; 28,490 audit events (including 197 new approved date-update audits). All imported projections remain pending business review.
 
 Attendance staging is complete: **43,160 protected pending records**, including **24,687 daily P/A marks**. **Verified operational attendance, ADL visits and support observations: zero.** Names alone do not establish child identity. [Execution](docs/45-attendance-staging-execution-complete.md), [reconciliation](docs/46-attendance-final-source-reconciliation.md).
 
-Original-date recovery is implemented and tested locally. 24,087 daily mark dates recovered locally (27 conflicting); 600 full dates unresolved. A separately approved [197-transaction date increment](docs/47-historical-recovery-and-increment.md) can restore 106 questionnaire dates and 91 programme dates. **Not executed or authorized.** No attendance batch is replayed.
+Original-date recovery is implemented and tested locally. 24,087 daily mark dates recovered locally (27 conflicting); 600 full dates unresolved. The owner-approved [197-transaction date increment](docs/47-historical-recovery-and-increment.md) restored 106 questionnaire dates and 91 programme dates. **Executed and live-reconciled**, with 197 recovery records and 5,969 total provenance records; authorization consumed. No attendance batch is replayed.
 
 ## Reproducible code and checks
 

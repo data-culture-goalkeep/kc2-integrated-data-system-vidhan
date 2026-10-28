@@ -13,7 +13,7 @@
 
 ## Decisions and controlled implementation
 
-- [ ] Review and approve exact 197-transaction original-date increment (manifest/hash in docs 47); separately authorize execution and date fidelity/disclosure.
+- [x] Owner approved the exact 197-transaction original-date increment and original-date fidelity/disclosure; all 197 transactions executed and live-reconciled (docs 47).
 - [ ] Supply authoritative child identity crosswalks and independently validate support caregiver-ID lookup suggestions.
 - [ ] Approve attendance/service/code, ADL and support event semantics and repeated-view handling.
 - [ ] Resolve calendar/chronology conflicts and missing dates; retain irrecoverable evidence explicitly pending.
@@ -28,7 +28,7 @@
 |---|---|---|
 | Backend architecture, SQL and security | Pending | Pending |
 | ETL, data integrity, provenance and recovery | Pending | Pending |
-| Proposed original-date recovery scope | Pending | Pending |
+| Original-date recovery scope | Owner / 28 October 2026 | Exact manifest approved; 197 transactions executed and live-reconciled |
 | Operational identity and calendar rules | Pending | Pending |
 | Questionnaire/ADL/support meaning | Pending | Pending |
 | Technical handover acceptance | Pending | Pending |

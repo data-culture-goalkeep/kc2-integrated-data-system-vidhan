@@ -5,10 +5,10 @@ GK_PRIVATE_CAREGIVERS [label="gk_private.caregivers\nid [PK]\n716 rows",fillcolo
 GK_PRIVATE_CHILD_PRIVATE_PROFILES [label="gk_private.child_private_profiles\nchild_id [PK]\n371 rows",fillcolor="#fff0df"];
 GK_PRIVATE_IDENTITY_CANDIDATES [label="gk_private.identity_candidates\nid [PK]\n2089 rows",fillcolor="#fff0df"];
 GK_PRIVATE_QUESTIONNAIRE_ANSWERS [label="gk_private.questionnaire_answers\nid [PK]\n3286 rows",fillcolor="#fff0df"];
-GK_PRIVATE_RECORD_AUDIT_EVENTS [label="gk_private.record_audit_events\nid [PK]\n28293 rows",fillcolor="#fff0df"];
-GK_PRIVATE_RECOVERY_ACTIONS [label="gk_private.recovery_actions\nid [PK]\n0 rows",fillcolor="#fff0df"];
+GK_PRIVATE_RECORD_AUDIT_EVENTS [label="gk_private.record_audit_events\nid [PK]\n28490 rows",fillcolor="#fff0df"];
+GK_PRIVATE_RECOVERY_ACTIONS [label="gk_private.recovery_actions\nid [PK]\n197 rows",fillcolor="#fff0df"];
 GK_PRIVATE_SOURCE_ARTIFACTS [label="gk_private.source_artifacts\nid [PK]\n12 rows",fillcolor="#fff0df"];
-GK_PRIVATE_SOURCE_PROVENANCE [label="gk_private.source_provenance\nid [PK]\n5772 rows",fillcolor="#fff0df"];
+GK_PRIVATE_SOURCE_PROVENANCE [label="gk_private.source_provenance\nid [PK]\n5969 rows",fillcolor="#fff0df"];
 GK_PRIVATE_SOURCE_RECORDS [label="gk_private.source_records\nid [PK]\n20432 rows",fillcolor="#fff0df"];
 PUBLIC_ADL_VISITS [label="public.adl_visits\nid [PK]\n0 rows",fillcolor="#e5f0ff"];
 PUBLIC_ATTENDANCE_OBSERVATIONS [label="public.attendance_observations\nid [PK]\n0 rows",fillcolor="#e5f0ff"];

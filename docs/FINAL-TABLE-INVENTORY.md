@@ -1,6 +1,6 @@
 # Final live table and key inventory
 
-Checked 28 October 2026, 11:05 IST; project `hmlbdozsqxlwzvjimjwh`, Tokyo non-production. No writes in this task.
+Counts verified 28 October 2026, 13:49:50 IST; project `hmlbdozsqxlwzvjimjwh`, Tokyo non-production. 197 approved date transactions completed; schema/keys unchanged.
 
 | Table | Rows | Primary key | Boundary |
 |---|---:|---|---|
@@ -10,10 +10,10 @@ Checked 28 October 2026, 11:05 IST; project `hmlbdozsqxlwzvjimjwh`, Tokyo non-pr
 | `gk_private.child_private_profiles` | 371 | `child_id` | Restricted |
 | `gk_private.identity_candidates` | 2,089 | `id` | Restricted |
 | `gk_private.questionnaire_answers` | 3,286 | `id` | Restricted |
-| `gk_private.record_audit_events` | 28,293 | `id` | Restricted |
-| `gk_private.recovery_actions` | 0 | `id` | Restricted |
+| `gk_private.record_audit_events` | 28,490 | `id` | Restricted |
+| `gk_private.recovery_actions` | 197 | `id` | Restricted |
 | `gk_private.source_artifacts` | 12 | `id` | Restricted |
-| `gk_private.source_provenance` | 5,772 | `id` | Restricted |
+| `gk_private.source_provenance` | 5,969 | `id` | Restricted |
 | `gk_private.source_records` | 20,432 | `id` | Restricted |
 | `public.adl_visits` | 0 | `id` | RLS protected |
 | `public.attendance_observations` | 0 | `id` | RLS protected |

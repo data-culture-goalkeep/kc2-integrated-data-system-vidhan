@@ -211,7 +211,7 @@
 <path fill="#fff0df" stroke="black" d="M221,-53C221,-53 12,-53 12,-53 6,-53 0,-47 0,-41 0,-41 0,-12 0,-12 0,-6 6,0 12,0 12,0 221,0 221,0 227,0 233,-6 233,-12 233,-12 233,-41 233,-41 233,-47 227,-53 221,-53"/>
 <text text-anchor="middle" x="116.5" y="-37.8" font-family="DejaVu Sans" font-size="14.00">gk_private.record_audit_events</text>
 <text text-anchor="middle" x="116.5" y="-22.8" font-family="DejaVu Sans" font-size="14.00">id [PK]</text>
-<text text-anchor="middle" x="116.5" y="-7.8" font-family="DejaVu Sans" font-size="14.00">28293 rows</text>
+<text text-anchor="middle" x="116.5" y="-7.8" font-family="DejaVu Sans" font-size="14.00">28490 rows</text>
 </g>
 <!-- GK_PRIVATE_RECORD_AUDIT_EVENTS&#45;&gt;AUTH_USERS -->
 <g id="edge16" class="edge">
@@ -225,7 +225,7 @@
 <path fill="#fff0df" stroke="black" d="M1063.5,-953C1063.5,-953 877.5,-953 877.5,-953 871.5,-953 865.5,-947 865.5,-941 865.5,-941 865.5,-912 865.5,-912 865.5,-906 871.5,-900 877.5,-900 877.5,-900 1063.5,-900 1063.5,-900 1069.5,-900 1075.5,-906 1075.5,-912 1075.5,-912 1075.5,-941 1075.5,-941 1075.5,-947 1069.5,-953 1063.5,-953"/>
 <text text-anchor="middle" x="970.5" y="-937.8" font-family="DejaVu Sans" font-size="14.00">gk_private.recovery_actions</text>
 <text text-anchor="middle" x="970.5" y="-922.8" font-family="DejaVu Sans" font-size="14.00">id [PK]</text>
-<text text-anchor="middle" x="970.5" y="-907.8" font-family="DejaVu Sans" font-size="14.00">0 rows</text>
+<text text-anchor="middle" x="970.5" y="-907.8" font-family="DejaVu Sans" font-size="14.00">197 rows</text>
 </g>
 <!-- GK_PRIVATE_RECOVERY_ACTIONS&#45;&gt;GK_PRIVATE_CAREGIVERS -->
 <g id="edge19" class="edge">
@@ -263,7 +263,7 @@
 <path fill="#fff0df" stroke="black" d="M218,-1414C218,-1414 15,-1414 15,-1414 9,-1414 3,-1408 3,-1402 3,-1402 3,-1373 3,-1373 3,-1367 9,-1361 15,-1361 15,-1361 218,-1361 218,-1361 224,-1361 230,-1367 230,-1373 230,-1373 230,-1402 230,-1402 230,-1408 224,-1414 218,-1414"/>
 <text text-anchor="middle" x="116.5" y="-1398.8" font-family="DejaVu Sans" font-size="14.00">gk_private.source_provenance</text>
 <text text-anchor="middle" x="116.5" y="-1383.8" font-family="DejaVu Sans" font-size="14.00">id [PK]</text>
-<text text-anchor="middle" x="116.5" y="-1368.8" font-family="DejaVu Sans" font-size="14.00">5772 rows</text>
+<text text-anchor="middle" x="116.5" y="-1368.8" font-family="DejaVu Sans" font-size="14.00">5969 rows</text>
 </g>
 <!-- GK_PRIVATE_SOURCE_PROVENANCE&#45;&gt;GK_PRIVATE_CAREGIVERS -->
 <g id="edge31" class="edge">

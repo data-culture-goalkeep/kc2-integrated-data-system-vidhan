@@ -32,8 +32,8 @@
 <g id="node5" class="node">
 <title>dates</title>
 <polygon fill="none" stroke="black" points="485,-38 225,-38 225,0 485,0 485,-38"/>
-<text text-anchor="middle" x="355" y="-22.8" font-family="DejaVu Sans" font-size="14.00">Private original&#45;date recovery</text>
-<text text-anchor="middle" x="355" y="-7.8" font-family="DejaVu Sans" font-size="14.00">197 existing&#45;row updates prepared</text>
+<text text-anchor="middle" x="355" y="-22.8" font-family="DejaVu Sans" font-size="14.00">Private original-date recovery</text>
+<text text-anchor="middle" x="355" y="-7.8" font-family="DejaVu Sans" font-size="14.00">197 date updates verified</text>
 </g>
 <!-- raw&#45;&gt;dates -->
 <g id="edge4" class="edge">
@@ -45,7 +45,7 @@
 <g id="node3" class="node">
 <title>typed</title>
 <polygon fill="none" stroke="black" points="764.5,-146 533.5,-146 533.5,-110 764.5,-110 764.5,-146"/>
-<text text-anchor="middle" x="649" y="-124.3" font-family="DejaVu Sans" font-size="14.00">Verified&#45;ID pending projections</text>
+<text text-anchor="middle" x="649" y="-124.3" font-family="DejaVu Sans" font-size="14.00">Verified-ID pending projections</text>
 </g>
 <!-- source&#45;&gt;typed -->
 <g id="edge2" class="edge">
@@ -69,8 +69,8 @@
 <g id="node6" class="node">
 <title>approval</title>
 <polygon fill="none" stroke="black" points="777,-38 521,-38 521,0 777,0 777,-38"/>
-<text text-anchor="middle" x="649" y="-22.8" font-family="DejaVu Sans" font-size="14.00">Separate owner manifest approval</text>
-<text text-anchor="middle" x="649" y="-7.8" font-family="DejaVu Sans" font-size="14.00">No new remote writes</text>
+<text text-anchor="middle" x="649" y="-22.8" font-family="DejaVu Sans" font-size="14.00">Owner authorization consumed</text>
+<text text-anchor="middle" x="649" y="-7.8" font-family="DejaVu Sans" font-size="14.00">197 approved transactions</text>
 </g>
 <!-- dates&#45;&gt;approval -->
 <g id="edge5" class="edge">

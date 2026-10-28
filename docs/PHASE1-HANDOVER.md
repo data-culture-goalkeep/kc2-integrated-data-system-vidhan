@@ -1,12 +1,12 @@
 # Goalkeep KC-2 — Phase 1 Technical Handover
 
-Prepared for senior Goalkeep and PM review. Live database evidence checked **28 October 2026, 11:05 IST**. Repository: `data-culture-goalkeep/kc2-integrated-data-system-vidhan`.
+Prepared for senior Goalkeep and PM review. Original model evidence checked 28 October 2026, 11:05 IST; approved date-increment live reconciliation passed **28 October 2026, 13:49:50 IST**. Repository: `data-culture-goalkeep/kc2-integrated-data-system-vidhan`.
 
 ## 1. Executive summary
 
 The deployed backend and two historical preservation imports are complete and reconciled. All **20,432 source rows** and **43,160 attendance staging records**, including **24,687 daily P/A marks**, are retained. **Operational attendance, ADL and support tables remain empty** because the historical candidates lack independently verified child links and approved event meanings. This is a business-evidence limitation, not a failed import.
 
-This increment recovers original calendar evidence locally and prepares **197 existing-record date updates: 106 questionnaire assessment dates and 91 programme dates**. They have **not** been written remotely. Seven additional date candidates conflict with original chronology and are excluded. No new child identity, absence, event, score or category meaning was invented.
+The owner-approved historical-date increment completed **197 existing-record date updates: 106 questionnaire assessment dates and 91 programme dates**. All 197 transactions and exact live values/evidence reconcile, with zero failed or uncertain requests. Seven additional date candidates conflict with original chronology and are excluded. No new child identity, absence, event, score or category meaning was invented.
 
 The complete Phase 1 package is available through stacked PRs #1 and #2 for senior review. Neither PR is merged or approved. Frontend PR #3 remains independent and synthetic-only; no Phase 2 work was performed in this task.
 
@@ -82,7 +82,7 @@ ADL: 194 true visit slots across 1,219 roster rows; **190 original dates recover
 
 Support: 1,572 participation marks, 1,018 original full-date headers recovered; other headers often specify only an event/month. Event/participant/code meanings remain unapproved. The source contains 110 caregiver-ID formula cells: 102 cached IDs match the registry and 92 lookup names are unique, but the sole lookup input is a person's name. These are prepared source-defined suggestions requiring independent NGO confirmation, not automatic verified mappings. Another 784 attendance identity formulas reference names without independent child IDs. All formula evidence is retained privately.
 
-Programme: 128 source slots already exist pending, all with NULL dates. Of the original date candidates, 91 pass exact-ID/date/chronology gates, seven conflict, and 30 lack a safe full-date recovery. Questionnaire: all 106 existing verified-pair responses have recoverable original assessment dates. Prepared date updates leave every review state pending and do not approve programme categories, questionnaire scoring or events.
+Programme: 128 source slots remain pending: 91 now have restored original dates and 37 retain NULL dates. Of the original date candidates, 91 pass exact-ID/date/chronology gates, seven conflict, and 30 lack a safe full-date recovery. Questionnaire: all 106 existing verified-pair responses now have restored original assessment dates. Executed date updates leave every review state pending and do not approve programme categories, questionnaire scoring or events.
 
 ## 13. Actual database migration results
 
@@ -96,20 +96,20 @@ Programme: 128 source slots already exist pending, all with NULL dates. Of the o
 | `public.reference_values` | 47 |
 | `gk_private.source_records` | 20,432 |
 | `public.questionnaire_items` | 31 |
-| `gk_private.recovery_actions` | 0 |
+| `gk_private.recovery_actions` | 197 |
 | `gk_private.source_artifacts` | 12 |
 | `public.support_observations` | 0 |
-| `gk_private.source_provenance` | 5,772 |
+| `gk_private.source_provenance` | 5,969 |
 | `gk_private.access_memberships` | 0 |
 | `gk_private.identity_candidates` | 2,089 |
-| `gk_private.record_audit_events` | 28,293 |
+| `gk_private.record_audit_events` | 28,490 |
 | `public.attendance_observations` | 0 |
 | `public.questionnaire_responses` | 106 |
 | `gk_private.questionnaire_answers` | 3,286 |
 | `gk_private.child_private_profiles` | 371 |
 | `gk_private.attendance_import_staging` | 43,160 |
 
-The original preservation migration inserted 34,077 direct rows and generated 28,293 audit events; attendance added 43,160 staging rows without modifying existing audits. Those are different grains. This finalization task executed **zero remote writes**. The proposed 197 date transactions would add 197 recovery actions and 197 typed provenance rows and generate 197 new audits if separately approved; these are planning expectations, not live results.
+The original preservation migration inserted 34,077 direct rows and generated 28,293 audit events; attendance added 43,160 staging rows without modifying existing audits. Those are different grains. The subsequently owner-approved date increment executed **197 successful transactions**, adding **197 recovery actions, 197 typed provenance rows and 197 trigger-generated audits**. Actual totals are **197 recovery actions, 5,969 provenance rows and 28,490 audits**. No prior migration was replayed.
 
 ## 14. Data-quality findings
 
@@ -145,7 +145,7 @@ Future Google login requires verified Google Workspace/provider/session evidence
 
 ## 18. Audit logging
 
-Actual audit count remains **28,293**. Triggers are active, audit evidence is append-only, and original rows/timestamps are unchanged. Proposed date restoration records target before=NULL, recovered date, original file SHA-256, donor source record/cell, method and validation flags in protected recovery actions, with typed provenance and database-generated update audit. Idempotent replay produces no second update or audit.
+Actual audit count is **28,490**, including 197 new scoped update events; the pre-existing 28,293 audit records are unchanged. Live before-image reconstruction proves that only the approved dates and audit fields changed; creation metadata, source values and pending classifications are preserved. Executed date restoration records target before=NULL, recovered date, original file SHA-256, donor source record/cell, method and validation flags in protected recovery actions, with typed provenance and database-generated update audit. Idempotent replay produces no second update or audit.
 
 ## 19. Recovery and rollback
 
@@ -158,7 +158,7 @@ Stop on any failed or uncertain request. Preserve fsynced receipts/journal, insp
 1. Provide/confirm authoritative row-to-child/caregiver crosswalks independent of names, including the support VLOOKUP suggestions.
 2. Confirm daily service/mark semantics, support participant/event meanings, ADL true-slot meaning and duplicate-view rules.
 3. Resolve 27 calendar/weekday-conflict marks, 600 missing/unrecoverable daily dates, four missing ADL dates and seven excluded existing-record date candidates.
-4. Approve the precise original-date fidelity/disclosure scope and incremental manifest **`a3a4c2478dfc2f4786d253e5c63bbf741d4025940f122d562a5b371585cc1b3e`** before its 197 updates and associated evidence/audits are executed.
+4. **Completed:** owner approved exact manifest **`a3a4c2478dfc2f4786d253e5c63bbf741d4025940f122d562a5b371585cc1b3e`**; all 197 date updates and associated evidence/audits were executed and independently reconciled. Authorization is consumed; no further write scope is implied.
 5. Approve questionnaire scoring/missing-answer/category definitions separately; no formulas have been invented.
 6. Approve retention/private access, role matrix, OAuth activation and final PM business acceptance separately. The optional organisational Google Docs context-sync destination remains unspecified; Markdown handover is complete.
 
@@ -170,4 +170,6 @@ No further Phase 2 development in this task. PR #3 remains synthetic-only and un
 
 Use [PM review checklist](PM-REVIEW-CHECKLIST.md). Senior review should examine the combined ancestry of PR #1 (backend → main) and PR #2 (attendance/final delivery → backend), review the original-date manifest and unresolved decisions, then record technical acceptance separately from business/operational acceptance and access activation. PRs #1/#2 have no approving review recorded at preparation; neither is merged. Historical execution evidence is preserved. **Technical delivery is ready for review; full operational/business acceptance remains blocked by the explicit evidence gaps and new execution approval.**
 
-Owner's final-completion request authorizes normal PR integration. The standard PR #1 merge was rejected by automatic approval review because reviews are absent and branch protection could not be verified. No PR was merged or protection bypassed. The unchanged 197-date manifest remains the consolidated eligible remote increment awaiting one exact-manifest/date-fidelity approval; no new database writes occurred. See the incremental review in [existing review report](19-base-pr-review-and-readiness.md).
+Owner's final-completion request authorizes normal PR integration. The standard PR #1 merge was rejected by automatic approval review because reviews are absent and branch protection could not be verified. No PR was merged or protection bypassed. The exact 197-date manifest was subsequently explicitly approved and executed; final live reconciliation passed 28 October 2026, 13:49:50 IST. The authorization is consumed/inactive. This does not resolve the separate PR merge gate or historical operational identity/meaning gaps. See the incremental review in [existing review report](19-base-pr-review-and-readiness.md).
+
+Execution proof: 197 durable acknowledged transactions, zero failures/uncertainty/retries; exact date/recovery/provenance/audit reconciliation; all original before-images and creation timestamps preserved; schema, RLS, privileges, triggers and migration ledger unchanged. Private journal SHA-256: `599a0a4edeffa054d542fc0112842b0e7d584019b29b1ed1f3acb8e8577bceed`. Approval observed 13:09:59 IST, expiry 17:09:59 IST; all dispatches and acknowledgements occurred within that window. Original values, SQL packets and receipts remain private.
